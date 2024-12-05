@@ -1,18 +1,61 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-
-import { useMediaQuery } from 'react-responsive';
+import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavHeader from './components/NavHeader';
+import { Container } from 'react-bootstrap';
+import NotFound  from './components/NotFound';
+import WelcomePage  from './components/WelcomePage';
+import { Routes, Route, Outlet } from "react-router-dom";
 
 function App() {
-  // Media query per il tablet (Microsoft Surface in verticale)
-  const isTablet = useMediaQuery({ query: '(max-width: 1824px) and (min-width: 2736px)' });
+  const [isTablet, setIsTablet] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      // Imposta i criteri per considerare il dispositivo un tablet
+      setIsTablet(width >= 600 && width <= 1824 && height >= 1000);
+    };
+
+    // Aggiungi listener per il resize
+    window.addEventListener('resize', handleResize);
+
+    // Esegui subito il controllo iniziale
+    handleResize();
+
+    // Pulisci il listener quando il componente viene smontato
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div>
       {isTablet ? (
-        <div>Vista per Microsoft Surface 7 Pro</div>
+        <Routes>
+          <Route
+            element={
+              <>
+                <NavHeader />
+                <Container>
+                  <Outlet />
+                </Container>
+              </>
+            }
+          >
+            {/* Home */}
+            <Route path="/" element={<WelcomePage />} />
+
+            {/* Pagina non trovata */}
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
       ) : (
-        <div>INSERIRE IMMAGINE CATTIVA DI LUMI CHE DICE DI RUOTARE IL TABLET</div>
+        <div className="rotate-message">
+          <p>
+            <strong>Lumi dice:</strong> Per favore, usa un tablet o ruota il tuo dispositivo!
+          </p>
+          {/* Inserisci un'immagine di Lumi se disponibile */}
+        </div>
       )}
     </div>
   );
