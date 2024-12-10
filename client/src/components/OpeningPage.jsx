@@ -8,7 +8,7 @@ function OpeningPage() {
 
   const handleStartClick = () => {
     // Quando il bottone viene cliccato, naviga alla pagina successiva (ad esempio /welcome)
-    navigate('/welcome');
+    navigate('/configuration');
   };
 
   return (

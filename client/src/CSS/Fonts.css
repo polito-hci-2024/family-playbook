@@ -1,0 +1,8 @@
+/* Carattere per l'evoluzione della storia nella foresta incantata*/
+
+@font-face {
+    font-family: 'MagicFont';
+    src: url('../assets/Fonts/magic-school.one.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
