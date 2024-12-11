@@ -1,6 +1,17 @@
 const SERVER_URL = 'http://localhost:3001';
 
-// INSERIRE FETCH
+// Activities
+const getActivities = async () => {
+    const response = await fetch(SERVER_URL + '/api/activities');
+    console.log(response, "ciao");
 
-const API = {  };
+    if(response.ok) {
+        const activitiesJson = await response.json();
+        console.log(activitiesJson);
+        return activitiesJson;
+    }
+    else 
+        throw new Error('Internal Server Error');
+    }
+const API = { getActivities };
 export default API;

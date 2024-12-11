@@ -7,6 +7,7 @@ import WelcomePage from './components/WelcomePage';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
 import ChapterZero from './components/ChapterZero';
+import Activities from './components/Activities'; // Importa il componente
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -36,7 +37,7 @@ function App() {
         <Routes>
           {/* Questa route è per la pagina OpeningPage senza NavHeader */}
           <Route path="/" element={<OpeningPage />} />
-          <Route path="/configuration" element={<ChapterZero/>}/>
+          <Route path="/configuration" element={<ChapterZero />} />
           
           {/* Wrapper per tutte le altre pagine, con il NavHeader */}
           <Route
@@ -44,15 +45,15 @@ function App() {
               <>
                 <NavHeader />
                 <Container>
-                  {/* Outlet renderizzerà il contenuto delle rotte figlie */}
+                  <Outlet />
                 </Container>
               </>
             }
           >
             {/* Altre rotte che includono il NavHeader */}
             <Route path="/welcome" element={<WelcomePage />} />
-            {/* Puoi aggiungere altre rotte qui per le pagine che devono avere il NavHeader */}
-
+            <Route path="/activities" element={<Activities />} /> {/* Nuova rotta */}
+            
             {/* Pagina non trovata */}
             <Route path="*" element={<NotFound />} />
           </Route>
