@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavHeader from './components/NavHeader';
 import { Container } from 'react-bootstrap';
-import NotFound from './components/NotFound';
+import NotFoundPage from './components/NotFoundPage';
 import WelcomePage from './components/WelcomePage';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
-import ChapterZero from './components/ChapterZero';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -35,16 +34,15 @@ function App() {
       {isTablet ? (
         <Routes>
           {/* Questa route è per la pagina OpeningPage senza NavHeader */}
-          <Route path="/" element={<OpeningPage />} />
-          <Route path="/configuration" element={<ChapterZero/>}/>
-          
+          <Route index element={<OpeningPage />} />
+
           {/* Wrapper per tutte le altre pagine, con il NavHeader */}
           <Route
             element={
               <>
                 <NavHeader />
                 <Container>
-                  {/* Outlet renderizzerà il contenuto delle rotte figlie */}
+                  <Outlet />
                 </Container>
               </>
             }
@@ -54,8 +52,9 @@ function App() {
             {/* Puoi aggiungere altre rotte qui per le pagine che devono avere il NavHeader */}
 
             {/* Pagina non trovata */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
+
         </Routes>
       ) : (
         <div className="rotate-message">

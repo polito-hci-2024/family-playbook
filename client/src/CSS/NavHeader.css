@@ -1,0 +1,15 @@
+.navheader-design {
+    background-color: #6699ff;
+    margin-bottom: 45px;
+    height: auto;
+
+}
+
+.navheader-text {
+    font-size: xx-large;
+    font-family: fantasy;
+    font-style: bold;
+    position: absolute;
+    left: 200px;
+    top: 50px;
+}
