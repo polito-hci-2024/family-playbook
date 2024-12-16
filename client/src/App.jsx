@@ -7,7 +7,8 @@ import WelcomePage from './components/WelcomePage';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
 import ChapterZero from './components/ChapterZero';
-import Activities from './components/Activities'; // Importa il componente
+import Activities from './components/Activities'; 
+import StoryPage from './components/Introduction';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -38,6 +39,10 @@ function App() {
           {/* Questa route è per la pagina OpeningPage senza NavHeader */}
           <Route path="/" element={<OpeningPage />} />
           <Route path="/configuration" element={<ChapterZero />} />
+          <Route
+          path="/story"
+          element={<StoryPage characterName="Leo" characterType="Mago" />}
+        />
           
           {/* Wrapper per tutte le altre pagine, con il NavHeader */}
           <Route

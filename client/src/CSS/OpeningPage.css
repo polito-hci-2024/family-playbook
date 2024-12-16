@@ -61,4 +61,19 @@ body, html, #root {
       inset -2px -2px 5px rgba(0, 0, 0, 0.3), /* Ombra interna ridotta */
       0 6px 12px rgba(0, 0, 0, 0.4); /* Ombra esterna ridotta */
   }
+  @keyframes glitter {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
   
+  .stella {
+    position: absolute;
+    top: random(0, 100vh);
+    left: random(0, 100vw);
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    animation: glitter 2s infinite;
+  }
