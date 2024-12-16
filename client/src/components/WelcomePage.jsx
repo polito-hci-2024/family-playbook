@@ -1,39 +1,66 @@
 import React from 'react';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { useState } from 'react';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 
-// Aggiungi qualche stile personalizzato per l'aspetto giocoso
 import '../CSS/WelcomePage.css';
 
 function WelcomePage() {
   return (
-    <Container className="text-center py-5">
+    <Container >
       <Row>
         <Col>
-          <h1 className="welcome-text">Hello, I'm Lumi, welcome to Playbook!</h1>
+          <Image src='../../../img/cloudWelcome.png' className="cloud-welcome"></Image>
         </Col>
       </Row>
       <Row>
         <Col>
-          {/* Aggiungi il placeholder per l'immagine */}
-          <Image 
-            src="/img/lumi.jpg" 
-            alt="Character placeholder" 
-            fluid 
-            className="character-image" 
-          />
+          <Image src='../../../img/lumi.png' className="lumi"></Image>
         </Col>
       </Row>
       <Row>
         <Col>
-          <h2 className="choose-text">Choose your character to start the adventure</h2>
+          <Image src='../../../img/cloudCharacter.png' className="cloud-character"></Image>
         </Col>
       </Row>
+      <Row style={{ marginBottom: '20px' }}><CharacterSelector></CharacterSelector></Row>
       <Row>
-        <Col>
-          <h2 className="choose-text">OPINIONE DI SIMONE QUINDI INTELLIGENTE: QUI SOTTO SI POTREBBE METTERE LA SELEZIONE DEI PERSONAGGI E L'INSERIMENTO DEL NOME
-            PS: NINTENDO PER FAVORE NON FARCI CAUSA (SE PROPRIO DEVI CONTATTA REBECCA AUDISIO)
-          </h2>
-        </Col>
+        <h2>What's your name?</h2>
+      </Row>
+    </Container>
+  );
+}
+
+function CharacterSelector() {
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
+
+  const characters = [
+    { id: 1, name: 'Wizard', img: '../../img/lumi.png' },
+    { id: 2, name: 'Witch', img: '../../img/lumi.png' },
+    { id: 3, name: 'Dragon', img: '../../img/lumi.png' },
+    { id: 4, name: 'Fairy', img: '../../img/lumi.png' },
+    { id: 5, name: 'Elf', img: '../../img/lumi.png' },
+    { id: 6, name: 'Orc', img: '../../img/lumi.png' },
+  ];
+
+  const handleCharacterSelect = (id) => {
+    setSelectedCharacter(id);
+  };
+
+  return (
+    <Container>
+      <Row>
+        {characters.map((character) => (
+          <Col key={character.id} className="text-center" sm={4}>
+            <Button
+              className={`character-btn ${selectedCharacter === character.id ? 'selected' : ''}`}
+              onClick={() => handleCharacterSelect(character.id)} variant='light'
+              disabled={selectedCharacter !== null && selectedCharacter !== character.id} // Disabilita i bottoni non selezionati
+            >
+              <Image src={character.img} alt={character.name} roundedCircle className="character-img" />
+            </Button>
+            <p><b>{character.name}</b></p>
+          </Col>
+        ))}
       </Row>
     </Container>
   );
