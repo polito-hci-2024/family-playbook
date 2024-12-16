@@ -5,62 +5,71 @@ body, html, #root {
   height: 100%;
 }
 
-.legno{
-    width: 100%;
-    height: 100vh;  /* 100% dell'altezza del viewport */
-    object-fit: cover;
-    background: url('/img/wood_background.jpg') no-repeat center center; /* Immagine del legno */
-    background-size: cover; /* Copre tutto lo sfondo */
-    position: relative;
+/* Il contenitore dell'immagine */
+.introduction {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Evita lo scroll se l'immagine supera il limite */
 }
+
 /* Sfondo della storia */
 .story-background {
   width: 100%;
-  height: 101vh;  /* 100% dell'altezza del viewport */
-  object-fit: cover; 
-  background: url('/img/png-transparent-parchment-illustration-paper-poster-texture-stationery-texture-retro-border-commercial-design-image-file-formats-business-card-wood-thumbnail.png') no-repeat center center;
-  background-size: cover; 
-  border: none;
-  position: absolute;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden; /* Evita lo scrolling indesiderato */
+  height: 100%; /* Imposta l'altezza a 100% */
+  background-size: cover;
+  display: flex; /* Flexbox per centrare il contenuto */
+  position: fixed; /* Mantiene lo sfondo fisso */
+  z-index: -1; /* Mette lo sfondo dietro */
 }
 
+/* Contenitore del testo e immagine */
+.text-with-image {
+  display: flex; /* Usa Flexbox per il layout */
+  align-items:   flex-start; /* Centra verticalmente gli elementi */
+  max-width: 100%;
+}
+
+/* Testo accanto all'immagine */
+.story-text {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  color: #1a020e;
+  line-height: 1.8;
+  z-index: 1;
+  max-width: 90%; /* Imposta una larghezza massima per il testo */
+  margin-left: 10px;
+}
+
+/* Titolo */
 .title {
   font-size: 36px;
   font-weight: bold;
-  color: #4b3e3e;
-  margin-bottom: 20px;
+  color: #1a020e;
+  margin-top: 20px;
   text-transform: uppercase;
+  text-align: center;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center;
 }
 
 /* Contenuto della storia */
 .story-content {
-  padding: 20px;
+  padding: 50px;
   text-align: center;
-  max-width: 80%; /* Per limitare la larghezza del testo */
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra orizzontalmente */
+  height: 100%; /* Aggiungi altezza al contenitore */
 }
 
-/* Stile del testo */
-.story-text {
-  font-family: 'Caveat', cursive;
-  font-size: 1.5rem;
-  color: #4d3319; /* Colore marrone per lo stile antico */
-  margin-bottom: 20px;
-  line-height: 1.8; /* Spaziatura tra le righe */
-}
-
-/* Immagine del personaggio */
-.character-image {
-  width: 1000px;
-  height: auto; /* Mantiene proporzioni originali */
-  position: absolute; /* Fissa la posizione */
-  bottom: 10px; /* Distanza dal bordo inferiore */
-  left: 20px; /* Distanza dal bordo sinistro */
+/* Stile dell'immagine */
+.inline-image {
+  max-width: 400px;  /* Limita la dimensione massima dell'immagine */
+  height: auto;  /* Mantiene le proporzioni dell'immagine */
+  margin-right: 0;  /* Rimuove margini sinistri */
+  align-self: flex-end;
 }
 
 /* Stile del pulsante */
