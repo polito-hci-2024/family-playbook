@@ -43,7 +43,7 @@ function StoryPage({ characterName, characterType }) {
     console.log(`scrollY: ${scrollY}, windowHeight: ${windowHeight}, docHeight: ${docHeight}`);
   
     // Mostra le frecce quando l'utente ha scrollato oltre metà della pagina
-    if (scrollY + windowHeight >= docHeight / 2) { 
+    if (scrollY + windowHeight >= docHeight/4 * 3 ) { 
       console.log('Mostra frecce');
       setShowArrows(true);
     } else {

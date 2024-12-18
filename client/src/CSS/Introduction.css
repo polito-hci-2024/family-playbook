@@ -64,7 +64,7 @@ img {
   aspect-ratio: 5 / 4; /* Rende il pannello più compatto */
   margin: 40px 0; /* Spazio tra i pannelli */
   padding: 20px; /* Spazio interno */
-  background: rgba(255, 255, 255, 0.60); /* Sfondo semitrasparente */
+  background: rgba(255, 255, 255, 0.30); /* Sfondo semitrasparente */
   border-radius: 25px; /* Bordi arrotondati */
   box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
   display: flex;
