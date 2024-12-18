@@ -39,15 +39,10 @@ function StoryPage({ characterName, characterType }) {
     const windowHeight = window.innerHeight; // Altezza della finestra
     const docHeight = document.documentElement.scrollHeight; // Altezza totale del documento
   
-    // Log per vedere i valori e verificare se lo scroll viene rilevato correttamente
-    console.log(`scrollY: ${scrollY}, windowHeight: ${windowHeight}, docHeight: ${docHeight}`);
-  
     // Mostra le frecce quando l'utente ha scrollato oltre metà della pagina
     if (scrollY + windowHeight >= docHeight/4 * 3 ) { 
-      console.log('Mostra frecce');
       setShowArrows(true);
     } else {
-      console.log('Nascondi frecce');
       setShowArrows(false);
     }
   };
