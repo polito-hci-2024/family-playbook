@@ -41,3 +41,9 @@
   height: 100%;
   object-fit: cover;
 }
+
+.button-style {
+  color: black;
+  background-color: #04bd4b;
+  font-size: 1.5rem;
+}
