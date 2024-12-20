@@ -6,35 +6,37 @@ import '../CSS/WelcomePage.css';
 
 function WelcomePage() {
   return (
-    <Container >
-      <Row>
-        <Col>
-          <Image src='../../../img/cloudWelcome.png' className="cloud-welcome"></Image>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Image src='../../../img/lumi.png' className="lumi"></Image>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Image src='../../../img/cloudCharacter.png' className="cloud-character"></Image>
-        </Col>
-      </Row>
-      <Row style={{ marginBottom: '20px' }}><CharacterSelector></CharacterSelector></Row>
-      <Row className='mt-4 mb-4'>
-        <Col className='d-flex flex-column'>
-          <label style={{ fontFamily: 'fantasy', fontSize: '30px' }}>What's your name?</label>
-          <input type="text" name='name_character' placeholder='Insert your name' style={{ fontFamily: 'fantasy', height: '50px', fontSize: '25px' }}></input>
-        </Col>
-      </Row>
-      <Row className="mt-auto">
-        <Col className="d-grid">
-          <Button variant="success" className='btn-lg button-style'>Confirm</Button>
-        </Col>
-      </Row>
-    </Container >
+    <div className="background-component">
+      <Container>
+        <Row>
+          <Col>
+            <Image src='../../../img/cloudWelcome.png' className="cloud-welcome"></Image>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Image src='../../../img/lumi.png' className="lumi"></Image>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Image src='../../../img/cloudCharacter.png' className="cloud-character"></Image>
+          </Col>
+        </Row>
+        <Row style={{ marginBottom: '20px' }}><CharacterSelector></CharacterSelector></Row>
+        <Row className='mt-4 mb-4'>
+          <Col className='d-flex flex-column'>
+            <label style={{ fontFamily: 'fantasy', fontSize: '30px' }}>What's your name?</label>
+            <input type="text" name='name_character' placeholder='Insert your name' style={{ fontFamily: 'fantasy', height: '50px', fontSize: '25px' }}></input>
+          </Col>
+        </Row>
+        <Row className="mt-auto">
+          <Col className="d-grid">
+            <Button variant="success" className='btn-lg button-style'>Confirm</Button>
+          </Col>
+        </Row>
+      </Container >
+    </div>
   );
 }
 

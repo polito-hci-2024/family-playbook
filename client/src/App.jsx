@@ -35,6 +35,7 @@ function App() {
         <Routes>
           {/* Questa route è per la pagina OpeningPage senza NavHeader */}
           <Route index element={<OpeningPage />} />
+          <Route path="/welcome" element={<WelcomePage />} />
 
           {/* Wrapper per tutte le altre pagine, con il NavHeader */}
           <Route
