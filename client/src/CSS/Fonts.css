@@ -1,4 +1,4 @@
-/* Carattere per l'evoluzione della storia nella foresta incantata*/
+/* Carattere per l'evoluzione nella storia nella foresta incantata (titolo magico)*/
 
 @font-face {
     font-family: 'MagicFont';
@@ -6,3 +6,9 @@
     font-weight: normal;
     font-style: normal;
 }
+
+/*Font bottone start prima pagina*/
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+
+/*font del titolo nella pagina introduction*/
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Quintessential&display=swap" rel="stylesheet">')

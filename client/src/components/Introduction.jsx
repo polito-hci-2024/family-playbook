@@ -8,7 +8,7 @@ function StoryPage({ characterName, characterType }) {
   const [showArrows, setShowArrows] = useState(false); 
 
   const handleStartClick = () => {
-    navigate('/configuration');
+    navigate('/place');
   };
 
   const panels = [
