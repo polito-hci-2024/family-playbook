@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavHeader from './components/NavHeader';
-import { Container } from 'react-bootstrap';
 import NotFound from './components/NotFound';
-import WelcomePage from './components/WelcomePage';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
-import ChapterZero from './components/ChapterZero';
-import Activities from './components/Activities'; 
 import StoryPage from './components/Introduction';
 
 function App() {
@@ -38,30 +33,8 @@ function App() {
         <Routes>
           {/* Questa route è per la pagina OpeningPage senza NavHeader */}
           <Route path="/" element={<OpeningPage />} />
-          <Route path="/configuration" element={<ChapterZero />} />
-          <Route
-          path="/story"
-          element={<StoryPage characterName="Leo" characterType="Mago" />}
-        />
-          
-          {/* Wrapper per tutte le altre pagine, con il NavHeader */}
-          <Route
-            element={
-              <>
-                <NavHeader />
-                <Container>
-                  <Outlet />
-                </Container>
-              </>
-            }
-          >
-            {/* Altre rotte che includono il NavHeader */}
-            <Route path="/welcome" element={<WelcomePage />} />
-            <Route path="/activities" element={<Activities />} /> {/* Nuova rotta */}
-            
-            {/* Pagina non trovata */}
-            <Route path="*" element={<NotFound />} />
-          </Route>
+          <Route path="/introduction" element={<StoryPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       ) : (
         <div className="rotate-message">
