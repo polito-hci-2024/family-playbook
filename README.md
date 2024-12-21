@@ -1,5 +1,5 @@
 # FAMILY PLAYBOOK
-## Student: simone è lo scemo del gruppo
+## Student: simone è il più intelligente del gruppo - Firmato, Rebecca
 
 ## Avvio
 - Server
