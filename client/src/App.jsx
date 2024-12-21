@@ -6,6 +6,8 @@ import OpeningPage from './components/OpeningPage';
 import StoryPage from './components/Introduction';
 import Place from './components/Place';
 import Place2 from './components/Place2'; 
+import Activities from './components/Activities';
+import StartActivity from './components/StartActivity';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -38,6 +40,8 @@ function App() {
           <Route path="/introduction" element={<StoryPage />} />
           <Route path="/place" element={<Place />} />
           <Route path="/place2" element={<Place2 />} />
+          <Route path="/activities" element={<Activities/>} />
+          <Route path="/start-activity" element={<StartActivity/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       ) : (

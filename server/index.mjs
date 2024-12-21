@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import { getActivities } from './dao.mjs';
+import { getActivities, insertActivity } from './dao.mjs';
 
 // init express
 const app = express();
@@ -24,6 +24,16 @@ app.get('/api/activities', async (req, res) => {
   try {
     const activities = await getActivities();
     res.status(200).json(activities);
+  } catch {
+    res.status(500).end();
+  }
+});
+
+app.put('/api/insert-activity', async (req, res) => {
+
+  try {
+    const result = await insertActivity(req.body.user_id, req.body.activity_id);
+    res.status(200).json();
   } catch {
     res.status(500).end();
   }
