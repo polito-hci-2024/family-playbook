@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import '../CSS/Place2.css';
+import '../CSS/Activities.css';
 import API from '../API'; // Assumo che l'API sia già definita
 
 function Activities() {
@@ -24,7 +24,6 @@ function Activities() {
           isChoice: true,
         }));
         
-
         setChoices(mappedChoices);
       } catch (error) {
         console.error('Error fetching choices:', error);
@@ -58,26 +57,26 @@ function Activities() {
       <div className="story-background">
         {choices.length > 0 && (
           <motion.div
-            className="story-panel"
+            className="panel"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="story-text">Seleziona un'attività:</p>
-            <div className="choice-container">
+            <p className="story-text">Which adventure do you want to take on?</p>
+            <div className="activity-container">
               {choices.map((choice) => (
                 <div
-                  className={`choice-card ${selectedChoice === choice.id ? 'selected' : ''}`}
                   key={choice.id}
+                  className={`activity-card ${selectedChoice === choice.id ? 'selected' : ''}`}
                   onClick={() => setSelectedChoice(choice.id)}
                 >
                   <img
                     src={choice.image}
-                    className="choice-image"
                     alt={choice.title}
+                    className="activity-image"
                   />
-                  <p className="choice-title">{choice.title}</p>
-                  <p className="choice-description">{choice.description}</p>
+                  <p className="activity-title">{choice.title}</p>
+                  <p className="activity-description">{choice.description}</p>
                 </div>
               ))}
             </div>
@@ -99,6 +98,28 @@ function Activities() {
           className="arrow arrow-left"
           onClick={() => navigate(-1)} // Torna indietro
         />
+
+        {/* Nuvola con messaggio in basso a sinistra */}
+        <div className="bubble-container">
+          {/* Lumi con animazione delay */}
+          <motion.img
+            src="/img/lumi.jpg"
+            alt="Lumi"
+            className="lumi-image"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }} // Lumi appare dopo 0.3s
+          />
+          {/* Bolla con animazione delay */}
+          <motion.div
+            className="bubble-text"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.5 }} // Bolla appare dopo 0.5s
+          >
+            What an adventure! I've discovered the perfect missions for you this weekend!
+          </motion.div>
+        </div>
       </div>
     </div>
   );

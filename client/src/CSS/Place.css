@@ -114,12 +114,15 @@ img {
     box-shadow: 0 8px 20px rgba(114, 11, 91, 0.5); 
   }
   
-  /* Contenitore della scelta */
-  .choice-container {
-    display: flex;
-    justify-content: space-between; /* Spazio uguale tra le card */
-    gap: 10px; /* Spazio tra le card */
-  }
+/* Contenitore della scelta */
+.choice-container {
+  display: flex;
+  justify-content: flex-start;  /* Allinea le card a sinistra */
+  gap: 10px; /* Spazio tra le card */
+  flex-wrap: wrap; /* Permette alle card di andare a capo */
+  width: 100%; /* Il contenitore prende tutta la larghezza disponibile */
+  box-sizing: border-box; /* Considera il padding nel calcolo della larghezza */
+}
   
   .choice-image {
     width: 100%;

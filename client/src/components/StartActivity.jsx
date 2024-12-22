@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Row, Col, Card, Button, Modal } from 'react-bootstrap';
-import '../CSS/Place2.css';
+import '../CSS/Place.css';
 
 function StartActivity() {
   const location = useLocation();
