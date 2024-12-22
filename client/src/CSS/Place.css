@@ -28,6 +28,7 @@ img {
   
   /* Pannelli della storia */
   .story-background {
+    position: relative;
     width: 100%;
     height: auto; /* Altezza dinamica */
     display: flex;
@@ -140,6 +141,50 @@ img {
   .choice-description {
     font-style: italic;
   }
+  
+  .character-image {
+    width: 300px; /* Dimensione dell'immagine */
+    height: auto;
+    margin-bottom: 0px;
+
+  }
+  
+  .character-image {
+    position: fixed;
+    bottom: 15px; /* Posiziona l'immagine in basso */
+    left: 5px; /* Posiziona l'immagine a sinistra */
+    width: 300px; /* Larghezza dell'immagine */
+    height: auto;
+  }
+  
+  .speech-bubble {
+    position: fixed;
+    bottom: 17%; /* Posiziona sopra il personaggio */
+    left: 22%; /* Allinea vicino al personaggio */
+    display: inline-block; /* Adatta al contenuto */
+    padding: 10px 20px; /* Spaziatura interna */
+    background-image: url('/img/pensie.png'); /* Sfondo immagine */
+    background-size: contain; /* Adatta l'immagine al contenitore */
+    background-repeat: no-repeat; /* Non ripetere l'immagine */
+    background-position: center; /* Centra l'immagine */
+    color: black; /* Colore del testo */
+    font-family: italic; /* Carattere giocoso */
+    font-size: 1.5rem; /* Dimensione del carattere */
+    text-align: center; /* Centra il testo */
+    z-index: 1001; /* Sopra altri elementi */
+    min-width: 150px; /* Larghezza minima */
+    max-width: 300px; /* Larghezza massima */
+    background-size: 100% 100%; /* Adatta l'immagine al contenitore */
+    word-wrap: break-word; /* Spezza il testo se troppo lungo */
+    padding: 50px;
+  }
+  
+  .speech-bubble.show {
+    opacity: 1; /* Mostra il fumetto */
+    transform: scale(1); /* Scala normale */
+    transition: opacity 0.3s ease-in-out; /* Effetto di transizione */
+  }
+  
   
   
   /* Animazioni */
