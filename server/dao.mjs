@@ -16,4 +16,21 @@ export const getActivities = () => {
     });
   };
 
+  export const insertActivity = (user_id, activity_id) => {
+    return new Promise((resolve, reject) => {
+      const query = 'INSERT INTO choices (activity_id) VALUES (?) WHERE user_id = ?';  
+  
+      db.all(query, [activity_id, user_id], (err, rows) => {
+        if (err) {
+          reject(err); 
+        } else if (rows.length === 0) {
+          resolve({ error: "Error inserting activity" });
+        } else {
+          resolve(rows);
+        }
+      });
+    });
+  };
+
+  
   

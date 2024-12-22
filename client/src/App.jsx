@@ -5,7 +5,7 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
 import StoryPage from './components/Introduction';
 import Place from './components/Place';
-import './CSS/App.css';
+
 function App() {
   const [isTablet, setIsTablet] = useState(false);
 
