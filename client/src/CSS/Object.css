@@ -8,7 +8,7 @@ img {
   }
   
   /* Contenitore principale */
-  .Place {
+  .Object {
     position: relative;
     width: 100%;
     min-height: 100vh; /* Occupa l'intera altezza della viewport */
@@ -28,47 +28,61 @@ img {
   
   /* Pannelli della storia */
   .story-background {
-    position: relative;
     width: 100%;
     height: auto; /* Altezza dinamica */
+    padding-top: 200px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
+    padding-bottom: 300px; /* Spazio inferiore per la fine dei pannelli */
     display: flex;
     flex-direction: column; /* Dispone i pannelli verticalmente */
     align-items: center; /* Centra orizzontalmente i pannelli */
   }
   
   /* Pannelli della storia */
-  .story-panel-place {
-    position: absolute;
-    padding-top: 0px;
+  .story-panel-object {
+    position: relative;
+    padding-top: 0;
     width: 90%; /* Occupa il 90% della larghezza disponibile */
-    max-width: 700px; /* Larghezza massima */
+    max-width: 650px; /* Larghezza massima */
     height: auto; /* Altezza dinamica */
-    aspect-ratio: 5 / 6; /* Rende il pannello più compatto */
+    aspect-ratio: 5 / 4; /* Rende il pannello più compatto */
+    margin: 40px 0; /* Spazio tra i pannelli */
+    padding: 5px; /* Spazio interno */
     background: rgba(255, 255, 255, 0.30); /* Sfondo semitrasparente */
     border-radius: 25px; /* Bordi arrotondati */
     box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center; /* Centra il contenuto verticalmente */
     align-items: center;
     text-align: center;
     box-sizing: border-box; /* Include padding nel calcolo delle dimensioni */
     backdrop-filter: blur(5px); /* Effetto sfocatura sullo sfondo */
+    overflow: hidden;
   }
   
   /* Testo */
-  .story-text-place {
+  .story-text {
     font-family: 'Serif', serif;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: #000;
-    line-height: 1.5;
-    margin: 5px 0;
+    line-height: 1.6;
+    margin: 10px 0;
     text-align: center;
     align-items: center;
   }
   /* Aggiungere un margine sotto i pannelli per farli scomparire sotto il titolo */
   .story-panel:last-child {
     margin-bottom: 200px; /* Aggiungi un margine che fa scomparire il pannello quando scorre via */
+  }
+  
+  /* Immagini */
+  .story-image-object {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    align-items: center;
   }
   
   .arrow {
@@ -89,19 +103,19 @@ img {
     right: 20px;  /* Posiziona la freccia destra a destra */
   }
   
- /* .choice-card */
-.choice-card {
+  /* .choice-card */
+.choice-card-object {
     display: flex;
     justify-content: center;  /* Centra orizzontalmente */
     align-items: center;      /* Centra verticalmente */
     flex-direction: column;   /* Impila i contenuti in colonna (opzionale) */
-    width: 90%;             /* Imposta una larghezza fissa */
+    width: 60%;             /* Imposta una larghezza fissa */
     height: auto;            /* Imposta un'altezza fissa */
     border: 2px solid #ccc;   /* Bordo grigio chiaro */
-    padding: 10px;             /* Padding interno */
+    padding: 5px;             /* Padding interno */
     border-radius: 20px;      /* Angoli arrotondati */
     margin: 10px;             /* Spaziatura tra le card */
-    margin-top: 50px;
+    margin-top: 10px;
     cursor: pointer;
     position: relative;       /* Assicura che l'elemento sia posizionato correttamente */
     z-index: 10;              /* Impostiamo un z-index per non essere coperti da altri elementi */
@@ -110,7 +124,7 @@ img {
   }
   
   /* Hover effect per la .choice-card */
-  .choice-card:hover {
+  .choice-card-object:hover {
     transform: scale(1.10);
     box-shadow: 0 8px 20px rgba(114, 11, 91, 0.5); 
   }
@@ -124,7 +138,7 @@ img {
   
   .choice-image {
     width: 100%;
-    max-width: 200px;         /* Limita la larghezza massima */
+    max-width: 150px;         /* Limita la larghezza massima */
     height: auto;
     border-radius: 10px;
   }
@@ -141,7 +155,7 @@ img {
   .choice-description {
     font-style: italic;
   }
-  
+
   .character-image {
     position: fixed;
     bottom: 15px; /* Posiziona l'immagine in basso */
@@ -149,7 +163,7 @@ img {
     width: 300px; /* Larghezza dell'immagine */
     height: auto;
   }
-  
+
   .speech-bubble {
     position: fixed;
     bottom: 17%; /* Posiziona sopra il personaggio */
@@ -177,8 +191,6 @@ img {
     transform: scale(1); /* Scala normale */
     transition: opacity 0.3s ease-in-out; /* Effetto di transizione */
   }
-  
-  
   
   /* Animazioni */
   @keyframes slideInFromCenter {
