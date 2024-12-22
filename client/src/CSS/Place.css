@@ -8,7 +8,7 @@ img {
   }
   
   /* Contenitore principale */
-  .Introduction {
+  .Place {
     position: relative;
     width: 100%;
     min-height: 100vh; /* Occupa l'intera altezza della viewport */
@@ -30,29 +30,25 @@ img {
   .story-background {
     width: 100%;
     height: auto; /* Altezza dinamica */
-    padding-top: 250px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
-    padding-bottom: 300px; /* Spazio inferiore per la fine dei pannelli */
     display: flex;
     flex-direction: column; /* Dispone i pannelli verticalmente */
     align-items: center; /* Centra orizzontalmente i pannelli */
   }
   
   /* Pannelli della storia */
-  .story-panel {
-    position: relative;
-    padding-top: 0;
+  .story-panel-place {
+    position: absolute;
+    padding-top: 0px;
     width: 90%; /* Occupa il 90% della larghezza disponibile */
     max-width: 700px; /* Larghezza massima */
     height: auto; /* Altezza dinamica */
-    aspect-ratio: 5 / 4; /* Rende il pannello più compatto */
-    margin: 40px 0; /* Spazio tra i pannelli */
-    padding: 20px; /* Spazio interno */
+    aspect-ratio: 5 / 6; /* Rende il pannello più compatto */
     background: rgba(255, 255, 255, 0.30); /* Sfondo semitrasparente */
     border-radius: 25px; /* Bordi arrotondati */
     box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra il contenuto verticalmente */
+    justify-content: center; 
     align-items: center;
     text-align: center;
     box-sizing: border-box; /* Include padding nel calcolo delle dimensioni */
@@ -60,27 +56,18 @@ img {
   }
   
   /* Testo */
-  .story-text {
+  .story-text-place {
     font-family: 'Serif', serif;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     color: #000;
-    line-height: 1.6;
-    margin: 10px 0;
+    line-height: 1.5;
+    margin: 5px 0;
     text-align: center;
     align-items: center;
   }
   /* Aggiungere un margine sotto i pannelli per farli scomparire sotto il titolo */
   .story-panel:last-child {
     margin-bottom: 200px; /* Aggiungi un margine che fa scomparire il pannello quando scorre via */
-  }
-  
-  /* Immagini */
-  .story-image {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    margin-top: 0px;
-    align-items: center;
   }
   
   .arrow {
@@ -107,12 +94,13 @@ img {
     justify-content: center;  /* Centra orizzontalmente */
     align-items: center;      /* Centra verticalmente */
     flex-direction: column;   /* Impila i contenuti in colonna (opzionale) */
-    width: 290px;             /* Imposta una larghezza fissa */
-    height: 400px;            /* Imposta un'altezza fissa */
+    width: 90%;             /* Imposta una larghezza fissa */
+    height: auto;            /* Imposta un'altezza fissa */
     border: 2px solid #ccc;   /* Bordo grigio chiaro */
-    padding: 5px;             /* Padding interno */
+    padding: 10px;             /* Padding interno */
     border-radius: 20px;      /* Angoli arrotondati */
     margin: 10px;             /* Spaziatura tra le card */
+    margin-top: 50px;
     cursor: pointer;
     position: relative;       /* Assicura che l'elemento sia posizionato correttamente */
     z-index: 10;              /* Impostiamo un z-index per non essere coperti da altri elementi */
@@ -131,7 +119,6 @@ img {
     display: flex;
     justify-content: space-between; /* Spazio uguale tra le card */
     gap: 10px; /* Spazio tra le card */
-    margin-top: 10px; /* Distanza dal pannello precedente */
   }
   
   .choice-image {
