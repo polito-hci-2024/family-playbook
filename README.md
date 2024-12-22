@@ -1,5 +1,5 @@
 # FAMILY PLAYBOOK
-## Student: s331059 FENECH SIMONE, E LE ALTRE
+## Student: simone è il più intelligente del gruppo - Firmato, Rebecca
 
 ## Avvio
 - Server
