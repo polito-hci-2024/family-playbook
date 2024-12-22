@@ -5,7 +5,8 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
 import StoryPage from './components/Introduction';
 import Place from './components/Place';
-
+import Object from './components/Object';
+import './CSS/App.css';
 function App() {
   const [isTablet, setIsTablet] = useState(false);
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/" element={<OpeningPage />} />
           <Route path="/introduction" element={<StoryPage />} />
           <Route path="/place" element={<Place/>}/>
+          <Route path="/object/*" element={<Object />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       ) : (
