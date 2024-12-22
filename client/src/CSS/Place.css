@@ -8,7 +8,7 @@ img {
   }
   
   /* Contenitore principale */
-  .Introduction {
+  .Place {
     position: relative;
     width: 100%;
     min-height: 100vh; /* Occupa l'intera altezza della viewport */
@@ -36,7 +36,7 @@ img {
   }
   
   /* Pannelli della storia */
-  .story-panel {
+  .story-panel-place {
     position: absolute;
     padding-top: 0px;
     width: 90%; /* Occupa il 90% della larghezza disponibile */
@@ -56,7 +56,7 @@ img {
   }
   
   /* Testo */
-  .story-text {
+  .story-text-place {
     font-family: 'Serif', serif;
     font-size: 1.8rem;
     color: #000;
@@ -68,15 +68,6 @@ img {
   /* Aggiungere un margine sotto i pannelli per farli scomparire sotto il titolo */
   .story-panel:last-child {
     margin-bottom: 200px; /* Aggiungi un margine che fa scomparire il pannello quando scorre via */
-  }
-  
-  /* Immagini */
-  .story-image {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    margin-top: 0px;
-    align-items: center;
   }
   
   .arrow {

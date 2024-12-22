@@ -27,17 +27,17 @@ function Place({ characterName, characterType }) {
   };
 
   return (
-    <div className="Introduction">
+    <div className="Place">
       <div className="story-background">
         {panels.map((panel, index) => (
           <motion.div
-            className="story-panel"
+            className="story-panel-place"
             key={panel.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.5, duration: 0.8 }}
           >
-            <p className="story-text">{panel.text}</p>
+            <p className="story-text-place">{panel.text}</p>
 
             {panel.isChoice && panel.id === 3 && (
                 <div className="choice-container">
