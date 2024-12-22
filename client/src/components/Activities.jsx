@@ -78,8 +78,11 @@ function Activities() {
                   <p className="activity-title">{choice.title}</p>
                   <p className="activity-description">{choice.description}</p>
                 </div>
+                
               ))}
             </div>
+            <p className="story-text"></p>
+
           </motion.div>
         )}
 
