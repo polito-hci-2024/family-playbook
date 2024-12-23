@@ -7,6 +7,7 @@ import StoryPage from './components/Introduction';
 import Place from './components/Place';
 import Object from './components/Object';
 import WelcomePage from './components/WelcomePage';
+import FormCharacterPage from './components/FormCharacterPage'
 import './CSS/App.css';
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -36,10 +37,11 @@ function App() {
         <Routes>
           {/* Questa route è per la pagina OpeningPage senza NavHeader */}
           <Route path="/" element={<OpeningPage />} />
+          <Route path="/welcome" element={<WelcomePage />} />
+          <Route path="/form" element={<FormCharacterPage />} />
           <Route path="/introduction" element={<StoryPage />} />
           <Route path="/place" element={<Place />} />
           <Route path="/object/*" element={<Object />} />
-          <Route path="/welcome" element={<WelcomePage />} />
           <Route path="*" element={<NotFound />} />
 
         </Routes>

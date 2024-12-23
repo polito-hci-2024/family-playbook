@@ -1,18 +1,35 @@
 import React from 'react';
 import { useState } from 'react';
-import { Container, Row, Col, Image, Button, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { Container, Row, Col, Image, Button, Alert } from 'react-bootstrap';
+
 
 import '../CSS/WelcomePage.css';
 
 function WelcomePage() {
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const [showError, setShowError] = useState(false);
+  const navigate = useNavigate();
+
+  const handleConfirm = () => {
+    setShowError(false);
+    if (selectedCharacter) {
+      localStorage.clear();
+      localStorage.setItem('characterId', selectedCharacter)
+      navigate('/form');
+    } else {
+      setShowError(true);
+    }
+  };
+
+  const selectCharacter = (id) => {
+    setShowError(false);
+    setSelectedCharacter(id);
+  }
+
   return (
     <div className="background-component">
       <Container>
-        <Row>
-          <Col>
-            <Image src='../../../img/cloudWelcome.png' className="cloud-welcome"></Image>
-          </Col>
-        </Row>
         <Row>
           <Col>
             <Image src='../../../img/lumi.png' className="lumi"></Image>
@@ -23,25 +40,20 @@ function WelcomePage() {
             <Image src='../../../img/cloudCharacter.png' className="cloud-character"></Image>
           </Col>
         </Row>
-        <Row style={{ marginBottom: '20px' }}><CharacterSelector></CharacterSelector></Row>
-        <Row className='mt-4 mb-4'>
-          <Col className='d-flex flex-column'>
-            <label style={{ fontFamily: 'fantasy', fontSize: '30px' }}>What's your name?</label>
-            <input type="text" name='name_character' placeholder='Insert your name' style={{ fontFamily: 'fantasy', height: '50px', fontSize: '25px' }}></input>
-          </Col>
-        </Row>
-        <Row className="mt-auto">
-          <Col className="d-grid">
-            <Button variant="success" className='btn-lg button-style'>Confirm</Button>
-          </Col>
-        </Row>
+        <Alert variant='danger' className={showError ? '' : 'd-none'}>
+          Please select a character first!
+        </Alert>
+        <div className="character-panel">
+          <CharacterSelector selectedCharacter={selectedCharacter}
+            setSelectedCharacter={selectCharacter}></CharacterSelector>
+        </div>
+        <Button className='button-style' onClick={handleConfirm}>Confirm</Button>
       </Container >
     </div>
   );
 }
 
-function CharacterSelector() {
-  const [selectedCharacter, setSelectedCharacter] = useState(null);
+function CharacterSelector({ selectedCharacter, setSelectedCharacter }) {
 
   const characters = [
     { id: 1, name: 'Wizard', img: '../../img/character_image/wizard.jpg' },
@@ -53,13 +65,7 @@ function CharacterSelector() {
   ];
 
   const handleCharacterSelect = (id) => {
-    // Se il personaggio selezionato è già selezionato, deseleziona (imposta a null)
-    if (selectedCharacter === id) {
-      setSelectedCharacter(null);
-    } else {
-      // Altrimenti seleziona il nuovo personaggio
-      setSelectedCharacter(id);
-    }
+    setSelectedCharacter(id);
   };
 
   return (
@@ -68,10 +74,9 @@ function CharacterSelector() {
         {characters.map((character) => (
           <Col key={character.id} className="text-center col-sm-4">
             <Button
-              className={`character-btn ${selectedCharacter === character.id ? 'selected' : ''}`}
-              onClick={() => handleCharacterSelect(character.id)} variant='light'
-              disabled={selectedCharacter !== null && selectedCharacter !== character.id} // Disabilita i bottoni non selezionati
-            >
+              className={`character-btn ${selectedCharacter === character.id ? 'selected' : ''} 
+              ${selectedCharacter !== null && selectedCharacter !== character.id ? 'btn-disabled' : ''}`}
+              onClick={() => handleCharacterSelect(character.id)}>
               <Image src={character.img} alt={character.name} roundedCircle className="character-img" />
             </Button>
             <p><b>{character.name}</b></p>

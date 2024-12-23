@@ -1,21 +1,14 @@
 .background-component {
   background-image: url('../../img/background_layout.jpg');
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.cloud-welcome {
-  position: relative;
-  left: 180px;
-  width: 400px;
-  margin-top: -85px;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
 .lumi {
   position: relative;
-  margin-top: -150px;
+  margin-top: -180px;
   width: 280px;
   /* Dimensione dell'immagine di Lumi */
   z-index: 1;
@@ -26,6 +19,17 @@
   left: 200px;
   width: 400px;
   margin-top: -77px;
+}
+
+.character-panel {
+  margin-top: 30px;
+  background-color: rgba(255, 255, 255, 0.30);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
+  overflow-y: auto;
+  /* Scroll inside the panel */
+  max-height: 400px;
 }
 
 .character-btn {
@@ -41,7 +45,17 @@
 }
 
 .character-btn.selected {
-  border-color: #23a627;
+  background-color: rgba(114, 11, 91, 0.5);
+  border: 2px solid black;
+  color: white;
+}
+
+.btn-disabled {
+  opacity: 0.5;
+  color: var(--bs-btn-disabled-color);
+  background-color: var(--bs-btn-disabled-bg);
+  border-color: var(--bs-btn-disabled-border-color);
+  opacity: var(--bs-btn-disabled-opacity);
 }
 
 .character-img {
@@ -51,7 +65,22 @@
 }
 
 .button-style {
-  color: black;
-  background-color: #04bd4b;
-  font-size: 1.5rem;
+  background-color: rgba(114, 11, 91, 0.8);
+  border: 2px solid black;
+  padding: 10px 20px;
+  display: block;
+  width: 60%;
+  margin: 20px;
+  color: white;
+  /* Colore del testo */
+  font-size: 20px;
+  /* Aumenta la dimensione del testo */
+  text-align: center;
+}
+
+.button-style:is(:active, :focus, :hover) {
+  background-color: rgba(95, 7, 62, 0.9);
+  /* Colore viola più scuro quando il bottone è cliccato */
+  border-color: rgba(95, 7, 62, 1);
+  /* Cambia anche il bordo al clic */
 }
