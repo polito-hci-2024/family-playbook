@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Row, Col, Card, Button, Modal } from 'react-bootstrap';
 import '../CSS/StartActivity.css';
 
-function StartActivity() {
+function StartActivity2() {
   const location = useLocation();
   const { activity } = location.state || {};
   const [showModal, setShowModal] = useState(false);
@@ -107,4 +107,4 @@ function StartActivity() {
   );
 }
 
-export default StartActivity;
+export default StartActivity2;

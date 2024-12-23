@@ -1,110 +1,131 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { Row, Col, Card, Button, Modal } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import '../CSS/StartActivity.css';
+import API from '../API'; // Assumo che l'API sia già definita
 
-function StartActivity() {
-  const location = useLocation();
-  const { activity } = location.state || {};
-  const [showModal, setShowModal] = useState(false);
+function Activities() {
   const navigate = useNavigate();
+  const [selectedChoice, setSelectedChoice] = useState(null); // Stato per la scelta dell'utente
+  const [choices, setChoices] = useState([]); // Stato per le scelte prese dal backend
 
-  if (!activity) {
-    return <div>No activity data available.</div>;
-  }
+  useEffect(() => {
+    const fetchChoices = async () => {
+      try {
+        const data = await API.getActivities(); // Recupera le scelte dal backend
+        console.log('Fetched choices:', data); // Log per verificare i dati
 
-  const handleConfirm = () => {
-    alert('Conferma la tua scelta!');
+        // Mappa i dati ricevuti dall'API al formato utilizzato nel componente
+        const mappedChoices = data.map((activity) => ({
+          id: activity.activity_id,
+          title: activity.activity_name,
+          description: activity.description,
+          image: activity.image_url || '/img/place/default.jpg', // Usa l'immagine dal backend o un'immagine di default
+          isChoice: true,
+        }));
+        
+        setChoices(mappedChoices);
+      } catch (error) {
+        console.error('Error fetching choices:', error);
+      }
+    };
+
+    fetchChoices();
+  }, []);
+
+  const handleConfirm = async () => {
+    if (selectedChoice) {
+      try {
+        const response = await API.insertActivity(1, selectedChoice); // user_id hardcoded come 1
+
+        if (!response) {
+          throw new Error('Failed to confirm activity');
+        }
+
+        navigate('/start-activity', { state: { activity: response } });
+      } catch (error) {
+        console.error('Error confirming activity:', error);
+        alert('An error occurred while confirming the activity.');
+      }
+    } else {
+      alert('Please select an activity first.');
+    }
   };
 
   return (
-    <div>
-      {/* Adventure tips */}
-      <Row className="mb-4">
-        <Col>
-          <Card className="shadow-lg p-4" style={{ borderRadius: '15px', backgroundColor: '#f7f7f7' }}>
-            <Card.Body>
-              <Card.Title className="fs-4 text-primary">Prepare for your adventure!</Card.Title>
-              <Card.Text className="fs-5">
-                {activity.info || 'Cups, hat, ball. They will be needed for the activities.'}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-
-      {/* Riepilogo Button */}
-      <Row className="mb-4">
-        <Col>
-          <Button
-            style={{ backgroundColor: '#4CAF50', borderColor: '#4CAF50', width: '100%', fontSize: '20px' }}
-            size="lg"
-            onClick={() => setShowModal(true)}
+    <div className="Introduction">
+      <div className="story-background">
+        {choices.length > 0 && (
+          <motion.div
+            className="panel"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            View Summary
-          </Button>
-        </Col>
-      </Row>
+            <p className="story-text">Which adventure do you want to take on?</p>
+            <div className="activity-container">
+              {choices.map((choice) => (
+                <div
+                  key={choice.id}
+                  className={`activity-card ${selectedChoice === choice.id ? 'selected' : ''}`}
+                  onClick={() => setSelectedChoice(choice.id)}
+                >
+                  <img
+                    src={choice.image}
+                    alt={choice.title}
+                    className="activity-image"
+                  />
+                  <p className="activity-title">{choice.title}</p>
+                  <p className="activity-description">{choice.description}</p>
+                </div>
+                
+              ))}
+            </div>
+            <p className="story-text"></p>
 
-      {/* Summary Modal */}
-      <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
-        <Modal.Header closeButton>
-          <Modal.Title className="fs-3">Activity Summary</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p><strong>Activity Name:</strong> {activity.activity_name || 'No name available'}</p>
-          <p><strong>Description:</strong> {activity.description || 'No description available'}</p>
-          <p><strong>Location:</strong> {activity.location || 'No location available'}</p>
-          <p><strong>Theme:</strong> {activity.theme || 'No theme available'}</p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          </motion.div>
+        )}
 
-      {/* Bottom Section for Begin Button */}
-      <Row className="mt-4">
-        <Col>
-          <Card className="shadow-lg p-4" style={{ borderRadius: '15px', backgroundColor: '#f7f7f7' }}>
-            <Card.Body>
-              <Card.Text className="fs-5">
-                Non appena sarai nel luogo scelto, clicca il tasto seguente per continuare la nostra emozionante storia.
-              </Card.Text>
-              <Button
-                style={{
-                  backgroundColor: '#3dafee',
-                  borderColor: '#3dafee',
-                  width: '100%',
-                  fontSize: '22px',
-                  padding: '20px',
-                }}
-                size="lg"
-                onClick={() => alert('Inizia la storia!')}
-              >
-                Begin
-              </Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+        {/* Freccia destra */}
+        <img
+          src="/img/next.png"
+          alt="Arrow Right"
+          className="arrow arrow-right"
+          onClick={handleConfirm} // Conferma la scelta
+        />
 
-      {/* Frecce */}
-      <img
-        src="/img/next.png"
-        alt="Arrow Right"
-        className="arrow arrow-right"
-        onClick={handleConfirm}
-      />
-      <img
-        src="/img/back.png"
-        alt="Arrow Left"
-        className="arrow arrow-left"
-        onClick={() => navigate(-1)}
-      />
+        {/* Freccia sinistra */}
+        <img
+          src="/img/back.png"
+          alt="Arrow Left"
+          className="arrow arrow-left"
+          onClick={() => navigate(-1)} // Torna indietro
+        />
+
+        {/* Nuvola con messaggio in basso a sinistra */}
+        <div className="bubble-container">
+          {/* Lumi con animazione delay */}
+          <motion.img
+            src="/img/lumi.jpg"
+            alt="Lumi"
+            className="lumi-image"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }} // Lumi appare dopo 0.3s
+          />
+          {/* Bolla con animazione delay */}
+          <motion.div
+            className="bubble-text"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.5 }} // Bolla appare dopo 0.5s
+          >
+            What an adventure! I've discovered the perfect missions for you this weekend!
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default StartActivity;
+export default Activities;

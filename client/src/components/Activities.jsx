@@ -42,7 +42,7 @@ function Activities() {
           throw new Error('Failed to confirm activity');
         }
 
-        navigate('/start-activity', { state: { activity: response } });
+        navigate('/start-activity2', { state: { activity: response } });
       } catch (error) {
         console.error('Error confirming activity:', error);
         alert('An error occurred while confirming the activity.');
