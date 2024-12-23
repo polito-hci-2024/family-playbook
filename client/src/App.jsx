@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavHeader from './components/NavHeader';
-import { Container } from 'react-bootstrap';
-import NotFoundPage from './components/NotFoundPage';
-import WelcomePage from './components/WelcomePage';
+import NotFound from './components/NotFound';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
-
+import StoryPage from './components/Introduction';
+import Place from './components/Place';
+import Object from './components/Object';
+import './CSS/App.css';
 function App() {
   const [isTablet, setIsTablet] = useState(false);
 
@@ -34,7 +34,11 @@ function App() {
       {isTablet ? (
         <Routes>
           {/* Questa route è per la pagina OpeningPage senza NavHeader */}
-          <Route index element={<OpeningPage />} />
+          <Route path="/" element={<OpeningPage />} />
+          <Route path="/introduction" element={<StoryPage />} />
+          <Route path="/place" element={<Place />} />
+          <Route path="/object/*" element={<Object />} />
+          <Route path="*" element={<NotFound />} />
           <Route path="/welcome" element={<WelcomePage />} />
 
           {/* Wrapper per tutte le altre pagine, con il NavHeader */}
