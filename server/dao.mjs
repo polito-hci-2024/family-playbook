@@ -17,20 +17,24 @@ export const getActivities = () => {
   };
 
   export const insertActivity = (user_id, activity_id) => {
-    return new Promise((resolve, reject) => {
-      const query = 'INSERT INTO choices (activity_id) VALUES (?) WHERE user_id = ?';  
-  
-      db.all(query, [activity_id, user_id], (err, rows) => {
+    return new Promise((resolve, reject) => {      
+      // La query UPDATE per associare un activity_id a un user_id
+      const query = 'UPDATE choices SET activity_id = ? WHERE user_id = ?';
+    
+      db.run(query, [activity_id, user_id], function(err) {
         if (err) {
-          reject(err); 
-        } else if (rows.length === 0) {
-          resolve({ error: "Error inserting activity" });
+          console.log(err);
+          reject(err); // In caso di errore
+        } else if (this.changes === 0) {
+          // Se non è stata modificata nessuna riga, significa che non c'era nessun record con quel user_id
+          resolve({ error: "No matching user_id found to update" });
         } else {
-          resolve(rows);
+          resolve({ success: true, changes: this.changes }); // Restituisce il numero di righe modificate
         }
       });
     });
   };
+  
 
   
   

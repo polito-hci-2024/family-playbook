@@ -30,14 +30,18 @@ app.get('/api/activities', async (req, res) => {
 });
 
 app.put('/api/insert-activity', async (req, res) => {
-
   try {
     const result = await insertActivity(req.body.user_id, req.body.activity_id);
-    res.status(200).json();
-  } catch {
-    res.status(500).end();
+    if (result.error) {
+      res.status(400).json({ error: result.error }); // In caso di errore, restituisci un errore 400
+    } else {
+      res.status(200).json({ success: true, message: 'Activity inserted successfully' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' }); // Restituisci un errore generico in caso di problemi
   }
 });
+
 
 // avvio del server
 app.listen(port, () => {'API server started';

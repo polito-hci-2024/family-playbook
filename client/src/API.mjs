@@ -10,5 +10,31 @@ const getActivities = async () => {
     else 
         throw new Error('Internal Server Error');
     }
-const API = { getActivities };
+
+    const insertActivity = async (userId, activityId) => {
+        try {
+          const response = await fetch(SERVER_URL + '/api/insert-activity', {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              user_id: userId,
+              activity_id: activityId,
+            }),
+          });
+      
+          if (response.ok) {
+            return await response.json(); // Se necessario, puoi restituire i dati che il backend invia
+          } else {
+            throw new Error('Failed to insert activity');
+          }
+        } catch (error) {
+          console.error('Error in insertActivity:', error);
+          throw error; //Rilancia l'errore per poterlo gestire nel chiamante
+        }
+      };
+      
+
+const API = { getActivities, insertActivity };
 export default API;
