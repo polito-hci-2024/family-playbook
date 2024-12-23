@@ -53,6 +53,7 @@
     color: #c0139a;
     font-weight: bold;
     margin-bottom: 30px;
+    text-shadow: 2px 2px 3px  rgba(251, 236, 172, 0.944);
   }
   
   .Step-card {
@@ -67,8 +68,8 @@
   }
   
   .Step-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 15px rgba(114, 11, 91, 0.4);
+    transform: scale(1.15);
+    box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
   }
   
   .Step-image {
@@ -90,4 +91,44 @@
     font-family: 'Josefin Sans', serif;
     font-size: 1.4rem;
     color: #555;
-  }  
+  } 
+
+  .arrow {
+    position: fixed;
+    top: 50%;  /* Centra la freccia verticalmente */
+    transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
+  }
+  
+  .arrow-left {
+    left: 20px;  /* Posiziona la freccia sinistra a sinistra */
+  }
+  
+  .arrow-right {
+    right: 20px;  /* Posiziona la freccia destra a destra */
+  }
+
+  .Step-card.disabled {
+    color: #7a7a7a; /* Testo grigio */
+    cursor: not-allowed; /* Cursore per non cliccabile */
+    pointer-events: none; /* Disabilita tutti gli eventi */
+  }
+  
+  /* Stile per l'immagine nelle card disabilitate */
+  .Step-card.disabled .Step-image {
+    filter: grayscale(100%);
+    opacity: 0.5;
+  }
+
+  .Step-card.disabled .Step-title {
+    color: #a9a9a9;
+  }
+  
+  .Step-card.disabled .Step-description {
+    color: #7a7a7a;
+  }
+
+ 

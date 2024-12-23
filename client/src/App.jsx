@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavHeader from './components/NavHeader';
 import { Container } from 'react-bootstrap';
 import NotFound from './components/NotFound';
 import WelcomePage from './components/WelcomePage';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
 import StepSelection from './components/StepSelection';
-
+import MagicPotion from './components/MagicPotion';
+import Raining from './components/Raining';
 function App() {
   const [isTablet, setIsTablet] = useState(false);
 
@@ -37,25 +37,18 @@ function App() {
           {/* Questa route è per la pagina OpeningPage senza NavHeader */}
           <Route path="/" element={<OpeningPage />} />
           <Route path="/step-selection" element={<StepSelection />}/>
+          <Route path="/magic-potion" element={<MagicPotion />}/>
+          <Route path="/raining" element={<Raining />}/>  
           
           {/* Wrapper per tutte le altre pagine, con il NavHeader */}
-          <Route
-            element={
-              <>
-                <NavHeader />
-                <Container>
-                  {/* Outlet renderizzerà il contenuto delle rotte figlie */}
-                </Container>
-              </>
-            }
-          >
+          
             {/* Altre rotte che includono il NavHeader */}
             <Route path="/welcome" element={<WelcomePage />} />
             {/* Puoi aggiungere altre rotte qui per le pagine che devono avere il NavHeader */}
 
             {/* Pagina non trovata */}
             <Route path="*" element={<NotFound />} />
-          </Route>
+          
         </Routes>
       ) : (
         <div className="rotate-message">
