@@ -35,6 +35,27 @@ export const getActivities = () => {
     });
   };
   
-
+  export const getLastChoice = () => {
+    return new Promise((resolve, reject) => {
+      const query = `
+  SELECT A.* 
+  FROM activities A 
+  INNER JOIN choices C ON A.activity_id = C.activity_id 
+  ORDER BY C.ROWID DESC 
+  LIMIT 1
+`;
+  
+      db.get(query, [], (err, row) => {
+        if (err) {          
+          reject(err); 
+        } else if (!row) { // Se non c'è nessun risultato
+          resolve({ error: "No activities found." });
+        } else {
+          console.log(row);
+          resolve(row); // Restituisci il singolo oggetto
+        }
+      });
+    });
+  };
   
   

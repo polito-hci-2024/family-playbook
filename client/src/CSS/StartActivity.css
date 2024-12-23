@@ -1,128 +1,218 @@
-/* Contenitore delle attività */
-.activity-container {
-  display: flex;
-  flex-wrap: wrap; /* Le card andranno a capo se necessario */
-  justify-content: center; /* Centra orizzontalmente le card */
-  align-items: flex-start; /* Allinea le card in cima */
-  gap: 20px; /* Spazio tra le card */
-  width: 90%; /* Imposta una larghezza per il contenitore (in modo che le card si adattino) */
-  max-width: 100%; /* Limita la larghezza massima */
-  box-sizing: border-box; /* Include il padding nel calcolo della larghezza */
-  height: auto; /* L'altezza si adatta al contenuto */
-  margin: 0 auto; /* Centra il contenitore */
+img {
+  margin: 0; /* Rimuove tutti i margini */
+  padding: 0; /* Rimuove tutti i padding */
+  display: block; /* Impedisce l'allineamento in linea */
 }
-
-/* Card dell'attività */
-.activity-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: auto; /* La card si adatta alla larghezza del contenuto */
-  min-width: 150px; /* Imposta una larghezza minima per le card */
-  max-width: 250px; /* Limita la larghezza massima per card */
-  height: auto; /* Altezza automatica */
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  cursor: pointer;
-  position: relative;
+* {
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.9); /* Sfondo leggermente trasparente */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  word-wrap: break-word; /* Gestisce correttamente il testo lungo */
 }
 
-/* Immagine della card */
-.activity-card img {
-  width: 100%; /* Immagine che riempie tutta la card */
-  height: auto; /* Mantiene le proporzioni dell'immagine */
-  border-radius: 4px;
-}
-
-/* Hover effect per la .activity-card */
-.activity-card:hover {
-  transform: scale(1.05); /* Ingrandisce leggermente la card */
-  box-shadow: 0 8px 16px rgba(114, 11, 91, 0.5); /* Ombra più intensa */
-}
-
-/* Testo della card */
-.activity-title, .activity-description {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.activity-title {
-  font-weight: bold;
-}
-
-.activity-description {
-  font-style: italic;
+/* Contenitore principale */
+.Object {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Occupa l'intera altezza della viewport */
+  display: flex;
+  flex-direction: column; /* Dispone i pannelli verticalmente */
+  align-items: center; /* Centra orizzontalmente */
+  background-image: url('/img/Untitled design.png'); /* Sfondo globale */
+  background-size: cover; /* Copri l'intero contenitore */
+  background-position: center;
+  background-attachment: fixed; /* Sfondo fisso durante lo scroll */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Evita lo scrolling orizzontale */
+  overflow-y: auto; /* Permette lo scrolling verticale */
+  padding-top: 0; /* Rimuovi padding-top */
 }
 
 /* Pannelli della storia */
-.panel {
+.story-background {
+  width: 100%;
+  height: auto; /* Altezza dinamica */
+  padding-top: 200px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
+  padding-bottom: 300px; /* Spazio inferiore per la fine dei pannelli */
+  display: flex;
+  flex-direction: column; /* Dispone i pannelli verticalmente */
+  align-items: center; /* Centra orizzontalmente i pannelli */
+}
+
+/* Pannelli della storia */
+.panel-start-activity {
   position: relative;
-  padding-top: 0px;
+  padding-top: 0;
   width: 90%; /* Occupa il 90% della larghezza disponibile */
-  max-width: 700px; /* Larghezza massima */
-  height: auto; /* Altezza dinamica in base al contenuto */
-  min-height: 200px; /* Imposta un'altezza minima */
+  max-width: 650px; /* Larghezza massima */
+  height: 600px; /* Altezza dinamica */
+  aspect-ratio: 5 / 4; /* Rende il pannello più compatto */
+  margin: 10px 0; /* Spazio tra i pannelli */
+  padding: 5px; /* Spazio interno */
   background: rgba(255, 255, 255, 0.30); /* Sfondo semitrasparente */
   border-radius: 25px; /* Bordi arrotondati */
   box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* Centra il contenuto verticalmente */
   align-items: center;
   text-align: center;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Include padding nel calcolo delle dimensioni */
   backdrop-filter: blur(5px); /* Effetto sfocatura sullo sfondo */
-  margin-bottom: 20px; /* Aggiungi margine per separare i pannelli */
-  z-index: 0;
+  overflow: hidden;
 }
 
-/* Responsività per schermi piccoli */
-@media (max-width: 768px) {
-  .story-panel {
-    width: 95%; /* Occupa il 95% della larghezza disponibile su schermi più piccoli */
-    min-height: 150px; /* Altezza minima per i dispositivi mobili */
+/* Testo */
+.story-text {
+  font-family: 'Serif', serif;
+  font-size: 1.4rem;
+  color: #000;
+  line-height: 1.6;
+  margin: 10px 0;
+  text-align: center;
+  align-items: center;
+}
+
+
+/* Immagini */
+.story-image-object {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  align-items: center;
+}
+
+.arrow {
+  position: fixed;
+  top: 50%;  /* Centra la freccia verticalmente */
+  transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
+}
+
+.arrow-left {
+  left: 20px;  /* Posiziona la freccia sinistra a sinistra */
+}
+
+.arrow-right {
+  right: 20px;  /* Posiziona la freccia destra a destra */
+}
+
+
+
+.character-image {
+  position: fixed;
+  bottom: 15px; /* Posiziona l'immagine in basso */
+  left: 5px; /* Posiziona l'immagine a sinistra */
+  width: 300px; /* Larghezza dell'immagine */
+  height: auto;
+}
+
+.speech-bubble {
+  position: fixed;
+  bottom: 17%; /* Posiziona sopra il personaggio */
+  left: 22%; /* Allinea vicino al personaggio */
+  display: inline-block; /* Adatta al contenuto */
+  padding: 10px 20px; /* Spaziatura interna */
+  background-image: url('/img/pensie.png'); /* Sfondo immagine */
+  background-size: contain; /* Adatta l'immagine al contenitore */
+  background-repeat: no-repeat; /* Non ripetere l'immagine */
+  background-position: center; /* Centra l'immagine */
+  color: black; /* Colore del testo */
+  font-family: italic; /* Carattere giocoso */
+  font-size: 1.5rem; /* Dimensione del carattere */
+  text-align: center; /* Centra il testo */
+  z-index: 1001; /* Sopra altri elementi */
+  min-width: 150px; /* Larghezza minima */
+  max-width: 300px; /* Larghezza massima */
+  background-size: 100% 100%; /* Adatta l'immagine al contenitore */
+  word-wrap: break-word; /* Spezza il testo se troppo lungo */
+  padding: 50px;
+}
+
+.speech-bubble.show {
+  opacity: 1; /* Mostra il fumetto */
+  transform: scale(1); /* Scala normale */
+  transition: opacity 0.3s ease-in-out; /* Effetto di transizione */
+}
+
+/* Animazioni */
+@keyframes slideInFromCenter {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Contenitore che posiziona l'immagine e il fumetto */
-.bubble-container {
-  position: fixed;
-  bottom: 20px;  /* Posiziona la bolla vicino al fondo della pagina */
-  left: 20px;  /* Posiziona la bolla a sinistra */
-  display: flex;
-  align-items: flex-end; /* Posiziona l'immagine in basso */
-  z-index: 1000; /* Assicurati che sia sopra gli altri contenuti */
-  width: calc(100% - 50px); /* La bolla si estende fino al bordo destro con margini di 30px */
+/* Media query per schermi piccoli */
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .story-panel {
+    width: 95%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .story-text {
+    font-size: 1.2rem;
+  }
+
+  .story-image {
+    max-width: 150px;
+  }
 }
 
-/* Immagine di Lumi */
-.lumi-image {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%; /* Rende l'immagine circolare */
-  object-fit: cover; /* Fa in modo che l'immagine riempia il cerchio */
+.more-info-button {
+  background-color: #007bff; /* Colore del bottone */
+  color: white; /* Colore del testo */
+  border: none;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
 }
 
-/* Stile del fumetto a forma di nuvola */
-.bubble-text {
-  position: relative;
-  background-color: #fff;
-  padding: 15px 20px;
-  border-radius: 30px;
-  height: 200px; /* Altezza della bolla */
-  width: calc(100% - 50px); /* La bolla si estende fino al bordo destro */
-  margin-left: 30px; /* Distanza tra l'immagine e il fumetto */
-  margin-bottom: 100px; /* Margine di 100px rispetto al fondo della pagina */
-  font-size: 40px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ombra per l'effetto 3D */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.more-info-button:hover {
+  background-color: #0056b3; /* Colore quando il bottone viene hoverato */
+}
+
+.activity-info {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #333; /* Colore del testo informativo */
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+
+}
+
+.activity-image {
+  width: 50%; /* Riduce la larghezza al 50% del pannello */
+  height: auto; /* Mantiene le proporzioni dell'immagine */
+  margin: 0 auto; /* Centra l'immagine */
+  display: block; /* Assicura che l'immagine sia un blocco per poterla centrare */
+}
+
+/* Specifico per il secondo pannello */
+.panel-start-activity:nth-child(2) {
+  height: 200px; /* Imposta altezza fissa per il secondo pannello */
+  padding: 10px; /* Imposta padding per il secondo pannello */
+}
+
+.activity-summary {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px; /* Distanza tra il testo e l'immagine */
+  text-align: center; /* Allinea il testo al centro */
 }

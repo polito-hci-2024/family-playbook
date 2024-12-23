@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import { getActivities, insertActivity } from './dao.mjs';
+import { getActivities, getLastChoice, insertActivity } from './dao.mjs';
 
 // init express
 const app = express();
@@ -42,6 +42,27 @@ app.put('/api/insert-activity', async (req, res) => {
   }
 });
 
+// - GET `/api/activities`
+app.get('/api/lastChoice', async (req, res) => {
+
+  try {
+    const lastChoice = await getLastChoice();
+    res.status(200).json(lastChoice);
+  } catch {
+    res.status(500).end();
+  }
+});
+
+// - GET `/api/activities`
+app.get('/api/start-activity', async (req, res) => {
+
+  try {
+    const startActivity = await getLastChoice();
+    res.status(200).json(startActivity);
+  } catch {
+    res.status(500).end();
+  }
+});
 
 // avvio del server
 app.listen(port, () => {'API server started';

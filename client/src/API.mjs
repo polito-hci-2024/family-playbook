@@ -34,7 +34,16 @@ const getActivities = async () => {
           throw error; //Rilancia l'errore per poterlo gestire nel chiamante
         }
       };
-      
 
-const API = { getActivities, insertActivity };
+      const getLastChoice = async () => {
+        const response = await fetch(SERVER_URL + '/api/start-activity');
+        if(response.ok) {
+            const lastChoiceJson = await response.json();
+            return lastChoiceJson;
+        }
+        else 
+            throw new Error('Internal Server Error');
+        }
+
+const API = { getActivities, insertActivity, getLastChoice };
 export default API;
