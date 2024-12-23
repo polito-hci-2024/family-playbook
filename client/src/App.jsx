@@ -6,7 +6,7 @@ import NotFound from './components/NotFound';
 import WelcomePage from './components/WelcomePage';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
-import SelectActivity from './components/SelectActivity';
+import StepSelection from './components/StepSelection';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -36,7 +36,7 @@ function App() {
         <Routes>
           {/* Questa route è per la pagina OpeningPage senza NavHeader */}
           <Route path="/" element={<OpeningPage />} />
-          <Route path="/configuration" element={<SelectActivity />}/>
+          <Route path="/step-selection" element={<StepSelection />}/>
           
           {/* Wrapper per tutte le altre pagine, con il NavHeader */}
           <Route

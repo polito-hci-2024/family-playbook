@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+ES+Deco+Guides&family=Quintessential&family=Schoolbell&display=swap');
+
+/* Stile per StepSelection */
+.StepSelection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 100px;
+    padding-bottom: 10px;
+    background-image: url('/img/sfondo_ufficiale.jpg'); /* Sfondo fiabesco per la pagina */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  
+  .header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 50px;
+  }
+  
+  .title {
+    font-family: 'Quintessential', sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+    color: #720B5B;
+    text-shadow: 3px 3px 4px  rgba(230, 131, 217, 0.944);
+  }
+  
+  .description {
+    font-family: 'Josefin Sans' , serif;
+    font-size: 1.6rem;
+    color: #4a0432fd;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+  
+  .steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .Step-question {
+    font-family: 'Quintessential', sans-serif;
+    font-size: 2.4rem;
+    color: #c0139a;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .Step-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
+    width: 280px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .Step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(114, 11, 91, 0.4);
+  }
+  
+  .Step-image {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .Step-title {
+    font-family: 'Quintessential', sans-serif;
+    font-size: 1.7rem;
+    color: #720B5B;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .Step-description {
+    font-family: 'Josefin Sans', serif;
+    font-size: 1.4rem;
+    color: #555;
+  }  
