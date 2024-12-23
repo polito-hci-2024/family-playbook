@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFound from './components/NotFound';
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
 import StoryPage from './components/Introduction';
 import Place from './components/Place';
 import Object from './components/Object';
+import WelcomePage from './components/WelcomePage';
 import './CSS/App.css';
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -38,27 +39,8 @@ function App() {
           <Route path="/introduction" element={<StoryPage />} />
           <Route path="/place" element={<Place />} />
           <Route path="/object/*" element={<Object />} />
-          <Route path="*" element={<NotFound />} />
           <Route path="/welcome" element={<WelcomePage />} />
-
-          {/* Wrapper per tutte le altre pagine, con il NavHeader */}
-          <Route
-            element={
-              <>
-                <NavHeader />
-                <Container>
-                  <Outlet />
-                </Container>
-              </>
-            }
-          >
-            {/* Altre rotte che includono il NavHeader */}
-            <Route path="/welcome" element={<WelcomePage />} />
-            {/* Puoi aggiungere altre rotte qui per le pagine che devono avere il NavHeader */}
-
-            {/* Pagina non trovata */}
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
       ) : (
