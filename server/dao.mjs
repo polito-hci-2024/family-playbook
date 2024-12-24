@@ -58,4 +58,53 @@ export const getActivities = () => {
     });
   };
   
+  export const getUserName = () => {
+    return new Promise((resolve, reject) => {
+      const query = `
+  SELECT name 
+  FROM users
+  ORDER BY user_id DESC 
+  LIMIT 1
+`;
+  
+      db.get(query, [], (err, row) => {
+        if (err) {          
+          reject(err); 
+        } else if (!row) { // Se non c'è nessun risultato
+          resolve({ error: "No users found." });
+        } else {
+          console.log(row);
+          resolve(row); // Restituisci il singolo oggetto
+        }
+      });
+    });
+  };
+
+  export const getQuestionAnswer = () => { 
+    return new Promise((resolve, reject) => {
+      const query = `
+        SELECT 
+          q.question_id, 
+          q.question, 
+          a1.answer AS answer1, 
+          a2.answer AS answer2, 
+          a3.answer AS answer3
+        FROM questions q
+        LEFT JOIN answers a1 ON q.answer1_id = a1.answer_id
+        LEFT JOIN answers a2 ON q.answer2_id = a2.answer_id
+        LEFT JOIN answers a3 ON q.answer3_id = a3.answer_id
+      `;
+  
+      db.all(query, [], (err, rows) => { // Usiamo db.all per ottenere più righe
+        if (err) {
+          reject(err); 
+        } else if (rows.length === 0) { // Se non ci sono risultati
+          resolve({ error: "No questions found." });
+        } else {
+          console.log(rows);
+          resolve(rows); // Restituisce un array di oggetti
+        }
+      });
+    });
+  };
   

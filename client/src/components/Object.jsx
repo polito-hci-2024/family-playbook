@@ -96,7 +96,7 @@ function StoryPage({ characterName, characterType }) {
                   />
                   <p className="choice-title">Impronte Misteriose</p>
                   <p className="choice-description">
-                    Le impronte erano strane, con tre lunghe dita che terminavano in artigli aguzzi. Non somigliavano a nulla che Leo avesse mai visto, eppure emanavano un'aura di familiarità, come se appartenessero a una creatura di antiche leggende.
+                    Le iiiiimpronte erano strane, con tre lunghe dita che terminavano in artigli aguzzi. Non somigliavano a nulla che Leo avesse mai visto, eppure emanavano un'aura di familiarità, come se appartenessero a una creatura di antiche leggende.
                   </p>
                 </div>
               </div>

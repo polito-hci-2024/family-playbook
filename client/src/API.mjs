@@ -45,5 +45,25 @@ const getActivities = async () => {
             throw new Error('Internal Server Error');
         }
 
-const API = { getActivities, insertActivity, getLastChoice };
+        const getUserName = async () => {
+          const response = await fetch(SERVER_URL + '/api/userName');
+          if(response.ok) {
+              const userNameJson = await response.json();
+              return userNameJson;
+          }
+          else 
+              throw new Error('Internal Server Error');
+          }
+
+          const getQuestionAnswer = async () => {
+            const response = await fetch(SERVER_URL + '/api/questionAnswer');
+            if(response.ok) {
+                const questionAnswerJson = await response.json();
+                return questionAnswerJson;
+            }
+            else 
+                throw new Error('Internal Server Error');
+            }
+
+const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer };
 export default API;
