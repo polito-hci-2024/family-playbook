@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import { getActivities, getLastChoice, getQuestionAnswer, getStepsById, getUserName, insertActivity, insertAnswer } from './dao.mjs';
+import { getActivities, getLastChoice, getQuestionAnswer, getStepsById, getUserName, insertActivity, insertAnswer, getStoryById } from './dao.mjs';
 
 // init express
 const app = express();
@@ -116,6 +116,21 @@ app.get('/api/steps/:step_id', async (req, res) => { // Usa :step_id per il para
   }
 });
 
+app.get('/api/story/:activity_id/:story_id', async (req, res) => { // Usa :step_id per il parametro dinamico
+  try {
+    const story_id = req.params.story_id; // Estrai il parametro step_id
+    const activity_id = req.params.activity_id; // Estrai il parametro step_id
+    const story = await getStoryById(activity_id, story_id); // Usa la funzione DAO per ottenere i dati
+    if (story) {
+      res.status(200).json(story); // Restituisce i risultati come JSON
+    } else {
+      res.status(404).json({ error: 'Story not found' }); // Restituisce un errore 404 se non trova risultati
+    }
+  } catch (error) {
+    console.error(error); // Log degli errori per il debug
+    res.status(500).end(); // Errore generico del server
+  }
+});
 
 // avvio del server
 app.listen(port, () => {'API server started';

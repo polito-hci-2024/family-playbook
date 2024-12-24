@@ -205,6 +205,27 @@ export const getActivities = () => {
       });
     });
   };
+
+  export const getStoryById = (activity_id, story_id) => {
+    return new Promise((resolve, reject) => {
+      const query = `
+        SELECT *
+        FROM story
+        WHERE activity_id = ? AND story_id = ?
+        ORDER BY panel_number ASC
+      `;
+  
+      db.all(query, [activity_id, story_id], (err, rows) => {
+        if (err) {
+          reject(err); // Gestione degli errori della query
+        } else if (rows.length === 0) {
+          resolve(null); // Nessun risultato trovato, restituisce null
+        } else {
+          resolve(rows); // Restituisce tutti i record trovati come array di oggetti
+        }
+      });
+    });
+  };
     
   
   

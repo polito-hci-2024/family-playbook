@@ -89,7 +89,6 @@ const getActivities = async () => {
           
           const getStepsById = async (stepId) => {
             try {
-              console.log("ciaone")
               const response = await fetch(SERVER_URL + `/api/steps/${stepId}`);
               if (response.ok) {
                 const stepsJson = await response.json();
@@ -103,7 +102,20 @@ const getActivities = async () => {
             }
           };
           
-          
+          const getStoryById = async (activityId, storyId) => {
+            try {
+              const response = await fetch(SERVER_URL + `/api/story/${activityId}/${storyId}`);
+              if (response.ok) {
+                const storyJson = await response.json();
+                return storyJson; // Restituisce i dati ottenuti dall'API
+              } else {
+                throw new Error(`Failed to fetch story for story_id ${storyId}: ${response.statusText}`);
+              }
+            } catch (error) {
+              console.error(error); // Log degli errori per facilitare il debug
+              throw error; // Propaga l'errore per gestirlo a livello superiore
+            }
+          };          
 
-const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer, insertAnswer, getStepsById };
+const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer, insertAnswer, getStepsById, getStoryById };
 export default API;

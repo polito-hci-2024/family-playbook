@@ -5,29 +5,28 @@ import '../CSS/StoryPage.css';
 import API from '../API.mjs';
 function StoryPage() {
   const navigate = useNavigate();
-  const { stepId } = useParams(); // Ottieni stepId dall'URL
+  const { activityId, storyId } = useParams(); // Ottieni storyId dall'URL
   const [panels, setPanels] = useState([]); // Stato per i pannelli della storia
-  const [stepName, setStepName] = useState(''); // Stato per il titolo del capitolo
+  const [storyName, setStoryName] = useState(''); // Stato per il titolo del capitolo
   const [showArrows, setShowArrows] = useState(false);
 
   const handleStartClick = () => {
     navigate('/place');
   };
 
-  // Funzione per caricare i dati dallo step
-  const fetchStepData = async (id) => {
+  // Funzione per caricare i dati dalla storia
+  const fetchStoryData = async (activityId, storyId) => {
     try {
-      console.log(`Fetching data for stepId: ${id}`);
-      const data = await API.getStepsById(id); // Usa la funzione API
+      const data = await API.getStoryById(activityId, storyId); // Usa la funzione API
       console.log(data); // Verifica i dati ricevuti
-      setStepName(data[0]?.step_name || ''); 
+      setStoryName(data[0]?.chapter || ''); 
       setPanels(data.map((panel) => ({
         id: panel.panel_number,
         image: panel.image_url,
         text: panel.description,
       })));
     } catch (error) {
-      console.error('Error fetching step data:', error);
+      console.error('Error fetching story data:', error);
     }
   };
   
@@ -47,8 +46,8 @@ function StoryPage() {
   };
 
   useEffect(() => {
-    fetchStepData(stepId); // Carica i dati dello step quando il componente è montato
-  }, [stepId]);
+    fetchStoryData(activityId, storyId); // Carica i dati dello story quando il componente è montato
+  }, [activityId, storyId]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -60,7 +59,7 @@ function StoryPage() {
   return (
     <div className="Introduction">
       <div className="story-background">
-        <p className="title">{stepName || 'Loading...'}</p>
+        <p className="title">{storyName || 'Loading...'}</p>
         {panels.map((panel, index) => (
           <motion.div
             className="story-panel"

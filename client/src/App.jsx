@@ -44,7 +44,7 @@ function App() {
           <Route path="/object/*" element={<Object />} />
           <Route path="/activities" element={<Activities/>}/>
           <Route path="/start-activity" element={<StartActivity/>}/>
-          <Route path="/story/:storyId" element={<StoryPage />} />
+          <Route path="/story/:activityId/:storyId" element={<StoryPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       ) : (
