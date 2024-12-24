@@ -3,23 +3,21 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../CSS/StoryPage.css';
 import API from '../API.mjs';
-function StoryPage() {
+
+function StepsPage() {
   const navigate = useNavigate();
   const { stepId } = useParams(); // Ottieni stepId dall'URL
   const [panels, setPanels] = useState([]); // Stato per i pannelli della storia
   const [stepName, setStepName] = useState(''); // Stato per il titolo del capitolo
   const [showArrows, setShowArrows] = useState(false);
-
-  const handleStartClick = () => {
-    navigate('/place');
-  };
+  const [userName, setUserName] = useState(''); // Stato per il nome utente
 
   // Funzione per caricare i dati dallo step
   const fetchStepData = async (id) => {
     try {
-      console.log(`Fetching data for stepId: ${id}`);
-      const data = await API.getStepsById(id); // Usa la funzione API
-      console.log(data); // Verifica i dati ricevuti
+      const name = await API.getUserName();
+      const data = await API.getStepsById(id); // Usa la funzione API per ottenere i dati
+      setUserName(name);
       setStepName(data[0]?.step_name || ''); 
       setPanels(data.map((panel) => ({
         id: panel.panel_number,
@@ -30,32 +28,54 @@ function StoryPage() {
       console.error('Error fetching step data:', error);
     }
   };
-  
-  
+
+  const handleNext = () => {
+    // Naviga alla pagina della domanda successiva (questo assumerà che stepId e question_id siano uguali)
+    navigate(`/question/${parseInt(stepId)}`);
+  };
+
+  const handleBack = () => {
+    // Naviga al passo precedente, se possibile
+    if (parseInt(stepId) > 1) {
+      navigate(`/steps/${parseInt(stepId) - 1}`);
+    }
+  };
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight;
 
-    // Mostra le frecce quando l'utente ha scrollato oltre metà della pagina
-    if (scrollY + windowHeight >= (docHeight / 4) * 3) {
+    // Mostra le frecce solo se ci sono più di 1 pannello e l'utente ha scrollato oltre una certa percentuale
+    if (panels.length > 1 && scrollY + windowHeight >= (docHeight / 4) * 3) {
       setShowArrows(true);
-    } else {
-      setShowArrows(false);
     }
   };
 
+  // useEffect per caricare i dati dello step
   useEffect(() => {
     fetchStepData(stepId); // Carica i dati dello step quando il componente è montato
   }, [stepId]);
 
+  // useEffect per gestire lo scroll e mostrare le frecce
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    if (panels.length > 1) {
+      window.addEventListener('scroll', handleScroll);
+    }
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [panels.length]); // Dipende da panels.length
+
+  // useEffect per mostrare le frecce immediatamente se ci sono meno di 2 pannelli
+  useEffect(() => {
+    if (panels.length < 2) {
+      setShowArrows(true); // Le frecce sono visibili subito
+    } else {
+      setShowArrows(false); // Se ci sono più di 1 pannello, nascondi le frecce inizialmente
+    }
+  }, [panels.length]);
 
   return (
     <div className="Introduction">
@@ -86,13 +106,13 @@ function StoryPage() {
               src="/img/next.png"
               alt="Arrow Right"
               className="arrow arrow-right"
-              onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
+              onClick={handleNext} // Vai alla pagina della domanda successiva
             />
             <img
               src="/img/back.png"
               alt="Arrow Left"
               className="arrow arrow-left"
-              onClick={() => window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' })}
+              onClick={handleBack} // Torna indietro al passo precedente
             />
           </>
         )}
@@ -101,4 +121,4 @@ function StoryPage() {
   );
 }
 
-export default StoryPage;
+export default StepsPage;

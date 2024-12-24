@@ -9,6 +9,7 @@ function StoryPage() {
   const [panels, setPanels] = useState([]); // Stato per i pannelli della storia
   const [storyName, setStoryName] = useState(''); // Stato per il titolo del capitolo
   const [showArrows, setShowArrows] = useState(false);
+  const [userName, setUserName] = useState(''); // Stato per il nome utente
 
   const handleStartClick = () => {
     navigate('/place');
@@ -17,8 +18,9 @@ function StoryPage() {
   // Funzione per caricare i dati dalla storia
   const fetchStoryData = async (activityId, storyId) => {
     try {
+      const name = await API.getUserName();
       const data = await API.getStoryById(activityId, storyId); // Usa la funzione API
-      console.log(data); // Verifica i dati ricevuti
+      setUserName(name);
       setStoryName(data[0]?.chapter || ''); 
       setPanels(data.map((panel) => ({
         id: panel.panel_number,

@@ -4,12 +4,12 @@ import NotFound from './components/NotFound';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
 import StoryPage from './components/StoryPage';
-import Place from './components/Place';
-import Object from './components/Object';
+import Place from './components/Question';
 import './CSS/App.css';
 import Activities from './components/Activities';
 import StartActivity from './components/StartActivity';
 import StepsPage from './components/StepsPage';
+import Question from './components/Question';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -37,11 +37,9 @@ function App() {
     <div>
       {isTablet ? (
         <Routes>
-          {/* Questa route è per la pagina OpeningPage senza NavHeader */}
           <Route path="/" element={<OpeningPage />} />
           <Route path="/steps/:stepId" element={<StepsPage />} />
-          <Route path="/place/:question_id" element={<Place />} />
-          <Route path="/object/*" element={<Object />} />
+          <Route path="/question/:question_id" element={<Question />} />
           <Route path="/activities" element={<Activities/>}/>
           <Route path="/start-activity" element={<StartActivity/>}/>
           <Route path="/story/:activityId/:storyId" element={<StoryPage />} />

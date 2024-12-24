@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import '../CSS/Place.css';
+import '../CSS/Question.css';
 import { Modal, Button } from 'react-bootstrap'; // Importa il Modal
-import API from '../API';
-import { useParams } from 'react-router-dom';
+import API from '../API.mjs';
 
-function Place() {
+function Question() {
   const navigate = useNavigate();
-  const { question_id } = useParams(); // Ottieni il parametro dall'URL
+  const { question_id } = useParams(); // Ottieni question_id dall'URL
   const [selectedChoice, setSelectedChoice] = useState(null); // Solo l'ID della risposta
   const [choices, setChoices] = useState([]);
   const [showModal, setShowModal] = useState(false); // Stato per la modale
   const [modalMessage, setModalMessage] = useState(''); // Messaggio della modale
-  const [showBubble, setShowBubble] = useState(false); // Stato per il fumetto
   const [userName, setUserName] = useState(''); // Stato per il nome utente
 
   useEffect(() => {
@@ -60,7 +58,9 @@ function Place() {
           throw new Error('Failed to confirm answer');
         }
 
-        navigate('/start-activity', { state: { activity: response } });
+        // Naviga allo step successivo
+        const nextStepId = parseInt(question_id) + 1;
+        navigate(`/steps/${nextStepId}`); // Vai alla prossima domanda
       } catch (error) {
         console.error('Error confirming answer:', error);
         setModalMessage('An error occurred while confirming the answer.'); // Imposta il messaggio
@@ -73,6 +73,12 @@ function Place() {
   };
 
   const handleCloseModal = () => setShowModal(false); // Chiude la modale
+
+  const handleBack = () => {
+    // Naviga al passo precedente
+    const previousStepId = parseInt(question_id) - 1;
+    navigate(`/steps/${previousStepId}`);
+  };
 
   return (
     <div className="Introduction">
@@ -97,7 +103,7 @@ function Place() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              {/* Titolo della domanda (prima risposta) */}
+              {/* Titolo della domanda */}
               <p className="story-text">{choices[0].title + ' Qui compare il nome: ' + (userName?.name || 'Nome non disponibile')}</p>
 
               <div className="activity-container">
@@ -156,7 +162,7 @@ function Place() {
           alt="Personaggio"
           className="character-image"
         />
-        <div className={`speech-bubble ${showBubble ? 'show' : ''}`}>
+        <div className={`speech-bubble`}>
           Select an option to continue
         </div>
 
@@ -165,7 +171,7 @@ function Place() {
           src="/img/next.png"
           alt="Arrow Right"
           className="arrow arrow-right"
-          onClick={handleConfirm}
+          onClick={handleConfirm} // Usa la funzione per confermare la risposta e andare alla pagina successiva
         />
 
         {/* Freccia sinistra */}
@@ -173,7 +179,7 @@ function Place() {
           src="/img/back.png"
           alt="Arrow Left"
           className="arrow arrow-left"
-          onClick={() => navigate(-1)} // Torna indietro
+          onClick={handleBack} // Torna indietro
         />
       </div>
 
@@ -193,4 +199,4 @@ function Place() {
   );
 }
 
-export default Place;
+export default Question;
