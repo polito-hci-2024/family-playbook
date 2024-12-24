@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../CSS/Place.css';
@@ -6,6 +6,7 @@ import '../CSS/Place.css';
 function Place({ characterName, characterType }) {
   const navigate = useNavigate();
   const [selectedChoice, setSelectedChoice] = useState(null); // Stato per la scelta dell'utente
+  const [showBubble, setShowBubble] = useState(false); // Stato per il fumetto
 
   const panels = [
     {
@@ -14,6 +15,15 @@ function Place({ characterName, characterType }) {
       isChoice: true, 
     },
   ];
+
+  useEffect(() => {
+    // Mostra il fumetto dopo 1.5 secondi
+    const timer = setTimeout(() => {
+      setShowBubble(true);
+    }, 1500);
+
+    return () => clearTimeout(timer); // Pulisce il timeout quando il componente viene smontato
+  }, []);
 
   const handleChoice = (path) => {
     // Salva la scelta ma non navigare immediatamente
@@ -73,7 +83,15 @@ function Place({ characterName, characterType }) {
             )}
           </motion.div>
         ))}
-
+            {/* Personaggio e fumetto */}
+        <img
+            src="/img/Lumi-angolo.png"
+            alt="Personaggio"
+            className="character-image"
+         />
+        <div className={`speech-bubble ${showBubble ? 'show' : ''}`}>
+            Select an option to continue
+        </div>
         {/* Freccia destra */}
         <img
           src="/img/next.png"

@@ -5,6 +5,8 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
 import StoryPage from './components/Introduction';
 import Place from './components/Place';
+import Object from './components/Object';
+import './CSS/App.css';
 import Activities from './components/Activities';
 import StartActivity from './components/StartActivity';
 
@@ -38,6 +40,7 @@ function App() {
           <Route path="/" element={<OpeningPage />} />
           <Route path="/introduction" element={<StoryPage />} />
           <Route path="/place" element={<Place/>}/>
+          <Route path="/object/*" element={<Object />} />
           <Route path="/activities" element={<Activities/>}/>
           <Route path="/start-activity" element={<StartActivity/>}/>
           <Route path="*" element={<NotFound />} />
