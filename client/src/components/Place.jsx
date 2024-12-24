@@ -2,102 +2,170 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../CSS/Place.css';
+import { Modal, Button } from 'react-bootstrap'; // Importa il Modal
+import API from '../API';
+import { useParams } from 'react-router-dom';
 
-function Place({ characterName, characterType }) {
+function Place() {
   const navigate = useNavigate();
-  const [selectedChoice, setSelectedChoice] = useState(null); // Stato per la scelta dell'utente
+  const { question_id } = useParams(); // Ottieni il parametro dall'URL
+  const [selectedChoice, setSelectedChoice] = useState(null); // Solo l'ID della risposta
+  const [choices, setChoices] = useState([]);
+  const [showModal, setShowModal] = useState(false); // Stato per la modale
+  const [modalMessage, setModalMessage] = useState(''); // Messaggio della modale
   const [showBubble, setShowBubble] = useState(false); // Stato per il fumetto
-
-  const panels = [
-    {
-      id: 3,
-      text: "Verso quale luogo misterioso si dirigerà Leo?",
-      isChoice: true, 
-    },
-  ];
+  const [userName, setUserName] = useState(''); // Stato per il nome utente
 
   useEffect(() => {
-    // Mostra il fumetto dopo 1.5 secondi
-    const timer = setTimeout(() => {
-      setShowBubble(true);
-    }, 1500);
+    const fetchChoices = async () => {
+      try {
+        const name = await API.getUserName();
+        const data = await API.getQuestionAnswer(question_id);
+        console.log('Fetched choices:', data);
+        const mappedChoices = data.map((questionAnswer) => ({
+          id: questionAnswer.question_id,
+          title: questionAnswer.question,
+          title1: questionAnswer.title_answer1,
+          title2: questionAnswer.title_answer2,
+          title3: questionAnswer.title_answer3,
+          question_image_url: questionAnswer.question_image_url,
+          description: questionAnswer.description,
+          answer1_id: questionAnswer.answer1_id,
+          answer2_id: questionAnswer.answer2_id,
+          answer3_id: questionAnswer.answer3_id,
+          answer1: questionAnswer.answer1,
+          answer2: questionAnswer.answer2,
+          answer3: questionAnswer.answer3,
+          image1: questionAnswer.a1_image_url || '/img/place/default.jpg',
+          image2: questionAnswer.a2_image_url || '/img/place/default.jpg',
+          image3: questionAnswer.a3_image_url || '/img/place/default.jpg',
+          isChoice: true,
+        }));
+        setChoices(mappedChoices);
+        setUserName(name);
+      } catch (error) {
+        console.error('Error fetching choices:', error);
+      }
+    };
 
-    return () => clearTimeout(timer); // Pulisce il timeout quando il componente viene smontato
-  }, []);
+    fetchChoices();
+  }, [question_id]);
 
-  const handleChoice = (path) => {
-    // Salva la scelta ma non navigare immediatamente
-    setSelectedChoice(path);
-  };
-
-  const navigateToChoice = () => {
+  const handleConfirm = async () => {
     if (selectedChoice) {
-      navigate(selectedChoice); // Naviga solo se una scelta è stata fatta
+      try {
+        const response = await API.insertAnswer(selectedChoice, question_id);
+
+        if (!response) {
+          throw new Error('Failed to confirm answer');
+        }
+
+        navigate('/start-activity', { state: { activity: response } });
+      } catch (error) {
+        console.error('Error confirming answer:', error);
+        setModalMessage('An error occurred while confirming the answer.'); // Imposta il messaggio
+        setShowModal(true); // Mostra la modale
+      }
+    } else {
+      setModalMessage('Please select an answer first.'); // Imposta il messaggio
+      setShowModal(true); // Mostra la modale
     }
   };
 
-  return (
-    <div className="Place">
-      <div className="story-background">
-        {panels.map((panel, index) => (
-          <motion.div
-            className="story-panel-place"
-            key={panel.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.5, duration: 0.8 }}
-          >
-            <p className="story-text-place">{panel.text}</p>
+  const handleCloseModal = () => setShowModal(false); // Chiude la modale
 
-            {panel.isChoice && panel.id === 3 && (
-                <div className="choice-container">
-                    <div
-                    className="choice-card"
-                    onClick={() => handleChoice('/forest')}
-                    >
-                    <img
-                        src="/img/place/forest.jpg"
-                        className="choice-image"
-                        alt="Foresta Incantata"
-                    />
-                    <p className="choice-title">Foresta Incantata</p>
-                    <p className="choice-description">
-                    A sinistra, la via si perdeva tra gli alberi della Foresta Incantata, un luogo che solo i più coraggiosi osavano avvicinare. Si diceva che chi entrava nel cuore di quella foresta non fosse mai più lo stesso, che la natura stessa custodisse antichi segreti e poteri arcani.
-                    </p>
-                    </div>
-                    <div
-                    className="choice-card"
-                    onClick={() => handleChoice('/tower')}
-                    >
-                    <img
-                        src="/img/place/tower.jpg"
-                        className="choice-image"
-                        alt="Vecchia Torre in Rovina"
-                    />
-                    <p className="choice-title">Vecchia Torre in Rovina</p>
-                    <p className="choice-description">
-                    A destra, si ergeva la Vecchia Torre in Rovina, la sua silhouette spettrale avvolta nella nebbia, come una sentinella solitaria nel tempo. La torre, da tempo abbandonata, custodiva ancora leggende di magie perdute e di conoscenze dimenticate, un richiamo irresistibile per chi, come Leo, era sempre alla ricerca di risposte.
-                    </p>
-                    </div>
-                </div>
+  return (
+    <div className="Introduction">
+      <div className="story-background">
+        {choices.length > 0 && (
+          <>
+            {/* Pannello con descrizione (se disponibile) */}
+            {choices[0].description && (
+              <div className="panel">
+                <img
+                  src={choices[0].question_image_url || '/img/place/default.jpg'}
+                  alt="Question"
+                  className="activity-image"
+                />
+                <p className="question-description">{choices[0].description}</p>
+              </div>
             )}
-          </motion.div>
-        ))}
-            {/* Personaggio e fumetto */}
+
+            <motion.div
+              className="panel"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              {/* Titolo della domanda (prima risposta) */}
+              <p className="story-text">{choices[0].title + ' Qui compare il nome: ' + (userName?.name || 'Nome non disponibile')}</p>
+
+              <div className="activity-container">
+                {/* Card per la risposta 1 */}
+                <div
+                  key="1"
+                  className={`activity-card ${selectedChoice === choices[0].answer1_id ? 'selected' : ''}`}
+                  onClick={() => setSelectedChoice(choices[0].answer1_id)} // Usa solo l'ID della risposta
+                >
+                  <img
+                    src={choices[0].image1}
+                    alt={choices[0].title1}
+                    className="activity-image"
+                  />
+                  <p className="activity-title">{choices[0].title1}</p>
+                  <p className="activity-answer">{choices[0].answer1}</p>
+                </div>
+
+                {/* Card per la risposta 2 */}
+                <div
+                  key="2"
+                  className={`activity-card ${selectedChoice === choices[0].answer2_id ? 'selected' : ''}`}
+                  onClick={() => setSelectedChoice(choices[0].answer2_id)} // Usa solo l'ID della risposta
+                >
+                  <img
+                    src={choices[0].image2}
+                    alt={choices[0].title2}
+                    className="activity-image"
+                  />
+                  <p className="activity-title">{choices[0].title2}</p>
+                  <p className="activity-answer">{choices[0].answer2}</p>
+                </div>
+
+                {/* Card per la risposta 3 */}
+                <div
+                  key="3"
+                  className={`activity-card ${selectedChoice === choices[0].answer3_id ? 'selected' : ''}`}
+                  onClick={() => setSelectedChoice(choices[0].answer3_id)} // Usa solo l'ID della risposta
+                >
+                  <img
+                    src={choices[0].image3}
+                    alt={choices[0].title3}
+                    className="activity-image"
+                  />
+                  <p className="activity-title">{choices[0].title3}</p>
+                  <p className="activity-answer">{choices[0].answer3}</p>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+
+        {/* Personaggio e fumetto */}
         <img
-            src="/img/Lumi-angolo.png"
-            alt="Personaggio"
-            className="character-image"
-         />
+          src="/img/Lumi-angolo.png"
+          alt="Personaggio"
+          className="character-image"
+        />
         <div className={`speech-bubble ${showBubble ? 'show' : ''}`}>
-            Select an option to continue
+          Select an option to continue
         </div>
+
         {/* Freccia destra */}
         <img
           src="/img/next.png"
           alt="Arrow Right"
           className="arrow arrow-right"
-          onClick={navigateToChoice} // Naviga solo se una scelta è stata fatta
+          onClick={handleConfirm}
         />
 
         {/* Freccia sinistra */}
@@ -105,9 +173,22 @@ function Place({ characterName, characterType }) {
           src="/img/back.png"
           alt="Arrow Left"
           className="arrow arrow-left"
-          onClick={navigateToChoice} // Naviga solo se una scelta è stata fatta
+          onClick={() => navigate(-1)} // Torna indietro
         />
       </div>
+
+      {/* Modale di errore o avviso */}
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Attention</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{modalMessage}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

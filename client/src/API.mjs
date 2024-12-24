@@ -55,15 +55,55 @@ const getActivities = async () => {
               throw new Error('Internal Server Error');
           }
 
-          const getQuestionAnswer = async () => {
-            const response = await fetch(SERVER_URL + '/api/questionAnswer');
-            if(response.ok) {
-                const questionAnswerJson = await response.json();
-                return questionAnswerJson;
+          const getQuestionAnswer = async (question_id) => {
+            const response = await fetch(`${SERVER_URL}/api/questionAnswer/${question_id}`); // Usa il valore di question_id dinamicamente
+            if (response.ok) {
+              const questionAnswerJson = await response.json();
+              return questionAnswerJson;
+            } else {
+              throw new Error('Internal Server Error');
             }
-            else 
-                throw new Error('Internal Server Error');
-            }
+          };
 
-const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer };
+          const insertAnswer = async (answerId, question_id) => {
+            try {
+              const response = await fetch(`${SERVER_URL}/api/insertAnswer`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json', // Assicurati di inviare JSON
+                },
+                body: JSON.stringify({ answerId, question_id }), // Passa i dati nel body
+              });
+          
+              if (response.ok) {
+                const data = await response.json(); // Ottieni la risposta del server
+                return data;
+              } else {
+                throw new Error('Error while inserting answer');
+              }
+            } catch (error) {
+              console.error('Error inserting answer:', error);
+              throw error;
+            }
+          };
+          
+          const getStepsById = async (stepId) => {
+            try {
+              console.log("ciaone")
+              const response = await fetch(SERVER_URL + `/api/steps/${stepId}`);
+              if (response.ok) {
+                const stepsJson = await response.json();
+                return stepsJson; // Restituisce i dati ottenuti dall'API
+              } else {
+                throw new Error(`Failed to fetch steps for step_id ${stepId}: ${response.statusText}`);
+              }
+            } catch (error) {
+              console.error(error); // Log degli errori per facilitare il debug
+              throw error; // Propaga l'errore per gestirlo a livello superiore
+            }
+          };
+          
+          
+
+const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer, insertAnswer, getStepsById };
 export default API;

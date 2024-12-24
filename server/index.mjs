@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import { getActivities, getLastChoice, getQuestionAnswer, getUserName, insertActivity } from './dao.mjs';
+import { getActivities, getLastChoice, getQuestionAnswer, getStepsById, getUserName, insertActivity, insertAnswer } from './dao.mjs';
 
 // init express
 const app = express();
@@ -75,15 +75,47 @@ app.get('/api/userName', async (req, res) => {
   }
 });
 
-app.get('/api/questionAnswer', async (req, res) => {
-
+app.get('/api/questionAnswer/:question_id', async (req, res) => { // Usa :question_id per il parametro dinamico
   try {
-    const questionAnswer = await getQuestionAnswer();
+    const question_id = req.params.question_id;  // Estrai il parametro question_id
+    const questionAnswer = await getQuestionAnswer(question_id);  // Passa question_id alla funzione
     res.status(200).json(questionAnswer);
-  } catch {
+  } catch (error) {
+    console.error(error);  // Aggiungi per facilitare il debug
     res.status(500).end();
   }
 });
+
+app.post('/api/insertAnswer', async (req, res) => {
+  const { answerId, question_id } = req.body; // Prendi i parametri dalla richiesta
+
+  try {
+    // Inserisci la risposta nel database utilizzando la colonna giusta
+    const column = `answer${question_id}`;
+    const result = await insertAnswer(answerId, column);
+
+    res.status(200).json(result);
+  } catch (error) {
+    console.error('Error inserting answer:', error);
+    res.status(500).send('Internal server error');
+  }
+});
+
+app.get('/api/steps/:step_id', async (req, res) => { // Usa :step_id per il parametro dinamico
+  try {
+    const step_id = req.params.step_id; // Estrai il parametro step_id
+    const steps = await getStepsById(step_id); // Usa la funzione DAO per ottenere i dati
+    if (steps) {
+      res.status(200).json(steps); // Restituisce i risultati come JSON
+    } else {
+      res.status(404).json({ error: 'Step not found' }); // Restituisce un errore 404 se non trova risultati
+    }
+  } catch (error) {
+    console.error(error); // Log degli errori per il debug
+    res.status(500).end(); // Errore generico del server
+  }
+});
+
 
 // avvio del server
 app.listen(port, () => {'API server started';
