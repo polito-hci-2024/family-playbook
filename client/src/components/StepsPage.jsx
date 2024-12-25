@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../CSS/StoryPage.css';
 import API from '../API.mjs';
 
-function StepsPage() {
+function StepsPage({ stepId }) {
   const navigate = useNavigate();
-  const { stepId } = useParams(); // Ottieni stepId dall'URL
   const [panels, setPanels] = useState([]); // Stato per i pannelli della storia
   const [stepName, setStepName] = useState(''); // Stato per il titolo del capitolo
   const [showArrows, setShowArrows] = useState(false);

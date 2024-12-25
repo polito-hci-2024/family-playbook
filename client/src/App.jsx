@@ -38,8 +38,9 @@ function App() {
       {isTablet ? (
         <Routes>
           <Route path="/" element={<OpeningPage />} />
-          <Route path="/steps/:stepId" element={<StepsPage />} />
-          <Route path="/question/:question_id" element={<Question />} />
+          <Route path="/steps/1" element={<StepsPage stepId={1} />} />
+          <Route path="/question/1" element={<Question question_id={1}/>} />
+          <Route path="/question/2" element={<Question question_id={2}/>} />
           <Route path="/activities" element={<Activities/>}/>
           <Route path="/start-activity" element={<StartActivity/>}/>
           <Route path="/story/:activityId/:storyId" element={<StoryPage />} />

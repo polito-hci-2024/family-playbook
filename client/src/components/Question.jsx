@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../CSS/Question.css';
 import { Modal, Button } from 'react-bootstrap'; // Importa il Modal
 import API from '../API.mjs';
 
-function Question() {
+function Question({ question_id }) {
+  const questionId = parseInt(question_id);
   const navigate = useNavigate();
-  const { question_id } = useParams(); // Ottieni question_id dall'URL
   const [selectedChoice, setSelectedChoice] = useState(null); // Solo l'ID della risposta
   const [choices, setChoices] = useState([]);
   const [showModal, setShowModal] = useState(false); // Stato per la modale
@@ -18,26 +18,32 @@ function Question() {
     const fetchChoices = async () => {
       try {
         const name = await API.getUserName();
-        const data = await API.getQuestionAnswer(question_id);
-        console.log('Fetched choices:', data);
+        const data = await API.getQuestionAnswer(questionId);
         const mappedChoices = data.map((questionAnswer) => ({
-          id: questionAnswer.question_id,
+          id: questionAnswer.questionId,
           title: questionAnswer.question,
-          title1: questionAnswer.title_answer1,
-          title2: questionAnswer.title_answer2,
-          title3: questionAnswer.title_answer3,
           question_image_url: questionAnswer.question_image_url,
           description: questionAnswer.description,
-          answer1_id: questionAnswer.answer1_id,
-          answer2_id: questionAnswer.answer2_id,
-          answer3_id: questionAnswer.answer3_id,
-          answer1: questionAnswer.answer1,
-          answer2: questionAnswer.answer2,
-          answer3: questionAnswer.answer3,
-          image1: questionAnswer.a1_image_url || '/img/place/default.jpg',
-          image2: questionAnswer.a2_image_url || '/img/place/default.jpg',
-          image3: questionAnswer.a3_image_url || '/img/place/default.jpg',
-          isChoice: true,
+          answers: [
+            {
+              id: questionAnswer.answer1_id,
+              title: questionAnswer.title_answer1,
+              text: questionAnswer.answer1,
+              image: questionAnswer.a1_image_url || '/img/place/default.jpg',
+            },
+            {
+              id: questionAnswer.answer2_id,
+              title: questionAnswer.title_answer2,
+              text: questionAnswer.answer2,
+              image: questionAnswer.a2_image_url || '/img/place/default.jpg',
+            },
+            {
+              id: questionAnswer.answer3_id,
+              title: questionAnswer.title_answer3,
+              text: questionAnswer.answer3,
+              image: questionAnswer.a3_image_url || '/img/place/default.jpg',
+            },
+          ].filter((answer) => answer.id !== null), // Filtra solo risposte valide
         }));
         setChoices(mappedChoices);
         setUserName(name);
@@ -47,20 +53,19 @@ function Question() {
     };
 
     fetchChoices();
-  }, [question_id]);
+  }, [questionId]);
 
   const handleConfirm = async () => {
     if (selectedChoice) {
       try {
-        const response = await API.insertAnswer(selectedChoice, question_id);
+        const response = await API.insertAnswer(selectedChoice, questionId);
 
         if (!response) {
           throw new Error('Failed to confirm answer');
         }
 
         // Naviga allo step successivo
-        const nextStepId = parseInt(question_id) + 1;
-        navigate(`/steps/${nextStepId}`); // Vai alla prossima domanda
+        navigate(`/question/2`); // Vai alla prossima domanda
       } catch (error) {
         console.error('Error confirming answer:', error);
         setModalMessage('An error occurred while confirming the answer.'); // Imposta il messaggio
@@ -76,8 +81,7 @@ function Question() {
 
   const handleBack = () => {
     // Naviga al passo precedente
-    const previousStepId = parseInt(question_id) - 1;
-    navigate(`/steps/${previousStepId}`);
+    navigate(-1);
   };
 
   return (
@@ -107,50 +111,22 @@ function Question() {
               <p className="story-text">{choices[0].title + ' Qui compare il nome: ' + (userName?.name || 'Nome non disponibile')}</p>
 
               <div className="activity-container">
-                {/* Card per la risposta 1 */}
-                <div
-                  key="1"
-                  className={`activity-card ${selectedChoice === choices[0].answer1_id ? 'selected' : ''}`}
-                  onClick={() => setSelectedChoice(choices[0].answer1_id)} // Usa solo l'ID della risposta
-                >
-                  <img
-                    src={choices[0].image1}
-                    alt={choices[0].title1}
-                    className="activity-image"
-                  />
-                  <p className="activity-title">{choices[0].title1}</p>
-                  <p className="activity-answer">{choices[0].answer1}</p>
-                </div>
-
-                {/* Card per la risposta 2 */}
-                <div
-                  key="2"
-                  className={`activity-card ${selectedChoice === choices[0].answer2_id ? 'selected' : ''}`}
-                  onClick={() => setSelectedChoice(choices[0].answer2_id)} // Usa solo l'ID della risposta
-                >
-                  <img
-                    src={choices[0].image2}
-                    alt={choices[0].title2}
-                    className="activity-image"
-                  />
-                  <p className="activity-title">{choices[0].title2}</p>
-                  <p className="activity-answer">{choices[0].answer2}</p>
-                </div>
-
-                {/* Card per la risposta 3 */}
-                <div
-                  key="3"
-                  className={`activity-card ${selectedChoice === choices[0].answer3_id ? 'selected' : ''}`}
-                  onClick={() => setSelectedChoice(choices[0].answer3_id)} // Usa solo l'ID della risposta
-                >
-                  <img
-                    src={choices[0].image3}
-                    alt={choices[0].title3}
-                    className="activity-image"
-                  />
-                  <p className="activity-title">{choices[0].title3}</p>
-                  <p className="activity-answer">{choices[0].answer3}</p>
-                </div>
+                {/* Card per ogni risposta valida */}
+                {choices[0].answers.map((answer, index) => (
+                  <div
+                    key={index}
+                    className={`activity-card ${selectedChoice === answer.id ? 'selected' : ''}`}
+                    onClick={() => setSelectedChoice(answer.id)} // Usa solo l'ID della risposta
+                  >
+                    <img
+                      src={answer.image}
+                      alt={answer.title}
+                      className="activity-image"
+                    />
+                    <p className="activity-title">{answer.title}</p>
+                    <p className="activity-answer">{answer.text}</p>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </>
