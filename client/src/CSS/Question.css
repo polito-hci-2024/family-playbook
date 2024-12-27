@@ -1,4 +1,4 @@
-img {
+.question img {
     margin: 0; /* Rimuove tutti i margini */
     padding: 0; /* Rimuove tutti i padding */
     display: block; /* Impedisce l'allineamento in linea */
@@ -8,7 +8,7 @@ img {
   }
   
   /* Contenitore principale */
-  .Place {
+  .question .Introduction {
     position: relative;
     width: 100%;
     min-height: 100vh; /* Occupa l'intera altezza della viewport */
@@ -27,51 +27,121 @@ img {
   }
   
   /* Pannelli della storia */
-  .story-background {
-    position: relative;
+  .question .story-background {
     width: 100%;
     height: auto; /* Altezza dinamica */
+    padding-top: 250px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
+    padding-bottom: 20px; /* Spazio inferiore per la fine dei pannelli */
     display: flex;
     flex-direction: column; /* Dispone i pannelli verticalmente */
     align-items: center; /* Centra orizzontalmente i pannelli */
   }
   
-  /* Pannelli della storia */
-  .story-panel-place {
-    position: absolute;
-    padding-top: 0px;
-    width: 90%; /* Occupa il 90% della larghezza disponibile */
-    max-width: 700px; /* Larghezza massima */
-    height: auto; /* Altezza dinamica */
-    aspect-ratio: 5 / 6; /* Rende il pannello più compatto */
-    background: rgba(255, 255, 255, 0.30); /* Sfondo semitrasparente */
-    border-radius: 25px; /* Bordi arrotondati */
-    box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
+  .question .activity-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-    text-align: center;
-    box-sizing: border-box; /* Include padding nel calcolo delle dimensioni */
-    backdrop-filter: blur(5px); /* Effetto sfocatura sullo sfondo */
+    flex-wrap: wrap; /* Le card andranno a capo se necessario */
+    justify-content: center; /* Centra orizzontalmente le card */
+    align-items: flex-start; /* Allinea le card in cima */
+    gap: 20px; /* Spazio tra le card */
+    width: 90%; /* Imposta una larghezza per il contenitore (in modo che le card si adattino) */
+    max-width: 100%; /* Limita la larghezza massima */
+    box-sizing: border-box; /* Include il padding nel calcolo della larghezza */
+    height: auto; /* L'altezza si adatta al contenuto */
+    margin: 0 auto; /* Centra il contenitore */
   }
+
+  .question .activity-image {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .question .activity-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: auto; /* La card si adatta alla larghezza del contenuto */
+    min-width: 150px; /* Imposta una larghezza minima per le card */
+    max-width: 250px; /* Limita la larghezza massima per card */
+    height: auto; /* Altezza automatica */
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.9); /* Sfondo leggermente trasparente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    word-wrap: break-word; /* Gestisce correttamente il testo lungo */
+  }
+  
+  /* Immagine della card */
+  .question .activity-card img {
+    width: 100%; /* Immagine che riempie tutta la card */
+    height: auto; /* Mantiene le proporzioni dell'immagine */
+    border-radius: 4px;
+  }
+  
+  /* Hover effect per la .activity-card */
+  .question .activity-card:hover {
+    transform: scale(1.05); /* Ingrandisce leggermente la card */
+    box-shadow: 0 8px 16px rgba(114, 11, 91, 0.5); /* Ombra più intensa */
+  }
+  
+  /* Testo della card */
+  .question .activity-title, .activity-description {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .question .activity-title {
+    font-weight: bold;
+  }
+  
+  .question .activity-description {
+    font-style: italic;
+  }
+  
+  /* Rimuovi la posizione assoluta e usa un layout in colonna */
+.question .panel {
+  padding-top: 0px;
+  width: 90%; /* Occupa il 90% della larghezza disponibile */
+  max-width: 700px; /* Larghezza massima */
+  height: auto; /* Altezza dinamica */
+  background: rgba(255, 255, 255, 0.30); /* Sfondo semitrasparente */
+  border-radius: 25px; /* Bordi arrotondati */
+  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box; /* Include padding nel calcolo delle dimensioni */
+  backdrop-filter: blur(5px); /* Effetto sfocatura sullo sfondo */
+  margin-bottom: 20px; /* Aggiungi spazio tra i pannelli */
+}
+
+/* Assicurati che l'ultimo pannello abbia un margine inferiore maggiore per evitare sovrapposizioni */
+.question .panel:last-child {
+  margin-bottom: 200px; /* Aggiungi margine inferiore per distanziare l'ultimo pannello */
+}
+
   
   /* Testo */
-  .story-text-place {
+  .question .story-text {
     font-family: 'Serif', serif;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: #000;
-    line-height: 1.5;
-    margin: 5px 0;
+    line-height: 1.6;
+    margin: 10px 0;
     text-align: center;
     align-items: center;
   }
-  /* Aggiungere un margine sotto i pannelli per farli scomparire sotto il titolo */
-  .story-panel:last-child {
-    margin-bottom: 200px; /* Aggiungi un margine che fa scomparire il pannello quando scorre via */
-  }
+
   
-  .arrow {
+  .question .arrow {
     position: fixed;
     top: 50%;  /* Centra la freccia verticalmente */
     transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
@@ -81,16 +151,16 @@ img {
     z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
   }
   
-  .arrow-left {
+  .question .arrow-left {
     left: 20px;  /* Posiziona la freccia sinistra a sinistra */
   }
   
-  .arrow-right {
+  .question .arrow-right {
     right: 20px;  /* Posiziona la freccia destra a destra */
   }
   
  /* .choice-card */
-.choice-card {
+ .question .choice-card {
     display: flex;
     justify-content: center;  /* Centra orizzontalmente */
     align-items: center;      /* Centra verticalmente */
@@ -110,13 +180,13 @@ img {
   }
   
   /* Hover effect per la .choice-card */
-  .choice-card:hover {
+  .question .choice-card:hover {
     transform: scale(1.10);
     box-shadow: 0 8px 20px rgba(114, 11, 91, 0.5); 
   }
   
 /* Contenitore della scelta */
-.choice-container {
+.question .choice-container {
   display: flex;
   justify-content: flex-start;  /* Allinea le card a sinistra */
   gap: 10px; /* Spazio tra le card */
@@ -125,27 +195,27 @@ img {
   box-sizing: border-box; /* Considera il padding nel calcolo della larghezza */
 }
   
-  .choice-image {
+.question .choice-image {
     width: 100%;
     max-width: 200px;         /* Limita la larghezza massima */
     height: auto;
     border-radius: 10px;
   }
   
-  .choice-title, .choice-description {
+  .question .choice-title, .choice-description {
     text-align: center;
     margin-top: 10px;
   }
   
-  .choice-title {
+  .question .choice-title {
     font-weight: bold;
   }
   
-  .choice-description {
+  .question .choice-description {
     font-style: italic;
   }
   
-  .character-image {
+  .question .character-image {
     position: fixed;
     bottom: 15px; /* Posiziona l'immagine in basso */
     left: 5px; /* Posiziona l'immagine a sinistra */
@@ -153,7 +223,7 @@ img {
     height: auto;
   }
   
-  .speech-bubble {
+  .question .speech-bubble {
     position: fixed;
     bottom: 17%; /* Posiziona sopra il personaggio */
     left: 22%; /* Allinea vicino al personaggio */
@@ -175,7 +245,7 @@ img {
     padding: 50px;
   }
   
-  .speech-bubble.show {
+  .question .speech-bubble.show {
     opacity: 1; /* Mostra il fumetto */
     transform: scale(1); /* Scala normale */
     transition: opacity 0.3s ease-in-out; /* Effetto di transizione */
@@ -197,20 +267,20 @@ img {
   
   /* Media query per schermi piccoli */
   @media (max-width: 768px) {
-    .title {
+    .question .title {
       font-size: 3rem;
     }
   
-    .story-panel {
+    .question .panel {
       width: 95%;
       aspect-ratio: 1 / 1;
     }
   
-    .story-text {
+    .question .story-text {
       font-size: 1.2rem;
     }
   
-    .story-image {
+    .question .story-image {
       max-width: 150px;
     }
   }

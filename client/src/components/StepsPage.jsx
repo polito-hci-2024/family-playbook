@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import '../CSS/StoryPage.css';
+import '../CSS/StepsPage.css';
 import API from '../API.mjs';
 
 function StepsPage({ stepId }) {
@@ -77,6 +77,7 @@ function StepsPage({ stepId }) {
   }, [panels.length]);
 
   return (
+    <div className="step">
     <div className="Introduction">
       <div className="story-background">
         <p className="title">{stepName || 'Loading...'}</p>
@@ -116,8 +117,9 @@ function StepsPage({ stepId }) {
           </>
         )}
       </div>
-    </div>
-  );
+      </div>
+      </div>
+    );
 }
 
 export default StepsPage;

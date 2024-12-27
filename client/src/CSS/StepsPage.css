@@ -1,4 +1,4 @@
-.page img {
+.step img {
   margin: 0; /* Rimuove tutti i margini */
   padding: 0; /* Rimuove tutti i padding */
   display: block; /* Impedisce l'allineamento in linea */
@@ -8,7 +8,7 @@
 }
 
 /* Contenitore principale */
-.page .Introduction {
+.step .Introduction {
   position: relative;
   width: 100%;
   min-height: 100vh; /* Occupa l'intera altezza della viewport */
@@ -27,7 +27,7 @@
 }
 
 /* Titolo fisso in cima */
-.page .title {
+.step .title {
   position: fixed; /* Fissa il titolo in cima */
   top: 0; /* Posiziona il titolo all'inizio della pagina */
   left: 50%; /* Centra orizzontalmente */
@@ -37,14 +37,14 @@
   font-weight: bold;
   text-align: center;
   font-family: 'Quintessential', sans-serif;
-  color: #080307;
+  color: #720B5B;
   padding: 10px 20px; /* Spaziatura interna */
   width: auto;
   margin-top: 100px; /* Aggiungi margine in alto per dare spazio all'inizio della pagina */
 }
 
 /* Pannelli della storia */
-.page .story-background {
+.step .story-background {
   width: 100%;
   height: auto; /* Altezza dinamica */
   padding-top: 250px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
@@ -55,7 +55,7 @@
 }
 
 /* Pannelli della storia */
-.page .story-panel {
+.step .story-panel {
   position: relative;
   padding-top: 0;
   width: 90%; /* Occupa il 90% della larghezza disponibile */
@@ -77,7 +77,7 @@
 }
 
 /* Testo */
-.page .story-text {
+.step .story-text {
   font-family: 'Serif', serif;
   font-size: 1.4rem;
   color: #000;
@@ -87,12 +87,12 @@
   align-items: center;
 }
 /* Aggiungere un margine sotto i pannelli per farli scomparire sotto il titolo */
-.page .story-panel:last-child {
+.step .story-panel:last-child {
   margin-bottom: 200px; /* Aggiungi un margine che fa scomparire il pannello quando scorre via */
 }
 
 /* Immagini */
-.page .story-image {
+.step .story-image {
   width: 100%;
   max-width: 200px;
   height: auto;
@@ -100,7 +100,7 @@
   align-items: center;
 }
 
-.page .arrow {
+.step .arrow {
   position: fixed;
   top: 50%;  /* Centra la freccia verticalmente */
   transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
@@ -110,11 +110,11 @@
   z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
 }
 
-.page .arrow-left {
+.step .arrow-left {
   left: 20px;  /* Posiziona la freccia sinistra a sinistra */
 }
 
-.page .arrow-right {
+.step .arrow-right {
   right: 20px;  /* Posiziona la freccia destra a destra */
 }
 
@@ -133,20 +133,20 @@
 
 /* Media query per schermi piccoli */
 @media (max-width: 768px) {
-  .page .title {
+  .step .title {
     font-size: 3rem;
   }
 
-  .page .story-panel {
+  .step .story-panel {
     width: 95%;
     aspect-ratio: 1 / 1;
   }
 
-  .page .story-text {
+  .step .story-text {
     font-size: 1.2rem;
   }
 
-  .page .story-image {
+  .step .story-image {
     max-width: 150px;
   }
 }

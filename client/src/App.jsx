@@ -10,6 +10,7 @@ import Activities from './components/Activities';
 import StartActivity from './components/StartActivity';
 import StepsPage from './components/StepsPage';
 import Question from './components/Question';
+import StoryPageMuseum from './components/StoryPageMuseum';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -43,7 +44,8 @@ function App() {
           <Route path="/question/2" element={<Question question_id={2}/>} />
           <Route path="/activities" element={<Activities/>}/>
           <Route path="/start-activity" element={<StartActivity/>}/>
-          <Route path="/story/:activityId/:storyId" element={<StoryPage />} />
+          <Route path="/storyNature/:activityId/:storyId" element={<StoryPage />} />
+          <Route path="/storyMuseum/:activityId/:storyId" element={<StoryPageMuseum />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       ) : (

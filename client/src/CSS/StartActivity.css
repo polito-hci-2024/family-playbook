@@ -1,14 +1,16 @@
-img {
-  margin: 0; /* Rimuove tutti i margini */
-  padding: 0; /* Rimuove tutti i padding */
-  display: block; /* Impedisce l'allineamento in linea */
+/* Reset */
+.start-activity img {
+  margin: 0; 
+  padding: 0; 
+  display: block; 
 }
-* {
+
+.start-activity * {
   box-sizing: border-box;
 }
 
 /* Contenitore principale */
-.Object {
+.start-activity .Introduction {
   position: relative;
   width: 100%;
   min-height: 100vh; /* Occupa l'intera altezza della viewport */
@@ -26,42 +28,42 @@ img {
   padding-top: 0; /* Rimuovi padding-top */
 }
 
-/* Pannelli della storia */
-.story-background {
+/* Background della storia */
+.start-activity .story-background {
   width: 100%;
-  height: auto; /* Altezza dinamica */
-  padding-top: 200px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
-  padding-bottom: 300px; /* Spazio inferiore per la fine dei pannelli */
+  height: auto;
+  padding-top: 200px;
+  padding-bottom: 300px;
   display: flex;
-  flex-direction: column; /* Dispone i pannelli verticalmente */
-  align-items: center; /* Centra orizzontalmente i pannelli */
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Pannelli della storia */
-.panel-start-activity {
+.start-activity .panel-start-activity {
   position: relative;
   padding-top: 0;
-  width: 90%; /* Occupa il 90% della larghezza disponibile */
-  max-width: 650px; /* Larghezza massima */
-  height: 600px; /* Altezza dinamica */
-  aspect-ratio: 5 / 4; /* Rende il pannello più compatto */
-  margin: 10px 0; /* Spazio tra i pannelli */
-  padding: 5px; /* Spazio interno */
-  background: rgba(255, 255, 255, 0.30); /* Sfondo semitrasparente */
-  border-radius: 25px; /* Bordi arrotondati */
+  width: 90%;
+  max-width: 650px;
+  height: 600px;
+  aspect-ratio: 5 / 4;
+  margin: 10px 0;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.30);
+  border-radius: 25px;
   box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centra il contenuto verticalmente */
+  justify-content: center;
   align-items: center;
   text-align: center;
-  box-sizing: border-box; /* Include padding nel calcolo delle dimensioni */
-  backdrop-filter: blur(5px); /* Effetto sfocatura sullo sfondo */
+  box-sizing: border-box;
+  backdrop-filter: blur(5px);
   overflow: hidden;
 }
 
 /* Testo */
-.story-text {
+.start-activity .story-text {
   font-family: 'Serif', serif;
   font-size: 1.4rem;
   color: #000;
@@ -71,71 +73,71 @@ img {
   align-items: center;
 }
 
-
 /* Immagini */
-.story-image-object {
+.start-activity .story-image-object {
   width: 100%;
   max-width: 400px;
   height: auto;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
   align-items: center;
 }
 
-.arrow {
+/* Frecce di navigazione */
+.start-activity .arrow {
   position: fixed;
-  top: 50%;  /* Centra la freccia verticalmente */
-  transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
   width: 50px;
   height: 50px;
-  z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
+  z-index: 1000;
 }
 
-.arrow-left {
-  left: 20px;  /* Posiziona la freccia sinistra a sinistra */
+.start-activity .arrow-left {
+  left: 20px;
 }
 
-.arrow-right {
-  right: 20px;  /* Posiziona la freccia destra a destra */
+.start-activity .arrow-right {
+  right: 20px;
 }
 
-
-
-.character-image {
+/* Immagini dei personaggi */
+.start-activity .character-image {
   position: fixed;
-  bottom: 15px; /* Posiziona l'immagine in basso */
-  left: 5px; /* Posiziona l'immagine a sinistra */
-  width: 300px; /* Larghezza dell'immagine */
+  bottom: 15px;
+  left: 5px;
+  width: 300px;
   height: auto;
 }
 
-.speech-bubble {
+/* Fumetti */
+.start-activity .speech-bubble {
   position: fixed;
-  bottom: 17%; /* Posiziona sopra il personaggio */
-  left: 22%; /* Allinea vicino al personaggio */
-  display: inline-block; /* Adatta al contenuto */
-  padding: 10px 20px; /* Spaziatura interna */
-  background-image: url('/img/pensie.png'); /* Sfondo immagine */
-  background-size: contain; /* Adatta l'immagine al contenitore */
-  background-repeat: no-repeat; /* Non ripetere l'immagine */
-  background-position: center; /* Centra l'immagine */
-  color: black; /* Colore del testo */
-  font-family: italic; /* Carattere giocoso */
-  font-size: 1.5rem; /* Dimensione del carattere */
-  text-align: center; /* Centra il testo */
-  z-index: 1001; /* Sopra altri elementi */
-  min-width: 150px; /* Larghezza minima */
-  max-width: 300px; /* Larghezza massima */
-  background-size: 100% 100%; /* Adatta l'immagine al contenitore */
-  word-wrap: break-word; /* Spezza il testo se troppo lungo */
+  bottom: 17%;
+  left: 22%;
+  display: inline-block;
+  padding: 10px 20px;
+  background-image: url('/img/pensie.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: black;
+  font-family: italic;
+  font-size: 1.5rem;
+  text-align: center;
+  z-index: 1001;
+  min-width: 150px;
+  max-width: 300px;
+  background-size: 100% 100%;
+  word-wrap: break-word;
   padding: 50px;
 }
 
-.speech-bubble.show {
-  opacity: 1; /* Mostra il fumetto */
-  transform: scale(1); /* Scala normale */
-  transition: opacity 0.3s ease-in-out; /* Effetto di transizione */
+.start-activity .speech-bubble.show {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s ease-in-out;
 }
 
 /* Animazioni */
@@ -152,27 +154,28 @@ img {
 
 /* Media query per schermi piccoli */
 @media (max-width: 768px) {
-  .title {
+  .start-activity .title {
     font-size: 3rem;
   }
 
-  .story-panel {
+  .start-activity .story-panel {
     width: 95%;
     aspect-ratio: 1 / 1;
   }
 
-  .story-text {
+  .start-activity .story-text {
     font-size: 1.2rem;
   }
 
-  .story-image {
+  .start-activity .story-image {
     max-width: 150px;
   }
 }
 
-.more-info-button {
-  background-color: #007bff; /* Colore del bottone */
-  color: white; /* Colore del testo */
+/* Bottone per ulteriori informazioni */
+.start-activity .more-info-button {
+  background-color: #007bff;
+  color: white;
   border: none;
   padding: 10px 20px;
   margin-top: 15px;
@@ -182,37 +185,38 @@ img {
   transition: background-color 0.3s;
 }
 
-.more-info-button:hover {
-  background-color: #0056b3; /* Colore quando il bottone viene hoverato */
+.start-activity .more-info-button:hover {
+  background-color: #0056b3;
 }
 
-.activity-info {
+/* Informazioni sull'attività */
+.start-activity .activity-info {
   margin-top: 15px;
   font-size: 1rem;
-  color: #333; /* Colore del testo informativo */
+  color: #333;
   background-color: #f8f9fa;
   padding: 10px;
   border-radius: 5px;
   text-transform: uppercase;
-
 }
 
-.activity-image {
-  width: 50%; /* Riduce la larghezza al 50% del pannello */
-  height: auto; /* Mantiene le proporzioni dell'immagine */
-  margin: 0 auto; /* Centra l'immagine */
-  display: block; /* Assicura che l'immagine sia un blocco per poterla centrare */
+/* Immagini dell'attività */
+.start-activity .activity-image {
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 /* Specifico per il secondo pannello */
-.panel-start-activity:nth-child(2) {
-  height: 200px; /* Imposta altezza fissa per il secondo pannello */
-  padding: 10px; /* Imposta padding per il secondo pannello */
+.start-activity .panel-start-activity:nth-child(2) {
+  height: 200px;
+  padding: 10px;
 }
 
-.activity-summary {
+.start-activity .activity-summary {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 20px; /* Distanza tra il testo e l'immagine */
-  text-align: center; /* Allinea il testo al centro */
+  margin-bottom: 20px;
+  text-align: center;
 }

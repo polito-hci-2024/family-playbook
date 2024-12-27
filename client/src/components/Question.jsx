@@ -85,6 +85,7 @@ function Question({ question_id }) {
   };
 
   return (
+    <div className="question">
     <div className="Introduction">
       <div className="story-background">
         {choices.length > 0 && (
@@ -171,8 +172,9 @@ function Question({ question_id }) {
           </Button>
         </Modal.Footer>
       </Modal>
+      </div>
     </div>
-  );
+    );
 }
 
 export default Question;

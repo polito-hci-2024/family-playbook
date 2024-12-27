@@ -27,6 +27,7 @@ function StartActivity() {
       id: 1,
       content: activityData ? (
         <>
+        <div className="start-activity">
           <h3 className="activity-summary">Summary of Your Adventure:</h3>
 
           <div className="activity-details">
@@ -50,6 +51,7 @@ function StartActivity() {
           <div className="activity-info-box">
             <h4><strong>Important Items to Bring:</strong></h4>
             <p>{activityData.info}</p>
+          </div>
           </div>
         </>
       ) : (
@@ -86,7 +88,8 @@ function StartActivity() {
   ];
 
   return (
-    <div className="Object">
+    <div className="start-activity">
+    <div className="Introduction">
       <div className="story-background">
         {panels.map((panel) => (
           <motion.div
@@ -107,30 +110,10 @@ function StartActivity() {
           className="arrow arrow-left"
           onClick={() => navigate(-1)} // Torna indietro
         />
-
-        {/* Nuvola con messaggio in basso a sinistra */}
-        <div className="bubble-container">
-          <motion.img
-            src="/img/lumi.jpg"
-            alt="Lumi"
-            className="lumi-image"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }} 
-          />
-          <motion.div
-            className="bubble-text"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.5 }} 
-          >
-            {activityData ? `How exciting! I wonder what awaits us at ${activityData.location}.` : "Loading..."}
-          </motion.div>
-        </div>
-        
       </div>
-    </div>
-  );
+      </div>
+      </div>
+    );
 }
 
 export default StartActivity;

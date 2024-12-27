@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import '../CSS/StoryPage.css';
+import '../CSS/StoryPageMuseum.css';
 import API from '../API.mjs';
 function StoryPage() {
   const navigate = useNavigate();
@@ -59,7 +59,7 @@ function StoryPage() {
   }, []);
 
   return (
-<div className="page">
+<div className="page-museum">
     <div className="Introduction">
       <div className="story-background">
         <p className="title">{storyName || 'Loading...'}</p>

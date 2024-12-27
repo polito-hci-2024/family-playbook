@@ -1,5 +1,5 @@
 /* Contenitore delle attività */
-.activity-container {
+.activity .activity-container {
   display: flex;
   flex-wrap: wrap; /* Le card andranno a capo se necessario */
   justify-content: center; /* Centra orizzontalmente le card */
@@ -13,7 +13,7 @@
 }
 
 /* Card dell'attività */
-.activity-card {
+.activity .activity-card {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,34 +34,34 @@
 }
 
 /* Immagine della card */
-.activity-card img {
+.activity .activity-card img {
   width: 100%; /* Immagine che riempie tutta la card */
   height: auto; /* Mantiene le proporzioni dell'immagine */
   border-radius: 4px;
 }
 
 /* Hover effect per la .activity-card */
-.activity-card:hover {
+.activity .activity-card:hover {
   transform: scale(1.05); /* Ingrandisce leggermente la card */
   box-shadow: 0 8px 16px rgba(114, 11, 91, 0.5); /* Ombra più intensa */
 }
 
 /* Testo della card */
-.activity-title, .activity-description {
+.activity .activity-title, .activity-description {
   text-align: center;
   margin-top: 10px;
 }
 
-.activity-title {
+.activity .activity-title {
   font-weight: bold;
 }
 
-.activity-description {
+.activity .activity-description {
   font-style: italic;
 }
 
 /* Pannelli della storia */
-.panel {
+.activity .panel {
   position: relative;
   padding-top: 0px;
   width: 90%; /* Occupa il 90% della larghezza disponibile */
@@ -84,14 +84,14 @@
 
 /* Responsività per schermi piccoli */
 @media (max-width: 768px) {
-  .story-panel {
+  .activity .story-panel {
     width: 95%; /* Occupa il 95% della larghezza disponibile su schermi più piccoli */
     min-height: 150px; /* Altezza minima per i dispositivi mobili */
   }
 }
 
 /* Contenitore che posiziona l'immagine e il fumetto */
-.bubble-container {
+.activity .bubble-container {
   position: fixed;
   bottom: 20px;  /* Posiziona la bolla vicino al fondo della pagina */
   left: 20px;  /* Posiziona la bolla a sinistra */
@@ -102,7 +102,7 @@
 }
 
 /* Immagine di Lumi */
-.lumi-image {
+.activity .lumi-image {
   width: 250px;
   height: 250px;
   border-radius: 50%; /* Rende l'immagine circolare */
@@ -110,7 +110,7 @@
 }
 
 /* Stile del fumetto a forma di nuvola */
-.bubble-text {
+.activity .bubble-text {
   position: relative;
   background-color: #fff;
   padding: 15px 20px;
@@ -125,4 +125,100 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.activity img {
+  margin: 0; /* Rimuove tutti i margini */
+  padding: 0; /* Rimuove tutti i padding */
+  display: block; /* Impedisce l'allineamento in linea */
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Contenitore principale */
+.activity .Introduction {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Occupa l'intera altezza della viewport */
+  display: flex;
+  flex-direction: column; /* Dispone i pannelli verticalmente */
+  align-items: center; /* Centra orizzontalmente */
+  background-image: url('/img/Untitled design.png'); /* Sfondo globale */
+  background-size: cover; /* Copri l'intero contenitore */
+  background-position: center;
+  background-attachment: fixed; /* Sfondo fisso durante lo scroll */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Evita lo scrolling orizzontale */
+  overflow-y: auto; /* Permette lo scrolling verticale */
+  padding-top: 0; /* Rimuovi padding-top */
+}
+
+
+
+/* Pannelli della storia */
+.activity .story-background {
+  width: 100%;
+  height: auto; /* Altezza dinamica */
+  padding-top: 250px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
+  padding-bottom: 20px; /* Spazio inferiore per la fine dei pannelli */
+  display: flex;
+  flex-direction: column; /* Dispone i pannelli verticalmente */
+  align-items: center; /* Centra orizzontalmente i pannelli */
+}
+
+
+
+
+
+.activity .arrow {
+  position: fixed;
+  top: 50%;  /* Centra la freccia verticalmente */
+  transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
+}
+
+.activity .arrow-left {
+  left: 20px;  /* Posiziona la freccia sinistra a sinistra */
+}
+
+.activity .arrow-right {
+  right: 20px;  /* Posiziona la freccia destra a destra */
+}
+
+
+/* Animazioni */
+@keyframes slideInFromCenter {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media query per schermi piccoli */
+@media (max-width: 768px) {
+  .activity .title {
+    font-size: 3rem;
+  }
+
+  .activity.story-panel {
+    width: 95%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .activity .story-text {
+    font-size: 1.2rem;
+  }
+
+  .activity .story-image {
+    max-width: 150px;
+  }
 }

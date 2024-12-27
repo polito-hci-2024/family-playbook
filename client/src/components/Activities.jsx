@@ -57,8 +57,9 @@ function Activities() {
   const handleCloseModal = () => setShowModal(false); // Chiude la modale
 
   return (
-    <div className="Introduction">
-      <div className="story-background">
+    <div className="activity">
+      <div className="Introduction">
+        <div className="story-background">
         {choices.length > 0 && (
           <motion.div
             className="panel"
@@ -138,8 +139,9 @@ function Activities() {
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>
-  );
+      </div>
+      </div>
+    );
 }
 
 export default Activities;
