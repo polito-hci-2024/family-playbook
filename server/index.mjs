@@ -1,6 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
-import {body, check, validationResult} from 'express-validator';
+import {getChallengesById} from "./dao.mjs";
 import cors from 'cors';
 
 // init express
@@ -18,6 +18,16 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 /* ROUTE */
+// - GET `/api/challenges`
+app.get('/api/challenges', async (req, res) => {
+
+  try {
+    const challenges = await getChallengesById();
+    res.status(200).json(challenges);
+  } catch {
+    res.status(500).end();
+  }
+});
 
 // avvio del server
 app.listen(port, () => {'API server started';
