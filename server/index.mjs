@@ -22,7 +22,7 @@ app.use(cors(corsOptions));
 app.get('/api/challenges', async (req, res) => {
 
   try {
-    const challenges = await getChallengesById();
+    const challenges = await getChallengesById(activity_id);
     res.status(200).json(challenges);
   } catch {
     res.status(500).end();

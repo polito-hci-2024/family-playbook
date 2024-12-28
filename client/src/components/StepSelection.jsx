@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import '../CSS/StepSelection.css';
 import '../CSS/UnexpectedEvents.css';
+import API from '../API.mjs'
 
 function StepSelection() {
   const navigate = useNavigate();
@@ -10,33 +11,32 @@ function StepSelection() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const containerRef = useRef(null);
   const [selectedIcon, setSelectedIcon] = useState(null); // Stato per tracciare l'icona selezionata
+  const [steps, setSteps] = useState([]); // Stato per i dati dinamici
+  const [loading, setLoading] = useState(true); // Stato per indicare il caricamento dei dati
+  const [error, setError] = useState(null); // Stato per eventuali errori
 
-  const steps = [
-    {
-      id: 1,
-      image: '/img/Step1.png',
-      title: 'Magical potion making',
-      description: 'Mix natural ingredients to create magical potions.',
-      route: '/magic-potion',
-      disabled: false,
-    },
-    {
-      id: 2,
-      image: '/img/Step2.png',
-      title: 'Fairy house building',
-      description: 'Use twigs and leaves to build charming houses for forest fairies.',
-      route: '/fairy-house',
-      disabled: true,
-    },
-    {
-      id: 3,
-      image: '/img/Step3.png',
-      title: 'Enchanted treasure hunt',
-      description: 'Follow clues and riddles to find hidden treasures in the park.',
-      route: '/treasure-hunt',
-      disabled: true,
-    },
-  ];
+  useEffect(() => {
+    const fetchChallenges = async () => {
+      try {
+        const challenges = await API.getChallengesById(1);
+        setSteps(
+          challenges.map((challenge) => ({
+            id: challenge.challenge_id,
+            image: challenge.image_url,
+            title: challenge.challenge_name,
+            description: challenge.challenge_description,
+            route: `/challenge/${challenge.challenge_id}`,
+          }))
+        );
+        setLoading(false);
+      } catch (err) {
+        setError('Failed to load challenges. Please try again later.');
+        setLoading(false);
+      }
+    };
+
+    fetchChallenges();
+  }, []);
 
   const handleStepClick = (Step) => {
     if (!steps.disabled) {
@@ -93,7 +93,13 @@ function StepSelection() {
     setIsPopupVisible(false); // Chiudi il pop-up dopo la selezione
   };
 
+  if (loading) {
+    return <div>Loading challenges...</div>;
+  }
 
+  if (error) {
+    return <div className="error">{error}</div>;
+  }
 
   return (
     <div className={`StepSelection ${isPopupVisible ? 'blurred' : ''}`} ref={containerRef}>
