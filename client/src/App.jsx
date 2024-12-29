@@ -5,7 +5,8 @@ import NotFound from './components/NotFound';
 import WelcomePage from './components/WelcomePage';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
-import StepSelection from './components/StepSelection';
+import StepSelectionEldora from './components/StepsEldora';
+import StepSelectionEgypt from './components/StepsEgypt';
 import MagicPotion from './components/MagicPotion';
 import Raining from './components/Raining';
 function App() {
@@ -36,9 +37,10 @@ function App() {
         <Routes>
           {/* Questa route è per la pagina OpeningPage senza NavHeader */}
           <Route path="/" element={<OpeningPage />} />
-          <Route path="/step-selection" element={<StepSelection />}/>
+          <Route path="/step-selection-eldora" element={<StepSelectionEldora activity_id={1} />}/>
           <Route path="/magic-potion" element={<MagicPotion />}/>
           <Route path="/raining" element={<Raining />}/>  
+          <Route path="/step-selection-egypt" element={<StepSelectionEgypt activity_id={2} />}/>
           
           {/* Wrapper per tutte le altre pagine, con il NavHeader */}
           

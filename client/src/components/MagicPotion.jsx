@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import '../CSS/StepSelection.css';
+import '../CSS/StepsEldora.css';
 
 function MagicPotion() {
   const navigate = useNavigate();

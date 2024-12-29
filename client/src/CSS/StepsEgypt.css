@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+ES+Deco+Guides&family=Quintessential&family=Schoolbell&display=swap');
+
+/* Stile per StepSelection */
+.StepSelectionEgypt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 100px;
+    padding-bottom: 10px;
+    background-image: url('/img/sfondo_egitto.png'); 
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  
+  .header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 50px;
+  }
+  
+  .titleEgypt {
+    font-family: 'Quintessential', sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+    color: #2A7A72;
+    text-shadow: 3px 3px 4px  #47cabd;
+  }
+  
+  .descriptionEgypt {
+    font-family: 'Josefin Sans' , serif;
+    font-size: 1.6rem;
+    color: #133430;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+  
+  .steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .StepEgypt-question {
+    font-family: 'Quintessential', sans-serif;
+    font-size: 2.4rem;
+    color: #2A7a72;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 3px  rgba(251, 236, 172, 0.944);
+  }
+  
+  .StepEgypt-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px #a64d24;
+    width: 280px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .StepEgypt-card:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
+  }
+  
+  .Step-image {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .StepEgypt-title {
+    font-family: 'Quintessential', sans-serif;
+    font-size: 1.7rem;
+    color: #19433e;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .StepEgypt-description {
+    font-family: 'Josefin Sans', serif;
+    font-size: 1.4rem;
+    color: #555;
+  } 
+
+  .arrow {
+    position: fixed;
+    top: 50%;  /* Centra la freccia verticalmente */
+    transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
+  }
+  
+  .arrow-left {
+    left: 20px;  /* Posiziona la freccia sinistra a sinistra */
+  }
+  
+  .arrow-right {
+    right: 20px;  /* Posiziona la freccia destra a destra */
+  }
+
+  .StepEgypt-card.disabled {
+    color: #7a7a7a; /* Testo grigio */
+    cursor: not-allowed; /* Cursore per non cliccabile */
+    pointer-events: none; /* Disabilita tutti gli eventi */
+  }
+  
+  /* Stile per l'immagine nelle card disabilitate */
+  .StepEgypt-card.disabled .Step-image {
+    filter: grayscale(100%);
+    opacity: 0.5;
+  }
+
+  .StepEgypt-card.disabled .StepEgypt-title {
+    color: #a9a9a9;
+  }
+  
+  .StepEgypt-card.disabled .StepEgypt-description {
+    color: #7a7a7a;
+  }
+
+ 

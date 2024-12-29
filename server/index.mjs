@@ -19,8 +19,8 @@ app.use(cors(corsOptions));
 
 /* ROUTE */
 // - GET `/api/challenges`
-app.get('/api/challenges', async (req, res) => {
-
+app.get('/api/challenges/:activity_id', async (req, res) => {
+  const activity_id = req.params.activity_id;
   try {
     const challenges = await getChallengesById(activity_id);
     res.status(200).json(challenges);

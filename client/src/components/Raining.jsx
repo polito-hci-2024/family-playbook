@@ -14,7 +14,7 @@ function Raining() {
       title: 'Exploring ancient Egypt',
       description: 'Uncover the secrets of the pharaohs and explore the timeless wonders of ancient Egypt through immersive activities.',
       image: '/img/egitto.png',
-      route: '/egitto',
+      route: '/step-selection-egypt',
       disabled: false,
     },
     {
