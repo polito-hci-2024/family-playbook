@@ -3,12 +3,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFound from './components/NotFound';
 import { Routes, Route } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
-import StoryPage from './components/Introduction';
-import Place from './components/Place';
+import StoryPage from './components/StoryPage';
+import Place from './components/Question';
 import Object from './components/Object';
 import WelcomePage from './components/WelcomePage';
 import FormCharacterPage from './components/FormCharacterPage'
 import './CSS/App.css';
+import Activities from './components/Activities';
+import StartActivity from './components/StartActivity';
+import StepsPage from './components/StepsPage';
+import Question from './components/Question';
+import StoryPageMuseum from './components/StoryPageMuseum';
+
 function App() {
   const [isTablet, setIsTablet] = useState(false);
 
@@ -35,8 +41,14 @@ function App() {
     <div>
       {isTablet ? (
         <Routes>
-          {/* Questa route è per la pagina OpeningPage senza NavHeader */}
           <Route path="/" element={<OpeningPage />} />
+          <Route path="/steps/1" element={<StepsPage stepId={1} />} />
+          <Route path="/question/1" element={<Question question_id={1} />} />
+          <Route path="/question/2" element={<Question question_id={2} />} />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/start-activity" element={<StartActivity />} />
+          <Route path="/storyNature/:activityId/:storyId" element={<StoryPage />} />
+          <Route path="/storyMuseum/:activityId/:storyId" element={<StoryPageMuseum />} />
           <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/form" element={<FormCharacterPage />} />
           <Route path="/introduction" element={<StoryPage />} />

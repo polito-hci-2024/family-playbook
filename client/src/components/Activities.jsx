@@ -1,30 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import '../CSS/Place2.css';
-import API from '../API'; // Assumo che l'API sia già definita
+import { Modal, Button } from 'react-bootstrap'; // Importa il Modal
+import '../CSS/Activities.css';
+import API from '../API';
 
 function Activities() {
   const navigate = useNavigate();
-  const [selectedChoice, setSelectedChoice] = useState(null); // Stato per la scelta dell'utente
-  const [choices, setChoices] = useState([]); // Stato per le scelte prese dal backend
+  const [selectedChoice, setSelectedChoice] = useState(null);
+  const [choices, setChoices] = useState([]);
+  const [showModal, setShowModal] = useState(false); // Stato per la modale
+  const [modalMessage, setModalMessage] = useState(''); // Messaggio della modale
 
   useEffect(() => {
     const fetchChoices = async () => {
       try {
-        const data = await API.getActivities(); // Recupera le scelte dal backend
-        console.log('Fetched choices:', data); // Log per verificare i dati
-
-        // Mappa i dati ricevuti dall'API al formato utilizzato nel componente
+        const data = await API.getActivities();
+        console.log('Fetched choices:', data);
         const mappedChoices = data.map((activity) => ({
           id: activity.activity_id,
           title: activity.activity_name,
           description: activity.description,
-          image: activity.image_url || '/img/place/default.jpg', // Usa l'immagine dal backend o un'immagine di default
+          image: activity.image_url || '/img/place/default.jpg',
           isChoice: true,
         }));
-        
-
         setChoices(mappedChoices);
       } catch (error) {
         console.error('Error fetching choices:', error);
@@ -37,7 +36,7 @@ function Activities() {
   const handleConfirm = async () => {
     if (selectedChoice) {
       try {
-        const response = await API.insertActivity(1, selectedChoice); // user_id hardcoded come 1
+        const response = await API.insertActivity(1, selectedChoice);
 
         if (!response) {
           throw new Error('Failed to confirm activity');
@@ -46,41 +45,48 @@ function Activities() {
         navigate('/start-activity', { state: { activity: response } });
       } catch (error) {
         console.error('Error confirming activity:', error);
-        alert('An error occurred while confirming the activity.');
+        setModalMessage('An error occurred while confirming the activity.'); // Imposta il messaggio
+        setShowModal(true); // Mostra la modale
       }
     } else {
-      alert('Please select an activity first.');
+      setModalMessage('Please select an activity first.'); // Imposta il messaggio
+      setShowModal(true); // Mostra la modale
     }
   };
 
+  const handleCloseModal = () => setShowModal(false); // Chiude la modale
+
   return (
-    <div className="Introduction">
-      <div className="story-background">
+    <div className="activity">
+      <div className="Introduction">
+        <div className="story-background">
         {choices.length > 0 && (
           <motion.div
-            className="story-panel"
+            className="panel"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="story-text">Seleziona un'attività:</p>
-            <div className="choice-container">
+            <p className="story-text">Which adventure do you want to take on?</p>
+            <div className="activity-container">
               {choices.map((choice) => (
                 <div
-                  className={`choice-card ${selectedChoice === choice.id ? 'selected' : ''}`}
                   key={choice.id}
+                  className={`activity-card ${selectedChoice === choice.id ? 'selected' : ''}`}
                   onClick={() => setSelectedChoice(choice.id)}
                 >
                   <img
                     src={choice.image}
-                    className="choice-image"
                     alt={choice.title}
+                    className="activity-image"
                   />
-                  <p className="choice-title">{choice.title}</p>
-                  <p className="choice-description">{choice.description}</p>
+                  <p className="activity-title">{choice.title}</p>
+                  <p className="activity-description">{choice.description}</p>
                 </div>
               ))}
+
             </div>
+              <p className="story-text"> </p>
           </motion.div>
         )}
 
@@ -89,7 +95,7 @@ function Activities() {
           src="/img/next.png"
           alt="Arrow Right"
           className="arrow arrow-right"
-          onClick={handleConfirm} // Conferma la scelta
+          onClick={handleConfirm}
         />
 
         {/* Freccia sinistra */}
@@ -99,9 +105,43 @@ function Activities() {
           className="arrow arrow-left"
           onClick={() => navigate(-1)} // Torna indietro
         />
+
+        {/* Nuvola con messaggio in basso a sinistra */}
+        <div className="bubble-container">
+          <motion.img
+            src="/img/lumi.jpg"
+            alt="Lumi"
+            className="lumi-image"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+          />
+          <motion.div
+            className="bubble-text"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.5 }}
+          >
+            What an adventure! I've discovered the perfect missions for you this weekend!
+          </motion.div>
+        </div>
       </div>
-    </div>
-  );
+
+      {/* Modale di errore o avviso */}
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Attention</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{modalMessage}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      </div>
+      </div>
+    );
 }
 
 export default Activities;
