@@ -1,22 +1,39 @@
-.background-component {
-    background-image: url('../../img/background_layout.jpg');
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
+.character-btn {
+    width: 120px;
+    height: 120px;
+    padding: 0;
+    margin-right: 10px;
+    /* Imposta il margine destro tra i bottoni */
+    border-radius: 50%;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    /* Centra orizzontalmente */
-    align-items: center;
-    /* Centra verticalmente */
+    border: 3px solid transparent;
+    transition: border-color 0.5s;
 }
 
-.form-panel {
-    background-color: rgba(255, 255, 255, 0.30);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
-    overflow-y: auto;
-    /* Scroll inside the panel */
-    max-width: 600px;
+.character-btn.selected {
+    background-color: rgba(114, 11, 91, 0.5);
+    border: 2px solid black;
+    color: white;
+}
+
+.btn-disabled {
+    opacity: 0.5;
+    color: var(--bs-btn-disabled-color);
+    background-color: var(--bs-btn-disabled-bg);
+    border-color: var(--bs-btn-disabled-border-color);
+    opacity: var(--bs-btn-disabled-opacity);
+}
+
+.character-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.button-style {
+    width: 100%;
+    font-family: 'Quintessential', sans-serif;
+    color: #ffffff;
+    font-size: xx-large;
+    background-color: #720B5B;
 }

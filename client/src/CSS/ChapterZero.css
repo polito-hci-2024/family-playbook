@@ -1,0 +1,53 @@
+.background-component {
+  background-image: url('../../img/background_layout.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.title {
+  /* Posiziona il titolo all'inizio della pagina */
+  left: 50%;
+  /* Centra esattamente */
+  z-index: 10;
+  /* Metti il titolo sopra agli altri elementi */
+  font-size: 5rem;
+  /* Titolo molto grande */
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Quintessential', sans-serif;
+  color: #720B5B;
+  padding: 10px 20px;
+  /* Spaziatura interna */
+  width: auto;
+  margin-top: 100px;
+  /* Aggiungi margine in alto per dare spazio all'inizio della pagina */
+  margin-bottom: 0;
+  /* Rimuovi il margine inferiore del titolo */
+}
+
+.lumi {
+  position: relative;
+  width: 280px;
+  /* Dimensione dell'immagine di Lumi */
+  z-index: 1;
+  margin-top: 120px;
+}
+
+.cloud {
+  position: relative;
+  left: -100px;
+  width: 400px;
+  margin-top: -160px;
+}
+
+.character-panel {
+  background-color: rgba(255, 255, 255, 0.30);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
+  max-height: 60vh;
+  overflow-y: auto;
+  margin: 20px;
+}

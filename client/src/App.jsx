@@ -4,10 +4,8 @@ import NotFound from './components/NotFound';
 import { Routes, Route } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
 import StoryPage from './components/StoryPage';
-import Place from './components/Question';
-import Object from './components/Object';
-import WelcomePage from './components/WelcomePage';
-import FormCharacterPage from './components/FormCharacterPage'
+import ChapterZero from './components/ChapterZero';
+import LastChapter from './components/LastChapter';
 import './CSS/App.css';
 import Activities from './components/Activities';
 import StartActivity from './components/StartActivity';
@@ -42,6 +40,7 @@ function App() {
       {isTablet ? (
         <Routes>
           <Route path="/" element={<OpeningPage />} />
+          <Route path="/chapter-zero" element={<ChapterZero />} />
           <Route path="/steps/1" element={<StepsPage stepId={1} />} />
           <Route path="/question/1" element={<Question question_id={1} />} />
           <Route path="/question/2" element={<Question question_id={2} />} />
@@ -49,11 +48,7 @@ function App() {
           <Route path="/start-activity" element={<StartActivity />} />
           <Route path="/storyNature/:activityId/:storyId" element={<StoryPage />} />
           <Route path="/storyMuseum/:activityId/:storyId" element={<StoryPageMuseum />} />
-          <Route path="/welcome" element={<WelcomePage />} />
-          <Route path="/form" element={<FormCharacterPage />} />
-          <Route path="/introduction" element={<StoryPage />} />
-          <Route path="/place" element={<Place />} />
-          <Route path="/object/*" element={<Object />} />
+          <Route path="/last-chapter" element={<LastChapter />} />
           <Route path="*" element={<NotFound />} />
 
         </Routes>
