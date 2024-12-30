@@ -5,47 +5,40 @@
     background-attachment: fixed; /* Fissa lo sfondo durante lo scroll */
     min-height: 100vh; /* Assicura che lo sfondo copra tutta l'altezza della finestra */
     display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .potion .potion-hunters {
     text-align: center;
+    align-items: center;
     padding: 10px 20px;
-    font-family: 'Arial', sans-serif;
+    font-family: Lato, sans-serif;
 }
 
 .potion .title {
     font-size: 5rem; /* Titolo molto grande */
     font-weight: bold;
     text-align: center;
-    margin-top: 170px;
+    margin-top: 150px;
     font-family: 'Quintessential', sans-serif;
     color: #720B5B;
 }
 
 .potion .intro {
-    font-size: 1.5rem;
-    margin-top: 30px;
+    font-size: 1.3rem;
+    margin: 30px auto 0; /* Centra orizzontalmente e mantiene il margine superiore */
     text-align: center;
     width: 80%;
 }
 
-.potion .ingredients-list-container {
-    width: 80%; /* Limita la larghezza del contenitore */
-    max-width: 1200px; /* Imposta una larghezza massima per evitare che diventi troppo largo su schermi molto grandi */
-    margin: 0 auto; /* Centra il contenitore */
-    align-items: center;
-  }
 /* Lista degli ingredienti */
 .potion .ingredients-list {
     display: flex;
-    flex-wrap: wrap; /* Permette di far andare le card su più righe */
-    justify-content: center; /* Centra le card orizzontalmente */
-    align-items: center; /* Centra le card verticalmente */
-    gap: 15px; /* Distanza tra le card */
-    margin-bottom: 30px;
-    width: 80%; /* Occupa tutta la larghezza disponibile */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 50px auto 30px;
+    width: 70%;
 }
 
 /* Stile per ogni card di ingrediente */
@@ -54,9 +47,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 150px; /* Aumenta la larghezza per rendere la card più grande */
-    height: 150px; /* Aumenta l'altezza per una card più grande */
-    padding: 15px;
+    width: 230px; /* Larghezza fissa */
+    height: 260px; /* Altezza fissa */
+    padding: 15px 0;
     border-radius: 8px;
     border: 1px solid #ddd;
     cursor: grab;
@@ -66,31 +59,32 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     word-wrap: break-word; /* Gestisce correttamente il testo lungo */
 }
-
-/* Responsività: 2 card per riga su dispositivi più grandi, 1 card su dispositivi mobili */
-@media (min-width: 768px) {
-    .potion .ingredients-list {
-        justify-content: center;
-    }
-
-    .potion .ingredient-card {
-        width: 220px; /* Aumenta la larghezza su schermi più grandi */
-        height: 220px; /* Aumenta l'altezza per dare più spazio alla card */
-    }
-}
-
-@media (min-width: 1024px) {
-    .potion .ingredient-card {
-        width: 240px; /* Dimensioni standard per schermi più larghi */
-        height: 240px;
-    }
+.potion .ingredient-card.disabled {
+    opacity: 0.5; /* Riduci l'opacità per mostrare che è disabilitata */
+    cursor: not-allowed; /* Cambia il cursore per indicare che non è possibile interagire */
+  }
+  
+/* Badge quantità */
+.potion .ingredient-card .ingredient-quantity-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #720B5B; /* Colore viola per richiamare il tema */
+    color: white; /* Testo bianco */
+    border-radius: 8px; /* Bordo arrotondato */
+    padding: 5px 10px; /* Spaziatura interna */
+    font-size: 1rem; /* Dimensione testo */
+    font-weight: bold; /* Testo in grassetto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Leggera ombra */
+    z-index: 1; /* Sopra gli altri elementi */
 }
 
 /* Immagine della card */
 .potion .ingredient-card img {
-    width: 100%; /* Immagine che riempie una porzione maggiore della card */
+    width: 70%; /* Immagine che riempie una porzione maggiore della card */
     height: auto; /* Mantiene le proporzioni dell'immagine */
     border-radius: 4px;
+    margin-top: 0px;
 }
 
 /* Effetto hover sulle card */
@@ -99,31 +93,21 @@
     box-shadow: 0 8px 16px rgba(114, 11, 91, 0.5); /* Ombra più intensa */
 }
 
-/* Centrare il testo dentro la card */
+/* Testo dentro la card */
 .potion .ingredient-card p {
     text-align: center;
     margin-top: 10px;
-}
-
-
-/* Immagine della card */
-.potion .ingredient-card img {
-    width: 110px; /* Immagine che riempie tutta la card */
-    height: auto; /* Mantiene le proporzioni dell'immagine */
-    border-radius: 4px;
-}
-
-.potion .ingredient-title {
-    text-align: center;
-    margin-top: 10px;
+    font-size: 1.5rem;
+    padding: 0;
+    font-style: Lato, sans-serif;
 }
 
 /* Stile per il calderone */
 .potion .cauldron {
-    width: 400px;
+    width: 500px;
     height: 400px;
     position: fixed; /* Fissa il calderone alla posizione desiderata */
-    bottom: 0px; /* Distanza dal bordo inferiore */
+    bottom: -180px; /* Distanza dal bordo inferiore */
     left: 50%; /* Centra il calderone orizzontalmente */
     transform: translateX(-50%); /* Allinea il calderone al centro */
     display: flex;
@@ -143,15 +127,26 @@
     left: 0;
     z-index: 0;
 }
+.potion .cauldron-ingredient {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+.potion .cauldron-ingredient img {
+    width: 30px; /* Riduci la dimensione dell'immagine per il calderone */
+    height: auto;
+  }
+  
 
 .potion .cauldron p {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #ffffff;
     font-weight: bold;
-    font: 2rem 'Arial', sans-serif;
+    font: 1.3rem 'Arial', sans-serif;
     z-index: 1;
 }
 
@@ -188,3 +183,4 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+
