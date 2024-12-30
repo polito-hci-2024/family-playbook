@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../CSS/Potion.css";
+import { useNavigate } from 'react-router-dom'; 
 
 const Potion = () => {
   const [cauldron, setCauldron] = useState([]); // Ingredienti nel calderone
@@ -10,6 +11,7 @@ const Potion = () => {
     { name: "2 legnetti", image: "../img/ingredients/daisy.jpeg" }
   ];
   const [showArrows, setShowArrows] = useState(true); // Variabile per mostrare le frecce
+  const navigate = useNavigate();
 
   const handleDrop = (event) => {
     event.preventDefault();
@@ -25,6 +27,10 @@ const Potion = () => {
 
   const handleDragStart = (event, ingredient) => {
     event.dataTransfer.setData("text/plain", ingredient);
+  };
+
+  const handleNavigateNext = () => {
+    navigate('/next-page');  // Sostituisci '/next-page' con il percorso desiderato
   };
 
   const isNextArrowActive = cauldron.length === ingredients.length;
@@ -84,14 +90,14 @@ const Potion = () => {
               src="/img/back.png"
               alt="Arrow Left"
               className="arrow arrow-left"
-              onClick={() => window.scrollBy({ top: -window.innerHeight, behavior: "smooth" })}
+              onClick={handleNavigateNext}
             />
             {/* Freccia destra: attiva solo se tutti gli ingredienti sono nel calderone */}
             <img
               src="/img/next.png"
               alt="Arrow Right"
               className={`arrow arrow-right ${isNextArrowActive ? "enabled" : "disabled"}`}
-              onClick={isNextArrowActive ? () => window.scrollBy({ top: window.innerHeight, behavior: "smooth" }) : undefined}
+              onClick={isNextArrowActive ? handleNavigateNext : null} 
             />
           </>
         )}
