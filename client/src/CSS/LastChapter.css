@@ -7,24 +7,17 @@
 }
 
 .title {
-    /* Posiziona il titolo all'inizio della pagina */
     left: 50%;
-    /* Centra esattamente */
     z-index: 10;
-    /* Metti il titolo sopra agli altri elementi */
     font-size: 5rem;
-    /* Titolo molto grande */
     font-weight: bold;
     text-align: center;
     font-family: 'Quintessential', sans-serif;
     color: #720B5B;
     padding: 10px 20px;
-    /* Spaziatura interna */
     width: auto;
     margin-top: 100px;
-    /* Aggiungi margine in alto per dare spazio all'inizio della pagina */
-    margin-bottom: 0;
-    /* Rimuovi il margine inferiore del titolo */
+    margin-bottom: 85px;
 }
 
 .title2 {
@@ -46,10 +39,12 @@
     text-align: left;
 }
 
-.button-style {
+.review-form-button {
     width: 50%;
-    font-family: 'Quintessential', sans-serif;
-    color: #ffffff;
     font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    font-size: x-large;
     background-color: #720B5B;
+    margin-bottom: 10px;
 }

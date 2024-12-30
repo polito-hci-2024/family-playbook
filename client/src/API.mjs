@@ -139,6 +139,19 @@ const getCharactersById = async () => {
   else
     throw new Error('Internal Server Error');
 }
-const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer, insertAnswer, getStepsById, getStoryById, getCharacters, getCharactersById };
+
+//Reviews
+const insertReviews = async (review_form) => {
+  const response = await fetch(`${SERVER_URL}/api/review`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(review_form),
+    credentials: 'include'
+  });
+
+  return response.json();
+}
+
+const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer, insertAnswer, getStepsById, getStoryById, getCharacters, getCharactersById, insertReviews };
 export default API;
 

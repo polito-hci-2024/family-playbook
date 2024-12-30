@@ -1,30 +1,60 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 
 
 import '../CSS/LastChapter.css';
+import API from '../API.mjs';
 
 
 
 function LastChapter() {
+    const [userName, setUserName] = useState('');
+    const [successMessage, setSuccessMessage] = useState(false);
     const [reviewForm, setReviewForm] = useState({
-        name: '',
         rating: '5',
         review: ''
     });
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Review submitted:', reviewForm);
-        // Qui puoi gestire l'invio del form (ad esempio, inviarlo a un server)
-        alert('Recensione inviata con successo!');
-        // Resetta il form dopo l'invio
+    // Imposta l'username quando il componente si monta
+    useEffect(() => {
+        setUserName(localStorage.getItem('userName') || '');
+    }, []);
+
+    // Questo useEffect si attiva quando il successo della recensione è impostato a true
+    useEffect(() => {
+        if (successMessage) {
+            const timer = setTimeout(() => navigate('/'), 5000); // Naviga dopo 5 secondi
+            return () => clearTimeout(timer); // Pulisce il timer quando il componente si smonta
+        }
+    }, [successMessage, navigate]);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
         setReviewForm({
-            name: '',
-            rating: '5',
-            review: ''
+            ...reviewForm,
+            [name]: value,
         });
+    };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await API.insertReviews(reviewForm);
+
+            // Mostra il messaggio di successo nel componente
+            setSuccessMessage(true);
+            // Resetta il form dopo l'invio
+            setReviewForm({
+                rating: '5',
+                review: ''
+            });
+
+        } catch (error) {
+            console.error('Errore durante l\'invio della recensione:', error);
+            alert('Errore durante l\'invio della recensione.');
+        }
     };
     return (
         <div className="background-component">
@@ -38,9 +68,10 @@ function LastChapter() {
                             as="select"
                             name="rating"
                             value={reviewForm.rating}
+                            onChange={handleChange}
                             required
                         >
-                            <option value="1">😑 - Poor</option>
+                            <option value="1">😢 - Poor</option>
                             <option value="2">😐 - Fair</option>
                             <option value="3">🙂 - Good</option>
                             <option value="4">😃 - Very Good</option>
@@ -57,12 +88,15 @@ function LastChapter() {
                             placeholder="Write your review here"
                             name="review"
                             value={reviewForm.review}
+                            onChange={handleChange}
                         />
                     </Form.Group>
-                    <Button className='button-style' type="submit">
+                    <Button className='review-form-button' type="submit" disabled={successMessage === true}>
                         Submit Review
                     </Button>
                 </Form>
+                {successMessage === true ? <Alert variant='success'>Review successfully sent!
+                    <Alert.Heading>Thank you {userName}! See you soon!</Alert.Heading></Alert> : ''}
             </Container>
         </div >
     );

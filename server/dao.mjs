@@ -1,109 +1,109 @@
 import { db } from './db.mjs';
 
 export const getActivities = () => {
-    return new Promise((resolve, reject) => {
-      const query = 'SELECT * FROM activities';
-  
-      db.all(query, [], (err, rows) => {
-        if (err) {
-          reject(err); 
-        } else if (rows.length === 0) {
-          resolve({ error: "No activities found." });
-        } else {
-          resolve(rows);
-        }
-      });
-    });
-  };
+  return new Promise((resolve, reject) => {
+    const query = 'SELECT * FROM activities';
 
-  export const insertActivity = (user_id, activity_id) => {
-    return new Promise((resolve, reject) => {      
-      // La query UPDATE per associare un activity_id a un user_id
-      const query = 'UPDATE choices SET activity_id = ? WHERE user_id = ?';
-    
-      db.run(query, [activity_id, user_id], function(err) {
-        if (err) {
-          console.log(err);
-          reject(err); // In caso di errore
-        } else if (this.changes === 0) {
-          // Se non è stata modificata nessuna riga, significa che non c'era nessun record con quel user_id
-          resolve({ error: "No matching user_id found to update" });
-        } else {
-          resolve({ success: true, changes: this.changes }); // Restituisce il numero di righe modificate
-        }
-      });
+    db.all(query, [], (err, rows) => {
+      if (err) {
+        reject(err);
+      } else if (rows.length === 0) {
+        resolve({ error: "No activities found." });
+      } else {
+        resolve(rows);
+      }
     });
-  };
-  
-  export const getLastChoice = () => {
-    return new Promise((resolve, reject) => {
-      const query = `
+  });
+};
+
+export const insertActivity = (user_id, activity_id) => {
+  return new Promise((resolve, reject) => {
+    // La query UPDATE per associare un activity_id a un user_id
+    const query = 'UPDATE choices SET activity_id = ? WHERE user_id = ?';
+
+    db.run(query, [activity_id, user_id], function (err) {
+      if (err) {
+        console.log(err);
+        reject(err); // In caso di errore
+      } else if (this.changes === 0) {
+        // Se non è stata modificata nessuna riga, significa che non c'era nessun record con quel user_id
+        resolve({ error: "No matching user_id found to update" });
+      } else {
+        resolve({ success: true, changes: this.changes }); // Restituisce il numero di righe modificate
+      }
+    });
+  });
+};
+
+export const getLastChoice = () => {
+  return new Promise((resolve, reject) => {
+    const query = `
   SELECT A.* 
   FROM activities A 
   INNER JOIN choices C ON A.activity_id = C.activity_id 
   ORDER BY C.ROWID DESC 
   LIMIT 1
 `;
-  
-      db.get(query, [], (err, row) => {
-        if (err) {          
-          reject(err); 
-        } else if (!row) { // Se non c'è nessun risultato
-          resolve({ error: "No activities found." });
-        } else {
-          console.log(row);
-          resolve(row); // Restituisci il singolo oggetto
-        }
-      });
+
+    db.get(query, [], (err, row) => {
+      if (err) {
+        reject(err);
+      } else if (!row) { // Se non c'è nessun risultato
+        resolve({ error: "No activities found." });
+      } else {
+        console.log(row);
+        resolve(row); // Restituisci il singolo oggetto
+      }
     });
-  };
-  
-  export const getUserName = () => {
-    return new Promise((resolve, reject) => {
-      const query = `
+  });
+};
+
+export const getUserName = () => {
+  return new Promise((resolve, reject) => {
+    const query = `
   SELECT name 
   FROM users
   ORDER BY user_id DESC 
   LIMIT 1
 `;
-  
-      db.get(query, [], (err, row) => {
-        if (err) {          
-          reject(err); 
-        } else if (!row) { // Se non c'è nessun risultato
-          resolve({ error: "No users found." });
-        } else {
-          console.log(row);
-          resolve(row); // Restituisci il singolo oggetto
-        }
-      });
+
+    db.get(query, [], (err, row) => {
+      if (err) {
+        reject(err);
+      } else if (!row) { // Se non c'è nessun risultato
+        resolve({ error: "No users found." });
+      } else {
+        console.log(row);
+        resolve(row); // Restituisci il singolo oggetto
+      }
     });
-  };
-  export const getLastUser = () => {
-    return new Promise((resolve, reject) => {
-      const query = `
+  });
+};
+export const getLastUser = () => {
+  return new Promise((resolve, reject) => {
+    const query = `
         SELECT user_id 
         FROM users
         ORDER BY user_id DESC 
         LIMIT 1
       `;
-    
-      db.get(query, [], (err, row) => {
-        if (err) {          
-          reject(err); 
-        } else if (!row) { // Se non c'è nessun risultato
-          resolve(null); // Nessun utente trovato, restituisce null
-        } else {
-          resolve(row.user_id); // Restituisce il solo ID dell'utente
-        }
-      });
-    });
-  };
-  
 
-  export const getQuestionAnswer = (question_id) => { 
-    return new Promise((resolve, reject) => {
-      const query = `
+    db.get(query, [], (err, row) => {
+      if (err) {
+        reject(err);
+      } else if (!row) { // Se non c'è nessun risultato
+        resolve(null); // Nessun utente trovato, restituisce null
+      } else {
+        resolve(row.user_id); // Restituisce il solo ID dell'utente
+      }
+    });
+  });
+};
+
+
+export const getQuestionAnswer = (question_id) => {
+  return new Promise((resolve, reject) => {
+    const query = `
         SELECT 
           q.question_id, 
           q.question,
@@ -127,105 +127,116 @@ export const getActivities = () => {
         LEFT JOIN answers a3 ON q.answer3_id = a3.answer_id
         WHERE q.question_id = ? 
       `;
-    
-      db.all(query, [question_id], (err, rows) => {
-        if (err) {
-          reject(err); 
-        } else if (rows.length === 0) {  // Se non ci sono risultati
-          resolve({ error: "No questions found." });
-        } else {
-          console.log(rows);
-          resolve(rows);  // Restituisce un array di oggetti
-        }
-      });
-    });
-  };
-  
-  export const insertAnswer = async (answer_id, answer_column) => {
-    try {
-      const user_id = await getLastUser(); // Ottieni l'ID dell'utente
-  
-      if (!user_id) {
-        throw new Error('No user found');
+
+    db.all(query, [question_id], (err, rows) => {
+      if (err) {
+        reject(err);
+      } else if (rows.length === 0) {  // Se non ci sono risultati
+        resolve({ error: "No questions found." });
+      } else {
+        console.log(rows);
+        resolve(rows);  // Restituisce un array di oggetti
       }
-  
-      // Prova a fare l'UPDATE
-      const updateQuery = `
+    });
+  });
+};
+
+export const insertAnswer = async (answer_id, answer_column) => {
+  try {
+    const user_id = await getLastUser(); // Ottieni l'ID dell'utente
+
+    if (!user_id) {
+      throw new Error('No user found');
+    }
+
+    // Prova a fare l'UPDATE
+    const updateQuery = `
         UPDATE user_answers
         SET ${answer_column}_id = ?
         WHERE user_id = ?
       `;
-      
-      // Esegui l'UPDATE
-      return new Promise((resolve, reject) => {
-        db.run(updateQuery, [answer_id, user_id], function (err) {
-          if (err) {
-            reject(err);
-          } else if (this.changes === 0) {
-            // Se l'UPDATE non ha fatto nulla (nessuna riga trovata), inserisci una nuova riga
-            const insertQuery = `
+
+    // Esegui l'UPDATE
+    return new Promise((resolve, reject) => {
+      db.run(updateQuery, [answer_id, user_id], function (err) {
+        if (err) {
+          reject(err);
+        } else if (this.changes === 0) {
+          // Se l'UPDATE non ha fatto nulla (nessuna riga trovata), inserisci una nuova riga
+          const insertQuery = `
               INSERT INTO user_answers (user_id, ${answer_column}_id)
               VALUES (?, ?)
             `;
-            db.run(insertQuery, [user_id, answer_id], function (err) {
-              if (err) {
-                reject(err);
-              } else {
-                resolve({ success: true, lastID: this.lastID });
-              }
-            });
-          } else {
-            // Se l'UPDATE ha avuto successo, risolvi
-            resolve({ success: true });
-          }
-        });
+          db.run(insertQuery, [user_id, answer_id], function (err) {
+            if (err) {
+              reject(err);
+            } else {
+              resolve({ success: true, lastID: this.lastID });
+            }
+          });
+        } else {
+          // Se l'UPDATE ha avuto successo, risolvi
+          resolve({ success: true });
+        }
       });
-    } catch (err) {
-      throw new Error(`Error inserting/updating answer: ${err.message}`);
-    }
-  };
-  
-  export const getStepsById = (step_id) => {
-    return new Promise((resolve, reject) => {
-      const query = `
+    });
+  } catch (err) {
+    throw new Error(`Error inserting/updating answer: ${err.message}`);
+  }
+};
+
+export const getStepsById = (step_id) => {
+  return new Promise((resolve, reject) => {
+    const query = `
         SELECT step_id, panel_number, step_name, description, image_url
         FROM steps
         WHERE step_id = ?
         ORDER BY panel_number ASC
       `;
-  
-      db.all(query, [step_id], (err, rows) => {
-        if (err) {
-          reject(err); // Gestione degli errori della query
-        } else if (rows.length === 0) {
-          resolve(null); // Nessun risultato trovato, restituisce null
-        } else {
-          resolve(rows); // Restituisce tutti i record trovati come array di oggetti
-        }
-      });
-    });
-  };
 
-  export const getStoryById = (activity_id, story_id) => {
-    return new Promise((resolve, reject) => {
-      const query = `
+    db.all(query, [step_id], (err, rows) => {
+      if (err) {
+        reject(err); // Gestione degli errori della query
+      } else if (rows.length === 0) {
+        resolve(null); // Nessun risultato trovato, restituisce null
+      } else {
+        resolve(rows); // Restituisce tutti i record trovati come array di oggetti
+      }
+    });
+  });
+};
+
+export const getStoryById = (activity_id, story_id) => {
+  return new Promise((resolve, reject) => {
+    const query = `
         SELECT *
         FROM story
         WHERE activity_id = ? AND story_id = ?
         ORDER BY panel_number ASC
       `;
-  
-      db.all(query, [activity_id, story_id], (err, rows) => {
-        if (err) {
-          reject(err); // Gestione degli errori della query
-        } else if (rows.length === 0) {
-          resolve(null); // Nessun risultato trovato, restituisce null
-        } else {
-          resolve(rows); // Restituisce tutti i record trovati come array di oggetti
-        }
-      });
+
+    db.all(query, [activity_id, story_id], (err, rows) => {
+      if (err) {
+        reject(err); // Gestione degli errori della query
+      } else if (rows.length === 0) {
+        resolve(null); // Nessun risultato trovato, restituisce null
+      } else {
+        resolve(rows); // Restituisce tutti i record trovati come array di oggetti
+      }
     });
-  };
-    
-  
-  
+  });
+};
+
+export const insertReviews = (review_form) => {
+  return new Promise((resolve, reject) => {
+    const query = 'INSERT INTO reviews (rating, review) VALUES (?, ?)';
+    db.run(query, [review_form.rating, review_form.review], function (err) {
+      if (err)
+        reject(err);
+      else
+        resolve(this.lastID);
+    });
+  })
+};
+
+

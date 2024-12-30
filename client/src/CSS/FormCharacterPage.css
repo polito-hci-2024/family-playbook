@@ -30,10 +30,18 @@
     object-fit: cover;
 }
 
-.button-style {
-    width: 100%;
-    font-family: 'Quintessential', sans-serif;
-    color: #ffffff;
-    font-size: xx-large;
+.character-form-button {
+    width: 50%;
+    font-size: large;
+    color: white;
+    font-size: x-large;
     background-color: #720B5B;
+    border-color: #000000;
+    border-width: 2.5px;
+    transition: background-color 0.3s ease;
+    --bs-btn-hover-bg: #720B5B;
+    --bs-btn-hover-border-color: #720B5B;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-active-bg: #720B5B;
 }

@@ -1,6 +1,5 @@
 /* Data Access Object (DAO) module for accessing characters */
-
-import { Character } from "../client/src/data.mjs";
+import { db } from './db.mjs';
 
 /**GET ALL CHARACTERS */
 export const getCharacters = () => {
@@ -10,7 +9,7 @@ export const getCharacters = () => {
             if (err)
                 reject(err);
             else {
-                const characters_array = rows.map((c) => ({ character_id: c.character_id, name: c.name, theme: c.theme }));
+                const characters_array = rows.map((c) => ({ character_id: c.character_id, name: c.name, theme: c.theme, image_url: c.image_url }));
                 resolve(characters_array);
             }
         })
@@ -27,7 +26,7 @@ export const getCharactersById = (id) => {
             else if (row === undefined)
                 resolve({ error: "Character not available, check the inserted id." });
             else {
-                resolve(new Character(row.character_id, row.name, row.theme));
+                resolve(new Character(row.character_id, row.name, row.theme, row.image_url));
             }
         })
     })
