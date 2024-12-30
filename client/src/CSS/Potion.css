@@ -1,0 +1,190 @@
+.potion {
+    background-image: url('../img/Untitled design.png'); /* Percorso dell'immagine di sfondo */
+    background-size: cover; /* Copre l'intera pagina senza deformare l'immagine */
+    background-position: center center; /* Centra l'immagine */
+    background-attachment: fixed; /* Fissa lo sfondo durante lo scroll */
+    min-height: 100vh; /* Assicura che lo sfondo copra tutta l'altezza della finestra */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.potion .potion-hunters {
+    text-align: center;
+    padding: 10px 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.potion .title {
+    font-size: 5rem; /* Titolo molto grande */
+    font-weight: bold;
+    text-align: center;
+    margin-top: 170px;
+    font-family: 'Quintessential', sans-serif;
+    color: #720B5B;
+}
+
+.potion .intro {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    text-align: center;
+    width: 80%;
+}
+
+.potion .ingredients-list-container {
+    width: 80%; /* Limita la larghezza del contenitore */
+    max-width: 1200px; /* Imposta una larghezza massima per evitare che diventi troppo largo su schermi molto grandi */
+    margin: 0 auto; /* Centra il contenitore */
+    align-items: center;
+  }
+/* Lista degli ingredienti */
+.potion .ingredients-list {
+    display: flex;
+    flex-wrap: wrap; /* Permette di far andare le card su più righe */
+    justify-content: center; /* Centra le card orizzontalmente */
+    align-items: center; /* Centra le card verticalmente */
+    gap: 15px; /* Distanza tra le card */
+    margin-bottom: 30px;
+    width: 80%; /* Occupa tutta la larghezza disponibile */
+}
+
+/* Stile per ogni card di ingrediente */
+.potion .ingredient-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 150px; /* Aumenta la larghezza per rendere la card più grande */
+    height: 150px; /* Aumenta l'altezza per una card più grande */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    cursor: grab;
+    position: relative;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.7); /* Sfondo leggermente trasparente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    word-wrap: break-word; /* Gestisce correttamente il testo lungo */
+}
+
+/* Responsività: 2 card per riga su dispositivi più grandi, 1 card su dispositivi mobili */
+@media (min-width: 768px) {
+    .potion .ingredients-list {
+        justify-content: center;
+    }
+
+    .potion .ingredient-card {
+        width: 220px; /* Aumenta la larghezza su schermi più grandi */
+        height: 220px; /* Aumenta l'altezza per dare più spazio alla card */
+    }
+}
+
+@media (min-width: 1024px) {
+    .potion .ingredient-card {
+        width: 240px; /* Dimensioni standard per schermi più larghi */
+        height: 240px;
+    }
+}
+
+/* Immagine della card */
+.potion .ingredient-card img {
+    width: 100%; /* Immagine che riempie una porzione maggiore della card */
+    height: auto; /* Mantiene le proporzioni dell'immagine */
+    border-radius: 4px;
+}
+
+/* Effetto hover sulle card */
+.potion .ingredient-card:hover {
+    transform: scale(1.05); /* Ingrandisce leggermente la card */
+    box-shadow: 0 8px 16px rgba(114, 11, 91, 0.5); /* Ombra più intensa */
+}
+
+/* Centrare il testo dentro la card */
+.potion .ingredient-card p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+/* Immagine della card */
+.potion .ingredient-card img {
+    width: 110px; /* Immagine che riempie tutta la card */
+    height: auto; /* Mantiene le proporzioni dell'immagine */
+    border-radius: 4px;
+}
+
+.potion .ingredient-title {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Stile per il calderone */
+.potion .cauldron {
+    width: 400px;
+    height: 400px;
+    position: fixed; /* Fissa il calderone alla posizione desiderata */
+    bottom: 0px; /* Distanza dal bordo inferiore */
+    left: 50%; /* Centra il calderone orizzontalmente */
+    transform: translateX(-50%); /* Allinea il calderone al centro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+    z-index: 10; /* Assicurati che il calderone sia sopra altri elementi */
+}
+
+.potion .cauldron-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Mantiene l'immagine proporzionata senza deformarla */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.potion .cauldron p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-weight: bold;
+    font: 2rem 'Arial', sans-serif;
+    z-index: 1;
+}
+
+/* Stile per le frecce di navigazione */
+.potion .arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    color: #6b4a3c;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.potion .arrow-left {
+    left: 20px; /* Posizione della freccia sinistra */
+}
+
+.potion .arrow-right {
+    right: 20px; /* Posizione della freccia destra */
+}
+
+.potion .arrow.enabled:hover {
+    background-color: #e0d9c6; /* Cambia colore quando hover */
+}
+
+.potion .arrow.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

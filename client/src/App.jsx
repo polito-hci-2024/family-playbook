@@ -11,6 +11,7 @@ import StartActivity from './components/StartActivity';
 import StepsPage from './components/StepsPage';
 import Question from './components/Question';
 import StoryPageMuseum from './components/StoryPageMuseum';
+import Potion from './components/Potion';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -45,6 +46,7 @@ function App() {
           <Route path="/activities" element={<Activities/>}/>
           <Route path="/start-activity" element={<StartActivity/>}/>
           <Route path="/storyNature/:activityId/:storyId" element={<StoryPage />} />
+          <Route path="/potion" element={<Potion/>} />
           <Route path="/storyMuseum/:activityId/:storyId" element={<StoryPageMuseum />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
