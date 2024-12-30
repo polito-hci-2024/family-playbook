@@ -1,0 +1,50 @@
+.background-component {
+    background-image: url('../../img/background_layout.jpg');
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.title {
+    left: 50%;
+    z-index: 10;
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Quintessential', sans-serif;
+    color: #720B5B;
+    padding: 10px 20px;
+    width: auto;
+    margin-top: 100px;
+    margin-bottom: 85px;
+}
+
+.title2 {
+    left: 50%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: left;
+    font-family: 'Quintessential', sans-serif;
+    color: #720B5B;
+    padding: 10px;
+    width: auto;
+}
+
+.title3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.6rem;
+    color: #000;
+    margin: 10px;
+    text-align: left;
+}
+
+.review-form-button {
+    width: 50%;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    font-size: x-large;
+    background-color: #720B5B;
+    margin-bottom: 10px;
+}

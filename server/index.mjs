@@ -1,7 +1,8 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import { getActivities, getLastChoice, getQuestionAnswer, getStepsById, getUserName, insertActivity, insertAnswer, getStoryById } from './dao.mjs';
+import { getActivities, getLastChoice, getQuestionAnswer, getStepsById, getUserName, insertActivity, insertAnswer, getStoryById, insertReviews } from './dao.mjs';
+import { getCharacters } from './character-dao.mjs';
 
 // init express
 const app = express();
@@ -132,6 +133,37 @@ app.get('/api/story/:activity_id/:story_id', async (req, res) => { // Usa :step_
   }
 });
 
+/*CHARACTERS*/
+
+// - GET `/api/characters`
+app.get('/api/characters', async (req, res) => {
+
+  try {
+    const characters_array = await getCharacters();
+    if (characters_array.error)
+      res.status(404).json(characters_array)
+    else
+      res.status(200).json(characters_array);
+  } catch {
+    res.status(500).end();
+  }
+});
+
+/*REVIEWS*/
+
+app.post('/api/review', async (req, res) => {
+  const review_form = req.body; // Prendi i parametri dalla richiesta
+
+  try {
+    const result = await insertReviews(review_form);
+    res.status(200).json(result);
+  } catch (error) {
+    console.error('Error inserting review:', error);
+    res.status(500).send('Internal server error');
+  }
+});
+
 // avvio del server
-app.listen(port, () => {'API server started';
+app.listen(port, () => {
+  'API server started';
 });

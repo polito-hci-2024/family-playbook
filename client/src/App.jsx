@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFound from './components/NotFound';
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
 import StoryPage from './components/StoryPage';
-import Place from './components/Question';
+import ChapterZero from './components/ChapterZero';
+import LastChapter from './components/LastChapter';
 import './CSS/App.css';
 import Activities from './components/Activities';
 import StartActivity from './components/StartActivity';
@@ -40,15 +41,18 @@ function App() {
       {isTablet ? (
         <Routes>
           <Route path="/" element={<OpeningPage />} />
+          <Route path="/chapter-zero" element={<ChapterZero />} />
           <Route path="/steps/1" element={<StepsPage stepId={1} />} />
-          <Route path="/question/1" element={<Question question_id={1}/>} />
-          <Route path="/question/2" element={<Question question_id={2}/>} />
-          <Route path="/activities" element={<Activities/>}/>
-          <Route path="/start-activity" element={<StartActivity/>}/>
+          <Route path="/question/1" element={<Question question_id={1} />} />
+          <Route path="/question/2" element={<Question question_id={2} />} />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/start-activity" element={<StartActivity />} />
           <Route path="/storyNature/:activityId/:storyId" element={<StoryPage />} />
           <Route path="/potion" element={<Potion/>} />
           <Route path="/storyMuseum/:activityId/:storyId" element={<StoryPageMuseum />} />
+          <Route path="/last-chapter" element={<LastChapter />} />
           <Route path="*" element={<NotFound />} />
+
         </Routes>
       ) : (
         <div className="rotate-message">

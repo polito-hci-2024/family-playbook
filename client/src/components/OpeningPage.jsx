@@ -8,20 +8,20 @@ function OpeningPage() {
 
   const handleStartClick = () => {
     // Quando il bottone viene cliccato, naviga alla pagina successiva (ad esempio /welcome)
-    navigate('/configuration');
+    navigate('/welcome');
   };
 
   return (
     <div className="opening-page">
-      <Image 
-        src="/img/sfondo_apertura_app.jpg"  // Percorso corretto
-        alt="Opening Background" 
-        fluid 
+      <Image
+        src="/img/sfondo_apertura_app.jpg"  // Percorso corretto */
+        alt="Opening Background"
+        fluid
         className="full-screen-image"  // Usa la stessa classe definita nel CSS
       />
-      <Button 
-        variant="primary" 
-        onClick={handleStartClick} 
+      <Button
+        variant="primary"
+        onClick={handleStartClick}
         className="start-button"
       >
         START
