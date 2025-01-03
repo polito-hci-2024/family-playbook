@@ -93,12 +93,13 @@ function Raining() {
       </div>
 
       {/* Freccia sinistra sempre visibile */}
+      {/* 
         <img
         src="/img/back.png" 
         alt="Arrow Left"
         className="arrow arrow-left"
         onClick={() => window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' })}
-      />
+      /> */}
 
         {/* Freccia destra visibile solo dopo una scelta */}
         {selectedCard && (

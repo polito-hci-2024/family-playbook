@@ -51,6 +51,10 @@ function StepSelectionEldora() {
     }
   };
 
+  {/*const handleNavigateBack = () => {
+    navigate(/activities)
+  };*/}
+
   const togglePopup = () => {
     setIsPopupVisible(!isPopupVisible);
   };
@@ -190,7 +194,7 @@ function StepSelectionEldora() {
         src="/img/back.png" 
         alt="Arrow Left"
         className="arrow arrow-left"
-        onClick={() => window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' })}
+        onClick={handleNavigateBack}
       />
       )}
 

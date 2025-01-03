@@ -51,6 +51,10 @@ function StepSelectionEgypt() {
     }
   };
 
+  const handleNavigateBack = () => {
+    navigate("/raining");
+  }
+
   const togglePopup = () => {
     setIsPopupVisible(!isPopupVisible);
   };
@@ -189,7 +193,7 @@ function StepSelectionEgypt() {
         src="/img/back.png" 
         alt="Arrow Left"
         className="arrow arrow-left"
-        onClick={() => window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' })}
+        onClick={handleNavigateBack}
       />
       )}
 
