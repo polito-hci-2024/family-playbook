@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
 import NotFound from './components/NotFound';
 import { Routes, Route } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
@@ -14,6 +15,10 @@ import Question from './components/Question';
 import StoryPageMuseum from './components/StoryPageMuseum';
 import Potion from './components/Potion';
 
+import StepSelectionEldora from './components/StepsEldora';
+import StepSelectionEgypt from './components/StepsEgypt';
+import MagicPotion from './components/MagicPotion';
+import Raining from './components/Raining';
 function App() {
   const [isTablet, setIsTablet] = useState(false);
 
@@ -53,6 +58,17 @@ function App() {
           <Route path="/last-chapter" element={<LastChapter />} />
           <Route path="*" element={<NotFound />} />
 
+          <Route path="/step-selection-eldora" element={<StepSelectionEldora activity_id={1} />}/>
+          <Route path="/magic-potion" element={<MagicPotion />}/>
+          <Route path="/raining" element={<Raining />}/>  
+          <Route path="/step-selection-egypt" element={<StepSelectionEgypt activity_id={2} />}/>
+          
+          {/* Wrapper per tutte le altre pagine, con il NavHeader */}
+          
+
+            {/* Pagina non trovata */}
+            <Route path="*" element={<NotFound />} />
+          
         </Routes>
       ) : (
         <div className="rotate-message">

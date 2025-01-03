@@ -1,0 +1,108 @@
+/* Stile per la pagina Raining */
+.Raining {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: url('/img/sfondo_ufficiale.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  
+  .header {
+    margin-bottom: 40px;
+  }
+  
+  .title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #720B5B;
+  }
+  
+  .description {
+    font-size: 1.7rem;
+    font-family: 'Josefin Sans', serif;
+    color: #4a0432fd;
+    margin-top: 10px;
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
+    width: 250px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .card-title {
+    font-size: 2rem;
+    font-family: 'Quintessential', sans-serif;
+    font-weight: bold;
+    color: #720B5B;
+  }
+  
+  .card-description {
+    font-size: 1.4rem;
+    color: #555;
+  }
+  
+  .next-button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 1.6rem;
+    background-color: #0277bd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .next-button:hover {
+    background-color: #01579b;
+  }
+
+  .card.disabled {
+    color: #7a7a7a; /* Testo grigio */
+    cursor: not-allowed; /* Cursore per non cliccabile */
+    pointer-events: none; /* Disabilita tutti gli eventi */
+  }
+  
+  /* Stile per l'immagine nelle card disabilitate */
+  .card.disabled .card-image {
+    filter: grayscale(100%);
+    opacity: 0.5;
+  }
+
+  .card.disabled .card-title {
+    color: #a9a9a9;
+  }
+  
+  .card.disabled .card-description {
+    color: #7a7a7a;
+  }

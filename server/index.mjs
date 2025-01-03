@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import { getActivities, getLastChoice, getQuestionAnswer, getStepsById, getUserName, insertActivity, insertAnswer, getStoryById, insertReviews, insertUser } from './dao.mjs';
+import { getActivities, getLastChoice, getQuestionAnswer, getStepsById, getUserName, insertActivity, insertAnswer, getStoryById, insertReviews, insertUser, getChallengesById } from './dao.mjs';
 import { getCharacters } from './character-dao.mjs';
 
 // init express
@@ -177,6 +177,17 @@ app.post('/api/user', async (req, res) => {
   } catch (error) {
     console.error('Error inserting user:', error);
     res.status(500).send('Internal server error');
+  }
+});
+
+// - GET `/api/challenges`
+app.get('/api/challenges/:activity_id', async (req, res) => {
+  const activity_id = req.params.activity_id;
+  try {
+    const challenges = await getChallengesById(activity_id);
+    res.status(200).json(challenges);
+  } catch {
+    res.status(500).end();
   }
 });
 
