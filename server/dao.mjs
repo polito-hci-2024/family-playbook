@@ -239,4 +239,19 @@ export const insertReviews = (review_form) => {
   })
 };
 
+export const insertUser = (user) => {
+  return new Promise((resolve, reject) => {
+    const query = `
+      INSERT INTO users (name, age, character_id)
+      VALUES (?, ?, ?)
+    `;
+    db.run(query, [user.name, user.age, user.character_id], function (err) {
+      if (err) {
+        reject(err); // Gestione errore
+      } else {
+        resolve(this.lastID); // Restituisce l'ID dell'utente inserito
+      }
+    });
+  });
+};
 

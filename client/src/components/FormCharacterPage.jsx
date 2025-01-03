@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import API from '../API';
+import API from '../API'; // Importa la tua API
 import { Container, Form, Button, Row, Col, Image, Alert } from 'react-bootstrap';
 
 import '../CSS/FormCharacterPage.css';
@@ -18,44 +18,60 @@ function FormCharacterPage() {
         fetchCharacters();
     }, []);
 
-
     const fetchCharacters = async () => {
         try {
             const characters_array = await API.getCharacters();
             setCharactersArray(characters_array);
-
         } catch (err) {
-            setError('Error');
+            console.error('Error fetching characters:', err);
         }
-    }
+    };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();  // Prevenire il comportamento di submit predefinito del form
         setShowError(false);
         const form = e.currentTarget;
+    
         if (form.checkValidity() === false || characterId === 0) {
-            e.preventDefault();
             e.stopPropagation();
             if (characterId === 0) setShowError(true);
         } else {
-            // Se il form è valido, naviga alla pagina successiva
-            localStorage.setItem('characterId', characterId);
-            localStorage.setItem('userName', name);
-            localStorage.setItem('userAgeRange', ageRange);
-            navigate('/question/1');
+            // Se il form è valido, chiama l'API per inserire l'utente
+            try {
+                const user = {
+                    name: name,
+                    age: ageRange, // Usa il range di età come valore numerico se necessario
+                    character_id: characterId,
+                };
+    
+                const userId = await API.insertUser(user); // Chiamata API per inserire l'utente
+    
+                // Salva l'ID dell'utente e altri dati nel localStorage
+                localStorage.setItem('userId', userId);
+                localStorage.setItem('characterId', characterId);
+                localStorage.setItem('userName', name);
+                localStorage.setItem('userAgeRange', ageRange);
+    
+                // Naviga alla pagina successiva
+                navigate('/question/1');
+            } catch (error) {
+                console.error('Error inserting user:', error);
+                setShowError(true); // Mostra un messaggio di errore se qualcosa va storto
+            }
         }
         setValidated(true); // Imposta lo stato validato dopo la sottomissione
     };
+    
 
     const selectCharacter = (id) => {
         setShowError(false);
         setCharacterId(id);
-    }
+    };
 
     return (
         <Container>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
-
                     <Row>
                         {charactersArray.map((character) => (
                             <Col key={character.character_id} className="text-center col-sm-4">
@@ -69,7 +85,7 @@ function FormCharacterPage() {
                             </Col>
                         ))}
                     </Row>
-                    <Alert variant='danger' className={showError ? '' : 'd-none'}>
+                    <Alert variant="danger" className={showError ? '' : 'd-none'}>
                         Please select a character!
                     </Alert>
                 </Form.Group>

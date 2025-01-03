@@ -152,6 +152,24 @@ const insertReviews = async (review_form) => {
   return response.json();
 }
 
-const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer, insertAnswer, getStepsById, getStoryById, getCharacters, getCharactersById, insertReviews };
+const insertUser = async (user) => {
+  const response = await fetch(`${SERVER_URL}/api/user`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(user),
+    credentials: 'include', // Include cookie/session se necessario
+  });
+
+  if (!response.ok) {
+    // Gestione errori
+    const error = await response.text();
+    throw new Error(`Error inserting user: ${error}`);
+  }
+
+  return response.json(); // Restituisce l'ID dell'utente creato
+};
+
+
+const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer, insertAnswer, getStepsById, getStoryById, getCharacters, getCharactersById, insertReviews, insertUser };
 export default API;
 

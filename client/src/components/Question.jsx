@@ -13,11 +13,13 @@ function Question({ question_id }) {
   const [showModal, setShowModal] = useState(false); // Stato per la modale
   const [modalMessage, setModalMessage] = useState(''); // Messaggio della modale
   const [userName, setUserName] = useState(''); // Stato per il nome utente
+  const [userId, setUserId] = useState(''); // Stato per il nome utente
 
   useEffect(() => {
     const fetchChoices = async () => {
       try {
-        const name = await API.getUserName();
+        const name = localStorage.getItem('userName');
+        const userId = localStorage.getItem('userId');
         const data = await API.getQuestionAnswer(questionId);
         const mappedChoices = data.map((questionAnswer) => ({
           id: questionAnswer.questionId,
@@ -47,6 +49,7 @@ function Question({ question_id }) {
         }));
         setChoices(mappedChoices);
         setUserName(name);
+        setUserId(userId);
       } catch (error) {
         console.error('Error fetching choices:', error);
       }
@@ -112,7 +115,8 @@ function Question({ question_id }) {
               transition={{ duration: 0.8 }}
             >
               {/* Titolo della domanda */}
-              <p className="story-text">{choices[0].title + ' Qui compare il nome: ' + (userName?.name || 'Nome non disponibile')}</p>
+              <p className="story-text">{choices[0].title + ' Qui compare il nome: ' + (userName || 'Nome non disponibile')}</p>
+              <p className="story-text">{choices[0].title + ' Qui compare id: ' + (userId || 'Nome non disponibile')}</p>
 
               <div className="activity-container">
                 {/* Card per ogni risposta valida */}
