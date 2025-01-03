@@ -65,7 +65,10 @@ function Question({ question_id }) {
         }
 
         // Naviga allo step successivo
-        navigate(`/question/2`); // Vai alla prossima domanda
+        if(questionId === 1)
+        {navigate(`/question/2`);} // Vai alla prossima domanda
+        else {
+          navigate(`/activities`); }
       } catch (error) {
         console.error('Error confirming answer:', error);
         setModalMessage('An error occurred while confirming the answer.'); // Imposta il messaggio
