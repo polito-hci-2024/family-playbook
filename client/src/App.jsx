@@ -7,7 +7,6 @@ import OpeningPage from './components/OpeningPage';
 import StoryPage from './components/StoryPage';
 import ChapterZero from './components/ChapterZero';
 import LastChapter from './components/LastChapter';
-import './CSS/App.css';
 import Activities from './components/Activities';
 import StartActivity from './components/StartActivity';
 import StepsPage from './components/StepsPage';
@@ -17,7 +16,6 @@ import Potion from './components/Potion';
 
 import StepSelectionEldora from './components/StepsEldora';
 import StepSelectionEgypt from './components/StepsEgypt';
-import MagicPotion from './components/MagicPotion';
 import Raining from './components/Raining';
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -59,7 +57,6 @@ function App() {
           <Route path="*" element={<NotFound />} />
 
           <Route path="/step-selection-eldora" element={<StepSelectionEldora activity_id={1} />}/>
-          <Route path="/magic-potion" element={<MagicPotion />}/>
           <Route path="/raining" element={<Raining />}/>  
           <Route path="/step-selection-egypt" element={<StepSelectionEgypt activity_id={2} />}/>
           

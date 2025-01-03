@@ -51,9 +51,9 @@ function StepSelectionEldora() {
     }
   };
 
-  {/*const handleNavigateBack = () => {
-    navigate(/activities)
-  };*/}
+  const handleNavigateBack = () => {
+    navigate('/activities')
+  };
 
   const togglePopup = () => {
     setIsPopupVisible(!isPopupVisible);
