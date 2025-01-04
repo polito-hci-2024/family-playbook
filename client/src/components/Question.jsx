@@ -96,7 +96,17 @@ function Question({ question_id }) {
       <div className="story-background">
         {choices.length > 0 && (
           <>
-            {/* Pannello con descrizione (se disponibile) */}
+            
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              {/* Titolo della domanda */}
+              <p className="title">{choices[0].title + ' nome: ' + userName +  ' id: ' + userId }</p>
+
+              {/* Pannello con descrizione (se disponibile) */}
             {choices[0].description && (
               <div className="panel">
                 <img
@@ -107,35 +117,36 @@ function Question({ question_id }) {
                 <p className="question-description">{choices[0].description}</p>
               </div>
             )}
+            
+              <div
+  className="activity-container"
+  onClick={(e) => {
+    // Se il click avviene sul contenitore (non sulle card), resetta la selezione
+    if (e.target.closest('.activity-card') === null) {
+      setSelectedChoice(null);
+    }
+  }}
+>
+  {choices[0].answers.map((answer, index) => (
+    <div
+      key={index}
+      className={`activity-card ${selectedChoice === answer.id ? 'selected' : ''}`}
+      onClick={(e) => {
+        e.stopPropagation(); // Blocca la propagazione del click al contenitore
+        setSelectedChoice(answer.id); // Imposta l'ID della risposta selezionata
+      }}
+    >
+      <img
+        src={answer.image}
+        alt={answer.title}
+        className="activity-image"
+      />
+      <p className="activity-title">{answer.title}</p>
+      <p className="activity-answer">{answer.text}</p>
+    </div>
+  ))}
+</div>
 
-            <motion.div
-              className="panel"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              {/* Titolo della domanda */}
-              <p className="story-text">{choices[0].title + ' Qui compare il nome: ' + (userName || 'Nome non disponibile')}</p>
-              <p className="story-text">{choices[0].title + ' Qui compare id: ' + (userId || 'Nome non disponibile')}</p>
-
-              <div className="activity-container">
-                {/* Card per ogni risposta valida */}
-                {choices[0].answers.map((answer, index) => (
-                  <div
-                    key={index}
-                    className={`activity-card ${selectedChoice === answer.id ? 'selected' : ''}`}
-                    onClick={() => setSelectedChoice(answer.id)} // Usa solo l'ID della risposta
-                  >
-                    <img
-                      src={answer.image}
-                      alt={answer.title}
-                      className="activity-image"
-                    />
-                    <p className="activity-title">{answer.title}</p>
-                    <p className="activity-answer">{answer.text}</p>
-                  </div>
-                ))}
-              </div>
             </motion.div>
           </>
         )}
@@ -150,21 +161,23 @@ function Question({ question_id }) {
           Select an option to continue
         </div>
 
-        {/* Freccia destra */}
-        <img
-          src="/img/next.png"
-          alt="Arrow Right"
-          className="arrow arrow-right"
-          onClick={handleConfirm} // Usa la funzione per confermare la risposta e andare alla pagina successiva
-        />
+ {/* Freccia destra visibile solo se una card è selezionata */}
+{selectedChoice && (
+  <img
+    src="/img/next.png"
+    alt="Arrow Right"
+    className="arrow arrow-right"
+    onClick={handleConfirm} // Usa la funzione per confermare la risposta e andare alla pagina successiva
+  />
+)}
 
-        {/* Freccia sinistra */}
-        <img
-          src="/img/back.png"
-          alt="Arrow Left"
-          className="arrow arrow-left"
-          onClick={handleBack} // Torna indietro
-        />
+<img
+  src="/img/back.png"
+  alt="Arrow Left"
+  className="arrow arrow-left"
+  onClick={handleBack} // Torna indietro
+/>
+
       </div>
 
       {/* Modale di errore o avviso */}

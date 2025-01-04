@@ -62,13 +62,12 @@ function Activities() {
         <div className="story-background">
         {choices.length > 0 && (
           <motion.div
-            className="panel"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="story-text">Which adventure do you want to take on?</p>
-            <div className="activity-container">
+            <p className="title">Which adventure do you want to take on?</p>
+            <div className="activity-container grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto px-4">
               {choices.map((choice) => (
                 <div
                   key={choice.id}
@@ -86,7 +85,7 @@ function Activities() {
               ))}
 
             </div>
-              <p className="story-text"> </p>
+              <p className="title"> </p>
           </motion.div>
         )}
 
@@ -109,7 +108,7 @@ function Activities() {
         {/* Nuvola con messaggio in basso a sinistra */}
         <div className="bubble-container">
           <motion.img
-            src="/img/lumi.jpg"
+            src="/img/lumi.png"
             alt="Lumi"
             className="lumi-image"
             initial={{ opacity: 0 }}

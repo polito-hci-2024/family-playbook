@@ -14,72 +14,40 @@
 
 /* Card dell'attività */
 .activity .activity-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: auto; /* La card si adatta alla larghezza del contenuto */
-  min-width: 150px; /* Imposta una larghezza minima per le card */
-  max-width: 250px; /* Limita la larghezza massima per card */
-  height: auto; /* Altezza automatica */
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
+  width: 250px;
+  padding: 20px;
+  text-align: center;
   cursor: pointer;
-  position: relative;
-  box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.9); /* Sfondo leggermente trasparente */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  word-wrap: break-word; /* Gestisce correttamente il testo lungo */
 }
 
 /* Immagine della card */
 .activity .activity-card img {
-  width: 100%; /* Immagine che riempie tutta la card */
-  height: auto; /* Mantiene le proporzioni dell'immagine */
-  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 /* Hover effect per la .activity-card */
 .activity .activity-card:hover {
-  transform: scale(1.05); /* Ingrandisce leggermente la card */
-  box-shadow: 0 8px 16px rgba(114, 11, 91, 0.5); /* Ombra più intensa */
-}
-
-/* Testo della card */
-.activity .activity-title, .activity-description {
-  text-align: center;
-  margin-top: 10px;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
 }
 
 .activity .activity-title {
+  font-size: 2rem;
+  font-family: 'Quintessential', sans-serif;
   font-weight: bold;
+  color: #720B5B;
 }
 
 .activity .activity-description {
-  font-style: italic;
-}
-
-/* Pannelli della storia */
-.activity .panel {
-  position: relative;
-  padding-top: 0px;
-  width: 90%; /* Occupa il 90% della larghezza disponibile */
-  max-width: 700px; /* Larghezza massima */
-  height: auto; /* Altezza dinamica in base al contenuto */
-  min-height: 200px; /* Imposta un'altezza minima */
-  background: rgba(255, 255, 255, 0.30); /* Sfondo semitrasparente */
-  border-radius: 25px; /* Bordi arrotondati */
-  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  box-sizing: border-box;
-  backdrop-filter: blur(5px); /* Effetto sfocatura sullo sfondo */
-  margin-bottom: 20px; /* Aggiungi margine per separare i pannelli */
-  z-index: 0;
+  font-size: 1.4rem;
+  color: #555;
 }
 
 /* Responsività per schermi piccoli */
@@ -214,8 +182,10 @@
     aspect-ratio: 1 / 1;
   }
 
-  .activity .story-text {
-    font-size: 1.2rem;
+  .activity {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #720B5B;
   }
 
   .activity .story-image {
