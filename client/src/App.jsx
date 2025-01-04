@@ -51,22 +51,15 @@ function App() {
           <Route path="/question/2" element={<Question question_id={2} />} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/start-activity" element={<StartActivity />} />
-          <Route path="/storyNature/:activityId/:storyId" element={<StoryPage />} />
-          <Route path="/challenge/1" element={<Potion/>} />  //ho cambiato la roue da /potion a /challenge/1 in modo da collegare la pagina di Anita 'StepsEldora' a quella di Reebecca 'Potion'
-          <Route path="/storyMuseum/:activityId/:storyId" element={<StoryPageMuseum />} />
+          <Route path="/storyNature/:activityId/:storyId" element={<StoryPage />} /> {/* Simone dice: puoi testarla a http://localhost:5173/storyNature/1/1, ma se alla fine facciamo la storia frontend allora poi la componente storyPage si può cestinare */}
+          <Route path="/challenge/1" element={<Potion/>} />  {/*Anita dice: ho cambiato la roue da /potion a /challenge/1 in modo da collegare la pagina di Anita 'StepsEldora' a quella di Reebecca 'Potion' */}
+          <Route path="/storyMuseum/:activityId/:storyId" element={<StoryPageMuseum />} /> {/* Simone dice: Credo Anita non l'abbia usata, ma se alla fine facciamo la storia frontend allora poi la componente storyPageMuseum si può cestinare */}
           <Route path="/last-chapter" element={<LastChapter />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/scratch" element={<Scratch />} />
-
           <Route path="/step-selection-eldora" element={<StepSelectionEldora activity_id={1} />}/>
           <Route path="/raining" element={<Raining />}/>  
           <Route path="/step-selection-egypt" element={<StepSelectionEgypt activity_id={2} />}/>
-          
-          {/* Wrapper per tutte le altre pagine, con il NavHeader */}
-          
-
-            {/* Pagina non trovata */}
-            <Route path="*" element={<NotFound />} />
           
         </Routes>
       ) : (
