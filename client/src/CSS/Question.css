@@ -29,12 +29,14 @@
   /* Pannelli della storia */
   .question .story-background {
     width: 100%;
-    height: auto; /* Altezza dinamica */
-    padding-top: 20px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
-    padding-bottom: 20px; /* Spazio inferiore per la fine dei pannelli */
+    min-height: 100vh; /* Occupiamo tutta l'altezza della viewport */
+    padding-top: 20px;
+    padding-bottom: 20px;
     display: flex;
-    flex-direction: column; /* Dispone i pannelli verticalmente */
-    align-items: center; /* Centra orizzontalmente i pannelli */
+    flex-direction: column; 
+    align-items: center; /* Allineamento orizzontale al centro */
+    justify-content: center; /* Allineamento verticale al centro */
+    text-align: center; /* Assicurati che il testo sia centrato */
   }
   
   .question .activity-container {
@@ -97,13 +99,19 @@
     font-size: 1.4rem;
     color: #555;
   }
+
+  .question .question-description {
+    font-size: 1.4rem;
+    color: #555;
+  }
   
 /* Stile per .panel aggiornato per uniformarsi alle card */
 .question .panel {
   background: rgba(255, 255, 255, 0.8); /* Sfondo semitrasparente, come le card */
   border-radius: 15px; /* Stesso arrotondamento delle card */
   box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3); /* Stesso effetto ombra */
-  width: 700px; /* Stessa larghezza delle card */
+  width: 80%; /* Imposta una larghezza relativa o fissa */
+  max-width: 700px; /* Limita la larghezza massima */
   padding: 20px; /* Stesso padding delle card */
   text-align: center; /* Allinea il contenuto al centro */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizioni come le card */
@@ -111,8 +119,7 @@
   flex-direction: column; /* Impila i contenuti in colonna */
   justify-content: center; /* Centra i contenuti verticalmente */
   align-items: center; /* Centra i contenuti orizzontalmente */
-  margin: 10px; /* Aggiungi spazio tra i pannelli */
-  height: auto; /* Altezza dinamica in base al contenuto */
+  margin: 25px auto; /* Aggiungi spazio tra i pannelli */
 }
 
 /* Ultimo pannello con margine inferiore maggiore */

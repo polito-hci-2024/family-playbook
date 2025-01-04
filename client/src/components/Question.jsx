@@ -95,10 +95,7 @@ function Question({ question_id }) {
     <div className="Introduction">
       <div className="story-background">
         {choices.length > 0 && (
-          <>
-            
-
-            <motion.div
+  <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -148,7 +145,8 @@ function Question({ question_id }) {
 </div>
 
             </motion.div>
-          </>
+ 
+ 
         )}
 
         {/* Personaggio e fumetto */}
