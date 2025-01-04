@@ -1,0 +1,96 @@
+.scratch {
+    background-image: url('../img/Untitled design.png'); /* Percorso dell'immagine di sfondo */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh; /* Copertura completa */
+    display: flex;
+    flex-direction: column; /* Allinea gli elementi in colonna */
+    align-items: center; /* Centra gli elementi orizzontalmente */
+    justify-content: center; /* Centra gli elementi verticalmente */
+    padding: 20px;
+}
+
+.scratch .container {
+    text-align: center;
+    width: 100%; /* Si adatta alla larghezza disponibile */
+}
+
+.scratch-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonne */
+    gap: 20px; /* Spazio tra i box */
+    justify-content: center; /* Centra la griglia orizzontalmente */
+    align-items: center; /* Centra i contenuti verticalmente */
+    margin: 20px auto; /* Margine automatico per centrare la griglia */
+}
+
+.scratch-box {
+    display: flex;
+    justify-content: center; /* Centra l'immagine nel box */
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Colore di sfondo leggero */
+    border-radius: 12px; /* Angoli arrotondati */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aggiunge ombra */
+    padding: 10px;
+    overflow: hidden; /* Nasconde eventuali elementi che escono dai limiti del box */
+}
+
+.scratch-box img {
+    width: 100%; /* L'immagine riempie tutta la larghezza del box */
+    height: 100%; /* L'immagine riempie tutta l'altezza del box */
+    object-fit: cover; /* Mantiene il rapporto d'aspetto tagliando eventuali eccessi */
+    border-radius: 8px; /* Arrotonda i bordi delle immagini */
+}
+
+
+.scratch .title {
+    font-size: 5rem; /* Titolo molto grande */
+    font-weight: bold;
+    text-align: center;
+    margin-top: 150px;
+    font-family: 'Quintessential', sans-serif;
+    color: #720B5B;
+}
+
+.scratch .intro {
+    font-size: 1.3rem;
+    margin: 30px auto 0; /* Centra orizzontalmente e mantiene il margine superiore */
+    text-align: center;
+    width: 80%;
+}
+
+/* Stile per le frecce di navigazione */
+.scratch .arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    color: #6b4a3c;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.scratch .arrow-left {
+    left: 20px; /* Posizione della freccia sinistra */
+}
+
+.scratch .arrow-right {
+    right: 20px; /* Posizione della freccia destra */
+}
+
+.scratch .arrow.enabled:hover {
+    background-color: #e0d9c6; /* Cambia colore quando hover */
+}
+
+.scratch .arrow.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+

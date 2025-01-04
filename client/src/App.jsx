@@ -17,6 +17,7 @@ import Potion from './components/Potion';
 import StepSelectionEldora from './components/StepsEldora';
 import StepSelectionEgypt from './components/StepsEgypt';
 import Raining from './components/Raining';
+import Scratch from './components/Scratch';
 function App() {
   const [isTablet, setIsTablet] = useState(false);
 
@@ -55,6 +56,7 @@ function App() {
           <Route path="/storyMuseum/:activityId/:storyId" element={<StoryPageMuseum />} />
           <Route path="/last-chapter" element={<LastChapter />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/scratch" element={<Scratch />} />
 
           <Route path="/step-selection-eldora" element={<StepSelectionEldora activity_id={1} />}/>
           <Route path="/raining" element={<Raining />}/>  
