@@ -125,20 +125,6 @@
 
 
 
-/* Pannelli della storia */
-.activity .story-background {
-  width: 100%;
-  height: auto; /* Altezza dinamica */
-  padding-top: 250px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
-  padding-bottom: 20px; /* Spazio inferiore per la fine dei pannelli */
-  display: flex;
-  flex-direction: column; /* Dispone i pannelli verticalmente */
-  align-items: center; /* Centra orizzontalmente i pannelli */
-}
-
-
-
-
 
 .activity .arrow {
   position: fixed;
