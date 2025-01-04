@@ -110,7 +110,7 @@ function StepSelectionEgypt() {
     <div className={`StepSelectionEgypt ${isPopupVisible ? 'blurred' : ''}`} ref={containerRef}>
       {/* Icona in alto a destra */}
       <div className="top-right-icon" onClick={togglePopup}>
-        <img src="/img/imprevisto_egitto.png" alt="Info Icon" />
+        <img src="/img/unexpected/imprevisto_egitto.png" alt="Info Icon" />
       </div>
 
       {/* Contenuto del pop-up */}
@@ -121,22 +121,22 @@ function StepSelectionEgypt() {
             <div className="popup-icons">
                 {/* Icona 1 */}
                 <div className="popup-icon disabled">
-                    <img src="/img/raining.png" alt="It's raining" />
+                    <img src="/img/unexpected/raining.png" alt="It's raining" />
                     <span>It's raining</span>
                 </div>
                 {/* Icona 2 */}
                 <div className={`popup-icon ${selectedIcon === 'end_activity' ? 'selected' : ''}`} onClick={() => handleIconClick('end_activity')}>
-                    <img src="/img/end_activity.png" alt="End activity" />
+                    <img src="/img/unexpected/end_activity.png" alt="End activity" />
                     <span>End activity</span>
                 </div>
                 {/* Icona 3 - Disabilitata */}
                 <div className="popup-icon disabled">
-                    <img src="/img/not_for_me.png" alt="Not for me" />
+                    <img src="/img/unexpected/not_for_me.png" alt="Not for me" />
                     <span>Not for me</span>
                 </div>
                 {/* Icona 4 - Disabilitata */}
                 <div className="popup-icon disabled">
-                    <img src="/img/im_lost.png" alt="I'm lost" />
+                    <img src="/img/unexpected/im_lost.png" alt="I'm lost" />
                     <span>I'm lost</span>
                 </div>
             </div>

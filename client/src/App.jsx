@@ -51,7 +51,7 @@ function App() {
           <Route path="/activities" element={<Activities />} />
           <Route path="/start-activity" element={<StartActivity />} />
           <Route path="/storyNature/:activityId/:storyId" element={<StoryPage />} />
-          <Route path="/potion" element={<Potion/>} />
+          <Route path="/challenge/1" element={<Potion/>} />  //ho cambiato la roue da /potion a /challenge/1 in modo da collegare la pagina di Anita 'StepsEldora' a quella di Reebecca 'Potion'
           <Route path="/storyMuseum/:activityId/:storyId" element={<StoryPageMuseum />} />
           <Route path="/last-chapter" element={<LastChapter />} />
           <Route path="*" element={<NotFound />} />

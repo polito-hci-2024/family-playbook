@@ -8,21 +8,22 @@
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
-    padding: 100px;
-    padding-bottom: 10px;
     background-image: url('/img/sfondo_ufficiale.jpg'); /* Sfondo fiabesco per la pagina */
     background-size: cover;
     background-position: center;
     text-align: center;
   }
   
-  .header {
-    margin-top: 10px;
+  .steps-eldora .header {
+    padding: 80px;
+    padding-bottom: 10px;
+    margin-top: -50px;
     margin-bottom: 10px;
-    margin-right: 50px;
+    margin-right: 30px;
+    margin-left: 30px
   }
   
-  .title {
+  .steps-eldora .title {
     font-family: 'Quintessential', sans-serif;
     font-weight: bold;
     font-size: 4rem;
@@ -30,24 +31,27 @@
     text-shadow: 3px 3px 4px  rgba(230, 131, 217, 0.944);
   }
   
-  .description {
+  .steps-eldora .description {
     font-family: 'Josefin Sans' , serif;
     font-size: 1.6rem;
     color: #4a0432fd;
-    margin-top: 10px;
+    margin-top: -50px;
     line-height: 1.6;
   }
   
-  .steps {
+  .steps-eldora .steps {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
+    margin-right: -10px;
+    margin-left: 90px;
     gap: 20px;
-    width: 100%;
-    max-width: 1200px;
+    width: 80%;
+    max-width: 900px;
   }
 
-  .Step-question {
+  .steps-eldora .Step-question {
     font-family: 'Quintessential', sans-serif;
     font-size: 2.4rem;
     color: #c0139a;
@@ -56,7 +60,7 @@
     text-shadow: 2px 2px 3px  rgba(251, 236, 172, 0.944);
   }
   
-  .Step-card {
+  .steps-eldora .Step-card {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
@@ -67,19 +71,19 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
-  .Step-card:hover {
+  .steps-eldora .Step-card:hover {
     transform: scale(1.15);
     box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
   }
   
-  .Step-image {
+  .steps-eldora .Step-image {
     width: 50%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 15px;
   }
   
-  .Step-title {
+  .steps-eldora .Step-title {
     font-family: 'Quintessential', sans-serif;
     font-size: 1.7rem;
     color: #720B5B;
@@ -87,7 +91,7 @@
     margin-bottom: 10px;
   }
   
-  .Step-description {
+  .steps-eldora .Step-description {
     font-family: 'Josefin Sans', serif;
     font-size: 1.4rem;
     color: #555;
@@ -111,23 +115,23 @@
     right: 20px;  /* Posiziona la freccia destra a destra */
   }
 
-  .Step-card.disabled {
+  .steps-eldora .Step-card.disabled {
     color: #7a7a7a; /* Testo grigio */
     cursor: not-allowed; /* Cursore per non cliccabile */
     pointer-events: none; /* Disabilita tutti gli eventi */
   }
   
   /* Stile per l'immagine nelle card disabilitate */
-  .Step-card.disabled .Step-image {
+  .steps-eldora .Step-card.disabled .Step-image {
     filter: grayscale(100%);
     opacity: 0.5;
   }
 
-  .Step-card.disabled .Step-title {
+  .steps-eldora .Step-card.disabled .Step-title {
     color: #a9a9a9;
   }
   
-  .Step-card.disabled .Step-description {
+  .steps-eldora .Step-card.disabled .Step-description {
     color: #7a7a7a;
   }
 

@@ -69,7 +69,6 @@ function Raining() {
     <div className="Raining" ref={containerRef}>
       <div className="header">
         <h1 className="title">It's Raining!</h1>
-        <br></br>
         <p className="description">
           Ops! The rain has decided to join the party. Let's move indoors, here are some alternatives:
         </p>

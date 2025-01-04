@@ -110,7 +110,7 @@ function StepSelectionEldora() {
     <div className={`StepSelection ${isPopupVisible ? 'blurred' : ''}`} ref={containerRef}>
       {/* Icona in alto a destra */}
       <div className="top-right-icon" onClick={togglePopup}>
-        <img src="/img/imprevisto.png" alt="Info Icon" />
+        <img src="/img/unexpected/imprevisto.png" alt="Info Icon" />
       </div>
 
       {/* Contenuto del pop-up */}
@@ -121,22 +121,22 @@ function StepSelectionEldora() {
             <div className="popup-icons">
                 {/* Icona 1 */}
                 <div className={`popup-icon ${selectedIcon === 'raining' ? 'selected' : ''}`} onClick={() => handleIconClick('raining')}>
-                    <img src="/img/raining.png" alt="It's raining" />
+                    <img src="/img/unexpected/raining.png" alt="It's raining" />
                     <span>It's raining</span>
                 </div>
                 {/* Icona 2 */}
                 <div className={`popup-icon ${selectedIcon === 'end_activity' ? 'selected' : ''}`} onClick={() => handleIconClick('end_activity')}>
-                    <img src="/img/end_activity.png" alt="End activity" />
+                    <img src="/img/unexpected/end_activity.png" alt="End activity" />
                     <span>End activity</span>
                 </div>
                 {/* Icona 3 - Disabilitata */}
                 <div className="popup-icon disabled">
-                    <img src="/img/not_for_me.png" alt="Not for me" />
+                    <img src="/img/unexpected/not_for_me.png" alt="Not for me" />
                     <span>Not for me</span>
                 </div>
                 {/* Icona 4 - Disabilitata */}
                 <div className="popup-icon disabled">
-                    <img src="/img/im_lost.png" alt="I'm lost" />
+                    <img src="/img/unexpected/im_lost.png" alt="I'm lost" />
                     <span>I'm lost</span>
                 </div>
             </div>
@@ -158,34 +158,35 @@ function StepSelectionEldora() {
         </div>
       )}
 
-      <div className="header">
-        <h1 className="title">Welcome to the enchanting world of Eldora !</h1>
-        <br></br>
-        <p className="description">
-        In this magical realm you'll encounter exciting challenges, discover hidden treasures and unlock the secrets of Eldora.
-        </p>
-      </div>
+      <div className="steps-eldora">
+        <div className="header">
+          <h1 className="title">Welcome to the enchanting world of Eldora !</h1>
+          <p className="description">
+          In this magical realm you'll encounter exciting challenges, discover hidden treasures and unlock the secrets of Eldora.
+          </p>
+        </div>
 
-      <h1 className="Step-question"> Which challenge would you like to start with? </h1>
-      <div className="steps">
-        {steps.map((Step, index) => (
-          <motion.div
-            className={`Step-card ${Step.disabled ? 'disabled' : ''}`}
-            key={Step.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2, duration: 0.5 }}
-            onClick={() => handleStepClick(Step)}
-          >
-            <img
-              src={Step.image}
-              alt={Step.title}
-              className="Step-image"
-            />
-            <h2 className="Step-title">{Step.title}</h2>
-            <p className="Step-description">{Step.description}</p>
-          </motion.div>
-        ))}
+        <h1 className="Step-question"> Which challenge would you like to start with? </h1>
+        <div className="steps">
+          {steps.map((Step, index) => (
+            <motion.div
+              className={`Step-card ${Step.disabled ? 'disabled' : ''}`}
+              key={Step.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2, duration: 0.5 }}
+              onClick={() => handleStepClick(Step)}
+            >
+              <img
+                src={Step.image}
+                alt={Step.title}
+                className="Step-image"
+              />
+              <h2 className="Step-title">{Step.title}</h2>
+              <p className="Step-description">{Step.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       {/* Freccia sinistra sempre visibile */}
