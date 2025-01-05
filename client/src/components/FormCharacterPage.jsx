@@ -88,10 +88,10 @@ function FormCharacterPage() {
                     <Alert variant="danger" className={showError ? '' : 'd-none'}>
                         Please select a character!
                     </Alert>
+                    
                 </Form.Group>
-
-                <Form.Group className="mb-3" controlId="nameValidation">
-                    <Form.Label>Your Name</Form.Label>
+                    <Form.Group className="mb-3 custom-input" controlId="nameValidation">
+                    <Form.Label className="custom-label">Your Name</Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="Enter your name"
@@ -104,13 +104,14 @@ function FormCharacterPage() {
                     </Form.Control.Feedback>
                 </Form.Group>
 
-                <Form.Group className="mb-3">
-                    <Form.Label>Age Range</Form.Label>
+                <Form.Group className="mb-3 custom-input">
+                    <Form.Label className="custom-label">Age Range</Form.Label>
                     <Form.Select
                         aria-label="Select your age range"
                         value={ageRange}
                         onChange={(e) => setAgeRange(e.target.value)} // Gestisce il cambiamento dell'età
                         required
+                        className="custom-select"
                     >
                         <option value="">Select age range</option>
                         <option value="0-5">0-5 years</option>
@@ -122,9 +123,12 @@ function FormCharacterPage() {
                     </Form.Control.Feedback>
                 </Form.Group>
 
+
+                <div className="character-form-button-container">
                 <Button className="character-form-button" type="submit">
-                    Start your adventure {name}!
+                    Start
                 </Button>
+                </div>
             </Form>
         </Container>
     );
