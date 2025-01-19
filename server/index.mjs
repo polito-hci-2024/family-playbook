@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import { getActivities, getLastChoice, getQuestionAnswer, getStepsById, getUserName, insertActivity, insertAnswer, getStoryById, insertReviews, insertUser, getChallengesById } from './dao.mjs';
+import { getActivities, getLastChoice, getQuestionAnswer, getStepsById, getUserName, insertActivity, insertAnswer, getStoryById, insertReviews, insertUser, getChallengesById, getUserChallenges, insertUserChallenge } from './dao.mjs';
 import { getCharacters } from './character-dao.mjs';
 
 // init express
@@ -186,6 +186,32 @@ app.get('/api/challenges/:activity_id', async (req, res) => {
   try {
     const challenges = await getChallengesById(activity_id);
     res.status(200).json(challenges);
+  } catch {
+    res.status(500).end();
+  }
+});
+
+app.post('/api/user-challenge', async (req, res) => {
+  const { user_id, challenge_id } = req.body; // Prendi i parametri user_id e challenge_id dal corpo della richiesta
+
+  try {
+    // Inserisci la challenge completata dall'utente nel database
+    const lastID = await insertUserChallenge(user_id, challenge_id);
+
+    // Rispondi con l'ID dell'entry inserita
+    res.status(200).json({ user_challenge_id: lastID });
+  } catch (error) {
+    console.error('Error inserting user challenge:', error);
+    res.status(500).send('Internal server error');
+  }
+});
+
+
+app.get('/api/map/:user_id', async (req, res) => {
+  const user_id = req.params.user_id;
+  try {
+    const users_challenges = await getUserChallenges(user_id);
+    res.status(200).json(users_challenges);
   } catch {
     res.status(500).end();
   }

@@ -18,6 +18,7 @@ import StepSelectionEldora from './components/StepsEldora';
 import StepSelectionEgypt from './components/StepsEgypt';
 import Raining from './components/Raining';
 import Scratch from './components/Scratch';
+import Map from './components/Map';
 function App() {
   const [isTablet, setIsTablet] = useState(false);
 
@@ -60,6 +61,7 @@ function App() {
           <Route path="/step-selection-eldora" element={<StepSelectionEldora activity_id={1} />}/>
           <Route path="/raining" element={<Raining />}/>  
           <Route path="/step-selection-egypt" element={<StepSelectionEgypt activity_id={2} />}/>
+          <Route path="/map" element={<Map />}/>
           
         </Routes>
       ) : (

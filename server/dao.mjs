@@ -271,3 +271,38 @@ export const getChallengesById = (activity_id) => {
     });
   });
 };
+
+export const insertUserChallenge = (user_id, challenge_id) => {
+  return new Promise((resolve, reject) => {
+    const query = `
+      INSERT INTO users_challenges (user_id, challenge_id)
+      VALUES (?, ?)
+    `;
+    db.run(query, [user_id, challenge_id], function (err) {
+      if (err) {
+        reject(err); 
+      } else {
+        resolve(this.lastID); 
+      }
+    });
+  });
+};
+
+export const getUserChallenges = (user_id) => {
+  return new Promise((resolve, reject) => {
+    const query = `
+      SELECT DISTINCT challenge_id
+      FROM users_challenges
+      WHERE user_id = ?
+    `;
+    db.all(query, [user_id], (err, rows) => {
+      if (err) {
+        reject(err); 
+      } else {
+        const challengeIds = rows.map(row => row.challenge_id); 
+        resolve(challengeIds); 
+      }
+    });
+  });
+};
+

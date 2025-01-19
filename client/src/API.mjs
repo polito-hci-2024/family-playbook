@@ -181,6 +181,17 @@ const getChallengesById = async (activity_id) => {
       throw new Error('Internal Server Error');
 }
 
-const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer, insertAnswer, getStepsById, getStoryById, getCharacters, getCharactersById, insertReviews, insertUser, getChallengesById};
+const getUserChallenges = async (user_id) => {
+  const response = await fetch(SERVER_URL + `/api/map/${user_id}`);
+  if (response.ok) {
+    const usersChallenges = await response.json();
+    return usersChallenges; // Restituisce l'elenco delle challenge completate dall'utente
+  } else {
+    throw new Error('Internal Server Error');
+  }
+};
+
+
+const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer, insertAnswer, getStepsById, getStoryById, getCharacters, getCharactersById, insertReviews, insertUser, getChallengesById, getUserChallenges };
 export default API;
 
