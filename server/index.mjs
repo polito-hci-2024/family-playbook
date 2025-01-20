@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import { getActivities, getLastChoice, getQuestionAnswer, getStepsById, getUserName, insertActivity, insertAnswer, getStoryById, insertReviews, insertUser, getChallengesById, getUserChallenges, insertUserChallenge } from './dao.mjs';
+import { getActivities, getLastChoice, getQuestionAnswer, getStepsById, getUserName, insertActivity, insertAnswer, getStoryById, insertReviews, insertUser, getChallengesById, getOtherChallengesById, getUserChallenges, insertUserChallenge } from './dao.mjs';
 import { getCharacters } from './character-dao.mjs';
 
 // init express
@@ -185,6 +185,16 @@ app.get('/api/challenges/:activity_id', async (req, res) => {
   const activity_id = req.params.activity_id;
   try {
     const challenges = await getChallengesById(activity_id);
+    res.status(200).json(challenges);
+  } catch {
+    res.status(500).end();
+  }
+});
+
+app.get('/api/other-challenges/:activity_id', async (req, res) => {
+  const activity_id = req.params.activity_id;
+  try {
+    const challenges = await getOtherChallengesById(activity_id);
     res.status(200).json(challenges);
   } catch {
     res.status(500).end();

@@ -181,6 +181,16 @@ const getChallengesById = async (activity_id) => {
       throw new Error('Internal Server Error');
 }
 
+const getOtherChallengesById = async (activity_id) => {
+  const response = await fetch(`${SERVER_URL}/api/other-challenges/${activity_id}`);
+  if(response.ok) {
+      const challengesJson = await response.json();
+      return challengesJson;
+  }
+  else 
+      throw new Error('Internal Server Error');
+}
+
 const getUserChallenges = async (user_id) => {
   const response = await fetch(SERVER_URL + `/api/map/${user_id}`);
   if (response.ok) {
@@ -192,6 +202,6 @@ const getUserChallenges = async (user_id) => {
 };
 
 
-const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer, insertAnswer, getStepsById, getStoryById, getCharacters, getCharactersById, insertReviews, insertUser, getChallengesById, getUserChallenges };
+const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer, insertAnswer, getStepsById, getStoryById, getCharacters, getCharactersById, insertReviews, insertUser, getChallengesById, getOtherChallengesById, getUserChallenges };
 export default API;
 

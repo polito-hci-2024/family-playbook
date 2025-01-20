@@ -15,10 +15,13 @@ import StoryPageMuseum from './components/StoryPageMuseum';
 import Potion from './components/Potion';
 
 import StepSelectionEldora from './components/StepsEldora';
+import LastStepSelectionEldora from './components/LastStepsEldora';
 import StepSelectionEgypt from './components/StepsEgypt';
 import Raining from './components/Raining';
 import Scratch from './components/Scratch';
 import Map from './components/Map';
+import Anubi from './components/Anubi';
+
 function App() {
   const [isTablet, setIsTablet] = useState(false);
 
@@ -57,11 +60,13 @@ function App() {
           <Route path="/storyMuseum/:activityId/:storyId" element={<StoryPageMuseum />} /> {/* Simone dice: Credo Anita non l'abbia usata, ma se alla fine facciamo la storia frontend allora poi la componente storyPageMuseum si può cestinare */}
           <Route path="/last-chapter" element={<LastChapter />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/scratch" element={<Scratch />} />
+          <Route path="/challenge/2" element={<Scratch />} />
           <Route path="/step-selection-eldora" element={<StepSelectionEldora activity_id={1} />}/>
           <Route path="/raining" element={<Raining />}/>  
           <Route path="/step-selection-egypt" element={<StepSelectionEgypt activity_id={2} />}/>
           <Route path="/map" element={<Map />}/>
+          <Route path="/challenge/4" element={<Anubi/>} />
+          <Route path="/last-step-selection-eldora" element={<LastStepSelectionEldora activity_id={1} />}/>
           
         </Routes>
       ) : (

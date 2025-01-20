@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+ES+Deco+Guides&family=Quintessential&family=Schoolbell&display=swap');
+.Anubi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 100px;
+    padding-bottom: 10px;
+    background-image: url('/img/sfondo_egitto.png'); 
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+.Anubi .blurred {
+    filter: blur(3px);
+    pointer-events: none;
+  }
+  
+  /* Popup per conferma eliminazione */
+  .Anubi .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo oscurato */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .Anubi .popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  
+  .Anubi .popup-content p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.8rem;
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .Anubi .popup-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .Anubi .popup-buttons button {
+    padding: 10px 20px;
+    font-size: 1.6rem;
+    font-family: 'Josefin Sans', sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .Anubi .popup-buttons .yes-button {
+    background-color: #2A7A72;
+    color: white;
+  }
+  .Anubi .popup-buttons .yes-button:hover {
+    background-color: #47cabd;
+  }
+  
+  .Anubi .popup-buttons .no-button {
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  .Anubi .popup-buttons .no-button:hover {
+    background-color: #c0c0c0;
+  }
+.titleAnubi {
+    font-family: 'Quintessential', sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+    color: #2A7A72;
+    text-shadow: 3px 3px 4px #47cabd;
+    margin: 50px;
+}
+.descriptionAnubi {
+    font-family: 'Josefin Sans', serif;
+    font-size: 1.6rem;
+    color: #133430;
+    margin-top: 10px;
+    line-height: 1.6;
+    text-align: center;
+}
+.photoGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1400px;
+}
+.photoWrapper {
+    position: relative;
+    width: 35%;
+    height: 35%;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.Anubi .deleteButton {
+    position: absolute;
+    top: 8%;
+    right: 8%;
+    background-color: #a64d24;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Anubi .button {
+    position: absolute;
+    bottom: 30px;
+    cursor: pointer;
+    z-index: 1000;
+}
+.Anubi .button img {
+    width: 200px;
+    height: 200px;
+}
+.Anubi .button_takephoto {
+    position: absolute;
+    bottom: 30px;
+    cursor: pointer;
+    z-index: 1000;
+    animation: pulse 1s infinite; 
+    border-radius: 50%; 
+}
+.Anubi .button_takephoto img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.successMessage {
+    color: #2A7A72;
+    font-family: 'Quintessential', sans-serif;
+    font-weight: bold;
+    text-shadow: 3px 3px 4px #93efe6;
+    font-size: 3rem;
+    margin-top: 20px;
+}
+.cameraOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999; /* Assicura che sia sopra il resto */
+}
+.cameraContainer {
+    position: absolute;
+    margin-top: 300px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1000; /* Sopra l'overlay */
+}
+.webcam {
+    width: auto;
+    height: auto;
+}
+.arrow {
+    position: fixed;
+    top: 50%;  /* Centra la freccia verticalmente */
+    transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
+}
+.arrow-left {
+    left: 20px;  /* Posiziona la freccia sinistra a sinistra */
+}
+.arrow-right {
+right: 20px;  /* Posiziona la freccia destra a destra */
+}
+
+@keyframes pulse {
+    0% {
+      box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
+    }
+    50% {
+      box-shadow: 0 0 30px 15px rgba(255, 234, 156, 0.879);
+    }
+    100% {
+      box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
+    }
+  }

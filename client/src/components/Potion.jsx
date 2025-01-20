@@ -33,6 +33,10 @@ const Potion = () => {
     navigate('/next-page');  // Sostituisci '/next-page' con il percorso desiderato
   };
 
+  const handleNavigateBack = () => {
+    navigate("/step-selection-eldora");
+  }
+
   const isNextArrowActive = cauldron.length === ingredients.length;
 
   return (
@@ -90,7 +94,7 @@ const Potion = () => {
               src="/img/back.png"
               alt="Arrow Left"
               className="arrow arrow-left"
-              onClick={handleNavigateNext}
+              onClick={handleNavigateBack}
             />
             {/* Freccia destra: attiva solo se tutti gli ingredienti sono nel calderone */}
             <img

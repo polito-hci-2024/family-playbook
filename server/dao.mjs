@@ -272,6 +272,22 @@ export const getChallengesById = (activity_id) => {
   });
 };
 
+export const getOtherChallengesById = (activity_id) => {
+  return new Promise((resolve, reject) => {
+    const query = 'SELECT * FROM challenges WHERE activity_id = ? AND challenge_id != 1';
+
+    db.all(query, [activity_id], (err, rows) => {
+      if (err) {
+        reject(err); 
+      } else if (rows.length === 0) {
+        resolve({ error: "No challenges found." });
+      } else {
+        resolve(rows);
+      }
+    });
+  });
+};
+
 export const insertUserChallenge = (user_id, challenge_id) => {
   return new Promise((resolve, reject) => {
     const query = `
