@@ -1,5 +1,21 @@
 /* Contenitore delle attività */
+.activity .title {
+  position: fixed; /* Fissa il titolo in cima */
+  top: 0; /* Posiziona il titolo all'inizio della pagina */
+  left: 10%; /* Centra orizzontalmente */
+  right: 10%;
+  z-index: 10;
+  font-size: 4.5rem;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Quintessential', sans-serif;
+  color: #10334a;
+  text-shadow: 3px 3px 4px  #5f8caa;
+  margin-top: 115px;
+}
+
 .activity .activity-container {
+  padding-top: 400px;
   display: flex;
   flex-wrap: wrap; /* Le card andranno a capo se necessario */
   justify-content: center; /* Centra orizzontalmente le card */
@@ -17,7 +33,7 @@
   background: rgba(255, 255, 255, 0.8);
   border-radius: 15px;
   box-shadow: 0 4px 10px #10334a;
-  width: 250px;
+  width: 350px;
   padding: 20px;
   text-align: center;
   cursor: pointer;
@@ -39,7 +55,7 @@
 }
 
 .activity .activity-title {
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-family: 'Quintessential', sans-serif;
   font-weight: bold;
   color: #10334a;

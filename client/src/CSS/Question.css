@@ -92,7 +92,7 @@
     font-size: 2rem;
     font-family: 'Quintessential', sans-serif;
     font-weight: bold;
-    color: #720B5B;
+    color: #10334a;
   }
   
   .question .activity-answer {
@@ -130,7 +130,8 @@
   .question .title {
     font-size: 4rem;
     font-weight: bold;
-    color: #720B5B;
+    color: #10334a;
+    text-shadow: 3px 3px 4px  #5f8caa;
   }
 
   

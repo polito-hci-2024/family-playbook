@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-.title {
+.background-component .title {
   left: 50%;
   z-index: 10;
   font-size: 5rem;
@@ -14,10 +14,11 @@
   text-align: center;
   font-family: 'Quintessential', sans-serif;
   color: #10334a;
+  text-shadow: 3px 3px 4px  #5f8caa;
   padding: 10px 20px;
   width: auto;
   margin-top: 150px;
-  margin-bottom: 0px;
+  margin-bottom: 100px;
 }
 
 .lumi {
