@@ -1,0 +1,154 @@
+/* Contenitore principale della mappa */
+.map-container {
+    background-image: url("/img/Definitivo.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    padding: 20px;
+  }
+  
+  /* Titolo */
+  .map-title {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Bottone generico delle challenge */
+  .challenge-button {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    border: 3px solid #fff;
+  }
+  
+  /* Bottone completato */
+  .challenge-button.completed {
+    background-color: #6a1b9a; /* Giallo acceso */
+  }
+  
+  /* Bottone incompleto */
+  .challenge-button.incomplete {
+    background-color: #555555;
+    opacity: 0.8;
+  }
+  
+  /* Pulsanti con effetto 3D */
+  .challenge-button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+ /* Etichetta della challenge */
+.challenge-label {
+    width: 160px; /* Aumentata di 20px */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    position: absolute; /* Per centrarla rispetto al bottone */
+    left: 50%;
+    transform: translateX(-50%); /* Centra orizzontalmente */
+}
+
+/* Etichetta incompleta */
+.challenge-label.incomplete {
+    font-style: italic;
+    color: #888;
+}
+
+/* Posizionamenti specifici delle challenge */
+.challenge-1 {
+    position: absolute;
+    bottom: 15%;
+    right: 68%;
+    text-align: center;
+}
+
+.challenge-2 {
+    position: absolute;
+    top: 47%;
+    left: 60%;
+    text-align: center;
+}
+
+.challenge-3 {
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Bottone e etichetta per challenge - layout */
+.challenge-container {
+    position: absolute;
+    text-align: center;
+}
+
+  
+  /* Bottone "Back to Story" */
+  .back-to-story-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #6a1b9a;
+    border: none;
+    font-size: 30px;
+    padding: 15px 40px;
+    border-radius: 40px;
+    color: white;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+  
+  /* Effetto clic su bottone */
+  .back-to-story-button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Centra il modal */
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Bottone viola */
+  .purple-button {
+    background-color: #6a1b9a;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .purple-button:hover {
+    background-color: #7b2ba0;
+  }
+  
+  .purple-button:active {
+    background-color: #5a1079;
+  }
+  
