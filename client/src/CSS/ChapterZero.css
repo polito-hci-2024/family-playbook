@@ -14,7 +14,7 @@
   text-align: center;
   font-family: 'Quintessential', sans-serif;
   color: #10334a;
-  text-shadow: 3px 3px 4px  #5f8caa;
+  text-shadow: 3px 3px 4px #5f8caa;
   padding: 10px 20px;
   width: auto;
   margin-top: 150px;
@@ -23,16 +23,16 @@
 
 .lumi {
   position: fixed;
-  bottom: 0px;
+  bottom: 30px;
   left: 10px;
-  width: 260px;
+  width: 300px;
 }
 
 .cloud {
   position: fixed;
-  bottom: 50px;
+  bottom: 90px;
   left: 200px;
-  width: 330px;
+  width: 300px;
 }
 
 .character-panel {
@@ -43,5 +43,5 @@
   max-height: max-content;
   max-width: 90%;
   font-size: large;
-  aspect-ratio: 5 / 4; 
+  aspect-ratio: 5 / 4;
 }

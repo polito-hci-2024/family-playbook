@@ -16,7 +16,7 @@ function ChapterZero() {
         </Row>
       </Container>
       <div>
-        <img src='../../img/lumi.png' className='lumi'></img>
+        <img src='../../img/lumi_smile.png' className='lumi'></img>
         <img src='../../img/cloudWelcome.png' className='cloud'></img>
       </div>
     </div >
