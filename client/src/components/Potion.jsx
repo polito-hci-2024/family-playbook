@@ -30,7 +30,7 @@ const Potion = () => {
   };
 
   const handleNavigateNext = () => {
-    navigate('/next-page');  // Sostituisci '/next-page' con il percorso desiderato
+    navigate('/last-step-selection-eldora');  // Sostituisci '/next-page' con il percorso desiderato
   };
 
   const handleNavigateBack = () => {

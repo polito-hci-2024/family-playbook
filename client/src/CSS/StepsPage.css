@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column; /* Dispone i pannelli verticalmente */
   align-items: center; /* Centra orizzontalmente */
-  background-image: url('/img/Untitled design.png'); /* Sfondo globale */
+  background-image: url('/img/sfondo_prova.png'); /* Sfondo globale */
   background-size: cover; /* Copri l'intero contenitore */
   background-position: center;
   background-attachment: fixed; /* Sfondo fisso durante lo scroll */
@@ -37,7 +37,7 @@
   font-weight: bold;
   text-align: center;
   font-family: 'Quintessential', sans-serif;
-  color: #720B5B;
+  color: #10334a;
   padding: 10px 20px; /* Spaziatura interna */
   width: auto;
   margin-top: 100px; /* Aggiungi margine in alto per dare spazio all'inizio della pagina */
@@ -66,7 +66,7 @@
   padding: 20px; /* Spazio interno */
   background: rgba(255, 255, 255, 0.30); /* Sfondo semitrasparente */
   border-radius: 25px; /* Bordi arrotondati */
-  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
+  box-shadow: 0 4px 10px #10334a;
   display: flex;
   flex-direction: column;
   justify-content: center; /* Centra il contenuto verticalmente */

@@ -16,7 +16,7 @@
 .activity .activity-card {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
+  box-shadow: 0 4px 10px #10334a;
   width: 250px;
   padding: 20px;
   text-align: center;
@@ -42,7 +42,7 @@
   font-size: 2rem;
   font-family: 'Quintessential', sans-serif;
   font-weight: bold;
-  color: #720B5B;
+  color: #10334a;
 }
 
 .activity .activity-description {
@@ -112,7 +112,7 @@
   display: flex;
   flex-direction: column; /* Dispone i pannelli verticalmente */
   align-items: center; /* Centra orizzontalmente */
-  background-image: url('/img/Untitled design.png'); /* Sfondo globale */
+  background-image: url('/img/sfondo_generale.png'); /* Sfondo globale */
   background-size: cover; /* Copri l'intero contenitore */
   background-position: center;
   background-attachment: fixed; /* Sfondo fisso durante lo scroll */
@@ -171,7 +171,7 @@
   .activity {
     font-size: 4rem;
     font-weight: bold;
-    color: #720B5B;
+    color: #10334a;
   }
 
   .activity .story-image {
