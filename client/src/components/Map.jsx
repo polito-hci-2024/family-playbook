@@ -5,6 +5,7 @@ import '../CSS/Map.css';
 
 function Map() {
   const [challenges, setChallenges] = useState([false, false, false]);
+  const [showAdvancedButton, setShowAdvancedButton] = useState(false); // Stato per il bottone
   const [showModal, setShowModal] = useState(false);
   const [selectedChallenge, setSelectedChallenge] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -25,7 +26,14 @@ function Map() {
         if (challengeIds.includes(1)) newChallenges[0] = true;
         if (challengeIds.includes(2)) newChallenges[1] = true;
         if (challengeIds.includes(3)) newChallenges[2] = true;
+
         setChallenges(newChallenges);
+
+        // Controlla se mostrare il bottone "Go to Egypt map"
+        if (challengeIds.includes(4) || challengeIds.includes(5)) {
+          setShowAdvancedButton(true);
+        }
+
         setLoading(false);
       })
       .catch(err => {
@@ -111,6 +119,18 @@ function Map() {
           Back to Story
         </Button>
       </div>
+
+      {/* Go to Egypt Map Button */}
+      {showAdvancedButton && (
+        <div>
+          <Button
+            className="arrow-button"
+            onClick={() => console.log('Go to Egypt Map')}
+          >
+            Go to Egypt map
+          </Button>
+        </div>
+      )}
 
       {/* Congratulations Modal */}
       <Modal show={showModal} onHide={handleCloseModal} centered>

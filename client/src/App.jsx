@@ -21,6 +21,7 @@ import Raining from './components/Raining';
 import Scratch from './components/Scratch';
 import Map from './components/Map';
 import Anubi from './components/Anubi';
+import MapEgypt from './components/MapEgypt';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -67,7 +68,8 @@ function App() {
           <Route path="/map" element={<Map />}/>
           <Route path="/challenge/4" element={<Anubi/>} />
           <Route path="/last-step-selection-eldora" element={<LastStepSelectionEldora activity_id={1} />}/>
-          
+          <Route path="/mapEgypt" element={<MapEgypt />}/>
+
         </Routes>
       ) : (
         <div className="rotate-message">
