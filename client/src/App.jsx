@@ -13,7 +13,7 @@ import StepsPage from './components/StepsPage';
 import Question from './components/Question';
 import StoryPageMuseum from './components/StoryPageMuseum';
 import Potion from './components/Potion';
-
+import Scratch2 from './components/Scratch2';
 import StepSelectionEldora from './components/StepsEldora';
 import LastStepSelectionEldora from './components/LastStepsEldora';
 import StepSelectionEgypt from './components/StepsEgypt';
@@ -62,6 +62,7 @@ function App() {
           <Route path="/last-chapter" element={<LastChapter />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/challenge/2" element={<Scratch />} />
+          <Route path="/challenge/2-alternativa" element={<Scratch2 />} /> {/* Simone dice: è la challenge delle card che si girano */}
           <Route path="/step-selection-eldora" element={<StepSelectionEldora activity_id={1} />}/>
           <Route path="/raining" element={<Raining />}/>  
           <Route path="/step-selection-egypt" element={<StepSelectionEgypt activity_id={2} />}/>
