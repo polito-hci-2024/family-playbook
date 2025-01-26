@@ -6,7 +6,7 @@
     overflow: hidden;
 }
 
-.title {
+.last-title {
     left: 50%;
     z-index: 10;
     font-size: 5rem;
@@ -14,37 +14,72 @@
     text-align: center;
     font-family: 'Quintessential', sans-serif;
     color: #10334a;
+    text-shadow: 3px 3px 4px  #5f8caa;
     padding: 10px 20px;
     width: auto;
-    margin-top: 100px;
-    margin-bottom: 85px;
+    margin-top: 80px;
+    margin-bottom: 60px;
 }
 
-.title2 {
-    left: 50%;
-    font-size: 2.5rem;
+.last-description {
+    font-family: 'Josefin Sans', serif;
+    font-size: 1.6rem;
+    color: #10334a;
+    margin-top: 10px;
+    line-height: 1.6;
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.mb-3 .title2 {
+    font-size: 2.2rem;
     font-weight: bold;
     text-align: left;
     font-family: 'Quintessential', sans-serif;
-    color: #10334a;
-    padding: 10px;
+    color: rgba(183, 148, 25, 0.879);
+    text-shadow: rgba(246, 200, 34, 0.879) 1px 1px 2px;
     width: auto;
 }
 
-.title3 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1.6rem;
-    color: #000;
-    margin: 10px;
+.mb-3 .title3 {
+    font-family: 'Josefin Sans', serif;
+    font-size: 1.8rem;
+    color: #10334a;
+    margin-top: 5px;
+    margin-bottom: 10px;
     text-align: left;
 }
 
 .review-form-button {
     width: 50%;
     font-size: large;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Josefin Sans', serif;    
     color: white;
     font-size: x-large;
     background-color: #10334a;
-    margin-bottom: 10px;
+    box-shadow: #5f8caa 3px 3px 4px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.custom-alert {
+    text-align: center; /* Centrare l'intero alert */
+    margin-top: 10px;
+    font-family: 'Josefin Sans', serif;
+    font-size: 1.5rem;
+    background-color: rgba(246, 200, 34, 0.879);
+}
+
+.custom-alert-heading {
+    color: #10334a; /* Cambia il colore del testo */
+    font-size: 1.8rem; /* Dimensione del testo */
+    font-family: 'Quintessential', sans-serif;
+    font-weight: bold; /* Grassetto per evidenziarlo */
+    margin-top: 10px; /* Spazio sopra il messaggio */
+    text-align: center; /* Centrare il titolo */
+}
+
+.required {
+    color: red;
 }

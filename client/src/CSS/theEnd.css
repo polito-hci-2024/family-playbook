@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+.the-end-container {
+    background-image: url('/img/sfondo_generale.png'); /* Sfondo elegante */
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.the-end-text {
+    font-family: 'Dancing Script', cursive; /* Font corsivo elegante */
+    font-size: 16rem;
+    color: #10334a;
+    text-shadow: 3px 3px 5px #5f8caa;
+    white-space: nowrap;
+}
+
+.video-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Assicura che nulla esca dai bordi */
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assicura che il video copra tutta la pagina */
+    z-index: -1; /* Sposta il video sullo sfondo */
+  }

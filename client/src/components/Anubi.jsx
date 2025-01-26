@@ -26,7 +26,7 @@ function Anubi() {
   };
   const handleNavigate = () => {
     if (photos.length === 3) {
-      navigate("/fine"); // Naviga alla route del passaggio selezionato
+      navigate("/last-chapter"); // Naviga alla route del passaggio selezionato
     }
   };
   const handleNavigateBack = () => {

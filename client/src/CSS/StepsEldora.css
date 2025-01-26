@@ -17,7 +17,7 @@
   .steps-eldora .header {
     padding: 80px;
     padding-bottom: 10px;
-    margin-top: -50px;
+    margin-top: 30px;
     margin-bottom: 10px;
     margin-right: 30px;
     margin-left: 30px
@@ -29,13 +29,15 @@
     font-size: 4rem;
     color: #720B5B;
     text-shadow: 3px 3px 4px  rgba(230, 131, 217, 0.944);
+    padding-right: 20px;
   }
   
   .steps-eldora .description {
     font-family: 'Josefin Sans' , serif;
     font-size: 1.6rem;
     color: #4a0432fd;
-    margin-top: -50px;
+    margin-top: 40px;
+    margin-bottom: 30px;
     line-height: 1.6;
   }
   
