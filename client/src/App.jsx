@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container } from 'react-bootstrap';
+import { FaSyncAlt } from 'react-icons/fa';
 import NotFound from './components/NotFound';
 import { Routes, Route } from 'react-router-dom';
 import OpeningPage from './components/OpeningPage';
@@ -75,9 +75,13 @@ function App() {
 
         </Routes>
       ) : (
-        <div className="rotate-message">
-          <p>
-            <strong>Lumi dice:</strong> Per favore, usa un tablet o ruota il tuo dispositivo!
+        <div
+          className="d-flex flex-column justify-content-center align-items-center vh-100 text-center"
+          style={{ backgroundColor: '#f8f9fa' }}
+        >
+          <FaSyncAlt size={100} className="mb-4 text-primary" />
+          <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
+            Please rotate your device or use a tablet!
           </p>
         </div>
       )}
