@@ -45,6 +45,8 @@
         /* Ombra interna in basso */
         0 8px 15px rgba(0, 0, 0, 0.5);
     /* Ombra esterna */
+    position: relative;
+    z-index: 10; /* Assicurati che sia sopra gli altri elementi */
 }
 
 .character-form-button-container {
@@ -53,6 +55,9 @@
     /* Centra orizzontalmente */
     width: 100%;
     /* Assicura che il contenitore prenda tutta la larghezza disponibile */
+    position: relative;
+    /* Assicura che il bottone abbia priorità visiva */
+    z-index: 10;
 }
 
 /* Applica lo stesso stile al campo di testo (input) e al campo di selezione (select) */

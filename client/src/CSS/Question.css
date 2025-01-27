@@ -37,6 +37,7 @@
     align-items: center; /* Allineamento orizzontale al centro */
     justify-content: center; /* Allineamento verticale al centro */
     text-align: center; /* Assicurati che il testo sia centrato */
+    margin-top: 130px;
   }
   
   .question .activity-container {
@@ -110,8 +111,8 @@
   background: rgba(255, 255, 255, 0.8); /* Sfondo semitrasparente, come le card */
   border-radius: 15px; /* Stesso arrotondamento delle card */
   box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3); /* Stesso effetto ombra */
-  width: 80%; /* Imposta una larghezza relativa o fissa */
-  max-width: 700px; /* Limita la larghezza massima */
+  width: 100%; /* Imposta una larghezza relativa o fissa */
+  max-width: 750px; /* Limita la larghezza massima */
   padding: 20px; /* Stesso padding delle card */
   text-align: center; /* Allinea il contenuto al centro */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizioni come le card */
@@ -120,6 +121,7 @@
   justify-content: center; /* Centra i contenuti verticalmente */
   align-items: center; /* Centra i contenuti orizzontalmente */
   margin: 25px auto; /* Aggiungi spazio tra i pannelli */
+  position: relative;
 }
 
 /* Ultimo pannello con margine inferiore maggiore */
@@ -132,6 +134,12 @@
     font-weight: bold;
     color: #10334a;
     text-shadow: 3px 3px 4px  #5f8caa;
+    position: fixed; /* Fissa il titolo in cima */
+    top: 110px; /* Posiziona il titolo all'inizio della pagina */
+    left: 52%; /* Centra orizzontalmente */
+    right: -31%;
+    transform: translateX(-50%); /* Centra esattamente */
+    z-index: 10; /* Metti il titolo sopra agli altri elementi */
   }
 
   
