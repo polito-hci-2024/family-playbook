@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 const Potion = () => {
   const [cauldron, setCauldron] = useState([]); // Ingredienti nel calderone
   const ingredients = [
-    { name: "3 Margherite", image: "../img/ingredients/daisy.jpeg" },
-    { name: "1 foglia", image: "../img/ingredients/daisy.jpeg" },
-    { name: "1 bicchiere d'acqua di sorgente", image: "../img/ingredients/daisy.jpeg" },
-    { name: "2 legnetti", image: "../img/ingredients/daisy.jpeg" }
+    { name: "3 Margherite", image: "../img/ingredients/daisy.jpg" },
+    { name: "1 foglia", image: "../img/ingredients/leaf.jpg" },
+    { name: "1 bicchiere d'acqua di sorgente", image: "../img/ingredients/water_cup.jpg" },
+    { name: "2 legnetti", image: "../img/ingredients/branches.jpg" }
   ];
   const [showArrows, setShowArrows] = useState(true); // Variabile per mostrare le frecce
   const navigate = useNavigate();

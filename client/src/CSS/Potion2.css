@@ -1,0 +1,105 @@
+.potion2 {
+    background-image: url('../img/Untitled design.png'); /* Sfondo */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Distribuisce gli elementi */
+    padding-bottom: 20px; /* Distanza dal bordo inferiore */
+}
+
+/* Titolo in alto */
+.potion2 .title {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 150px;
+    font-family: 'Quintessential', sans-serif;
+    color: #720B5B;
+}
+
+.potion2 .incantesimo-container {
+    margin-top: 60px;
+    position: relative; /* Permette di posizionare gli elementi al suo interno */
+    display: inline-flex; /* Si adatta al contenuto */
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Per non far toccare troppo il testo ai bordi */
+}
+
+.potion2 .sfondo-filastrocca {
+    width: auto; /* L'immagine si adatta alla larghezza del contenitore */
+    height: auto; /* Mantiene le proporzioni dell'immagine */
+    display: block;
+    max-width: 95%; /* Evita che sia più grande del contenitore */
+    max-height: 300px; /* Imposta un limite massimo, modificabile */
+    object-fit: contain; /* Evita distorsioni */
+}
+
+.potion2 .filastrocca {
+    max-width: 80%;
+    position: absolute; /* Sovrappone il testo all'immagine */
+    transform: translate(-50%, -50%); /* Perfetto centraggio */
+    text-align: center;
+    margin-top: 50%;
+    margin-left: 50%;
+    padding: 10px;
+    font-size: 2rem;
+    white-space: wrap;
+}
+
+/* Effetto parole filastrocca */
+.potion2 .filastrocca span {
+    opacity: 0.5;
+    transition: opacity 0.5s, color 0.5s;
+}
+
+.potion2 .filastrocca span.active {
+    opacity: 1;
+    color: #E5BB61;
+}
+
+/* CONTENITORE del calderone in basso */
+.potion2 .container {
+    position: absolute;
+    bottom: 0; /* Fissato in basso */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 800px; /* Altezza per il calderone */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* CALDERONE */
+.potion2 .calderone {
+    width: 75%;
+    height: auto;
+    position: relative;
+}
+
+/* MESTOLO sopra il calderone */
+.potion2 .mestolo {
+    position: absolute;
+    margin-left: 42%;
+    margin-bottom: 280px;
+    width: 80px; /* Modifica a seconda della dimensione del mestolo */
+    height: auto;
+    cursor: grab; /* Indica che può essere trascinato */
+    transform-origin: top center; /* Rotazione più realistica */
+}
+
+.potion2 .mestolo:active {
+    cursor: grabbing; /* Cambia il cursore mentre viene trascinato */
+}
+
+
+@media (max-width: 768px) {
+    .potion2 .filastrocca {
+        font-size: 1.5rem; /* Riduce il testo su dispositivi più piccoli */
+    }
+}
