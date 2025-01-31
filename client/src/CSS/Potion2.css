@@ -85,12 +85,12 @@
 /* MESTOLO sopra il calderone */
 .potion2 .mestolo {
     position: absolute;
-    margin-left: 42%;
-    margin-bottom: 280px;
+    left: 45%;
+    margin-bottom: 290px;
     width: 80px; /* Modifica a seconda della dimensione del mestolo */
     height: auto;
     cursor: grab; /* Indica che può essere trascinato */
-    transform-origin: top center; /* Rotazione più realistica */
+    transform-origin: bottom center; /* Rotazione più realistica */
 }
 
 .potion2 .mestolo:active {
