@@ -23,6 +23,7 @@ import Map from './components/Map';
 import Anubi from './components/Anubi';
 import MapEgypt from './components/MapEgypt';
 import TheEnd from './components/theEnd';
+import Start from './components/start';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -50,7 +51,6 @@ function App() {
     <div>
       {isTablet ? (
         <Routes>
-          <Route path="/" element={<OpeningPage />} />
           <Route path="/chapter-zero" element={<ChapterZero />} />
           <Route path="/steps/1" element={<StepsPage stepId={1} />} />
           <Route path="/question/1" element={<Question question_id={1} />} />
@@ -72,6 +72,7 @@ function App() {
           <Route path="/last-step-selection-eldora" element={<LastStepSelectionEldora activity_id={1} />}/>
           <Route path="/mapEgypt" element={<MapEgypt />}/>
           <Route path="/the-end" element={<TheEnd />}/>
+          <Route path="/" element={<Start />}/>
 
         </Routes>
       ) : (
