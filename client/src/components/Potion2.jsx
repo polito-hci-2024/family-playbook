@@ -138,7 +138,6 @@ const Potion2 = () => {
           />
         {/* Effetto Sparkle quando tutte le parole sono state recitate */}
         {wordIndex === words.length - 1 && <Sparkles />}
-        {wordIndex === words.length - 1 && <Sparkles />}
         {showModal && (
           <div className="modal">
             <div className="modal-content">

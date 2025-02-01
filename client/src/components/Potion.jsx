@@ -30,9 +30,11 @@ const Potion = () => {
   };
 
   const handleNavigateNext = () => {
-    navigate('/potion2');  // Sostituisci '/next-page' con il percorso desiderato
+    navigate('/potion2');  
   };
-
+  const handleNavigatePrec = () => {
+    navigate('/potion2');  
+  };
   const isNextArrowActive = cauldron.length === ingredients.length;
 
   return (
@@ -90,15 +92,16 @@ const Potion = () => {
               src="/img/back.png"
               alt="Arrow Left"
               className="arrow arrow-left"
-              onClick={handleNavigateNext}
+              onClick={handleNavigatePrec}
             />
-            {/* Freccia destra: attiva solo se tutti gli ingredienti sono nel calderone */}
-            <img
-              src="/img/next.png"
-              alt="Arrow Right"
-              className={`arrow arrow-right ${isNextArrowActive ? "enabled" : "disabled"}`}
-              onClick={isNextArrowActive ? handleNavigateNext : null} 
-            />
+            { isNextArrowActive && (
+              <img
+                src="/img/next.png"
+                alt="Arrow Right"
+                className="arrow arrow-right"
+                onClick={handleNavigateNext}
+              />
+            )}
           </>
         )}
       </div>
