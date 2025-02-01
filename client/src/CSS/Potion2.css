@@ -1,0 +1,241 @@
+.potion2 {
+    background-image: url('../img/Untitled design.png'); /* Sfondo */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Distribuisce gli elementi */
+    padding-bottom: 20px; /* Distanza dal bordo inferiore */
+}
+
+/* Titolo in alto */
+.potion2 .title {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 150px;
+    font-family: 'Quintessential', sans-serif;
+    color: #720B5B;
+}
+.potion2 .descrizione-incantesimo {
+    font-size: 1.5rem;
+    color: black;
+    margin: 20px;
+    text-align: center;
+    line-height: 1.6;
+    padding: 0 15px;
+    border-radius: 8px;
+    max-width: 85%;
+  }
+  
+.potion2 .incantesimo-container {
+    margin-top: 10px;
+    position: relative; /* Permette di posizionare gli elementi al suo interno */
+    display: inline-flex; /* Si adatta al contenuto */
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Per non far toccare troppo il testo ai bordi */
+}
+.potion2 .create {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra orizzontalmente il contenuto */
+    justify-content: center;
+    text-align: center; /* Centra il testo dentro gli elementi */
+    padding: 20px;
+  }
+
+.potion2 .sfondo-filastrocca {
+    width: auto; /* L'immagine si adatta alla larghezza del contenitore */
+    height: auto; /* Mantiene le proporzioni dell'immagine */
+    display: block;
+    max-width: 95%; /* Evita che sia più grande del contenitore */
+    max-height: 300px; /* Imposta un limite massimo, modificabile */
+    object-fit: contain; /* Evita distorsioni */
+}
+
+.potion2 .filastrocca {
+    max-width: 80%;
+    font-family: 'MagicFont', sans-serif;
+    position: absolute; /* Sovrappone il testo all'immagine */
+    transform: translate(-50%, -50%); /* Perfetto centraggio */
+    text-align: center; 
+    margin-top: 30%;
+    margin-left: 50%;
+    padding: 5px;
+    font-size: 2.5rem;
+    white-space: wrap;
+    
+}
+
+/* Effetto parole filastrocca */
+.potion2 .filastrocca span {
+    opacity: 0.5;
+    transition: opacity 0.5s, color 0.5s;
+}
+
+.potion2 .filastrocca span.active {
+    opacity: 1;
+    /*color: #E5BB61;*/
+    color: #4B3621; /* Marrone scuro */
+
+}
+
+/* CONTENITORE del calderone in basso */
+.potion2 .container {
+    position: absolute;
+    bottom: -5px; /* Fissato in basso */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 800px; /* Altezza per il calderone */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* CALDERONE */
+.potion2 .calderone {
+    width: 75%;
+    height: auto;
+    position: relative;
+}
+
+/* MESTOLO sopra il calderone */
+.potion2 .mestolo {
+    position: absolute;
+    left: 45%;
+    margin-bottom: 290px;
+    width: 80px; /* Modifica a seconda della dimensione del mestolo */
+    height: auto;
+    cursor: grab; /* Indica che può essere trascinato */
+    transform-origin: bottom center; /* Rotazione più realistica */
+}
+
+.potion2 .mestolo:active {
+    cursor: grabbing; /* Cambia il cursore mentre viene trascinato */
+}
+
+
+@media (max-width: 768px) {
+    .potion2 .filastrocca {
+        font-size: 1.5rem; /* Riduce il testo su dispositivi più piccoli */
+    }
+}
+
+.sparkle-container {
+    position: fixed;
+    bottom: 280px; /* Margine dal fondo della pagina */
+    left: 50%;
+    transform: translateX(-50%); /* Per centrare orizzontalmente */
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
+  }
+  
+  .sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, rgba(255, 255, 150, 1), rgba(255, 223, 90, 0.5), transparent);
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkleAnimation 5s ease-out forwards;
+  }
+  
+  @keyframes sparkleAnimation {
+    0% {
+      transform: scale(0.5) translateY(0) translateX(0);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.5) translateY(-30px) translateX(30px); /* Movimento diagonale e crescita */
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.5) translateY(-60px) translateX(60px);
+      opacity: 1;
+    }
+  }
+
+  .potion2 .modal {
+    position: fixed; /* Mantiene il modale fisso al centro */
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 120vh; /* 🔹 Copre l'intero schermo */
+    background: rgba(178, 170, 170, 0.6); /* Sfondo trasparente scuro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out;
+}
+  
+  .potion2 .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0px 4px 20px rgba(114, 11, 91, 0.4), 0px 0px 15px rgba(114, 11, 91, 0.3); /* Ombra colorata */
+  }
+  
+  .potion2 .modal button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #720B5B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .potion2 .modal button:hover {
+    background-color: #720B5B;
+  }
+  
+  .potion2 .modal-image{
+    width: 150px;
+    height: auto;
+    align-items: center;
+    left: 50%;
+    max-height: 300px;
+    object-fit: contain;
+    display: block; 
+    margin: 0px auto;
+  }
+
+  /* Stile per le frecce di navigazione */
+.potion2 .arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    color: #6b4a3c;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.potion2 .arrow-left {
+    left: 20px; /* Posizione della freccia sinistra */
+}
+
+.potion2 .arrow-right {
+    right: 20px; /* Posizione della freccia destra */
+}

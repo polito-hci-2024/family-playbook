@@ -3,14 +3,14 @@ import "../CSS/Potion.css";
 import { useNavigate } from 'react-router-dom'; 
 
 const Potion = () => {
-  const [cauldron, setCauldron] = useState([]); // Ingredienti nel calderone
+  const [cauldron, setCauldron] = useState([]); 
   const ingredients = [
-    { name: "3 Margherite", image: "../img/ingredients/daisy.jpeg" },
-    { name: "1 foglia", image: "../img/ingredients/daisy.jpeg" },
-    { name: "1 bicchiere d'acqua di sorgente", image: "../img/ingredients/daisy.jpeg" },
-    { name: "2 legnetti", image: "../img/ingredients/daisy.jpeg" }
+    { name: "3 Margherite", image: "../img/ingredients/daisy.jpg" },
+    { name: "1 foglia", image: "../img/ingredients/leaf.jpg" },
+    { name: "1 bicchiere d'acqua di sorgente", image: "../img/ingredients/water_cup.jpg" },
+    { name: "2 legnetti", image: "../img/ingredients/branches.jpg" }
   ];
-  const [showArrows, setShowArrows] = useState(true); // Variabile per mostrare le frecce
+  const [showArrows, setShowArrows] = useState(true); 
   const navigate = useNavigate();
 
   const handleDrop = (event) => {
@@ -30,13 +30,11 @@ const Potion = () => {
   };
 
   const handleNavigateNext = () => {
-    navigate('/last-step-selection-eldora');  // Sostituisci '/next-page' con il percorso desiderato
+    navigate('/potion2');  
   };
-
-  const handleNavigateBack = () => {
-    navigate("/step-selection-eldora");
-  }
-
+  const handleNavigatePrec = () => {
+    navigate('/potion2');  
+  };
   const isNextArrowActive = cauldron.length === ingredients.length;
 
   return (
@@ -94,15 +92,16 @@ const Potion = () => {
               src="/img/back.png"
               alt="Arrow Left"
               className="arrow arrow-left"
-              onClick={handleNavigateBack}
+              onClick={handleNavigatePrec}
             />
-            {/* Freccia destra: attiva solo se tutti gli ingredienti sono nel calderone */}
-            <img
-              src="/img/next.png"
-              alt="Arrow Right"
-              className={`arrow arrow-right ${isNextArrowActive ? "enabled" : "disabled"}`}
-              onClick={isNextArrowActive ? handleNavigateNext : null} 
-            />
+            { isNextArrowActive && (
+              <img
+                src="/img/next.png"
+                alt="Arrow Right"
+                className="arrow arrow-right"
+                onClick={handleNavigateNext}
+              />
+            )}
           </>
         )}
       </div>
