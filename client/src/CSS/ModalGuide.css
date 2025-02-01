@@ -1,0 +1,19 @@
+/* Classe per il modale con dimensioni personalizzate e sfondo sfocato */
+.custom-modal {
+    width: 100%;
+    /* Imposta la larghezza del modale a piacimento (es. 80% della larghezza viewport) */
+
+    /* Imposta l'altezza del modale a piacimento (es. 70% dell'altezza viewport) */
+    border-radius: 15px;
+    /* Angoli arrotondati */
+    overflow: hidden;
+    /* Per assicurarsi che i contenuti interni non escano dai bordi */
+}
+
+.custom-modal>.modal-dialog {
+    max-width: unset !important;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* Sfocatura dello sfondo del modale */
