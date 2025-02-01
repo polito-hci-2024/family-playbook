@@ -51,11 +51,11 @@ const Potion2 = () => {
   };
 
   const handleNavigateNext = () => {
-    navigate('/next-page'); 
+    navigate('/last-step-selection-eldora'); 
   };
 
   const handleNavigatePrec = () => {
-    navigate('/potion');  
+    navigate('/challenge/1/2');  
   };
 
   const moveMestolo = (event) => {

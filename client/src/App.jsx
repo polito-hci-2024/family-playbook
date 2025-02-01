@@ -24,7 +24,7 @@ import Anubi from './components/Anubi';
 import MapEgypt from './components/MapEgypt';
 import TheEnd from './components/theEnd';
 import Start from './components/start';
-
+import Potion2 from './components/Potion2';
 function App() {
   const [isTablet, setIsTablet] = useState(false);
 
@@ -58,7 +58,8 @@ function App() {
           <Route path="/activities" element={<Activities />} />
           <Route path="/start-activity" element={<StartActivity />} />
           <Route path="/storyNature/:activityId/:storyId" element={<StoryPage />} /> {/* Simone dice: puoi testarla a http://localhost:5173/storyNature/1/1, ma se alla fine facciamo la storia frontend allora poi la componente storyPage si può cestinare */}
-          <Route path="/challenge/1" element={<Potion/>} />  {/*Anita dice: ho cambiato la roue da /potion a /challenge/1 in modo da collegare la pagina di Anita 'StepsEldora' a quella di Reebecca 'Potion' */}
+          <Route path="/challenge/1/1" element={<Potion/>} /> 
+          <Route path="/challenge/1/2" element={<Potion2/>}/>  {/*Rebecca dice: ho cambiato la roue da /challenge/1 a challenge/1/1 in modo da collegare le due challenge di Rebecca */}
           <Route path="/storyMuseum/:activityId/:storyId" element={<StoryPageMuseum />} /> {/* Simone dice: Credo Anita non l'abbia usata, ma se alla fine facciamo la storia frontend allora poi la componente storyPageMuseum si può cestinare */}
           <Route path="/last-chapter" element={<LastChapter />} />
           <Route path="*" element={<NotFound />} />
