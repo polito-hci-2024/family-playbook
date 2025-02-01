@@ -3,14 +3,14 @@ import "../CSS/Potion.css";
 import { useNavigate } from 'react-router-dom'; 
 
 const Potion = () => {
-  const [cauldron, setCauldron] = useState([]); // Ingredienti nel calderone
+  const [cauldron, setCauldron] = useState([]); 
   const ingredients = [
     { name: "3 Margherite", image: "../img/ingredients/daisy.jpg" },
     { name: "1 foglia", image: "../img/ingredients/leaf.jpg" },
     { name: "1 bicchiere d'acqua di sorgente", image: "../img/ingredients/water_cup.jpg" },
     { name: "2 legnetti", image: "../img/ingredients/branches.jpg" }
   ];
-  const [showArrows, setShowArrows] = useState(true); // Variabile per mostrare le frecce
+  const [showArrows, setShowArrows] = useState(true); 
   const navigate = useNavigate();
 
   const handleDrop = (event) => {
@@ -30,7 +30,7 @@ const Potion = () => {
   };
 
   const handleNavigateNext = () => {
-    navigate('/next-page');  // Sostituisci '/next-page' con il percorso desiderato
+    navigate('/potion2');  // Sostituisci '/next-page' con il percorso desiderato
   };
 
   const isNextArrowActive = cauldron.length === ingredients.length;
