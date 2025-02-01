@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 const Potion = () => {
   const [cauldron, setCauldron] = useState([]); 
   const ingredients = [
-    { name: "3 Margherite", image: "../img/ingredients/daisy.jpg" },
-    { name: "1 foglia", image: "../img/ingredients/leaf.jpg" },
-    { name: "1 bicchiere d'acqua di sorgente", image: "../img/ingredients/water_cup.jpg" },
-    { name: "2 legnetti", image: "../img/ingredients/branches.jpg" }
+    { name: "3 Daisy", image: "../../img/ingredients/margherita.png" },
+    { name: "1 Leaf", image: "../../img/ingredients/foglia.png" },
+    { name: "1 Cup of water", image: "../../img/ingredients/acqua.png" },
+    { name: "2 Branches", image: "../../img/ingredients/branches.png" }
   ];
   const [showArrows, setShowArrows] = useState(true); 
   const navigate = useNavigate();
@@ -41,11 +41,12 @@ const Potion = () => {
     <div className="potion">
       <div className="potion-hunters">
         {/* Titolo della pagina */}
-        <h1 className="title">Potion Hunters</h1>
+        <h1 className="title">The Potion of Vitality</h1>
         <p className="intro">
-      Ad Eldoria gli animali non stanno più bene. La lepre è stanca, il gufo non vede più chiaramente e il riccio è sempre addormentato. Solo una pozione speciale può aiutarli, ma per crearla servono ingredienti magici nascosti in tutta la foresta.
+        In Eldoria, the animals are unwell. The hare is tired, the owl’s vision is blurry, and the hedgehog is always asleep. Only a special potion can help them, but to create it, you must gather magical ingredients hidden throughout the forest.
         </p>
-        <p className="intro"> Aiuta i nostri amici a trovare gli ingredienti giusti e trascinali nel calderone. </p>  
+        <p className="intro"> Head into Parco della Mandria to search for the ingredients you need, then bring them back and carefully drag them into the cauldron to brew the potion that will restore the health of Eldoria's creatures!
+        </p>  
 
         {/* Lista degli ingredienti con le card */}
         <div className="ingredients-list">
@@ -58,7 +59,7 @@ const Potion = () => {
             >
               {/* Badge per la quantità */}
               <div className="ingredient-quantity-badge">
-                Qtà: {ingredient.name.split(" ")[0]}
+                Qty: {ingredient.name.split(" ")[0]}
               </div>
               {/* Immagine dell'ingrediente */}
               <img src={ingredient.image} className="ingredient-image" alt={ingredient.name} />
@@ -75,11 +76,11 @@ const Potion = () => {
           onDrop={handleDrop}
         >
           <img
-            src="../img/calderone-removebg-preview.png"
+            src="../../img/calderone-removebg-preview.png"
             alt="Cauldron"
             className="cauldron-image"
           />
-          <p>Trascina qui gli ingredienti</p>
+          <p>Drag the items here</p>
           <div className="cauldron-contents">
           </div>
         </div>

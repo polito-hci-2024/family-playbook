@@ -1,9 +1,9 @@
 .potion {
-    background-image: url('../img/Untitled design.png'); /* Percorso dell'immagine di sfondo */
-    background-size: cover; /* Copre l'intera pagina senza deformare l'immagine */
-    background-position: center center; /* Centra l'immagine */
-    background-attachment: fixed; /* Fissa lo sfondo durante lo scroll */
-    min-height: 100vh; /* Assicura che lo sfondo copra tutta l'altezza della finestra */
+    background-image: url('../../img/sfondo_ufficiale.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; 
+    min-height: 100vh; 
     display: flex;
 }
 
@@ -81,7 +81,7 @@
 
 /* Immagine della card */
 .potion .ingredient-card img {
-    width: 70%; /* Immagine che riempie una porzione maggiore della card */
+    max-width: 70%; /* Immagine che riempie una porzione maggiore della card */
     height: auto; /* Mantiene le proporzioni dell'immagine */
     border-radius: 4px;
     margin-top: 0px;
@@ -141,7 +141,7 @@
 
 .potion .cauldron p {
     position: absolute;
-    top: 40%;
+    top: 38%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #ffffff;
