@@ -52,7 +52,7 @@ function StartActivity() {
             </div>
 
             <div className="activity-info-box">
-              <h4><strong>Important Items to Bring:</strong></h4>
+              <h4><strong>What you’ll need:</strong></h4>
               <p className="activity-description">{activityData.info}</p>
             </div>
           </div>

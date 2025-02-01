@@ -103,8 +103,8 @@ function Question({ question_id }) {
               {/* Titolo della domanda */}
               <p className="title">
                   {questionId === 1
-                      ? `${userName}, dove vuoi andare?`
-                      : `${userName}, cosa vuoi trovare lungo il cammino?`}
+                      ? `${userName}, which path will you take?`
+                      : `Signs of an Ancient Presence`}
               </p>
 
               {/* Pannello con descrizione (se disponibile) */}
