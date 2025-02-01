@@ -53,7 +53,7 @@ function FormCharacterPage() {
                 localStorage.setItem('userAgeRange', ageRange);
     
                 // Naviga alla pagina successiva
-                navigate('/question/1');
+                navigate('/steps/1');
             } catch (error) {
                 console.error('Error inserting user:', error);
                 setShowError(true); // Mostra un messaggio di errore se qualcosa va storto

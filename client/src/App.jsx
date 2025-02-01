@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaSyncAlt } from 'react-icons/fa';
 import NotFound from './components/NotFound';
 import { Routes, Route } from 'react-router-dom';
-import OpeningPage from './components/OpeningPage';
 import StoryPage from './components/StoryPage';
 import ChapterZero from './components/ChapterZero';
 import LastChapter from './components/LastChapter';
