@@ -25,7 +25,7 @@ function StepSelectionEldora() {
             image: challenge.image_url,
             title: challenge.challenge_name,
             description: challenge.challenge_description,
-            route: `/challenge/${challenge.challenge_id}`,
+            route: `/challenge/${challenge.challenge_id}/1`,
             disabled: challenge.challenge_id === 2 || challenge.challenge_id === 3
           }))
         );
@@ -52,7 +52,7 @@ function StepSelectionEldora() {
   };
 
   const handleNavigateBack = () => {
-    navigate('/activities')
+    navigate('/start-activity');
   };
 
   const togglePopup = () => {
@@ -160,13 +160,17 @@ function StepSelectionEldora() {
 
       <div className="steps-eldora">
         <div className="header">
-          <h1 className="title">Welcome to the enchanting world of Eldora !</h1>
+          <h1 className="title">Welcome to the enchanting world of Eldora!</h1>
           <p className="description">
-          In this magical realm you'll encounter exciting challenges, discover hidden treasures and unlock the secrets of Eldora.
+          Brave adventurer, you’ve stepped into Eldoria! A world hidden within the heart of Parco della Mandria. The forest is fading, and its heart is threatened by a dark presence that only a true hero like you can dispel.
           </p>
+          <p className="description">
+          In this adventure, you will face challenges that will test your courage and magic. With every challenge you overcome you’ll move closer to restoring its balance.
+          </p>
+          <p className="description" >  <strong>Choose Your Next Challenge to Begin! </strong></p>
         </div>
 
-        <h1 className="Step-question"> Which challenge would you like to start with? </h1>
+        
         <div className="steps">
           {steps.map((Step, index) => (
             <motion.div

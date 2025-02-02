@@ -1,187 +1,149 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import '../CSS/StepsEldora.css';
-import '../CSS/UnexpectedEvents.css';
-import API from '../API.mjs'
+import React, { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import "../CSS/StepsEldora.css";
+import "../CSS/UnexpectedEvents.css";
 
 function LastStepSelectionEldora() {
   const navigate = useNavigate();
-  const [selectedStep, setSelectedStep] = useState(null); // Stato per tracciare il passaggio selezionato
+  const [selectedStep, setSelectedStep] = useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [selectedIcon, setSelectedIcon] = useState(null);
   const containerRef = useRef(null);
-  const [selectedIcon, setSelectedIcon] = useState(null); // Stato per tracciare l'icona selezionata
-  const [steps, setSteps] = useState([]); // Stato per i dati dinamici
-  const [loading, setLoading] = useState(true); // Stato per indicare il caricamento dei dati
-  const [error, setError] = useState(null); // Stato per eventuali errori
 
-  useEffect(() => {
-    const fetchOtherChallenges = async () => {
-      try {
-        const other_challenges = await API.getOtherChallengesById(1);
-        setSteps(
-          other_challenges.map((challenge) => ({
-            id: challenge.challenge_id,
-            image: challenge.image_url,
-            title: challenge.challenge_name,
-            description: challenge.challenge_description,
-            route: `/challenge/${challenge.challenge_id}`,
-            disabled: challenge.challenge_id === 3
-          }))
-        );
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to load challenges. Please try again later.');
-        setLoading(false);
-      }
-    };
+  // 🔹 Cards ora sono statiche nel frontend (senza database)
+  const [steps, setSteps] = useState([
+    {
+      id: 1,
+      image: "/img/challenges/amuleto.png",
+      title: "The Quest for the Lost Fragment",
+      description: "To restore the amulet’s power,embark on a journey to find the missing fragment—a piece of magic that was lost long ago.",
+      disabled: false,
+    },
+    {
+      id: 2,
+      image: "/img/challenges/fairy-house.png",
+      title: "Rebuild the Fairy House",
+      description: "The fairies' magical house was destroyed in the chaos. Help the fairies gather materials and rebuild their home so they can resume their vital work of caring for the forest's health.",
+      disabled: true,
+    },
+  ]);
 
-    fetchOtherChallenges();
-  }, []);
-
+  // 🔹 Gestisce il click su una card
   const handleStepClick = (Step) => {
-    if (!steps.disabled) {
+    if (!Step.disabled) {
       setSelectedStep(Step);
     }
   };
 
+  // 🔹 Navigazione avanti e indietro
   const handleNavigate = () => {
     if (selectedStep) {
-      navigate(selectedStep.route); // Naviga alla route del passaggio selezionato
+      navigate(selectedStep.route);
     }
   };
 
   const handleNavigateBack = () => {
-    navigate('/activities')
+    navigate("/activities");
   };
 
+  // 🔹 Gestione del popup
   const togglePopup = () => {
     setIsPopupVisible(!isPopupVisible);
   };
 
-  const handleOutsideClick = (event) => {
-    // Verifica se il clic è avvenuto su una card attiva
-    const clickedElement = event.target;
-    const isStepCard = clickedElement.closest('.Step-card'); // Trova se l'elemento è una card
-    if (!isStepCard) {
-      setSelectedStep(null); // Deseleziona se il clic è fuori da una card
-    } else {
-      // Controlla se è una card disabilitata
-      const isDisabled = isStepCard.classList.contains('disabled');
-      if (!isDisabled) {
-        // Lascia che la card venga selezionata normalmente
-        return;
-      }
-      setSelectedStep(null); // Deseleziona se è su una card disabilitata
-    }
-  };
-
+  // 🔹 Chiude il popup se si clicca fuori
   useEffect(() => {
-    document.addEventListener('click', handleOutsideClick);
+    const handleOutsideClick = (event) => {
+      if (!event.target.closest(".Step-card")) {
+        setSelectedStep(null);
+      }
+    };
+    document.addEventListener("click", handleOutsideClick);
     return () => {
-      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
 
+  // 🔹 Gestione delle icone nel popup
   const handleIconClick = (iconName) => {
     setSelectedIcon(iconName);
-    setIsPopupVisible(true); // Mostra la domanda "Are you sure of your choice?"
+    setIsPopupVisible(true);
   };
 
   const handlePopupYesClick = () => {
-    if (selectedIcon && selectedIcon === 'raining') {
-      // Naviga alla pagina specificata per l'icona selezionata
-      navigate("/raining"); // Reindirizza alla pagina "raining.jsx"
-    } else if (selectedIcon && selectedIcon === 'end_activity') {
+    if (selectedIcon === "raining") {
+      navigate("/raining");
+    } else if (selectedIcon === "end_activity") {
       navigate("/");
     }
-    setIsPopupVisible(false); // Chiudi il pop-up dopo la selezione
+    setIsPopupVisible(false);
   };
 
-  if (loading) {
-    return <div>Loading challenges...</div>;
-  }
-
-  if (error) {
-    return <div className="error">{error}</div>;
-  }
-
   return (
-    <div className={`StepSelection ${isPopupVisible ? 'blurred' : ''}`} ref={containerRef}>
-      {/* Icona in alto a destra */}
+    <div className={`StepSelection ${isPopupVisible ? "blurred" : ""}`} ref={containerRef}>
+      {/* 🔹 Icona popup in alto a destra */}
       <div className="top-right-icon" onClick={togglePopup}>
         <img src="/img/unexpected/imprevisto.png" alt="Info Icon" />
       </div>
 
-      {/* Contenuto del pop-up */}
+      {/* 🔹 Contenuto del popup */}
       {isPopupVisible && (
         <div className="popup-overlay">
           <div className="popup-content">
             <h2>Puzzle of unexpected events</h2>
             <div className="popup-icons">
-                {/* Icona 1 */}
-                <div className={`popup-icon ${selectedIcon === 'raining' ? 'selected' : ''}`} onClick={() => handleIconClick('raining')}>
-                    <img src="/img/unexpected/raining.png" alt="It's raining" />
-                    <span>It's raining</span>
-                </div>
-                {/* Icona 2 */}
-                <div className={`popup-icon ${selectedIcon === 'end_activity' ? 'selected' : ''}`} onClick={() => handleIconClick('end_activity')}>
-                    <img src="/img/unexpected/end_activity.png" alt="End activity" />
-                    <span>End activity</span>
-                </div>
-                {/* Icona 3 - Disabilitata */}
-                <div className="popup-icon disabled">
-                    <img src="/img/unexpected/not_for_me.png" alt="Not for me" />
-                    <span>Not for me</span>
-                </div>
-                {/* Icona 4 - Disabilitata */}
-                <div className="popup-icon disabled">
-                    <img src="/img/unexpected/im_lost.png" alt="I'm lost" />
-                    <span>I'm lost</span>
-                </div>
+              <div className={`popup-icon ${selectedIcon === "raining" ? "selected" : ""}`} onClick={() => handleIconClick("raining")}>
+                <img src="/img/unexpected/raining.png" alt="It's raining" />
+                <span>It's raining</span>
+              </div>
+              <div className={`popup-icon ${selectedIcon === "end_activity" ? "selected" : ""}`} onClick={() => handleIconClick("end_activity")}>
+                <img src="/img/unexpected/end_activity.png" alt="End activity" />
+                <span>End activity</span>
+              </div>
+              <div className="popup-icon disabled">
+                <img src="/img/unexpected/not_for_me.png" alt="Not for me" />
+                <span>Not for me</span>
+              </div>
+              <div className="popup-icon disabled">
+                <img src="/img/unexpected/im_lost.png" alt="I'm lost" />
+                <span>I'm lost</span>
+              </div>
             </div>
             {selectedIcon && (
-              <div> 
+              <div>
                 <p className="popup-question">Are you sure about your choice?</p>
                 <div className="popup-buttons">
-                    <button className="yes-button" onClick={handlePopupYesClick}>
-                        Yes
-                    </button>
-                    <button className="no-button" onClick={() => {setIsPopupVisible(false), setSelectedIcon(null)}}>
-                        No
-                    </button>
+                  <button className="yes-button" onClick={handlePopupYesClick}>Yes</button>
+                  <button className="no-button" onClick={() => { setIsPopupVisible(false); setSelectedIcon(null); }}>No</button>
                 </div>
               </div>
             )}
-            
           </div>
         </div>
       )}
 
+      {/* 🔹 Contenuto principale */}
       <div className="steps-eldora">
         <div className="header">
-          <h1 className="title">Meanwhile, in the enchanting world of Eldora...</h1>
+          <h1 className="title">The Heart of Eldora Still Calls</h1>
           <p className="description">
-          Congratulations on completing the Magical Potion Making challenge! Your journey through Eldora is far from over. New exciting challenges await you, each filled with mysteries to unravel, treasures to uncover, and magical adventures to embark on.
+            The forest has been restored, but its heart still beats faintly, under the weight of a dark force lurking in the shadows. Eldoria's magic is fragile, and it is up to you to help protect it before the darkness grows stronger.
           </p>
         </div>
 
-        <h1 className="Step-question"> Which challenge would you like to take on next? </h1>
+        <p className="Step-question"><strong>Are you ready for your next challenge?</strong></p>
         <div className="steps">
           {steps.map((Step, index) => (
             <motion.div
-              className={`Step-card ${Step.disabled ? 'disabled' : ''}`}
+              className={`Step-card ${Step.disabled ? "disabled" : ""}`}
               key={Step.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.5 }}
               onClick={() => handleStepClick(Step)}
             >
-              <img
-                src={Step.image}
-                alt={Step.title}
-                className="Step-image"
-              />
+              <img src={Step.image} alt={Step.title} className="Step-image" />
               <h2 className="Step-title">{Step.title}</h2>
               <p className="Step-description">{Step.description}</p>
             </motion.div>
@@ -189,26 +151,15 @@ function LastStepSelectionEldora() {
         </div>
       </div>
 
-      {/* Freccia sinistra sempre visibile */}
+      {/* 🔹 Freccia sinistra (sempre visibile) */}
       {!isPopupVisible && (
-        <img
-        src="/img/back.png" 
-        alt="Arrow Left"
-        className="arrow arrow-left"
-        onClick={handleNavigateBack}
-      />
+        <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleNavigateBack} />
       )}
 
-        {/* Freccia destra visibile solo dopo una scelta */}
-        {selectedStep && (
-          <img
-            src="/img/next.png" 
-            alt="Arrow Right"
-            className="arrow arrow-right"
-            onClick={handleNavigate}
-          />
-        )}
-      
+      {/* 🔹 Freccia destra (appare solo dopo una scelta) */}
+      {selectedStep && (
+        <img src="/img/next.png" alt="Arrow Right" className="arrow arrow-right" onClick={handleNavigate} />
+      )}
     </div>
   );
 }

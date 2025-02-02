@@ -28,7 +28,7 @@ function StartActivity() {
   
   const handleConfirm = () => {
     handleClose();
-    navigate('/nature');
+    navigate('/step-selection-eldora');
   };
 
   const panels = [

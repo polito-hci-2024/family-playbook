@@ -33,7 +33,7 @@ const Potion = () => {
     navigate('/challenge/1/1');  
   };
   const handleNavigatePrec = () => {
-    navigate('/potion2');  
+    navigate('/step-selection-eldora');  
   };
   const isNextArrowActive = cauldron.length === ingredients.length;
 

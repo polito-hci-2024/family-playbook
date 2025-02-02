@@ -15,7 +15,7 @@
   }
   
   .steps-eldora .header {
-    padding: 80px;
+    padding: 100px;
     padding-bottom: 10px;
     margin-top: 30px;
     margin-bottom: 10px;
@@ -26,16 +26,15 @@
   .steps-eldora .title {
     font-family: 'Quintessential', sans-serif;
     font-weight: bold;
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: #720B5B;
     text-shadow: 3px 3px 4px  rgba(230, 131, 217, 0.944);
     padding-right: 20px;
   }
   
   .steps-eldora .description {
-    font-family: 'Josefin Sans' , serif;
-    font-size: 1.6rem;
-    color: #4a0432fd;
+    font-size: 1.3rem;
+    color: #000000;
     margin-top: 40px;
     margin-bottom: 30px;
     line-height: 1.6;
@@ -52,21 +51,13 @@
     width: 80%;
     max-width: 900px;
   }
-
-  .steps-eldora .Step-question {
-    font-family: 'Quintessential', sans-serif;
-    font-size: 2.4rem;
-    color: #c0139a;
-    font-weight: bold;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 3px  rgba(251, 236, 172, 0.944);
-  }
   
   .steps-eldora .Step-card {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
-    width: 280px;
+    width: 300px;
+    height: 550px;
     padding: 10px;
     text-align: center;
     cursor: pointer;
@@ -79,10 +70,8 @@
   }
   
   .steps-eldora .Step-image {
-    width: 50%;
+    width: 150px;
     height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
   }
   
   .steps-eldora .Step-title {
@@ -94,9 +83,8 @@
   }
   
   .steps-eldora .Step-description {
-    font-family: 'Josefin Sans', serif;
     font-size: 1.4rem;
-    color: #555;
+    color: #3b3a3a;
   } 
 
   .arrow {
