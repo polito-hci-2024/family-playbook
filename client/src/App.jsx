@@ -3,14 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaSyncAlt } from 'react-icons/fa';
 import NotFound from './components/NotFound';
 import { Routes, Route } from 'react-router-dom';
-import StoryPage from './components/StoryPage';
 import ChapterZero from './components/ChapterZero';
 import LastChapter from './components/LastChapter';
 import Activities from './components/Activities';
 import StartActivity from './components/StartActivity';
 import StepsPage from './components/StepsPage';
 import Question from './components/Question';
-import StoryPageMuseum from './components/StoryPageMuseum';
 import Potion from './components/Potion';
 import StepSelectionEldora from './components/StepsEldora';
 import LastStepSelectionEldora from './components/LastStepsEldora';
@@ -73,13 +71,12 @@ function App() {
           <Route path="/challenge/3" element={<Anubi/>} />
           <Route path="/congratulationsEgypt" element={<CongratulationsAnubi/>} />
           <Route path="/last-chapter" element={<LastChapter />} />
-          <Route path="*" element={<NotFound />} />
           <Route path="/the-end" element={<TheEnd />}/>
+          <Route path="*" element={<NotFound />} />
 
 
           <Route path="/map" element={<Map />}/>
           <Route path="/mapEgypt" element={<MapEgypt />}/>
-
           <Route path="/step-selection-eldora" element={<StepSelectionEldora activity_id={1} />}/>
         </Routes>
       ) : (
