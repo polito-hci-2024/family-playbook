@@ -6,7 +6,15 @@
   * {
     box-sizing: border-box;
   }
-  
+
+  .question .title {
+    font-size: 4rem; /* Titolo molto grande */
+    font-weight: bold;
+    text-align: center;
+    margin-top: 80px;
+    font-family: 'Quintessential', sans-serif;
+    color: #10334a;
+}
   /* Contenitore principale */
   .question .Introduction {
     position: relative;
@@ -219,9 +227,9 @@
   
   .question .character-image {
     position: fixed;
-    bottom: 15px; /* Posiziona l'immagine in basso */
-    left: 5px; /* Posiziona l'immagine a sinistra */
-    width: 300px; /* Larghezza dell'immagine */
+    bottom: -40px; /* Posiziona l'immagine in basso */
+    left: -70px; /* Posiziona l'immagine a sinistra */
+    width: 500px; /* Larghezza dell'immagine */
     height: auto;
   }
   

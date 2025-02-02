@@ -152,13 +152,11 @@ function Question({ question_id }) {
 
         {/* Personaggio e fumetto */}
         <img
-          src="/img/Lumi-angolo.png"
+          src="/img/Lumi_smile.png"
           alt="Personaggio"
           className="character-image"
         />
-        <div className={`speech-bubble`}>
-          Select an option to continue
-        </div>
+        <img src='../../img/cloudWelcome.png' className='cloud'></img> {/* da cambiare posizione e testo*/}
 
  {/* Freccia destra visibile solo se una card è selezionata */}
 {selectedChoice && (

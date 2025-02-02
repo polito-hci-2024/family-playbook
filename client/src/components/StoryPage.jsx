@@ -11,9 +11,6 @@ function StoryPage() {
   const [showArrows, setShowArrows] = useState(false);
   const [userName, setUserName] = useState(''); // Stato per il nome utente
 
-  const handleStartClick = () => {
-    navigate('/place');
-  };
 
   // Funzione per caricare i dati dalla storia
   const fetchStoryData = async (activityId, storyId) => {
@@ -82,6 +79,14 @@ function StoryPage() {
           </motion.div>
         ))}
         {/* Frecce per lo scroll */}
+        {
+          <img
+          src="/img/back.png"
+          alt="Arrow Left"
+          className="arrow arrow-left"
+          onClick={() => window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' })}
+          />
+        }
         {showArrows && (
           <>
             <img
@@ -89,12 +94,6 @@ function StoryPage() {
               alt="Arrow Right"
               className="arrow arrow-right"
               onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
-            />
-            <img
-              src="/img/back.png"
-              alt="Arrow Left"
-              className="arrow arrow-left"
-              onClick={() => window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' })}
             />
           </>
         )}
