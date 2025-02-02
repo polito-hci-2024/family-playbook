@@ -6,24 +6,22 @@ import API from '../API.mjs';
 
 function StepsPage({ stepId }) {
   const navigate = useNavigate();
-  const [panels, setPanels] = useState([]); // Stato per i pannelli della storia
-  const [stepName, setStepName] = useState(''); // Stato per il titolo del capitolo
+  const [panels, setPanels] = useState([]); 
+  const [stepName, setStepName] = useState('');
   const [showArrows, setShowArrows] = useState(false);
+  const [scrollY, setScrollY] = useState(0); // Stato per monitorare lo scroll
 
-  // Funzione per sostituire il segnaposto con il nome dell'utente
   const replacePlaceholder = (text, characterName, name) => {
     return text
       .replace(/\{\$characterName\}/g, characterName)
       .replace(/\{\$name\}/g, name);
   };
-  
 
-  // Funzione per caricare i dati dallo step
   const fetchStepData = async (id) => {
     try {
-      const characterName = localStorage.getItem('characterName') || 'Hero'; // Default a "Hero" se non c'è un valore salvato
-      const name = localStorage.getItem('userName') || 'Leo'; // Default a "Leo" se non c'è un valore salvato
-      const data = await API.getStepsById(id); // Usa la funzione API per ottenere i dati
+      const characterName = localStorage.getItem('characterName') || 'Hero'; 
+      const name = localStorage.getItem('userName') || 'Leo'; 
+      const data = await API.getStepsById(id);
       setStepName(data[0]?.step_name || ''); 
       setPanels(data.map((panel) => ({
         id: panel.panel_number,
@@ -34,7 +32,6 @@ function StepsPage({ stepId }) {
       console.error('Error fetching step data:', error);
     }
   };
-  
 
   const handleNext = () => {
     navigate(`/question/${parseInt(stepId)}`);
@@ -47,6 +44,7 @@ function StepsPage({ stepId }) {
   };
 
   const handleScroll = () => {
+    setScrollY(window.scrollY); // Aggiorna la posizione dello scroll
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight;
@@ -82,7 +80,15 @@ function StepsPage({ stepId }) {
     <div className="step">
       <div className="Introduction">
         <div className="story-background">
-          <p className="title">{stepName || 'Loading...'}</p>
+          <p 
+            className="title" 
+            style={{
+              opacity: scrollY > 50 ? 0 : 1, // Nasconde il titolo quando si scrolla verso l'alto
+              transition: 'opacity 0.3s ease' // Aggiungi una transizione per la sparizione
+            }}
+          >
+            {stepName || 'Loading...'}
+          </p>
           {panels.map((panel, index) => (
             <motion.div
               className="story-panel"

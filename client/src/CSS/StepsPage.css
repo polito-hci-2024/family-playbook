@@ -26,7 +26,6 @@
   padding-top: 0; /* Rimuovi padding-top */
 }
 
-/* Titolo fisso in cima */
 .step .title {
   position: fixed; /* Fissa il titolo in cima */
   top: 0; /* Posiziona il titolo all'inizio della pagina */
@@ -42,39 +41,40 @@
   padding: 10px 20px; /* Spaziatura interna */
   width: auto;
   margin-top: 100px; /* Aggiungi margine in alto per dare spazio all'inizio della pagina */
+  transition: opacity 0.3s ease; /* Animazione per il titolo che scompare */
 }
 
-/* Pannelli della storia */
+/* Aggiungi una transizione fluida per la sparizione */
 .step .story-background {
   width: 100%;
-  height: auto; /* Altezza dinamica */
-  padding-top: 250px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
-  padding-bottom: 20px; /* Spazio inferiore per la fine dei pannelli */
+  height: auto;
+  padding-top: 250px;
+  padding-bottom: 20px;
   display: flex;
-  flex-direction: column; /* Dispone i pannelli verticalmente */
-  align-items: center; /* Centra orizzontalmente i pannelli */
+  flex-direction: column;
+  align-items: center;
+  transition: margin-top 0.3s ease-in-out;
 }
 
-/* Pannelli della storia */
 .step .story-panel {
   position: relative;
   padding-top: 0;
-  width: 90%; /* Occupa il 90% della larghezza disponibile */
-  max-width: 650px; /* Larghezza massima */
-  height: auto; /* Altezza dinamica */
-  aspect-ratio: 5 / 4; /* Rende il pannello più compatto */
-  margin: 40px 0; /* Spazio tra i pannelli */
-  padding: 20px; /* Spazio interno */
-  background: rgba(255, 255, 255, 0.30); /* Sfondo semitrasparente */
-  border-radius: 25px; /* Bordi arrotondati */
+  width: 90%;
+  max-width: 650px;
+  height: auto;
+  aspect-ratio: 5 / 4;
+  margin: 40px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.30);
+  border-radius: 25px;
   box-shadow: 0 4px 10px #10334a;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centra il contenuto verticalmente */
+  justify-content: center;
   align-items: center;
   text-align: center;
-  box-sizing: border-box; /* Include padding nel calcolo delle dimensioni */
-  backdrop-filter: blur(5px); /* Effetto sfocatura sullo sfondo */
+  box-sizing: border-box;
+  backdrop-filter: blur(5px);
 }
 
 /* Testo */
