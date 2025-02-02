@@ -17,7 +17,6 @@
 .activity .activity-container {
   padding-top: 400px;
   display: flex;
-  flex-wrap: wrap; /* Le card andranno a capo se necessario */
   justify-content: center; /* Centra orizzontalmente le card */
   align-items: flex-start; /* Allinea le card in cima */
   gap: 20px; /* Spazio tra le card */
@@ -195,4 +194,21 @@
   .activity .story-image {
     max-width: 150px;
   }
+}
+
+.activity-card.disabled {
+  background-color: #f0f0f0;  /* Colore grigio per la card disabilitata */
+  pointer-events: none;  /* Impedisce di cliccare sulla card */
+  opacity: 0.6;  /* Opacità ridotta per mostrare che è disabilitata */
+}
+
+.activity-card.disabled .activity-image {
+  filter: grayscale(100%);  /* Aggiungi un filtro per renderizzare l'immagine in bianco e nero */
+}
+
+.place-text {
+  font-weight: bold;  /* Grassetto */
+  display: block;     /* Va a capo */
+  text-align: center; /* Centra il testo */
+  margin-bottom: 10px; /* Spazio sotto il testo */
 }

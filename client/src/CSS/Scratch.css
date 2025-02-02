@@ -94,3 +94,40 @@
     cursor: not-allowed;
 }
 
+.scratch .card {
+    width: 250px;
+    height: 250px;
+    perspective: 1000px;
+  }
+  
+  .scratch .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+  
+  .scratch .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .scratch .card-front,
+  .scratch .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .scratch .card-front {
+    background-color: #f0f0f0;
+  }
+  
+  .scratch .card-back {
+    transform: rotateY(180deg);
+    background-color: white;
+  }
+  

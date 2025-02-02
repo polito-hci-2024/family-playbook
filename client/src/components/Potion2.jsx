@@ -23,7 +23,7 @@ const Potion2 = () => {
   };
 
   const handleNavigateNext = () => {
-    navigate('/last-step-selection-eldora'); 
+    navigate('/stepsPotion/2'); 
   };
 
   const handleNavigatePrec = () => {

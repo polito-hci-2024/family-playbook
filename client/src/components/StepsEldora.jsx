@@ -52,7 +52,7 @@ function StepSelectionEldora() {
   };
 
   const handleNavigateBack = () => {
-    navigate('/start-activity');
+    navigate(-1);
   };
 
   const togglePopup = () => {
@@ -162,11 +162,9 @@ function StepSelectionEldora() {
         <div className="header">
           <h1 className="title">Welcome to the enchanting world of Eldora!</h1>
           <p className="description">
-          Brave adventurer, you’ve stepped into Eldoria! A world hidden within the heart of Parco della Mandria. The forest is fading, and its heart is threatened by a dark presence that only a true hero like you can dispel.
-          </p>
+          Welcome, brave adventurer! You’ve stepped into the magical realm of Eldoria, a world hidden within the heart of Parco della Mandria. The forest is fading, and its heart is threatened by a dark presence that only a true hero like you can dispel.          </p>
           <p className="description">
-          In this adventure, you will face challenges that will test your courage and magic. With every challenge you overcome you’ll move closer to restoring its balance.
-          </p>
+          In this adventure, you will face challenges that will test your courage and magic. With every challenge you overcome, you’ll uncover more of the forest’s secrets and move closer to restoring its balance. Are you ready to embrace your magical journey and bring light back to Eldoria? 🌟          </p>
           <p className="description" >  <strong>Choose Your Next Challenge to Begin! </strong></p>
         </div>
 

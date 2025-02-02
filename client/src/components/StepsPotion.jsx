@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import '../CSS/StepsPage.css';
+import '../CSS/StepsPotion.css';
 import API from '../API.mjs';
 
-function StepsPage({ stepId }) {
+function StepsPotion({ stepId }) {
   const navigate = useNavigate();
   const [panels, setPanels] = useState([]); // Stato per i pannelli della storia
   const [stepName, setStepName] = useState(''); // Stato per il titolo del capitolo
@@ -37,12 +37,12 @@ function StepsPage({ stepId }) {
   
 
   const handleNext = () => {
-    navigate(`/question/${parseInt(stepId)}`);
+    navigate(`/last-step-selection-eldora`);
   };
 
   const handleBack = () => {
     if (parseInt(stepId) > 1) {
-      navigate(`/steps/${parseInt(stepId) - 1}`);
+      navigate(-1);
     }
   };
 
@@ -79,7 +79,7 @@ function StepsPage({ stepId }) {
   }, [panels.length]);
 
   return (
-    <div className="step">
+    <div className="stepPotion">
       <div className="Introduction">
         <div className="story-background">
           <p className="title">{stepName || 'Loading...'}</p>
@@ -123,4 +123,4 @@ function StepsPage({ stepId }) {
   );
 }
 
-export default StepsPage;
+export default StepsPotion;

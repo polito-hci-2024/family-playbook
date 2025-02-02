@@ -1,5 +1,5 @@
 # FAMILY PLAYBOOK
-## Student: simone è il più intelligente del gruppo - Firmato, Rebecca
+## Student: 
 
 ## Avvio
 - Server

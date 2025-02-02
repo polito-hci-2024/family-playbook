@@ -10,6 +10,24 @@ function StartActivity() {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
+  const formatAsList = (text) => {
+    if (!text) return text;
+  
+    // Dividi il testo in base ai ritorni a capo
+    const lines = text.split('\n');
+    return (
+      <div className="activity-description">
+      {lines.map((line, index) => (
+        <p key={index}>
+          {index !== lines.length - 1 ? '- ' : ''}
+          {line}
+        </p>
+      ))}
+    </div>
+    );
+  };
+  
+
   useEffect(() => {
     const fetchActivity = async () => {
       try {
@@ -39,7 +57,7 @@ function StartActivity() {
           <div className="start-activity">
             <img src={activityData.image_url} className="activity-image" alt="Activity" />
             <h2 className="activity-title">{activityData.activity_name}</h2>
-            <p className="activity-description">{activityData.description}</p>
+            <p className="activity-description">{activityData.summary}</p>
 
             <div className="activity-location">
               <h4><strong>Location:</strong></h4>
@@ -53,7 +71,7 @@ function StartActivity() {
 
             <div className="activity-info-box">
               <h4><strong>What you’ll need:</strong></h4>
-              <p className="activity-description">{activityData.info}</p>
+              <div className="activity-description">{formatAsList(activityData.info)}</div>
             </div>
           </div>
         </>

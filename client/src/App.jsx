@@ -12,7 +12,6 @@ import StepsPage from './components/StepsPage';
 import Question from './components/Question';
 import StoryPageMuseum from './components/StoryPageMuseum';
 import Potion from './components/Potion';
-import Scratch2 from './components/Scratch2';
 import StepSelectionEldora from './components/StepsEldora';
 import LastStepSelectionEldora from './components/LastStepsEldora';
 import StepSelectionEgypt from './components/StepsEgypt';
@@ -24,6 +23,11 @@ import MapEgypt from './components/MapEgypt';
 import TheEnd from './components/theEnd';
 import Start from './components/start';
 import Potion2 from './components/Potion2';
+import StepsPotion from './components/StepsPotion';
+import StepsEgyptStory from './components/StepsEgyptStory';
+import CongratulationsAnubi from './components/CongratulationsAnubi';
+import CongratulationsPotion from './components/CongratulationsPotion';
+
 function App() {
   const [isTablet, setIsTablet] = useState(false);
 
@@ -50,30 +54,33 @@ function App() {
     <div>
       {isTablet ? (
         <Routes>
+          <Route path="/" element={<Start />}/>
           <Route path="/chapter-zero" element={<ChapterZero />} />
           <Route path="/steps/1" element={<StepsPage stepId={1} />} />
           <Route path="/question/1" element={<Question question_id={1} />} />
           <Route path="/question/2" element={<Question question_id={2} />} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/start-activity" element={<StartActivity />} />
-          <Route path="/storyNature/:activityId/:storyId" element={<StoryPage />} /> {/* Simone dice: puoi testarla a http://localhost:5173/storyNature/1/1, ma se alla fine facciamo la storia frontend allora poi la componente storyPage si può cestinare */}
           <Route path="/challenge/1/1" element={<Potion/>} /> 
-          <Route path="/challenge/1/2" element={<Potion2/>}/>  {/*Rebecca dice: ho cambiato la roue da /challenge/1 a challenge/1/1 in modo da collegare le due challenge di Rebecca */}
-          <Route path="/storyMuseum/:activityId/:storyId" element={<StoryPageMuseum />} /> {/* Simone dice: Credo Anita non l'abbia usata, ma se alla fine facciamo la storia frontend allora poi la componente storyPageMuseum si può cestinare */}
+          <Route path="/challenge/1/2" element={<Potion2/>}/> 
+          <Route path="/stepsPotion/2" element={<StepsPotion stepId={2} />} /> 
+          <Route path="/last-step-selection-eldora" element={<LastStepSelectionEldora activity_id={1} />}/>
+          <Route path="/challenge/2" element={<Scratch />} />
+          <Route path="/congratulationsForest" element={<CongratulationsPotion/>} />
+          <Route path="/raining" element={<Raining />}/>  
+          <Route path="/stepsEgypt/3" element={<StepsEgyptStory stepId={3} />}/>
+          <Route path="/step-selection-egypt" element={<StepSelectionEgypt activity_id={2} />}/>
+          <Route path="/challenge/3" element={<Anubi/>} />
+          <Route path="/congratulationsEgypt" element={<CongratulationsAnubi/>} />
           <Route path="/last-chapter" element={<LastChapter />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/challenge/2" element={<Scratch />} />
-          <Route path="/challenge/2-alternativa" element={<Scratch2 />} /> {/* Simone dice: è la challenge delle card che si girano */}
-          <Route path="/step-selection-eldora" element={<StepSelectionEldora activity_id={1} />}/>
-          <Route path="/raining" element={<Raining />}/>  
-          <Route path="/step-selection-egypt" element={<StepSelectionEgypt activity_id={2} />}/>
-          <Route path="/map" element={<Map />}/>
-          <Route path="/challenge/4" element={<Anubi/>} />
-          <Route path="/last-step-selection-eldora" element={<LastStepSelectionEldora activity_id={1} />}/>
-          <Route path="/mapEgypt" element={<MapEgypt />}/>
           <Route path="/the-end" element={<TheEnd />}/>
-          <Route path="/" element={<Start />}/>
 
+
+          <Route path="/map" element={<Map />}/>
+          <Route path="/mapEgypt" element={<MapEgypt />}/>
+
+          <Route path="/step-selection-eldora" element={<StepSelectionEldora activity_id={1} />}/>
         </Routes>
       ) : (
         <div

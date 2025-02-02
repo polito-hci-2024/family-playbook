@@ -37,6 +37,11 @@
   color: #555;
 }
 
+.activity-description p {
+  margin-bottom: 1px;  /* Riduce lo spazio tra i paragrafi */
+}
+
+
 
 /* Contenitore principale */
 .start-activity .Introduction {
@@ -190,3 +195,4 @@
   height: 200px;
   padding: 10px;
 }
+

@@ -26,7 +26,7 @@ function Anubi() {
   };
   const handleNavigate = () => {
     if (photos.length === 3) {
-      navigate("/last-chapter"); // Naviga alla route del passaggio selezionato
+      navigate("/congratulationsEgypt"); // Naviga alla route del passaggio selezionato
     }
   };
   const handleNavigateBack = () => {
@@ -38,11 +38,7 @@ function Anubi() {
       <motion.div initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay:  0.2, duration: 1 }}>
-                <p className="descriptionAnubi"> Your mission today is to become a symbol detective, solving the puzzle of the Anubis symbol, hidden somewhere around the museum.  <br></br>
-                Look closely at the exhibits—whether it's on statues, papyri, or other artifacts—Anubis's symbol could be anywhere! Take photos of what you think might be the right symbol.<br></br>
-                Your goal is to capture <b>three photos</b> of the Anubis symbol. <br></br>
-                Will you be the brave explorer to uncover the Anubis symbol and reveal its meaning?
-                </p>
+                <p className="descriptionAnubi"> Anubis, the god of the Underworld, watches over the souls of the departed. His sacred symbol is hidden in the museum, scattered in places of power. To earn his blessing, you must find three symbols and capture them in photographs. Only then will his ancient magic be unlocked. Seek wisely, for the journey is not without challenge! </p>
       </motion.div>
       
       {/* Mostra le foto scattate */}

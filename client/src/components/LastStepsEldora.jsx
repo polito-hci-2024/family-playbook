@@ -39,12 +39,12 @@ function LastStepSelectionEldora() {
   // 🔹 Navigazione avanti e indietro
   const handleNavigate = () => {
     if (selectedStep) {
-      navigate(selectedStep.route);
+      navigate(`/challenge/2`);
     }
   };
 
   const handleNavigateBack = () => {
-    navigate("/activities");
+    navigate(-1);
   };
 
   // 🔹 Gestione del popup

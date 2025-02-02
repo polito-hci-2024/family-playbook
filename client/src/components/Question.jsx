@@ -15,34 +15,38 @@ function Question({ question_id }) {
   const [userName, setUserName] = useState(''); // Stato per il nome utente
   const [userId, setUserId] = useState(''); // Stato per il nome utente
 
+  const replacePlaceholder = (text, name) => {
+    return text ? text.replace(/\{\$name\}/g, name) : text;
+  };
+
   useEffect(() => {
     const fetchChoices = async () => {
       try {
-        const name = localStorage.getItem('userName');
+        const name = localStorage.getItem('userName') || 'Hero';
         const userId = localStorage.getItem('userId');
         const data = await API.getQuestionAnswer(questionId);
         const mappedChoices = data.map((questionAnswer) => ({
           id: questionAnswer.questionId,
-          title: questionAnswer.question,
+          title: replacePlaceholder(questionAnswer.question, name), // Sostituzione nel titolo
           question_image_url: questionAnswer.question_image_url,
-          description: questionAnswer.description,
+          description: replacePlaceholder(questionAnswer.description, name), // Sostituzione nella descrizione
           answers: [
             {
               id: questionAnswer.answer1_id,
-              title: questionAnswer.title_answer1,
-              text: questionAnswer.answer1,
+              title: replacePlaceholder(questionAnswer.title_answer1, name), // Sostituzione nel titolo risposta 1
+              text: replacePlaceholder(questionAnswer.answer1, name), // Sostituzione nel testo risposta 1
               image: questionAnswer.a1_image_url || '/img/place/default.jpg',
             },
             {
               id: questionAnswer.answer2_id,
-              title: questionAnswer.title_answer2,
-              text: questionAnswer.answer2,
+              title: replacePlaceholder(questionAnswer.title_answer2, name), // Sostituzione nel titolo risposta 2
+              text: replacePlaceholder(questionAnswer.answer2, name), // Sostituzione nel testo risposta 2
               image: questionAnswer.a2_image_url || '/img/place/default.jpg',
             },
             {
               id: questionAnswer.answer3_id,
-              title: questionAnswer.title_answer3,
-              text: questionAnswer.answer3,
+              title: replacePlaceholder(questionAnswer.title_answer3, name), // Sostituzione nel titolo risposta 3
+              text: replacePlaceholder(questionAnswer.answer3, name), // Sostituzione nel testo risposta 3
               image: questionAnswer.a3_image_url || '/img/place/default.jpg',
             },
           ].filter((answer) => answer.id !== null), // Filtra solo risposte valide
@@ -54,7 +58,7 @@ function Question({ question_id }) {
         console.error('Error fetching choices:', error);
       }
     };
-
+  
     fetchChoices();
   }, [questionId]);
 

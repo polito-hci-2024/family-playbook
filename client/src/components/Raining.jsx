@@ -35,8 +35,7 @@ function Raining() {
 
   const handleNavigate = () => {
     if (selectedCard) {
-      console.log(`Navigating to card ${selectedCard.id}`);
-      navigate(selectedCard.route);
+      navigate(`/stepsEgypt/3`);
     }
   };
 
@@ -68,10 +67,11 @@ function Raining() {
   return (
     <div className="Raining" ref={containerRef}>
       <div className="header">
-        <h1 className="title">It's Raining!</h1>
+        <h1 className="title">Oh no, it’s raining!</h1>
         <p className="description">
-          Ops! The rain has decided to join the party. Let's move indoors, here are some alternatives:
-        </p>
+        Looks like the weather had other plans!  Let's take cover and head indoors for some alternative quests.
+        </p><p className="description">
+        Here are a few ways to keep the magic adventure, no matter the weather!        </p>
       </div>
 
       <div className="cards">

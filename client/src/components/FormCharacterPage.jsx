@@ -63,11 +63,11 @@ function FormCharacterPage() {
     };
     
 
-    const selectCharacter = (id) => {
+    const selectCharacter = (id, name) => {
         setShowError(false);
         setCharacterId(id);
+        localStorage.setItem('characterName', name);
     };
-
     return (
         <Container>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -75,12 +75,13 @@ function FormCharacterPage() {
                     <Row>
                         {charactersArray.map((character) => (
                             <Col key={character.character_id} className="text-center col-sm-4">
-                                <Button
-                                    className={`character-btn ${characterId === character.character_id ? 'selected' : ''} 
-                        ${characterId !== 0 && characterId !== character.character_id ? 'btn-disabled' : ''}`}
-                                    onClick={() => selectCharacter(character.character_id)}>
-                                    <Image src={character.image_url} alt={character.name} roundedCircle className="character-img" />
-                                </Button>
+                               <Button
+    className={`character-btn ${characterId === character.character_id ? 'selected' : ''} 
+    ${characterId !== 0 && characterId !== character.character_id ? 'btn-disabled' : ''}`}
+    onClick={() => selectCharacter(character.character_id, character.name)}>
+    <Image src={character.image_url} alt={character.name} roundedCircle className="character-img" />
+</Button>
+
                                 <p><b>{character.name}</b></p>
                             </Col>
                         ))}
