@@ -50,8 +50,8 @@ const Potion2 = () => {
     mestoloRef.current.style.transform = `translateX(${newX}px) rotate(${newRotation}deg)`;
     setStartX(currentX);
 
-    // Cambia parola ogni 35° di variazione rispetto alla rotazione precedente
-    if (Math.abs(newRotation - prevRotation) >= 35 && wordIndex < words.length) {
+    // Cambia parola ogni 20° di variazione rispetto alla rotazione precedente
+    if (Math.abs(newRotation - prevRotation) >= 20 && wordIndex < words.length) {
       setWordIndex((prevIndex) => Math.min(prevIndex + 1, words.length - 1));
       setPrevRotation(newRotation);
     }
@@ -67,6 +67,14 @@ const Potion2 = () => {
 
   return (
     <div className="potion2">
+      {showModal && (
+        <div className="video-overlay">
+          <video className="fullscreen-video" autoPlay muted playsInline>
+            <source src="/videos/pozione_fatta.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        )}
       <div className="create">
         <h1 className="title">
         A Stir of the Spoon,<br />Magic Words, and Away!
@@ -108,18 +116,6 @@ const Potion2 = () => {
               transition: isDragging ? "none" : "transform 0.2s ease-out",
             }}
           />
-        
-        {showModal && (
-          <div className="modal">
-            <div className="modal-content">
-              <h2>Bravissimo!</h2>
-              <p>Hai completato la pozione! 🎉</p>
-              <img src="../img/ingredients/potion.png" alt="Immagine della pozione" className="modal-image" />
-              <p>Entro la fine della giornata, tutti gli animali staranno meglio solo grazie a te! 🐾</p>
-              <button onClick={() => setShowModal(false)}>Chiudi</button>
-            </div>
-          </div>
-        )}
 
         
         </div>

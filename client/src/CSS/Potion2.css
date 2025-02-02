@@ -213,3 +213,30 @@
 .potion2 .arrow-right {
     right: 20px; /* Posizione della freccia destra */
 }
+
+.potion2 .video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Assicurati che sia sopra tutto */
+  }
+  
+  .potion2 .fullscreen-video {
+    width: 100%;
+    height: auto;
+  }
+  
+  .potion2 .video-overlay video {
+    outline: none;
+  }
+  
+  .potion2 .video-overlay:active {
+    display: none; /* Nasconde il video quando si tocca lo schermo */
+  }
+  
