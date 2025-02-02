@@ -63,6 +63,8 @@
 
 .activity .activity-description {
   font-size: 1.4rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 450;
   color: #555;
 }
 

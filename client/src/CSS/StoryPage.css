@@ -78,8 +78,10 @@
 
 /* Testo */
 .page .story-text {
-  font-family: 'Serif', serif;
   font-size: 1.4rem;
+  color: rgb(0, 0, 0);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 450;
   color: #000;
   line-height: 1.6;
   margin: 10px 0;

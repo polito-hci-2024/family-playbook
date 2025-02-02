@@ -21,8 +21,10 @@
     color: #720B5B;
 }
 .potion2 .descrizione-incantesimo {
-    font-size: 1.5rem;
-    color: black;
+    font-size: 1.4rem;
+    color: rgb(0, 0, 0);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 450;
     margin: 20px;
     text-align: center;
     line-height: 1.6;
@@ -220,11 +222,10 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Assicurati che sia sopra tutto */
+    z-index: 1000;
   }
   
   .potion2 .fullscreen-video {

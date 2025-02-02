@@ -1,3 +1,16 @@
+/* Imposta il font per tutti i testi, escludendo i titoli */
+.start-activity,
+.start-activity p,
+.start-activity .activity-description,
+.start-activity .activity-info-box,
+.start-activity .activity-theme,
+.start-activity .activity-location,
+.start-activity .modal-body,
+.start-activity .btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 450;
+}
+
 /* Reset */
 .start-activity img {
   margin: 0; 
@@ -69,7 +82,8 @@
 
 /* Testo */
 .start-activity .story-text {
-  font-family: 'Serif', serif;
+  font-family: 'Poppins', serif;
+  font-weight: 450;
   font-size: 1.4rem;
   color: #000;
   line-height: 1.6;
