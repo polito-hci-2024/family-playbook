@@ -162,7 +162,7 @@ function StepSelectionEgypt() {
         <h1 className="titleEgypt"> Welcome to the mesmerizing world of Ancient Egypt !</h1>
         <br></br>
         <p className="descriptionEgypt">
-        Explore the fascinating mysteries, timeless wonders, and legendary tales of the land of the pharaohs.</p>
+        Welcome, brave adventurer! You’ve stepped into the land of the pharaohs, where the golden sands stretch far and wide, and the Nile River flows with secrets of times long past. .In this adventure, you will face challenges that will test your wit, courage, and understanding of ancient magic. </p>
       </div>
 
       <h1 className="StepEgypt-question"> Which challenge would you like to start with? </h1>

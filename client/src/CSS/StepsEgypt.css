@@ -31,9 +31,8 @@
   }
   
   .descriptionEgypt {
-    font-family: 'Josefin Sans' , serif;
-    font-size: 1.6rem;
-    color: #133430;
+    font-size: 1.4rem;
+    color: black;
     margin-top: 10px;
     margin-bottom: 50px;
     line-height: 1.6;
@@ -49,10 +48,7 @@
   }
 
   .StepEgypt-question {
-    font-family: 'Quintessential', sans-serif;
-    font-size: 2.4rem;
-    color: #2A7a72;
-    font-weight: bold;
+    font-size: 1.4rem;
     margin-bottom: 30px;
     text-shadow: 2px 2px 3px  rgba(251, 236, 172, 0.944);
   }
@@ -61,7 +57,8 @@
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 0 4px 10px #a64d24;
-    width: 280px;
+    width: 300px;
+    height: 600px;
     padding: 10px;
     text-align: center;
     cursor: pointer;
@@ -74,7 +71,7 @@
   }
   
   .Step-image {
-    width: 50%;
+    width: 150px;
     height: auto;
     border-radius: 10px;
     margin-bottom: 15px;
@@ -83,7 +80,7 @@
   .StepEgypt-title {
     font-family: 'Quintessential', sans-serif;
     font-size: 1.7rem;
-    color: #19433e;
+    color: #2A7A72;
     font-weight: bold;
     margin-bottom: 10px;
   }
