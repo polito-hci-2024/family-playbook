@@ -14,16 +14,34 @@ function Esempio() {
   const [steps, setSteps] = useState([]); // Stato per i dati dinamici
   const [loading, setLoading] = useState(true); // Stato per indicare il caricamento dei dati
   const [error, setError] = useState(null); // Stato per eventuali errori
-  const [isVisible, setIsVisible] = useState(true);
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const menuRef = useRef(null); // Riferimento al menu
 
+  // Mostra il menu per 3 secondi all'avvio
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsCollapsed(true); // Dopo 3 secondi, il menù si nasconde
+      setIsCollapsed(true);
     }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
+
+  // Chiude il menu se si clicca fuori
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsCollapsed(true);
+      }
+    }
+
+    if (!isCollapsed) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isCollapsed]);
 
   useEffect(() => {
     const fetchChallenges = async () => {
@@ -119,31 +137,32 @@ function Esempio() {
   return (
     <div className={`StepSelection ${isPopupVisible ? 'blurred' : ''}`} ref={containerRef}>
       {/* Icona in alto a destra */}
-      <div className={`top-right-wrapper ${isCollapsed ? 'collapsed' : ''}`}>
+      <div className="top-right-wrapper">
       {/* Menu delle icone */}
-      <motion.div 
+      <motion.div
+        ref={menuRef}
         className="top-right-icons"
         initial={{ x: 0 }}
-        animate={{ x: isCollapsed ? 120 : 0 }} // Si sposta a destra quando è chiuso
+        animate={{ x: isCollapsed ? 120 : 0 }}
         transition={{ duration: 0.5 }}
       >
         <div className="icon-container">
-          <img src="/img/buttons/info.png" alt="Info Icon" />
-        </div>
-        <div className="icon-container" onClick={() => console.log("Vai a /map")}>
+          <img src="/img/buttons/info.png" alt="Info" /></div>
+        <div className="icon-container" onClick={() => navigate("/map")}>
           <img src="/img/buttons/map.png" alt="Map" />
         </div>
         <div className="icon-container" onClick={togglePopup}>
           <img src="/img/buttons/imprevisto.png" alt="Imprevisto" />
+        
         </div>
       </motion.div>
 
       {/* Freccia per riaprire il menu */}
       {isCollapsed && (
         <motion.div 
-          className="expand-arrow" 
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
+          className="expand-arrow"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
           onClick={() => setIsCollapsed(false)}
         >
