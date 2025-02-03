@@ -96,33 +96,26 @@ function Question({ question_id }) {
 
   return (
     <div className="question">
-    <div className="Introduction">
-      <div className="story-background">
-        {choices.length > 0 && (
-          <motion.div
+      <div className="Introduction">
+        <div className="story-background">
+          {choices.length > 0 && (
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
               {/* Titolo della domanda */}
               <p className="title">
-                  {questionId === 1
-                      ? `${userName}, which path will you take?`
-                      : `Signs of an Ancient Presence`}
+                {questionId === 1
+                    ? `${userName}, which path will you take?`
+                    : `Signs of an Ancient Presence`}
               </p>
 
-              {/* Pannello con descrizione (se disponibile) */}
-            {choices[0].description && (
-              <div className="panel">
-                <img
-                  src={choices[0].question_image_url || '/img/place/default.jpg'}
-                  alt="Question"
-                  className="activity-image"
-                />
+              {/* Solo testo senza l'immagine */}
+              {choices[0].description && (
                 <p className="question-description">{choices[0].description}</p>
-              </div>
-            )}
-            
+              )}
+              
               <div
                 className="activity-container"
                 onClick={(e) => {
@@ -141,61 +134,53 @@ function Question({ question_id }) {
                       setSelectedChoice(answer.id); // Imposta l'ID della risposta selezionata
                     }}
                   >
-                  <img
-                    src={answer.image}
-                    alt={answer.title}
-                    className="activity-image"
-                  />
+                    <img
+                      src={answer.image}
+                      alt={answer.title}
+                      className="activity-image"
+                    />
                     <p className="activity-title">{answer.title}</p>
                     <p className="activity-answer">{answer.text}</p>
                   </div>
                 ))}
               </div>
-          </motion.div>
-        )}
+            </motion.div>
+          )}
 
-        {/* Personaggio e fumetto */}
-        <img
-          src="/img/Lumi_smile.png"
-          alt="Personaggio"
-          className="character-image"
-        />
-        <img src='../../img/cloudWelcome.png' className='cloud'></img> {/* da cambiare posizione e testo*/}
+          {/* Freccia destra visibile solo se una card è selezionata */}
+          {selectedChoice && (
+            <img
+              src="/img/next.png"
+              alt="Arrow Right"
+              className="arrow arrow-right"
+              onClick={handleConfirm} // Usa la funzione per confermare la risposta e andare alla pagina successiva
+            />
+          )}
 
- {/* Freccia destra visibile solo se una card è selezionata */}
-{selectedChoice && (
-  <img
-    src="/img/next.png"
-    alt="Arrow Right"
-    className="arrow arrow-right"
-    onClick={handleConfirm} // Usa la funzione per confermare la risposta e andare alla pagina successiva
-  />
-)}
+          <img
+            src="/img/back.png"
+            alt="Arrow Left"
+            className="arrow arrow-left"
+            onClick={handleBack} // Torna indietro
+          />
 
-<img
-  src="/img/back.png"
-  alt="Arrow Left"
-  className="arrow arrow-left"
-  onClick={handleBack} // Torna indietro
-/>
+        </div>
 
-      </div>
-
-      {/* Modale di errore o avviso */}
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Attention</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{modalMessage}</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        {/* Modale di errore o avviso */}
+        <Modal show={showModal} onHide={handleCloseModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Attention</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{modalMessage}</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseModal}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     </div>
-    );
+  );
 }
 
 export default Question;

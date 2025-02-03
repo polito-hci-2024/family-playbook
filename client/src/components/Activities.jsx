@@ -122,25 +122,6 @@ function Activities() {
             className="arrow arrow-left"
             onClick={() => navigate(-1)}
           />
-
-          <div className="bubble-container">
-            <motion.img
-              src="/img/lumi.png"
-              alt="Lumi"
-              className="lumi-image"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1 }}
-            />
-            <motion.div
-              className="bubble-text"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.5 }}
-            >
-              What an adventure! I've discovered the perfect missions for you this weekend!
-            </motion.div>
-          </div>
         </div>
 
         <Modal show={showModal} onHide={handleCloseModal}>

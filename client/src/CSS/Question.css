@@ -12,6 +12,10 @@
     font-weight: 450;
 }
 
+.question {
+  overflow: hidden; /* Disabilita lo scroll */
+  height: 100vh; /* Assicura che la pagina occupi tutta l'altezza della finestra */
+}
 
 .question img {
     margin: 0; /* Rimuove tutti i margini */
@@ -26,7 +30,7 @@
     font-size: 4rem; /* Titolo molto grande */
     font-weight: bold;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 40px;
     font-family: 'Quintessential', sans-serif;
     color: #10334a;
 }
@@ -34,35 +38,47 @@
   .question .Introduction {
     position: relative;
     width: 100%;
-    min-height: 100vh; /* Occupa l'intera altezza della viewport */
+    min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Dispone i pannelli verticalmente */
-    align-items: center; /* Centra orizzontalmente */
-    background-image: url('/img/sfondo_generale.png'); /* Sfondo globale */
-    background-size: cover; /* Copri l'intero contenitore */
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/img/sfondo_generale.png');
+    background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Sfondo fisso durante lo scroll */
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Evita lo scrolling orizzontale */
-    overflow-y: auto; /* Permette lo scrolling verticale */
-    padding-top: 0; /* Rimuovi padding-top */
+    overflow: hidden;   /* Disabilita lo scroll */
   }
   
   /* Pannelli della storia */
   .question .story-background {
     width: 100%;
-    min-height: 100vh; /* Occupiamo tutta l'altezza della viewport */
-    padding-top: 20px;
-    padding-bottom: 20px;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column; 
-    align-items: center; /* Allineamento orizzontale al centro */
-    justify-content: center; /* Allineamento verticale al centro */
-    text-align: center; /* Assicurati che il testo sia centrato */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     margin-top: 80px;
+    overflow: hidden;   /* Rimuove lo scroll */
   }
   
+  .question .question-text-container {
+    width: 80%;               /* Limita la larghezza del testo */
+    max-width: 600px;         /* Limita la larghezza massima */
+    margin: 20px auto;        /* Centra il contenuto orizzontalmente */
+    padding: 20px;            /* Aggiungi un po' di spazio interno */
+    text-align: center;       /* Centra il testo */
+    font-size: 1.4rem;        /* Imposta la dimensione del font */
+    color: #555;              /* Colore del testo */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 450;
+    overflow: hidden;         /* Impedisce lo scroll */
+    white-space: nowrap;      /* Evita che il testo si estenda su più righe */
+    text-overflow: ellipsis;  /* Aggiungi i "..." se il testo è troppo lungo */
+  }
+
   .question .activity-container {
     display: flex;
     flex-wrap: wrap; /* Le card andranno a capo se necessario */
@@ -91,25 +107,25 @@
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
     width: 350px;
+    height: 750px; /* Aumenta l'altezza della card */
     padding: 20px;
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Immagine della card */
-  .question .activity-card img {
+}
+
+.question .activity-card img {
     width: 100%;
-    height: 100%;
+    height: 200px; /* Imposta l'altezza dell'immagine */
     border-radius: 10px;
     margin-bottom: 10px;
-  }
-  
-  /* Hover effect per la .activity-card */
-  .question .activity-card:hover {
+}
+
+/* Hover effect per la .activity-card */
+.question .activity-card:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
-  }
+}
 
   
   .question .activity-title {
@@ -129,7 +145,9 @@
     font-weight: 450;
     font-size: 1.4rem;
     color: #555;
-   
+    max-width: 600px; /* Limita la larghezza del testo */
+    margin: 20px auto; /* Centra il contenuto */
+    padding: 10px;     /* Aggiungi un po' di spazio interno */
   }
   
 /* Stile per .panel aggiornato per uniformarsi alle card */
@@ -243,43 +261,6 @@
     font-style: 'Poppins', sans-serif;
     font-weight: 450;
   }
-  
-  .question .character-image {
-    position: fixed;
-    bottom: -40px; /* Posiziona l'immagine in basso */
-    left: -70px; /* Posiziona l'immagine a sinistra */
-    width: 500px; /* Larghezza dell'immagine */
-    height: auto;
-  }
-  
-  .question .speech-bubble {
-    position: fixed;
-    bottom: 17%; /* Posiziona sopra il personaggio */
-    left: 22%; /* Allinea vicino al personaggio */
-    display: inline-block; /* Adatta al contenuto */
-    padding: 10px 20px; /* Spaziatura interna */
-    background-image: url('/img/pensie.png'); /* Sfondo immagine */
-    background-size: contain; /* Adatta l'immagine al contenitore */
-    background-repeat: no-repeat; /* Non ripetere l'immagine */
-    background-position: center; /* Centra l'immagine */
-    color: black; /* Colore del testo */
-    font-family: italic; /* Carattere giocoso */
-    font-size: 1.5rem; /* Dimensione del carattere */
-    text-align: center; /* Centra il testo */
-    z-index: 1001; /* Sopra altri elementi */
-    min-width: 150px; /* Larghezza minima */
-    max-width: 300px; /* Larghezza massima */
-    background-size: 100% 100%; /* Adatta l'immagine al contenitore */
-    word-wrap: break-word; /* Spezza il testo se troppo lungo */
-    padding: 50px;
-  }
-  
-  .question .speech-bubble.show {
-    opacity: 1; /* Mostra il fumetto */
-    transform: scale(1); /* Scala normale */
-    transition: opacity 0.3s ease-in-out; /* Effetto di transizione */
-  }
-  
   
   
   /* Animazioni */

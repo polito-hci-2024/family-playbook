@@ -11,11 +11,12 @@
   font-family: 'Quintessential', sans-serif;
   color: #10334a;
   text-shadow: 3px 3px 4px  #5f8caa;
-  margin-top: 115px;
+  margin-top: 130px;
+  width: 780px;
 }
 
 .activity .activity-container {
-  padding-top: 400px;
+  padding-top: 450px;
   display: flex;
   justify-content: center; /* Centra orizzontalmente le card */
   align-items: flex-start; /* Allinea le card in cima */

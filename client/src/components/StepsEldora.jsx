@@ -109,18 +109,9 @@ function StepSelectionEldora() {
   return (
     <div className={`StepSelection ${isPopupVisible ? 'blurred' : ''}`} ref={containerRef}>
       {/* Icona in alto a destra */}
-      <div className="top-right-icons">
-      <div className="icon-container">
-    <img src="/img/buttons/info.png" alt="Info Icon" />
-  </div>
-  <div className="icon-container" onClick={togglePopup}>
-    <img src="/img/buttons/imprevisto.png" alt="Imprevisto" />
-  </div>
-  <div className="icon-container" onClick={() => navigate("/map")}>
-    <img src="/img/buttons/map.png" alt="Map" />
-  </div>
-</div>
-
+      <div className="top-right-icon" onClick={togglePopup}>
+        <img src="/img/unexpected/imprevisto.png" alt="Info Icon" />
+      </div>
 
       {/* Contenuto del pop-up */}
       {isPopupVisible && (
