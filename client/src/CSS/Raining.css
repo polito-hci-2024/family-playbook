@@ -19,22 +19,34 @@
   
   .Raining .title {
     font-size: 4rem;
+    margin-top: 100px;
     font-weight: bold;
+    font-family: 'Quintessential', sans-serif;
     color: #720B5B;
   }
   
   .Raining .description {
-    font-size: 1.7rem;
-    font-family: 'Josefin Sans', serif;
-    color: #4a0432fd;
-    margin-top: -40px;
-  }
+    font-size: 1.4rem;
+    font-family: 'Poppins', serif;
+    font-weight: 450;
+    width: 80%;
+    text-align: center; /* Centra il testo */
+    color: black;
+    margin-top: 40px;
+
+    display: flex; /* Aggiungi flexbox */
+    flex-direction: column; /* Allinea verticalmente */
+    align-items: center; /* Centra gli elementi figli orizzontalmente */
+    justify-content: center; /* Centra il contenuto verticalmente se necessario */
+    margin-left: auto; /* Centra il blocco */
+    margin-right: auto; /* Centra il blocco */
+}
+
   
   .Raining .cards {
     display: flex;
     justify-content: center;
-    gap: 50px;
-    width: 100%;
+    gap: 20px;
     max-width: 900px;
   }
   
@@ -42,10 +54,11 @@
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
-    width: 250px;
+    width: 300px;
     padding: 20px;
     text-align: center;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
@@ -66,6 +79,7 @@
     font-family: 'Quintessential', sans-serif;
     font-weight: bold;
     color: #720B5B;
+    margin-bottom: 20px;
   }
   
   .Raining .card-description {

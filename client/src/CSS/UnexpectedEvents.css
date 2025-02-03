@@ -55,7 +55,6 @@
     color: #720B5B;
     margin-bottom: 50px;
     font-weight: bold;
-    text-shadow: 3px 3px 4px  rgba(230, 131, 217, 0.944);
   }
 
   .popupEgypt-content h2 {
@@ -96,7 +95,8 @@
   
   /* Testo sotto le icone */
   .popup-icon span {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
     font-size: 1.4rem;
     color: #333;
   }
@@ -109,7 +109,7 @@
   
   /* Stile per la domanda */
   .popup-question {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
     color: #555;
     margin-top: 20px;
@@ -126,7 +126,7 @@
   .popup-buttons button {
     padding: 10px 20px;
     font-size: 1.6rem;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     border: none;
     border-radius: 5px;
     cursor: pointer;
