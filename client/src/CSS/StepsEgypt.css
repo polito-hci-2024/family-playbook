@@ -29,10 +29,18 @@
     color: #2A7A72;
     text-shadow: 3px 3px 4px  #47cabd;
   }
-  
+  .choose-challenge-text {
+    font-size: 1.4rem;
+    font-family: 'Poppins', sans-serif;
+    color: #2A7A72; /* Un colore magico che richiama l'enfasi */
+    text-align: center;
+    margin-bottom: 20px;
+  }
   .descriptionEgypt {
     font-size: 1.4rem;
     color: black;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 450;
     margin-top: 10px;
     margin-bottom: 50px;
     line-height: 1.6;
@@ -86,7 +94,8 @@
   }
   
   .StepEgypt-description {
-    font-family: 'Josefin Sans', serif;
+    font-family: 'Poppins', serif;
+    font-weight: 450;
     font-size: 1.4rem;
     color: #555;
   } 

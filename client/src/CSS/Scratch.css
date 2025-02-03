@@ -8,7 +8,6 @@
     flex-direction: column; /* Allinea gli elementi in colonna */
     align-items: center; /* Centra gli elementi orizzontalmente */
     justify-content: center; /* Centra gli elementi verticalmente */
-    padding: 20px;
 }
 
 .scratch .container {
@@ -45,16 +44,17 @@
 
 
 .scratch .title {
-    font-size: 5rem; /* Titolo molto grande */
+    font-size: 4rem; /* Titolo molto grande */
     font-weight: bold;
     text-align: center;
-    margin-top: 150px;
     font-family: 'Quintessential', sans-serif;
     color: #720B5B;
 }
 
 .scratch .intro {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 450;
     margin: 30px auto 0; /* Centra orizzontalmente e mantiene il margine superiore */
     text-align: center;
     width: 80%;

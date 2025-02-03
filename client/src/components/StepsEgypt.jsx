@@ -165,7 +165,7 @@ function StepSelectionEgypt() {
         You’ve entered the land of the pharaohs, where golden sands and the Nile hold ancient secrets. <br/>In this journey, you’ll face challenges that test your wit, courage, and mastery of magic. Each challenge will uncover Egypt’s mysteries and bring you closer to the gods' favor.</p>
       </div>
 
-      <p className="description choose-challenge-text">
+      <p className="description egypt choose-challenge-text">
       <strong>Choose Your Next Challenge to Begin!</strong>
           </p>   
       <div className="steps">
