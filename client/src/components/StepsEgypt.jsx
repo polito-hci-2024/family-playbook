@@ -162,10 +162,12 @@ function StepSelectionEgypt() {
         <h1 className="titleEgypt"> Welcome to the mesmerizing world of Ancient Egypt !</h1>
         <br></br>
         <p className="descriptionEgypt">
-        Welcome, brave adventurer! You’ve stepped into the land of the pharaohs, where the golden sands stretch far and wide, and the Nile River flows with secrets of times long past.In this adventure, you will face challenges that will test your wit, courage, and understanding of ancient magic. With every challenge you overcome, you’ll unlock the forgotten mysteries of Egypt and move closer to gaining the favor of the gods.        </p>
+        You’ve entered the land of the pharaohs, where golden sands and the Nile hold ancient secrets. <br/>In this journey, you’ll face challenges that test your wit, courage, and mastery of magic. Each challenge will uncover Egypt’s mysteries and bring you closer to the gods' favor.</p>
       </div>
 
-      <h1 className="StepEgypt-question"> Choose Your Next Challenge to Begin! </h1>
+      <p className="description choose-challenge-text">
+      <strong>Choose Your Next Challenge to Begin!</strong>
+          </p>   
       <div className="steps">
         {steps.map((Step, index) => (
           <motion.div

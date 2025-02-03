@@ -65,15 +65,14 @@ function LastChapter() {
             <motion.div initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay:  0.2, duration: 1 }}>
-                <p className="last-description"> And just like that, this adventure has come to an end. After many adventures, you find yourself back home, happy and tired. <br></br>
-                    You've discovered new treasures, solved mysteries, and had so much fun along the way. But remember, every day can be a new adventure, full of exciting moments and laughter. <br></br>
-                    So, with a big smile and a warm hug, get ready for the next thrilling days ahead. Always be ready to explore, learn, and have a fantastic time!
+                <p className="last-description"> And just like that, this adventure has come to an end.<br></br>
+                <br></br>You've discovered new treasures, solved mysteries, and had so much fun along the way. But remember, every day can be a new adventure, full of exciting moments and laughter. <br></br>
                 </p>
                 <Container>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="formRating" className="mb-3">
                             <Form.Label className='title2'>Did you enjoy this activity? <span className="required">*</span></Form.Label>
-                            <Form.Label className='title3'>Please, leave your rating!</Form.Label>
+                            <Form.Label className='title3'><br/>Please, leave your rating!</Form.Label>
                             <Form.Control
                                 as="select"
                                 name="rating"

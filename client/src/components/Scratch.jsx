@@ -34,14 +34,12 @@ const Scratch = () => {
   return (
     <div className="scratch">
       {/* Titolo della pagina */}
-      <h1 className="title">Trova la chiave magica</h1>
+      <h1 className="title">The Quest for <br />the Lost Fragment</h1>
       <p className="intro">
-        Lo gnomo burlone della foresta ha deciso di mettere alla prova il tuo
-        coraggio! Ha rubato la chiave magica che ti serve per continuare il tuo
-        viaggio e l'ha nascosta tra quattro misteriosi riquadri incantati. Solo
-        uno di questi contiene la chiave. Clicca sui riquadri con attenzione per
-        scoprire dove si trova e prosegui nella tua avventura!
-      </p>
+  The amulet is incomplete, missing a crucial fragment hidden deep within Eldoria. <br /> 
+  Without it, the darkness will spread. Explore the forest’s cards to find the one that holds the missing piece and restore the amulet’s power to complete your quest.
+</p>
+
       {/* Box con le immagini */}
       <div className="scratch-grid">
         {images.map((image) => (

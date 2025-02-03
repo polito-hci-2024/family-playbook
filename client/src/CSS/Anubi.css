@@ -41,7 +41,8 @@
   }
   
   .Anubi .popup-content p {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 450;
     font-size: 1.8rem;
     color: #555;
     margin-top: 20px;
@@ -57,7 +58,8 @@
   .Anubi .popup-buttons button {
     padding: 10px 20px;
     font-size: 1.6rem;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 450;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -87,8 +89,9 @@
     margin: 50px;
 }
 .descriptionAnubi {
-    font-family: 'Josefin Sans', serif;
-    font-size: 1.6rem;
+    font-family: 'Poppins', serif;
+    font-weight: 450;
+    font-size: 1.4rem;
     color: #133430;
     margin-top: 10px;
     line-height: 1.6;

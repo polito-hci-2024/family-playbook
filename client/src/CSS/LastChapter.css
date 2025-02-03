@@ -9,7 +9,8 @@
 .last-title {
     left: 50%;
     z-index: 10;
-    font-size: 5rem;
+    font-size: 4rem;
+    margin-top: 100px;
     font-weight: bold;
     text-align: center;
     font-family: 'Quintessential', sans-serif;
@@ -22,11 +23,12 @@
 }
 
 .last-description {
-    font-family: 'Josefin Sans', serif;
-    font-size: 1.6rem;
+    font-family: 'Poppins', serif;
+    font-size: 1.4rem;
+    font-weight: 450;
     color: #10334a;
     margin-top: 10px;
-    line-height: 1.6;
+    line-height: 1.4;
     text-align: center;
     margin-left: 100px;
     margin-right: 100px;
@@ -43,8 +45,9 @@
 }
 
 .mb-3 .title3 {
-    font-family: 'Josefin Sans', serif;
-    font-size: 1.8rem;
+    font-family: 'Poppins', serif;
+    font-weight: 450;
+    font-size: 1.4rem;
     color: #10334a;
     margin-top: 5px;
     margin-bottom: 10px;
@@ -54,7 +57,8 @@
 .review-form-button {
     width: 50%;
     font-size: large;
-    font-family: 'Josefin Sans', serif;    
+    font-family: 'Poppins', serif;
+    font-weight: 450;
     color: white;
     font-size: x-large;
     background-color: #10334a;
@@ -66,14 +70,15 @@
 .custom-alert {
     text-align: center; /* Centrare l'intero alert */
     margin-top: 10px;
-    font-family: 'Josefin Sans', serif;
-    font-size: 1.5rem;
+    font-family: 'Poppins', serif;
+    font-weight: 450;
+    font-size: 1.4rem;
     background-color: rgba(246, 200, 34, 0.879);
 }
 
 .custom-alert-heading {
     color: #10334a; /* Cambia il colore del testo */
-    font-size: 1.8rem; /* Dimensione del testo */
+    font-size: 1.4rem; /* Dimensione del testo */
     font-family: 'Quintessential', sans-serif;
     font-weight: bold; /* Grassetto per evidenziarlo */
     margin-top: 10px; /* Spazio sopra il messaggio */

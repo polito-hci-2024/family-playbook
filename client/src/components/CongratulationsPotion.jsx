@@ -20,9 +20,10 @@ function CongratulationsPotion() {
     <div>
       <h1>Congratulations, {userName}</h1>
       <p className='lead text-center fs-1'>
-      You’ve successfully restored the forest’s creatures and revived the magic of Eldoria. With the amulet now whole and the potion of vitality brewed, you’ve proven yourself as a true hero of this enchanted world. But remember, the battle to protect Eldoria’s heart is never over. As long as the dark force lingers, there will always be new challenges to face.
-Thank you for joining this magical journey through the heart of Eldoria. Your bravery has not only helped restore balance, but it has also ensured that the forest's magic lives on—protected by its newfound guardians, you among them.
+      You’ve restored the forest’s creatures and revived Eldoria’s magic. With the amulet whole and the potion brewed, you’ve proven yourself a true hero.
+Thank you for joining this magical journey. Your bravery has restored balance and ensured the forest’s magic lives on—protected by its new guardians, you included.
 Until the next adventure… 🌟
+
       </p>
 
       {/* Freccia destra per andare avanti */}

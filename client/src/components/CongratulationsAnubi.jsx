@@ -20,9 +20,9 @@ function CongratulationsAnubi() {
     <div>
       <h1>Congratulations, {userName}</h1>
       <p className='lead text-center fs-1'>
-        You’ve completed the quest, brave adventurer! By finding Anubis' sacred symbols, you’ve proven your wisdom and skill. The god of the underworld now watches over you. The ancient mysteries of Egypt have been uncovered, and your adventure here comes to a close.
-        Thank you for your courage and curiosity. The journey may be over for now, but remember—there are always more worlds to explore. 
-        Until we meet again!
+      You’ve completed the quest, adventurer! By finding Anubis' symbols, you’ve proven your wisdom and earned his protection. The mysteries of Egypt are now revealed, and your journey here ends.
+      Thank you for your courage. The adventure may be over, but there are always more worlds to explore.
+      Until next time! 🌟
       </p>
 
       {/* Freccia destra per andare avanti */}
