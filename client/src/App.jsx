@@ -59,6 +59,7 @@ function App() {
           <Route path="/question/2" element={<Question question_id={2} />} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/start-activity" element={<StartActivity />} />
+          <Route path="/step-selection-eldora" element={<StepSelectionEldora activity_id={1} />}/>
           <Route path="/challenge/1/1" element={<Potion/>} /> 
           <Route path="/challenge/1/2" element={<Potion2/>}/> 
           <Route path="/stepsPotion/2" element={<StepsPotion stepId={2} />} /> 
@@ -77,7 +78,6 @@ function App() {
 
           <Route path="/map" element={<Map />}/>
           <Route path="/mapEgypt" element={<MapEgypt />}/>
-          <Route path="/step-selection-eldora" element={<StepSelectionEldora activity_id={1} />}/>
         </Routes>
       ) : (
         <div
@@ -86,7 +86,7 @@ function App() {
         >
           <FaSyncAlt size={100} className="mb-4 text-primary" />
           <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
-            Please rotate your device or use a tablet!
+            Please rotate your device!
           </p>
         </div>
       )}
