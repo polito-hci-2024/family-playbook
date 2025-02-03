@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+ES+Deco+Guides&family=Quintessential&family=Schoolbell&display=swap');
 
 /* Stile per StepSelection */
-.StepSelection {
+.LastStepSelection {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,7 +14,7 @@
     text-align: center;
   }
   
-  .steps-eldora .header {
+  .last-steps-eldora .header {
     padding: 100px;
     padding-bottom: 10px;
     margin-top: 30px;
@@ -23,16 +23,17 @@
     margin-left: 30px
   }
   
-  .steps-eldora .title {
+  .last-steps-eldora .title {
     font-family: 'Quintessential', sans-serif;
     font-weight: bold;
-    font-size: 3.5rem;
+    font-size: 4rem;
+    margin-top: 60px;
     color: #720B5B;
     text-shadow: 3px 3px 4px  rgba(230, 131, 217, 0.944);
     padding-right: 20px;
   }
   
-  .steps-eldora .description {
+  .last-steps-eldora .description {
     font-size: 1.3rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 450;
@@ -42,7 +43,7 @@
     line-height: 1.6;
   }
   
-  .steps-eldora .choose-challenge-text {
+  .last-steps-eldora .choose-challenge-text {
     font-size: 1.4rem;
     font-family: 'Poppins', sans-serif;
     color: #720B5B; /* Un colore magico che richiama l'enfasi */
@@ -51,7 +52,7 @@
     margin-bottom: 20px;
   }
 
-  .steps-eldora .steps {
+  .last-steps-eldora .steps {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -63,29 +64,30 @@
     max-width: 900px;
   }
   
-  .steps-eldora .Step-card {
+  .last-steps-eldora .Step-card {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
-    width: 300px;
-    height: 500px;
+    width: 330px;
+    height: 550px;
     padding: 10px;
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
-  .steps-eldora .Step-card:hover {
+  .last-steps-eldora .Step-card:hover {
     transform: scale(1.15);
     box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
   }
   
-  .steps-eldora .Step-image {
+  .last-steps-eldora .Step-image {
     width: 150px;
     height: auto;
+    max-height: 200px;
   }
   
-  .steps-eldora .Step-title {
+  .last-steps-eldora .Step-title {
     font-family: 'Quintessential', sans-serif;
     font-size: 1.7rem;
     color: #720B5B;
@@ -93,7 +95,7 @@
     margin-bottom: 10px;
   }
   
-  .steps-eldora .Step-description {
+  .last-steps-eldora .Step-description {
     font-size: 1.3rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 450;

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import "../CSS/StepsEldora.css";
+import "../CSS/LastStepEldora.css";
 import "../CSS/UnexpectedEvents.css";
 
 function LastStepSelectionEldora() {
@@ -24,7 +24,7 @@ function LastStepSelectionEldora() {
       id: 2,
       image: "/img/challenges/fairy-house.png",
       title: "Rebuild the Fairy House",
-      description: "The fairies' magical house was destroyed in the chaos. Help the fairies gather materials and rebuild their home so they can resume their vital work of caring for the forest's health.",
+      description: "The fairies' home was destroyed in the chaos. Help them gather materials to rebuild their house and resume their vital role in caring for the forest's health.",
       disabled: true,
     },
   ]);
@@ -81,7 +81,7 @@ function LastStepSelectionEldora() {
   };
 
   return (
-    <div className={`StepSelection ${isPopupVisible ? "blurred" : ""}`} ref={containerRef}>
+    <div className={`LastStepSelection ${isPopupVisible ? "blurred" : ""}`} ref={containerRef}>
       {/* 🔹 Icona popup in alto a destra */}
       <div className="top-right-icon" onClick={togglePopup}>
         <img src="/img/unexpected/imprevisto.png" alt="Info Icon" />
@@ -124,15 +124,15 @@ function LastStepSelectionEldora() {
       )}
 
       {/* 🔹 Contenuto principale */}
-      <div className="steps-eldora">
+      <div className="last-steps-eldora">
         <div className="header">
           <h1 className="title">The Heart of Eldora Still Calls</h1>
           <p className="description">
             The forest has been restored, but its heart still beats faintly, under the weight of a dark force lurking in the shadows. Eldoria's magic is fragile, and it is up to you to help protect it before the darkness grows stronger.
           </p>
         </div>
-
-        <p className="Step-question"><strong>Are you ready for your next challenge?</strong></p>
+          
+        <p className="description choose-challenge-text"><strong>Are you ready for your next challenge?</strong></p>
         <div className="steps">
           {steps.map((Step, index) => (
             <motion.div

@@ -43,9 +43,10 @@ const Potion = () => {
         {/* Titolo della pagina */}
         <h1 className="title">The Potion of Vitality</h1>
         <p className="intro">
-        In Eldoria, the animals are unwell. The hare is tired, the owl’s vision is blurry, and the hedgehog is always asleep. Only a special potion can help them, but to create it, you must gather magical ingredients hidden throughout the forest.
+        In Eldora, the animals are unwell— the hare is tired, the owl’s vision is blurry, and the hedgehog sleeps endlessy.
+
         </p>
-        <p className="intro"> Head into Parco della Mandria to search for the ingredients you need, then bring them back and carefully drag them into the cauldron to brew the potion that will restore the health of Eldoria's creatures!
+        <p className="intro"> A special potion can help, but first, gather magical ingredients hidden in the forest. Head to Parco della Mandria, find the ingredients and carefully drag them into the cauldron.
         </p>  
 
         {/* Lista degli ingredienti con le card */}
