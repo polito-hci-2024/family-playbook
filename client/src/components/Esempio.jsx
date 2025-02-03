@@ -135,6 +135,7 @@ function Esempio() {
   }
 
   return (
+    <div className="esempio1">
     <div className={`StepSelection ${isPopupVisible ? 'blurred' : ''}`} ref={containerRef}>
       {/* Icona in alto a destra */}
       <div className="top-right-wrapper">
@@ -273,8 +274,9 @@ function Esempio() {
           />
         )}
       
-    </div>
-  );
+      </div>
+      </div>
+    );
 }
 
 export default Esempio;

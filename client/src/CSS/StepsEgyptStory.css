@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column; /* Dispone i pannelli verticalmente */
   align-items: center; /* Centra orizzontalmente */
-  background-image: url('/img/sfondo_generale.png'); /* Sfondo globale */
+  background-image: url('/img/sfondo_egitto.png'); /* Sfondo globale */
   background-size: cover; /* Copri l'intero contenitore */
   background-position: center;
   background-attachment: fixed; /* Sfondo fisso durante lo scroll */
@@ -28,31 +28,33 @@
 
 /* Titolo fisso in cima */
 .stepEgyptStory .title {
-  position: fixed; /* Fissa il titolo in cima */
-  top: 0; /* Posiziona il titolo all'inizio della pagina */
-  left: 50%; /* Centra orizzontalmente */
-  transform: translateX(-50%); /* Centra esattamente */
-  z-index: 10; /* Metti il titolo sopra agli altri elementi */
-  font-size: 5rem; /* Titolo molto grande */
-  font-weight: bold;
-  text-align: center;
   font-family: 'Quintessential', sans-serif;
-  color: #4a2510;
-  text-shadow: 3px 3px 4px  #5f8caa;
-  padding: 10px 20px; /* Spaziatura interna */
-  width: auto;
-  margin-top: 100px; /* Aggiungi margine in alto per dare spazio all'inizio della pagina */
+  font-weight: bold;
+  font-size: 5rem;
+  color: #2A7A72;
+  text-shadow: 3px 3px 4px #47cabd;
+  transition: opacity 0.3s ease; /* Animazione per il titolo che scompare */
+  
+  position: relative; /* Permette un migliore controllo della posizione */
+  top: -30px; /* Sposta il titolo più in alto */
+  max-width: 60%; /* Impedisce che il titolo diventi troppo largo */
+  text-align: center; /* Centra il testo */
+  margin: 0 auto; /* Mantiene il titolo centrato */
+  word-wrap: break-word; /* Forza il testo ad andare a capo se necessario */
+  overflow-wrap: break-word; /* Alternativa per compatibilità */
 }
+
 
 /* Pannelli della storia */
 .stepEgyptStory .story-background {
   width: 100%;
   height: auto; /* Altezza dinamica */
-  padding-top: 250px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
+  padding-top: 100px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
   padding-bottom: 20px; /* Spazio inferiore per la fine dei pannelli */
   display: flex;
   flex-direction: column; /* Dispone i pannelli verticalmente */
   align-items: center; /* Centra orizzontalmente i pannelli */
+  transition: margin-top 0.3s ease-in-out;
 }
 
 /* Pannelli della storia */

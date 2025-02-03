@@ -6,20 +6,22 @@ import API from '../API.mjs';
 
 function StepsEgyptStory({ stepId }) {
   const navigate = useNavigate();
-  const [panels, setPanels] = useState([]); // Stato per i pannelli della storia
-  const [stepName, setStepName] = useState(''); // Stato per il titolo del capitolo
+  const [panels, setPanels] = useState([]);
+  const [stepName, setStepName] = useState('');
   const [showArrows, setShowArrows] = useState(false);
+  const [titleVisible, setTitleVisible] = useState(true); // Stato per la visibilità del titolo
 
-  // Funzione per caricare i dati dallo step
   const fetchStepData = async (id) => {
     try {
-      const data = await API.getStepsById(id); // Usa la funzione API per ottenere i dati
-      setStepName(data[0]?.step_name || ''); 
-      setPanels(data.map((panel) => ({
-        id: panel.panel_number,
-        image: panel.image_url,
-        text: panel.description, // Rimosso il replace del segnaposto
-      })));
+      const data = await API.getStepsById(id);
+      setStepName(data[0]?.step_name || '');
+      setPanels(
+        data.map((panel) => ({
+          id: panel.panel_number,
+          image: panel.image_url,
+          text: panel.description,
+        }))
+      );
     } catch (error) {
       console.error('Error fetching step data:', error);
     }
@@ -36,6 +38,12 @@ function StepsEgyptStory({ stepId }) {
   };
 
   const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setTitleVisible(false);
+    } else {
+      setTitleVisible(true);
+    }
+
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight;
@@ -71,7 +79,15 @@ function StepsEgyptStory({ stepId }) {
     <div className="stepEgyptStory">
       <div className="Introduction">
         <div className="story-background">
-          <p className="title">{stepName || 'Loading...'}</p>
+          <p
+            className="title"
+            style={{
+              opacity: titleVisible ? 1 : 0,
+              transition: 'opacity 0.3s ease',
+            }}
+          >
+            {stepName || 'Loading...'}
+          </p>
           {panels.map((panel, index) => (
             <motion.div
               className="story-panel"
@@ -92,18 +108,8 @@ function StepsEgyptStory({ stepId }) {
           ))}
           {showArrows && (
             <>
-              <img
-                src="/img/next.png"
-                alt="Arrow Right"
-                className="arrow arrow-right"
-                onClick={handleNext}
-              />
-              <img
-                src="/img/back.png"
-                alt="Arrow Left"
-                className="arrow arrow-left"
-                onClick={handleBack}
-              />
+              <img src="/img/next.png" alt="Arrow Right" className="arrow arrow-right" onClick={handleNext} />
+              <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleBack} />
             </>
           )}
         </div>

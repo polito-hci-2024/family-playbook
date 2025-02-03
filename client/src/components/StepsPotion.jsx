@@ -6,35 +6,32 @@ import API from '../API.mjs';
 
 function StepsPotion({ stepId }) {
   const navigate = useNavigate();
-  const [panels, setPanels] = useState([]); // Stato per i pannelli della storia
-  const [stepName, setStepName] = useState(''); // Stato per il titolo del capitolo
+  const [panels, setPanels] = useState([]);
+  const [stepName, setStepName] = useState('');
   const [showArrows, setShowArrows] = useState(false);
+  const [titleVisible, setTitleVisible] = useState(true); // Stato per la visibilità del titolo
 
-  // Funzione per sostituire il segnaposto con il nome dell'utente
   const replacePlaceholder = (text, characterName, name) => {
-    return text
-      .replace(/\{\$characterName\}/g, characterName)
-      .replace(/\{\$name\}/g, name);
+    return text.replace(/\{\$characterName\}/g, characterName).replace(/\{\$name\}/g, name);
   };
-  
 
-  // Funzione per caricare i dati dallo step
   const fetchStepData = async (id) => {
     try {
-      const characterName = localStorage.getItem('characterName') || 'Hero'; // Default a "Hero" se non c'è un valore salvato
-      const name = localStorage.getItem('userName') || 'Leo'; // Default a "Leo" se non c'è un valore salvato
-      const data = await API.getStepsById(id); // Usa la funzione API per ottenere i dati
-      setStepName(data[0]?.step_name || ''); 
-      setPanels(data.map((panel) => ({
-        id: panel.panel_number,
-        image: panel.image_url,
-        text: replacePlaceholder(panel.description, characterName, name),
-      })));
+      const characterName = localStorage.getItem('characterName') || 'Hero';
+      const name = localStorage.getItem('userName') || 'Leo';
+      const data = await API.getStepsById(id);
+      setStepName(data[0]?.step_name || '');
+      setPanels(
+        data.map((panel) => ({
+          id: panel.panel_number,
+          image: panel.image_url,
+          text: replacePlaceholder(panel.description, characterName, name),
+        }))
+      );
     } catch (error) {
       console.error('Error fetching step data:', error);
     }
   };
-  
 
   const handleNext = () => {
     navigate(`/last-step-selection-eldora`);
@@ -47,6 +44,12 @@ function StepsPotion({ stepId }) {
   };
 
   const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setTitleVisible(false); // Nasconde il titolo quando si scorre in basso
+    } else {
+      setTitleVisible(true); // Mostra il titolo quando si torna in alto
+    }
+
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight;
@@ -82,7 +85,15 @@ function StepsPotion({ stepId }) {
     <div className="stepPotion">
       <div className="Introduction">
         <div className="story-background">
-          <p className="title">{stepName || 'Loading...'}</p>
+          <p
+            className="title"
+            style={{
+              opacity: titleVisible ? 1 : 0,
+              transition: 'opacity 0.3s ease',
+            }}
+          >
+            {stepName || 'Loading...'}
+          </p>
           {panels.map((panel, index) => (
             <motion.div
               className="story-panel"
@@ -103,18 +114,8 @@ function StepsPotion({ stepId }) {
           ))}
           {showArrows && (
             <>
-              <img
-                src="/img/next.png"
-                alt="Arrow Right"
-                className="arrow arrow-right"
-                onClick={handleNext}
-              />
-              <img
-                src="/img/back.png"
-                alt="Arrow Left"
-                className="arrow arrow-left"
-                onClick={handleBack}
-              />
+              <img src="/img/next.png" alt="Arrow Right" className="arrow arrow-right" onClick={handleNext} />
+              <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleBack} />
             </>
           )}
         </div>

@@ -26,6 +26,8 @@ import StepsEgyptStory from './components/StepsEgyptStory';
 import CongratulationsAnubi from './components/CongratulationsAnubi';
 import CongratulationsPotion from './components/CongratulationsPotion';
 import Esempio from './components/Esempio';
+import Esempio2 from './components/Esempio2';
+import Esempio3 from './components/Esempio3';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -77,6 +79,8 @@ function App() {
           <Route path="*" element={<NotFound />} />
 
           <Route path="/esempio" element={<Esempio />} />
+          <Route path="/esempio2" element={<Esempio2 />} />
+          <Route path="/esempio3" element={<Esempio3 />} />
 
           <Route path="/map" element={<Map />}/>
           <Route path="/mapEgypt" element={<MapEgypt />}/>
