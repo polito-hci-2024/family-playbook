@@ -25,6 +25,7 @@ import StepsPotion from './components/StepsPotion';
 import StepsEgyptStory from './components/StepsEgyptStory';
 import CongratulationsAnubi from './components/CongratulationsAnubi';
 import CongratulationsPotion from './components/CongratulationsPotion';
+import Esempio from './components/Esempio';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -75,6 +76,7 @@ function App() {
           <Route path="/the-end" element={<TheEnd />}/>
           <Route path="*" element={<NotFound />} />
 
+          <Route path="/esempio" element={<Esempio />} />
 
           <Route path="/map" element={<Map />}/>
           <Route path="/mapEgypt" element={<MapEgypt />}/>
@@ -86,7 +88,7 @@ function App() {
         >
           <FaSyncAlt size={100} className="mb-4 text-primary" />
           <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
-            Please rotate your device!
+            Please rotate your tablet!
           </p>
         </div>
       )}

@@ -2,3 +2,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Quintessential&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quintessential&display=swap');
+
+/* Wrapper generale per il contenitore */
+.top-right-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Container delle icone */
+  .top-right-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2); /* Sfondo trasparente */
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  /* Icone */
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .icon-container img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .icon-container:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Freccia per espandere il menu */
+  .expand-arrow {
+    position: absolute;
+    right: -40px; /* Posizionata fuori dalla card */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .expand-arrow img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .expand-arrow:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  

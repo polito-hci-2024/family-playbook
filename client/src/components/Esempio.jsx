@@ -5,7 +5,7 @@ import '../CSS/StepsEldora.css';
 import '../CSS/UnexpectedEvents.css';
 import API from '../API.mjs'
 
-function StepSelectionEldora() {
+function Esempio() {
   const navigate = useNavigate();
   const [selectedStep, setSelectedStep] = useState(null); // Stato per tracciare il passaggio selezionato
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -14,6 +14,16 @@ function StepSelectionEldora() {
   const [steps, setSteps] = useState([]); // Stato per i dati dinamici
   const [loading, setLoading] = useState(true); // Stato per indicare il caricamento dei dati
   const [error, setError] = useState(null); // Stato per eventuali errori
+  const [isVisible, setIsVisible] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsCollapsed(true); // Dopo 3 secondi, il menù si nasconde
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const fetchChallenges = async () => {
@@ -109,17 +119,38 @@ function StepSelectionEldora() {
   return (
     <div className={`StepSelection ${isPopupVisible ? 'blurred' : ''}`} ref={containerRef}>
       {/* Icona in alto a destra */}
-      <div className="top-right-icons">
-      <div className="icon-container">
-    <img src="/img/buttons/info.png" alt="Info Icon" />
-  </div>
-  <div className="icon-container" onClick={togglePopup}>
-    <img src="/img/buttons/imprevisto.png" alt="Imprevisto" />
-  </div>
-  <div className="icon-container" onClick={() => navigate("/map")}>
-    <img src="/img/buttons/map.png" alt="Map" />
-  </div>
-</div>
+      <div className={`top-right-wrapper ${isCollapsed ? 'collapsed' : ''}`}>
+      {/* Menu delle icone */}
+      <motion.div 
+        className="top-right-icons"
+        initial={{ x: 0 }}
+        animate={{ x: isCollapsed ? 120 : 0 }} // Si sposta a destra quando è chiuso
+        transition={{ duration: 0.5 }}
+      >
+        <div className="icon-container">
+          <img src="/img/buttons/info.png" alt="Info Icon" />
+        </div>
+        <div className="icon-container" onClick={() => console.log("Vai a /map")}>
+          <img src="/img/buttons/map.png" alt="Map" />
+        </div>
+        <div className="icon-container" onClick={togglePopup}>
+          <img src="/img/buttons/imprevisto.png" alt="Imprevisto" />
+        </div>
+      </motion.div>
+
+      {/* Freccia per riaprire il menu */}
+      {isCollapsed && (
+        <motion.div 
+          className="expand-arrow" 
+          initial={{ opacity: 0 }} 
+          animate={{ opacity: 1 }} 
+          transition={{ delay: 0.5 }}
+          onClick={() => setIsCollapsed(false)}
+        >
+          <img src="/img/buttons/FrecciaEsempio.png" alt="Expand" />
+        </motion.div>
+      )}
+    </div>
 
 
       {/* Contenuto del pop-up */}
@@ -227,4 +258,4 @@ function StepSelectionEldora() {
   );
 }
 
-export default StepSelectionEldora;
+export default Esempio;
