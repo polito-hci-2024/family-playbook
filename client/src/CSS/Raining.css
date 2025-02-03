@@ -6,7 +6,7 @@
     justify-content: center;
     min-height: 100vh;
     padding: 50px;
-    background-image: url('/img/sfondo_ufficiale.jpg');
+    background-image: url('/img/sfondo_pioggia.png');
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -22,7 +22,7 @@
     margin-top: 100px;
     font-weight: bold;
     font-family: 'Quintessential', sans-serif;
-    color: #720B5B;
+    color: #496584;
   }
   
   .Raining .description {
