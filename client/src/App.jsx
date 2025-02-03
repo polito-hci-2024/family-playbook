@@ -86,7 +86,7 @@ function App() {
         >
           <FaSyncAlt size={100} className="mb-4 text-primary" />
           <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
-            Please rotate your device or use a tablet!
+            Please rotate your device!
           </p>
         </div>
       )}
