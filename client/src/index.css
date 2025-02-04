@@ -198,7 +198,7 @@
   position: absolute;
   top: 0px; /* Posiziona il semicerchio in alto */
   left: 50%; /* Centra orizzontalmente */
-  transform: translateX(-50%) rotate(180deg); /* Ruota il semicerchio di 180 gradi e centrato */
+  transform: translateX(-50%) rotate(180deg); /* Ruota solo il contenitore */
   cursor: pointer;
   background: rgba(255, 255, 255, 0.3);
   padding: 10px;
@@ -210,6 +210,7 @@
 .esempio5 .expand-arrow img {
   width: 70px;
   height: 70px;
+  transform: rotate(0deg); /* L'immagine non si ruota */
 }
 
 .esempio5 .expand-arrow:hover {

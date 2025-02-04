@@ -160,16 +160,17 @@ function Esempio5() {
 </div>
       {/* Freccia per riaprire il menu */}
       {isCollapsed && (
-        <motion.div 
-          className="expand-arrow"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          onClick={() => setIsCollapsed(false)}
-        >
-          <img src="/img/buttons/plus.png" alt="Expand" />
-        </motion.div>
-      )}
+  <motion.div 
+    className="expand-arrow"
+    onClick={() => setIsCollapsed(false)} // Riapri il menu al clic
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }}
+  >
+    <img src="/img/buttons/infoExpand.png" alt="Expand" />
+  </motion.div>
+)}
+
 
 
       {/* Contenuto del pop-up */}
@@ -237,7 +238,7 @@ function Esempio5() {
               className={`Step-card ${Step.disabled ? 'disabled' : ''}`}
               key={Step.id}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={{ opacity      : 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.5 }}
               onClick={() => handleStepClick(Step)}
             >
