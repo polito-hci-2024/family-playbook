@@ -1,8 +1,7 @@
-/* Contenitore delle attività */
 .activity .title {
-  position: fixed; /* Fissa il titolo in cima */
-  top: 0; /* Posiziona il titolo all'inizio della pagina */
-  left: 10%; /* Centra orizzontalmente */
+  position: fixed; 
+  top: 0; 
+  left: 10%; 
   right: 10%;
   z-index: 10;
   font-size: 4.5rem;
@@ -18,23 +17,22 @@
 .activity .activity-container {
   padding-top: 450px;
   display: flex;
-  justify-content: center; /* Centra orizzontalmente le card */
-  align-items: flex-start; /* Allinea le card in cima */
-  gap: 20px; /* Spazio tra le card */
-  width: 90%; /* Imposta una larghezza per il contenitore (in modo che le card si adattino) */
-  max-width: 100%; /* Limita la larghezza massima */
-  box-sizing: border-box; /* Include il padding nel calcolo della larghezza */
-  height: auto; /* L'altezza si adatta al contenuto */
-  margin: 0 auto; /* Centra il contenitore */
+  justify-content: center; 
+  align-items: flex-start; 
+  gap: 20px; 
+  width: 90%; 
+  max-width: 100%;
+  box-sizing: border-box; 
+  height: auto; 
+  margin: 0 auto; 
 }
 
-/* Card dell'attività */
 .activity .activity-card {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 15px;
   box-shadow: 0 4px 10px #10334a;
   width: 350px;
-  height: 650px; /* Altezza fissa per tutte le card */
+  height: 650px; 
   padding: 20px;
   text-align: center;
   cursor: pointer;
@@ -44,7 +42,6 @@
   justify-content: space-between;
 }
 
-/* Immagine della card */
 .activity .activity-card img {
   width: 100%;
   height: 100%;
@@ -53,7 +50,6 @@
   margin-bottom: 40px;
 }
 
-/* Hover effect per la .activity-card */
 .activity .activity-card:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
@@ -73,102 +69,66 @@
   color: #555;
 }
 
-/* Responsività per schermi piccoli */
-@media (max-width: 768px) {
-  .activity .story-panel {
-    width: 95%; /* Occupa il 95% della larghezza disponibile su schermi più piccoli */
-    min-height: 150px; /* Altezza minima per i dispositivi mobili */
-  }
-}
-
-/* Contenitore che posiziona l'immagine e il fumetto */
-.activity .bubble-container {
-  position: fixed;
-  bottom: 20px;  /* Posiziona la bolla vicino al fondo della pagina */
-  left: 20px;  /* Posiziona la bolla a sinistra */
-  display: flex;
-  align-items: flex-end; /* Posiziona l'immagine in basso */
-  z-index: 1000; /* Assicurati che sia sopra gli altri contenuti */
-  width: calc(100% - 50px); /* La bolla si estende fino al bordo destro con margini di 30px */
-}
-
-/* Immagine di Lumi */
-.activity .lumi-image {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%; /* Rende l'immagine circolare */
-  object-fit: cover; /* Fa in modo che l'immagine riempia il cerchio */
-}
-
-/* Stile del fumetto a forma di nuvola */
-.activity .bubble-text {
-  position: relative;
-  background-color: #fff;
-  padding: 15px 20px;
-  border-radius: 30px;
-  height: 200px; /* Altezza della bolla */
-  width: calc(100% - 50px); /* La bolla si estende fino al bordo destro */
-  margin-left: 30px; /* Distanza tra l'immagine e il fumetto */
-  margin-bottom: 100px; /* Margine di 100px rispetto al fondo della pagina */
-  font-size: 40px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ombra per l'effetto 3D */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .activity img {
-  margin: 0; /* Rimuove tutti i margini */
-  padding: 0; /* Rimuove tutti i padding */
-  display: block; /* Impedisce l'allineamento in linea */
+  margin: 0; 
+  padding: 0; 
+  display: block; 
 }
 * {
   box-sizing: border-box;
 }
 
-/* Contenitore principale */
 .activity .Introduction {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* Occupa l'intera altezza della viewport */
+  min-height: 100vh; 
   display: flex;
-  flex-direction: column; /* Dispone i pannelli verticalmente */
-  align-items: center; /* Centra orizzontalmente */
-  background-image: url('/img/sfondo_generale.png'); /* Sfondo globale */
-  background-size: cover; /* Copri l'intero contenitore */
+  flex-direction: column; 
+  align-items: center;
+  background-image: url('/img/sfondo_generale.png'); 
+  background-size: cover; 
   background-position: center;
-  background-attachment: fixed; /* Sfondo fisso durante lo scroll */
+  background-attachment: fixed;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Evita lo scrolling orizzontale */
-  overflow-y: auto; /* Permette lo scrolling verticale */
-  padding-top: 0; /* Rimuovi padding-top */
+  overflow-x: hidden; 
+  overflow-y: auto; 
+  padding-top: 0; 
 }
-
-
-
 
 .activity .arrow {
   position: fixed;
-  top: 50%;  /* Centra la freccia verticalmente */
-  transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
+  top: 50%;  
+  transform: translateY(-50%);  
   cursor: pointer;
   width: 50px;
   height: 50px;
-  z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
+  z-index: 1000;  
 }
 
 .activity .arrow-left {
-  left: 20px;  /* Posiziona la freccia sinistra a sinistra */
+  left: 20px;  
 }
 
 .activity .arrow-right {
-  right: 20px;  /* Posiziona la freccia destra a destra */
+  right: 20px;  
+}
+
+.activity-card.disabled {
+  filter: grayscale(100%);
+  opacity: 0.6;
+  pointer-events: none; 
+  border: 2px solid #ccc !important;
+}
+
+.place-text {
+  font-weight: bold; 
+  display: block;     
+  text-align: center;
+  margin-bottom: 10px; 
 }
 
 
-/* Animazioni */
 @keyframes slideInFromCenter {
   from {
     opacity: 0;
@@ -180,7 +140,6 @@
   }
 }
 
-/* Media query per schermi piccoli */
 @media (max-width: 768px) {
   .activity .title {
     font-size: 3rem;
@@ -200,21 +159,4 @@
   .activity .story-image {
     max-width: 150px;
   }
-}
-
-.activity-card.disabled {
-  background-color: #f0f0f0;  /* Colore grigio per la card disabilitata */
-  pointer-events: none;  /* Impedisce di cliccare sulla card */
-  opacity: 0.6;  /* Opacità ridotta per mostrare che è disabilitata */
-}
-
-.activity-card.disabled .activity-image {
-  filter: grayscale(100%);  /* Aggiungi un filtro per renderizzare l'immagine in bianco e nero */
-}
-
-.place-text {
-  font-weight: bold;  /* Grassetto */
-  display: block;     /* Va a capo */
-  text-align: center; /* Centra il testo */
-  margin-bottom: 10px; /* Spazio sotto il testo */
 }

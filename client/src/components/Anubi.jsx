@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Webcam from "react-webcam";
+import ButtonsEgypt from "./ButtonsEgypt";
 import "../CSS/Anubi.css"; // Import del file CSS
 function Anubi() {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ function Anubi() {
   }
   return (
     <div className="Anubi ${deleteIndex !== null ? 'blurred' : ''}">
+      <ButtonsEgypt />
       <h1 className="titleAnubi">Find Anubis Symbol</h1>
       <motion.div initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

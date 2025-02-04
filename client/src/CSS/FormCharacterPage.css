@@ -22,7 +22,7 @@ form {
 }
 
 .btn-disabled {
-    opacity: 0.3;
+    opacity: 0.4;
     color: var(--bs-btn-disabled-color);
     background-color: var(--bs-btn-disabled-bg);
     border-color: var(--bs-btn-disabled-border-color);
@@ -78,4 +78,11 @@ form {
     font-size: 20px;
     font-weight: bold;
     color: #10334a;
+}
+
+.disabled-character {
+    filter: grayscale(100%);
+    opacity: 0.5;
+    pointer-events: none;
+    border: 3px solid #ccc !important;
 }

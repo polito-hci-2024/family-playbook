@@ -28,6 +28,7 @@ import CongratulationsPotion from './components/CongratulationsPotion';
 import Esempio from './components/Esempio';
 import Esempio2 from './components/Esempio2';
 import Esempio3 from './components/Esempio3';
+import Esempio4 from './components/Esempio4';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -81,6 +82,7 @@ function App() {
           <Route path="/esempio" element={<Esempio />} />
           <Route path="/esempio2" element={<Esempio2 />} />
           <Route path="/esempio3" element={<Esempio3 />} />
+          <Route path="/esempio4" element={<Esempio4 />} />
 
           <Route path="/map" element={<Map />}/>
           <Route path="/mapEgypt" element={<MapEgypt />}/>

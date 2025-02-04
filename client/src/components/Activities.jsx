@@ -16,7 +16,6 @@ function Activities() {
   const replacePlaceholder = (text, name) => {
     if (!text) return text;
   
-    // Aggiungi formattazione per entrambi i testi
     text = text.replace(
       "Place: Mandria Park - 40 minutes",
       "<span class='place-text'>Place: Mandria Park - 40 minutes</span>"
@@ -83,30 +82,32 @@ function Activities() {
       <div className="Introduction">
         <div className="story-background">
           {choices.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
+            <div> 
               <p className="title">{userName}, which adventure do you want to take on?</p>
-              <div className="activity-container grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto px-4">
-                {choices.map((choice, index) => (
-                  <div
-                    key={choice.id}
-                    className={`activity-card ${selectedChoice === choice.id ? 'selected' : ''} ${index === 1 ? 'disabled' : ''}`}
-                    onClick={() => index !== 1 && setSelectedChoice(choice.id)}  // Click solo se non è la seconda card
-                  >
-                    <img
-                      src={choice.image}
-                      alt={choice.title}
-                      className="activity-image"
-                    />
-                    <p className="activity-title">{choice.title}</p>
-                    <p className="activity-description" dangerouslySetInnerHTML={{ __html: choice.description }} />
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="activity-container grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto px-4">
+                  {choices.map((choice, index) => (
+                    <div
+                      key={choice.id}
+                      className={`activity-card ${selectedChoice === choice.id ? 'selected' : ''} ${index === 1 ? 'disabled' : ''}`}
+                      onClick={() => index !== 1 && setSelectedChoice(choice.id)}  
+                    >
+                      <img
+                        src={choice.image}
+                        alt={choice.title}
+                        className="activity-image"
+                      />
+                      <p className="activity-title">{choice.title}</p>
+                      <p className="activity-description" dangerouslySetInnerHTML={{ __html: choice.description }} />
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           )}
 
           <img

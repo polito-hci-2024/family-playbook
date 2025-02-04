@@ -9,7 +9,7 @@ function StepsPage({ stepId }) {
   const [panels, setPanels] = useState([]); 
   const [stepName, setStepName] = useState('');
   const [showArrows, setShowArrows] = useState(false);
-  const [scrollY, setScrollY] = useState(0); // Stato per monitorare lo scroll
+  const [scrollY, setScrollY] = useState(0); 
 
   const replacePlaceholder = (text, characterName, name) => {
     return text
@@ -38,13 +38,11 @@ function StepsPage({ stepId }) {
   };
 
   const handleBack = () => {
-    if (parseInt(stepId) > 1) {
-      navigate(`/steps/${parseInt(stepId) - 1}`);
-    }
+    navigate('/chapter-zero');
   };
 
   const handleScroll = () => {
-    setScrollY(window.scrollY); // Aggiorna la posizione dello scroll
+    setScrollY(window.scrollY); 
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight;
@@ -83,8 +81,8 @@ function StepsPage({ stepId }) {
           <p 
             className="title" 
             style={{
-              opacity: scrollY > 50 ? 0 : 1, // Nasconde il titolo quando si scrolla verso l'alto
-              transition: 'opacity 0.3s ease' // Aggiungi una transizione per la sparizione
+              opacity: scrollY > 50 ? 0 : 1, 
+              transition: 'opacity 0.3s ease' 
             }}
           >
             {stepName || 'Loading...'}

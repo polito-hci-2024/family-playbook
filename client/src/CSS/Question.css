@@ -1,4 +1,3 @@
-/* Imposta il font per tutti gli elementi di testo, escludendo i titoli */
 .question,
 .question p,
 .question .panel,
@@ -13,27 +12,29 @@
 }
 
 .question {
-  overflow: hidden; /* Disabilita lo scroll */
-  height: 100vh; /* Assicura che la pagina occupi tutta l'altezza della finestra */
+  overflow: hidden; 
+  height: 100vh; 
 }
 
 .question img {
-    margin: 0; /* Rimuove tutti i margini */
-    padding: 0; /* Rimuove tutti i padding */
-    display: block; /* Impedisce l'allineamento in linea */
+    margin: 0;
+    padding: 0; 
+    display: block; 
   }
   * {
     box-sizing: border-box;
   }
 
   .question .title {
-    font-size: 4rem; /* Titolo molto grande */
+    font-size: 4rem; 
     font-weight: bold;
     text-align: center;
     margin-top: 40px;
     font-family: 'Quintessential', sans-serif;
     color: #10334a;
-}
+    text-shadow: 3px 3px 4px #5f8caa;
+  }
+
   /* Contenitore principale */
   .question .Introduction {
     position: relative;
@@ -48,7 +49,7 @@
     background-attachment: fixed;
     margin: 0;
     padding: 0;
-    overflow: hidden;   /* Disabilita lo scroll */
+    overflow: hidden;   
   }
   
   /* Pannelli della storia */
@@ -61,35 +62,35 @@
     align-items: center;
     text-align: center;
     margin-top: 80px;
-    overflow: hidden;   /* Rimuove lo scroll */
+    overflow: hidden;   
   }
   
   .question .question-text-container {
-    width: 80%;               /* Limita la larghezza del testo */
-    max-width: 600px;         /* Limita la larghezza massima */
-    margin: 20px auto;        /* Centra il contenuto orizzontalmente */
-    padding: 20px;            /* Aggiungi un po' di spazio interno */
-    text-align: center;       /* Centra il testo */
-    font-size: 1.4rem;        /* Imposta la dimensione del font */
-    color: #555;              /* Colore del testo */
+    width: 80%;               
+    max-width: 600px;         
+    margin: 20px auto;        
+    padding: 20px;           
+    text-align: center;       
+    font-size: 1.4rem;        
+    color: #555;             
     font-family: 'Poppins', sans-serif;
     font-weight: 450;
-    overflow: hidden;         /* Impedisce lo scroll */
-    white-space: nowrap;      /* Evita che il testo si estenda su più righe */
-    text-overflow: ellipsis;  /* Aggiungi i "..." se il testo è troppo lungo */
+    overflow: hidden;         
+    white-space: nowrap;      
+    text-overflow: ellipsis;  
   }
 
   .question .activity-container {
     display: flex;
-    flex-wrap: wrap; /* Le card andranno a capo se necessario */
-    justify-content: center; /* Centra orizzontalmente le card */
-    align-items: flex-start; /* Allinea le card in cima */
-    gap: 20px; /* Spazio tra le card */
-    width: 100%; /* Imposta una larghezza per il contenitore (in modo che le card si adattino) */
-    max-width: 100%; /* Limita la larghezza massima */
-    box-sizing: border-box; /* Include il padding nel calcolo della larghezza */
-    height: auto; /* L'altezza si adatta al contenuto */
-    margin: 0 auto; /* Centra il contenitore */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: flex-start; 
+    gap: 20px; 
+    width: 100%; 
+    max-width: 100%; 
+    box-sizing: border-box; 
+    height: auto; 
+    margin: 0 auto; 
   }
 
   .question .activity-image {
@@ -103,11 +104,11 @@
   }
 
   .question .activity-card {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 1);
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
+    box-shadow: 0 1px 10px #10334a;
     width: 350px;
-    height: 750px; /* Aumenta l'altezza della card */
+    height: 750px; 
     padding: 20px;
     text-align: center;
     cursor: pointer;
@@ -116,182 +117,180 @@
 
 .question .activity-card img {
     width: 100%;
-    height: 200px; /* Imposta l'altezza dell'immagine */
+    height: 200px; 
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
-/* Hover effect per la .activity-card */
 .question .activity-card:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
 }
 
   
-  .question .activity-title {
-    font-size: 2rem;
-    font-family: 'Quintessential', sans-serif;
-    font-weight: bold;
-    color: #10334a;
-  }
-  
-  .question .activity-answer {
-    font-size: 1.4rem;
-    color: #555;
-  }
+.question .activity-title {
+  font-size: 2rem;
+  font-family: 'Quintessential', sans-serif;
+  font-weight: bold;
+  color: #10334a;
+}
 
-  .question .question-description {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 450;
-    font-size: 1.4rem;
-    color: #555;
-    max-width: 600px; /* Limita la larghezza del testo */
-    margin: 20px auto; /* Centra il contenuto */
-    padding: 10px;     /* Aggiungi un po' di spazio interno */
-  }
-  
-/* Stile per .panel aggiornato per uniformarsi alle card */
+.question .activity-answer {
+  font-size: 1.4rem;
+  color: #555;
+}
+
+.question .question-description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 450;
+  font-size: 1.4rem;
+  color: #555;
+  max-width: 600px; 
+  margin: 20px auto; 
+  padding: 10px;     
+}
+ 
 .question .panel {
-  background: rgba(255, 255, 255, 0.8); /* Sfondo semitrasparente, come le card */
-  border-radius: 15px; /* Stesso arrotondamento delle card */
-  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3); /* Stesso effetto ombra */
-  width: 100%; /* Imposta una larghezza relativa o fissa */
-  max-width: 750px; /* Limita la larghezza massima */
-  padding: 20px; /* Stesso padding delle card */
-  text-align: center; /* Allinea il contenuto al centro */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizioni come le card */
+  background: rgba(255, 255, 255, 0.8); 
+  border-radius: 15px; 
+  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3); 
+  width: 100%;
+  max-width: 750px;
+  padding: 20px; 
+  text-align: center; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
   display: flex;
-  flex-direction: column; /* Impila i contenuti in colonna */
-  justify-content: center; /* Centra i contenuti verticalmente */
-  align-items: center; /* Centra i contenuti orizzontalmente */
-  margin: 25px auto; /* Aggiungi spazio tra i pannelli */
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+  margin: 25px auto; 
   position: relative;
 }
 
-/* Ultimo pannello con margine inferiore maggiore */
 .question .panel:last-child {
-  margin-bottom: 200px; /* Spazio extra per evitare sovrapposizioni */
+  margin-bottom: 200px; 
 }
   
-  .question .title {
-    font-size: 4rem;
-    font-weight: bold;
-    color: #10334a;
-    text-shadow: 3px 3px 4px  #5f8caa;
-    position: fixed; /* Fissa il titolo in cima */
-    top: 110px; /* Posiziona il titolo all'inizio della pagina */
-    left: 52%; /* Centra orizzontalmente */
-    right: -31%;
-    transform: translateX(-50%); /* Centra esattamente */
-    z-index: 10; /* Metti il titolo sopra agli altri elementi */
-  }
+.question .title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #10334a;
+  text-shadow: 3px 3px 4px  #5f8caa;
+  position: fixed; 
+  top: 110px; 
+  left: 52%; 
+  right: -31%;
+  transform: translateX(-50%); 
+  z-index: 10; 
+}
 
+
+.question .arrow {
+  position: fixed;
+  top: 50%;  
+  transform: translateY(-50%);  
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  z-index: 1000;  
+}
+
+.question .arrow-left {
+  left: 20px;  
+}
+
+.question .arrow-right {
+  right: 20px; 
+}
+
+.question .choice-card {
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  flex-direction: column;   
+  width: 90%;             
+  height: auto;           
+  border: 2px solid #ccc;   
+  padding: 10px;             
+  border-radius: 20px;      
+  margin: 10px;             
+  margin-top: 50px;
+  cursor: pointer;
+  position: relative;       
+  z-index: 10;              
+  pointer-events: auto;     
+  background: rgba(255, 255, 255, 0.80); 
+}
+
+.question .choice-card:hover {
+  transform: scale(1.10);
+  box-shadow: 0 8px 20px rgba(114, 11, 91, 0.5); 
+}
   
-  .question .arrow {
-    position: fixed;
-    top: 50%;  /* Centra la freccia verticalmente */
-    transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
-  }
-  
-  .question .arrow-left {
-    left: 20px;  /* Posiziona la freccia sinistra a sinistra */
-  }
-  
-  .question .arrow-right {
-    right: 20px;  /* Posiziona la freccia destra a destra */
-  }
-  
- /* .choice-card */
- .question .choice-card {
-    display: flex;
-    justify-content: center;  /* Centra orizzontalmente */
-    align-items: center;      /* Centra verticalmente */
-    flex-direction: column;   /* Impila i contenuti in colonna (opzionale) */
-    width: 90%;             /* Imposta una larghezza fissa */
-    height: auto;            /* Imposta un'altezza fissa */
-    border: 2px solid #ccc;   /* Bordo grigio chiaro */
-    padding: 10px;             /* Padding interno */
-    border-radius: 20px;      /* Angoli arrotondati */
-    margin: 10px;             /* Spaziatura tra le card */
-    margin-top: 50px;
-    cursor: pointer;
-    position: relative;       /* Assicura che l'elemento sia posizionato correttamente */
-    z-index: 10;              /* Impostiamo un z-index per non essere coperti da altri elementi */
-    pointer-events: auto;     /* Assicura che il cursore sia attivo e cliccabile */
-    background: rgba(255, 255, 255, 0.80); /* Sfondo semitrasparente */
-  }
-  
-  /* Hover effect per la .choice-card */
-  .question .choice-card:hover {
-    transform: scale(1.10);
-    box-shadow: 0 8px 20px rgba(114, 11, 91, 0.5); 
-  }
-  
-/* Contenitore della scelta */
 .question .choice-container {
   display: flex;
-  justify-content: flex-start;  /* Allinea le card a sinistra */
-  gap: 10px; /* Spazio tra le card */
-  flex-wrap: wrap; /* Permette alle card di andare a capo */
-  width: 100%; /* Il contenitore prende tutta la larghezza disponibile */
-  box-sizing: border-box; /* Considera il padding nel calcolo della larghezza */
+  justify-content: flex-start;  
+  gap: 10px; 
+  flex-wrap: wrap; 
+  width: 100%; 
+  box-sizing: border-box;
 }
   
 .question .choice-image {
     width: 100%;
-    max-width: 200px;         /* Limita la larghezza massima */
+    max-width: 200px;         
     height: auto;
     border-radius: 10px;
   }
   
-  .question .choice-title, .choice-description {
-    text-align: center;
-    margin-top: 10px;
+.question .choice-title, .choice-description {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.question .choice-title {
+  font-weight: bold;
+}
+
+.question .choice-description {
+  font-style: 'Poppins', sans-serif;
+  font-weight: 450;
+}
+
+.disabled-answer {
+  filter: grayscale(100%);
+  opacity: 0.6;
+  pointer-events: none; 
+  border: 2px solid #ccc !important;
+}
+  
+
+@keyframes slideInFromCenter {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
   }
-  
-  .question .choice-title {
-    font-weight: bold;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .question .choice-description {
-    font-style: 'Poppins', sans-serif;
-    font-weight: 450;
+}
+
+@media (max-width: 768px) {
+  .question .title {
+    font-size: 3rem;
   }
-  
-  
-  /* Animazioni */
-  @keyframes slideInFromCenter {
-    from {
-      opacity: 0;
-      transform: translateY(50%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+  .question .panel {
+    width: 95%;
+    aspect-ratio: 1 / 1;
   }
-  
-  /* Media query per schermi piccoli */
-  @media (max-width: 768px) {
-    .question .title {
-      font-size: 3rem;
-    }
-  
-    .question .panel {
-      width: 95%;
-      aspect-ratio: 1 / 1;
-    }
-  
-    .question .story-text {
-      font-size: 1.2rem;
-    }
-  
-    .question .story-image {
-      max-width: 150px;
-    }
+
+  .question .story-text {
+    font-size: 1.2rem;
   }
-  
+
+  .question .story-image {
+    max-width: 150px;
+  }
+}

@@ -72,20 +72,26 @@ function FormCharacterPage() {
         <Container>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
-                    <Row>
-                        {charactersArray.map((character) => (
-                            <Col key={character.character_id} className="text-center col-sm-4">
-                               <Button
-    className={`character-btn ${characterId === character.character_id ? 'selected' : ''} 
-    ${characterId !== 0 && characterId !== character.character_id ? 'btn-disabled' : ''}`}
-    onClick={() => selectCharacter(character.character_id, character.name)}>
-    <Image src={character.image_url} alt={character.name} roundedCircle className="character-img" />
-</Button>
+                <Row>
+    {charactersArray.map((character) => {
+        const isDisabled = character.name === "Orc" || character.name === "Dragon";
 
-                                <p><b>{character.name}</b></p>
-                            </Col>
-                        ))}
-                    </Row>
+        return (
+            <Col key={character.character_id} className="text-center col-sm-4">
+                <Button
+                    className={`character-btn ${characterId === character.character_id ? 'selected' : ''} 
+                    ${characterId !== 0 && characterId !== character.character_id ? 'btn-disabled' : ''} 
+                    ${isDisabled ? 'disabled-character' : ''}`}
+                    onClick={() => !isDisabled && selectCharacter(character.character_id, character.name)}
+                    disabled={isDisabled}
+                >
+                    <Image src={character.image_url} alt={character.name} roundedCircle className="character-img" />
+                </Button>
+                <p className="custom-label">{character.name}</p>
+            </Col>
+        );
+    })}
+</Row>
                     <Alert variant="danger" className={showError ? '' : 'd-none'}>
                         Please select a character!
                     </Alert>
