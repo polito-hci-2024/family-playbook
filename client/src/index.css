@@ -148,3 +148,70 @@
 .esempio3 .icon-container:hover {
   transform: scale(1.1);
 }
+
+.esempio5 .top-center-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 10;
+  transition: transform 0.5s ease-in-out;
+}
+
+.esempio5 .top-center-wrapper.collapsed {
+  transform: translateY(-100%); /* Sposta il menu verso l'alto */
+}
+
+.esempio5 .top-center-icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.esempio5 .icon-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.esempio5 .icon-container img {
+  width: 60px;
+  height: 60px;
+}
+
+.esempio5 .icon-container:hover {
+  transform: scale(1.1);
+}
+
+.esempio5 .expand-arrow {
+  position: absolute;
+  top: 0px; /* Posiziona il semicerchio in alto */
+  left: 50%; /* Centra orizzontalmente */
+  transform: translateX(-50%) rotate(180deg); /* Ruota il semicerchio di 180 gradi e centrato */
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  border-radius: 50% 50% 0 0; /* Forma il semicerchio */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 0; /* Allinea perfettamente al top */
+}
+
+.esempio5 .expand-arrow img {
+  width: 70px;
+  height: 70px;
+}
+
+.esempio5 .expand-arrow:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
