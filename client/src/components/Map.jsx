@@ -71,8 +71,6 @@ function Map() {
 
   return (
     <div className="map-container">
-      <h1 className="map-title">Map 1</h1>
-
       {/* Magical Potion Making */}
       <div className="challenge-1">
         <div
