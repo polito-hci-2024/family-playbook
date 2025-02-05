@@ -163,11 +163,12 @@ function StepSelectionEgypt() {
         <br></br>
         <p className="descriptionEgypt">
         You’ve entered the land of the pharaohs, where golden sands and the Nile hold ancient secrets. <br/>In this journey, you’ll face challenges that test your wit, courage, and mastery of magic. Each challenge will uncover Egypt’s mysteries and bring you closer to the gods' favor.</p>
+        <p className="description egypt choose-challenge-text">
+      <strong>Choose Your Next Challenge to Begin!</strong>
+          </p>  
       </div>
 
-      <p className="description egypt choose-challenge-text">
-      <strong>Choose Your Next Challenge to Begin!</strong>
-          </p>   
+       
       <div className="steps">
         {steps.map((Step, index) => (
           <motion.div
