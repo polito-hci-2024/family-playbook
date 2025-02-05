@@ -1,162 +1,256 @@
-@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+ES+Deco+Guides&family=Quintessential&family=Schoolbell&display=swap');
+/* ================================
+   Stili per i bottoni flottanti
+   ================================ */
+   .barraBottoni .floating-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  .barraBottoni .icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .barraBottoni .icon-container:hover {
+    transform: scale(1.1);
+  }
+  
+  .barraBottoni .floating-button {
+    width: 80px;
+    height: 80px;
+  }
+  
+  /* ================================
+     Stili per il popup (con prefissi)
+     ================================ */
+  .barraBottoni .popup-overlay {
+    position: fixed;
+    top: 0;                /* Assicura il posizionamento in alto */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  /* Sfondo semi-trasparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .barraBottoni .popup-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    max-width: 800px;
+    max-height: 800px;
+    box-shadow: 0 4px 6px rgb(69, 6, 58);
+  }
+  
+  /* Variante per popupEgypt (se necessaria) */
+  .barraBottoni .popupEgypt-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    max-width: 800px;
+    max-height: 800px;
+    box-shadow: 0 4px 6px #2A7A72;
+  }
+  
+  .barraBottoni .popup-content h2 {
+    font-family: 'Quintessential', sans-serif;
+    font-size: 3rem;
+    color: #720B5B;
+    margin-bottom: 50px;
+    font-weight: bold;
+  }
+  
+  .barraBottoni .popupEgypt-content h2 {
+    font-family: 'Quintessential', sans-serif;
+    font-size: 3rem;
+    color: #2A7A72;
+    margin-bottom: 50px;
+    font-weight: bold;
+    text-shadow: 3px 3px 4px #47cabd;
+  }
+  
+  /* ================================
+     Layout delle icone nel popup
+     ================================ */
+  .barraBottoni .popup-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+  }
+  
+  .barraBottoni .popup-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 200px;   /* Larghezza fissa */
+    height: 200px;
+    border-radius: 50%;
+  }
+  
+  .barraBottoni .popup-icon img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .barraBottoni .popup-icon span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #333;
+  }
+  
+  .barraBottoni .popup-icon.disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  
+  /* Effetto selezione per l'icona */
+  .barraBottoni .popup-icon.selected {
+    box-shadow: 0 0 10px rgba(254, 188, 33, 0.996);
+  }
+  
+  .barraBottoni .popup-icon.selected img {
+    filter: brightness(1.2);
+  }
+  
+  /* ================================
+     Stili per la domanda e i pulsanti nel popup
+     ================================ */
+  .barraBottoni .popup-question {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .barraBottoni .popup-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .barraBottoni .popup-buttons button {
+    padding: 10px 20px;
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .barraBottoni .popup-buttons .yes-button {
+    background-color: #5b0d4d;
+    color: white;
+  }
+  
+  .barraBottoni .popup-buttons .yes-button:hover {
+    background-color: #b31f98;
+  }
+  
+  .barraBottoni .popup-buttons .yes-buttonEgypt {
+    background-color: #2A7A72;
+    color: white;
+  }
+  
+  .barraBottoni .popup-buttons .yes-buttonEgypt:hover {
+    background-color: #47cabd;
+  }
+  
+  .barraBottoni .popup-buttons .no-button {
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  
+  .barraBottoni .popup-buttons .no-button:hover {
+    background-color: #c0c0c0;
+  }
+  
+  /* ================================
+     Posizionamento del menu in basso
+     ================================ */
+  .barraBottoni .bottom-center-wrapper {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+  }
+  
+  .barraBottoni .bottom-center-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
 
-/* 🔹 Contenitore dei bottoni flottanti */
-.floating-buttons {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 1 px;
-  z-index: 1000;
-}
-
-/* 🔹 Stile generale dei bottoni flottanti */
-.icon-container {
-  cursor: pointer;
-}
-
-.floating-button {
-  width: 110px;
-  height: 110px;
-  transition: transform 0.2s ease-in-out;
-}
-
-.floating-button:hover {
-  transform: scale(1.1);
-}
-
-/* 🔹 Popup Modale */
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-}
-
-.popup-content {
-  background-color: white;
-  border-radius: 10px;
-  padding: 40px;
-  text-align: center;
-  max-width: 800px;
-  max-height: 800px;
-  box-shadow: 0 4px 6px rgba(69, 6, 58, 0.6);
-}
-
-/* 🔹 Titolo del popup */
-.popup-content h2 {
-  font-family: 'Quintessential', sans-serif;
-  font-size: 3rem;
-  color: #720B5B;
-  margin-bottom: 50px;
-  font-weight: bold;
-}
-
-/* 🔹 Contenitore delle icone nel popup */
-.popup-icons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  margin-bottom: 30px;
-}
-
-/* 🔹 Stile per ogni icona */
-.popup-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  width: 150px;
-  height: 150px;
-  transition: transform 0.2s ease-in-out;
-}
-
-.popup-icon:hover {
-  transform: scale(1.1);
-}
-
-.popup-icon img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-/* 🔹 Testo sotto le icone */
-.popup-icon span {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  font-size: 1.2rem;
-  color: #333;
-}
-
-/* 🔹 Effetto icone disabilitate */
-.popup-icon.disabled {
-  cursor: not-allowed;
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-/* 🔹 Selezione delle icone */
-.popup-icon.selected {
-  box-shadow: 0 0 10px rgba(254, 188, 33, 0.8);
-}
-
-.popup-icon.selected img {
-  filter: brightness(1.2);
-}
-
-/* 🔹 Domanda di conferma */
-.popup-question {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.6rem;
-  color: #555;
-  margin: 20px 0;
-  text-align: center;
-}
-
-/* 🔹 Pulsanti nel popup */
-.popup-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-.popup-buttons button {
-  padding: 10px 20px;
-  font-size: 1.4rem;
-  font-family: 'Poppins', sans-serif;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-/* 🔹 Pulsante "Yes" */
-.popup-buttons .yes-button {
-  background-color: #5b0d4d;
-  color: white;
-}
-
-.popup-buttons .yes-button:hover {
-  background-color: #b31f98;
-}
-
-/* 🔹 Pulsante "No" */
-.popup-buttons .no-button {
-  background-color: #e0e0e0;
-  color: #333;
-}
-
-.popup-buttons .no-button:hover {
-  background-color: #c0c0c0;
-}
+  .popup-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%); /* Sposta il centro del cerchio all'angolo */
+    width: 80px;          /* Dimensioni del cerchio */
+    height: 80px;
+    background-color: #fff;  /* Colore di sfondo del cerchio */
+    border: 0px solid #720B5B; /* Bordo (modifica il colore se preferisci) */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;    /* Dimensione della X */
+    color: #720B5B;
+    cursor: pointer;
+    z-index: 1100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .popup-close::before {
+    content: "×";  /* Ricrea la X */
+    position: relative;
+    top: -10px; /* Sposta solo la X verso l'alto */
+  }
+  .popup-close:hover {
+    background-color: #720B5B;
+    color: #fff;
+  }
+  
+  .popup-header {
+    position: relative;
+    width: 100%;
+  }
+  
+  .popup-close {
+    position: absolute;
+    top: -40px;
+    right: -20px;
+  }
+  
+  
