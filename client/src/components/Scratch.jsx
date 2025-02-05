@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Confetti from "react-confetti";
 import "../CSS/Scratch.css";
 import { useNavigate } from "react-router-dom";
+import ButtonsEldora from "./ButtonsEldora";
 
 const Scratch = () => {
   const images = [
@@ -14,6 +15,8 @@ const Scratch = () => {
   const [flippedCards, setFlippedCards] = useState({}); // Stato per tracciare le card girate
   const [completedImage, setCompletedImage] = useState(null); // Stato per immagine completata
   const [showConfetti, setShowConfetti] = useState(false); // Stato per l'effetto confetti
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
   const navigate = useNavigate();
 
   const handleCardClick = (id) => {
@@ -27,6 +30,10 @@ const Scratch = () => {
 
   const handleNavigateNext = () => {
     navigate("/congratulationsForest"); // Sostituisci '/next-page' con il percorso desiderato
+  };
+
+  const handlePopupVisibilityChange = (visible) => {
+    setIsPopupVisible(visible);
   };
 
   const isNextArrowActive = completedImage === "image2"; // Freccia destra attiva solo se `image2` è completata
@@ -81,6 +88,8 @@ const Scratch = () => {
           onClick={isNextArrowActive ? handleNavigateNext : null}
         />
       </div>
+      <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
+
 
       {/* Effetto confetti */}
       {showConfetti && <Confetti recycle={false} />} {/* Confetti moderni */}

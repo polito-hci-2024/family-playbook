@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../CSS/StepsEldora.css';
 import '../CSS/UnexpectedEvents.css';
 import API from '../API.mjs'
+import ButtonsEldora from './ButtonsEldora';
 
 function StepSelectionEldora() {
   const navigate = useNavigate();
@@ -96,6 +97,10 @@ function StepSelectionEldora() {
       navigate("/");
     }
     setIsPopupVisible(false); // Chiudi il pop-up dopo la selezione
+  };
+
+  const handlePopupVisibilityChange = (visible) => {
+    setIsPopupVisible(visible);
   };
 
   if (loading) {
@@ -213,7 +218,8 @@ function StepSelectionEldora() {
             onClick={handleNavigate}
           />
         )}
-      
+        <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
+
     </div>
   );
 }

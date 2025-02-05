@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import "../CSS/Potion2.css"; // File CSS per lo stile
 import { useNavigate } from 'react-router-dom'; 
+import ButtonsEldora from "./ButtonsEldora";
 
 
 const Potion2 = () => {
@@ -12,6 +13,7 @@ const Potion2 = () => {
   const [prevRotation, setPrevRotation] = useState(0);
   const [wordIndex, setWordIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   const navigate = useNavigate();
 
   const words = ["Curio", "Tempus,", "power", "of", "grace,", "Awaken", "the", "heart,", "the", "magic", "flows,", "Bring", "back", "health", "to", "every", "place."];
@@ -28,6 +30,10 @@ const Potion2 = () => {
 
   const handleNavigatePrec = () => {
     navigate('/challenge/1/1');  
+  };
+
+  const handlePopupVisibilityChange = (visible) => {
+    setIsPopupVisible(visible);
   };
 
   const moveMestolo = (event) => {
@@ -137,6 +143,8 @@ const Potion2 = () => {
                 onClick={handleNavigateNext}
               />
             )}
+          <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
+
           </>
         )}
       </div>

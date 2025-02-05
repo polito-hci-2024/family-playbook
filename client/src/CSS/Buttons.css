@@ -253,4 +253,11 @@
     right: -20px;
   }
   
+  .test {
+    transition: transform 1s ease; /* Anima la proprietà transform */
+  }
+  
+  .test .move-left {
+    transform: translateX(-100%); /* Sposta il componente completamente a sinistra */
+  }
   

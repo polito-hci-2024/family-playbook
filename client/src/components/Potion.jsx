@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "../CSS/Potion.css";
 import { useNavigate } from 'react-router-dom'; 
+import ButtonsEldora from "./ButtonsEldora";
 
 const Potion = () => {
   const [cauldron, setCauldron] = useState([]); 
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+  
   const ingredients = [
     { name: "3 Daisy", image: "../../img/ingredients/margherita.png" },
     { name: "1 Leaf", image: "../../img/ingredients/foglia.png" },
@@ -35,6 +38,10 @@ const Potion = () => {
   const handleNavigatePrec = () => {
     navigate('/step-selection-eldora');  
   };
+  const handlePopupVisibilityChange = (visible) => {
+    setIsPopupVisible(visible);
+  };
+  
   const isNextArrowActive = cauldron.length === ingredients.length;
 
   return (
@@ -106,6 +113,8 @@ const Potion = () => {
             )}
           </>
         )}
+                    <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
+
       </div>
     </div>
   );
