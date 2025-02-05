@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import API from '../API.mjs';
 import '../CSS/Map.css';
+import { useNavigate } from 'react-router-dom';
 
 function Map() {
   const [challenges, setChallenges] = useState([false, false, false]);
@@ -10,6 +11,7 @@ function Map() {
   const [selectedChallenge, setSelectedChallenge] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const user_id = 1;
 
@@ -114,13 +116,13 @@ function Map() {
       <div>
         <Button
           className="back-to-story-button"
-          onClick={() => console.log('Back to Story')}
+          onClick={() => navigate(-1)}
         >
           Back to Story
         </Button>
       </div>
 
-      {/* Go to Egypt Map Button */}
+      {/* Go to Egypt Map Button 
       {showAdvancedButton && (
         <div>
           <Button
@@ -130,7 +132,7 @@ function Map() {
             Go to Egypt map
           </Button>
         </div>
-      )}
+      )} Al momento disabilitato*/}
 
       {/* Congratulations Modal */}
       <Modal show={showModal} onHide={handleCloseModal} centered>

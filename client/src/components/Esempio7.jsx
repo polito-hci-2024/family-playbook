@@ -5,6 +5,7 @@ import '../CSS/StepsEldora.css';
 import '../CSS/UnexpectedEvents.css';
 import API from '../API.mjs';
 import ButtonsEldora from './ButtonsEldora';
+import ButtonsEgypt from './ButtonsEgypt';
 
 function Esempio7() {
   const navigate = useNavigate();
@@ -125,7 +126,6 @@ function Esempio7() {
         {/* Menu delle icone fisso in basso */}
         
             <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
-          
     </div>
   );
 }
