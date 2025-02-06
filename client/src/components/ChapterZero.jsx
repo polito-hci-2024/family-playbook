@@ -5,6 +5,7 @@ import { useState } from 'react';
 import '../CSS/ChapterZero.css';
 import FormCharacterPage from './FormCharacterPage';
 import ModalGuide from './ModalGuide'
+import ButtonsGeneral from './ButtonsGeneral';
 
 function ChapterZero() {
 
@@ -24,10 +25,8 @@ function ChapterZero() {
           </Row>
         </Container>
       </motion.div>
-      <div>
-        <img src='../../img/lumi_smile.png' className='lumi'></img>
-        <img src='../../img/cloudWelcome.png' className='cloud'></img>
-      </div>
+      
+      <ButtonsGeneral></ButtonsGeneral>
     </div >
   );
 }
