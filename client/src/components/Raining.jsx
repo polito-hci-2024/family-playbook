@@ -12,6 +12,7 @@ function Raining() {
     {
       id: 1,
       title: 'Exploring ancient Egypt',
+      place: 'Place: Museo Egizio - 2 h',
       description: 'Uncover the secrets of the pharaohs and explore the timeless wonders of ancient Egypt through immersive activities.',
       image: '/img/egitto.png',
       route: '/step-selection-egypt',
@@ -20,6 +21,7 @@ function Raining() {
     {
       id: 2,
       title: 'Fun cafe with board games',
+      place: 'Place: Roxy Bar - 1 h',
       description: 'Relax and enjoy a variety of board games with friends in a cozy cafe setting, perfect for a fun-filled day.',
       image: '/img/giochi.png',
       route: '/giochi',
@@ -35,7 +37,7 @@ function Raining() {
 
   const handleNavigate = () => {
     if (selectedCard) {
-      navigate(`/stepsEgypt/3`);
+      navigate('/start-activity-egypt');
     }
   };
 
@@ -83,6 +85,7 @@ function Raining() {
           >
             <img src={card.image} alt={card.title} className="card-image" />
             <h2 className="card-title">{card.title}</h2>
+            <p className="card-description"> <b>{card.place}</b> </p>
             <p className="card-description">{card.description}</p>
           </motion.div>
         ))}

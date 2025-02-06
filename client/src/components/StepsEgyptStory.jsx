@@ -35,7 +35,7 @@ function StepsEgyptStory({ stepId }) {
 
   const handleBack = () => {
     if (parseInt(stepId) > 1) {
-      navigate('/raining');
+      navigate('/start-activity-egypt');
     }
   };
 

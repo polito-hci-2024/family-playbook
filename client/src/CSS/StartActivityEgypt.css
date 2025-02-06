@@ -1,0 +1,149 @@
+.start-activity,
+.start-activity p,
+.start-activity .activity-description,
+.start-activity .activity-info-box,
+.start-activity .activity-theme,
+.start-activity .activity-location,
+.start-activity .modal-body,
+.start-activity .btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 450;
+}
+
+.start-activity-egypt img {
+  margin: 0; 
+  padding: 0; 
+  display: block; 
+}
+
+.start-activity-egypt .title {
+  font-size: 4rem;
+  font-family: 'Quintessential', sans-serif;
+  font-weight: bold;
+  color: #2A7A72;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.start-activity-egypt .activity-title {
+  font-size: 2rem;
+  font-family: 'Quintessential', sans-serif;
+  font-weight: bold;
+  color: #2A7A72;
+}
+
+.start-activity-egypt .activity-description {
+  font-size: 1.3rem;
+  color: #555;
+}
+
+.activity-description p {
+  margin-bottom: 1px;  
+}
+
+.start-activity-egypt .Introduction {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  background-image: url('/img/sfondo_egitto.png'); 
+  background-size: cover; 
+  background-position: center;
+  background-attachment: fixed; 
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+  overflow-y: auto; 
+  padding-top: 0; 
+}
+
+.start-activity-egypt .panel-start-activity {
+  background: rgba(255, 255, 255, 0.8); 
+  border-radius: 15px; 
+  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3); 
+  width: 700px; 
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  margin: 10px; 
+  height: auto;
+}
+
+.start-activity-egypt .story-text {
+  font-family: 'Poppins', serif;
+  font-weight: 450;
+  font-size: 1.4rem;
+  color: #262626;
+  line-height: 1.6;
+  margin: 10px 0;
+  text-align: center;
+  align-items: center;
+}
+
+.start-activity-egypt .arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  z-index: 1000;
+}
+
+.start-activity-egypt .arrow-left {
+  left: 20px;
+}
+
+.start-activity-egypt .arrow-right {
+  right: 20px;
+}
+
+.start-activity-egypt .character-image {
+  position: fixed;
+  bottom: 15px;
+  left: 5px;
+  width: 300px;
+  height: auto;
+}
+
+.start-activity-egypt .activity-info {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.start-activity-egypt .activity-image {
+
+  margin: 0 auto;
+  display: block;
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.start-activity-egypt .panel-start-activity-egypt:nth-child(2) {
+  height: 200px;
+  padding: 10px;
+}
+
+@keyframes slideInFromCenter {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

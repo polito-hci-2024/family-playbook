@@ -31,6 +31,7 @@ import Esempio3 from './components/Esempio3';
 import Esempio4 from './components/Esempio4';
 import Esempio5 from './components/Esempio5';
 import Esempio7 from './components/Esempio7';
+import StartActivityEgypt from './components/StartActivityEgypt';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -40,17 +41,13 @@ function App() {
       const width = window.innerWidth;
       const height = window.innerHeight;
 
-      // Imposta i criteri per considerare il dispositivo un tablet
       setIsTablet(width >= 600 && width <= 1824 && height >= 1000);
     };
 
-    // Aggiungi listener per il resize
     window.addEventListener('resize', handleResize);
 
-    // Esegui subito il controllo iniziale
     handleResize();
 
-    // Pulisci il listener quando il componente viene smontato
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -73,6 +70,7 @@ function App() {
           <Route path="/challenge/2" element={<Scratch />} />
           <Route path="/congratulationsForest" element={<CongratulationsPotion/>} />
           <Route path="/raining" element={<Raining />}/>  
+          <Route path="/start-activity-egypt" element={<StartActivityEgypt />}/>
           <Route path="/stepsEgypt/3" element={<StepsEgyptStory stepId={3} />}/>
           <Route path="/step-selection-egypt" element={<StepSelectionEgypt activity_id={2} />}/>
           <Route path="/challenge/3" element={<Anubi/>} />
