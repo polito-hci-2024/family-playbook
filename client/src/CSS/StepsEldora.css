@@ -76,10 +76,9 @@
   }
   
   .steps-eldora .Step-card:hover {
-    transform: scale(1.15);
+    transform: scale(1.05);
     box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
   }
-  
   .steps-eldora .Step-image {
     width: 150px;
     height: auto;
