@@ -54,6 +54,20 @@ function Activities() {
     fetchChoices();
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('.activity-card')) {
+        setSelectedChoice(null);
+      }
+    };
+  
+    document.addEventListener('click', handleClickOutside);
+    
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
   const handleConfirm = async () => {
     if (selectedChoice) {
       try {
@@ -89,12 +103,22 @@ function Activities() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="activity-container grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto px-4">
+                <div 
+                  className="activity-container grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto px-4"
+                  onClick={(e) => {
+                    if (e.target.closest('.activity-card') === null) {
+                      setSelectedChoice(null);  
+                    }
+                  }}
+                >
                   {choices.map((choice, index) => (
                     <div
                       key={choice.id}
                       className={`activity-card ${selectedChoice === choice.id ? 'selected' : ''} ${index === 1 ? 'disabled' : ''}`}
-                      onClick={() => index !== 1 && setSelectedChoice(choice.id)}  
+                      onClick={(e) => {
+                        e.stopPropagation(); 
+                        if (index !== 1) setSelectedChoice(choice.id);
+                      }}
                     >
                       <img
                         src={choice.image}
@@ -110,12 +134,14 @@ function Activities() {
             </div>
           )}
 
-          <img
-            src="/img/next.png"
-            alt="Arrow Right"
-            className="arrow arrow-right"
-            onClick={handleConfirm}
-          />
+          {selectedChoice && (
+            <img
+              src="/img/next.png"
+              alt="Arrow Right"
+              className="arrow arrow-right"
+              onClick={handleConfirm}
+            />
+          )}
 
           <img
             src="/img/back.png"

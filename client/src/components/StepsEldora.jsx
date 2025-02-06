@@ -48,12 +48,12 @@ function StepSelectionEldora() {
 
   const handleNavigate = () => {
     if (selectedStep) {
-      navigate(selectedStep.route); // Naviga alla route del passaggio selezionato
+      navigate(selectedStep.route); 
     }
   };
 
   const handleNavigateBack = () => {
-    navigate(-1);
+    navigate('/start-activity');
   };
 
   const togglePopup = () => {
