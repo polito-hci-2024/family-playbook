@@ -35,7 +35,6 @@
     text-shadow: 3px 3px 4px #5f8caa;
   }
 
-  /* Contenitore principale */
   .question .Introduction {
     position: relative;
     width: 100%;
@@ -52,7 +51,6 @@
     overflow: hidden;   
   }
   
-  /* Pannelli della storia */
   .question .story-background {
     width: 100%;
     min-height: 100vh;

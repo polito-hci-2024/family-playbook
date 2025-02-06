@@ -3,31 +3,32 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Webcam from "react-webcam";
 import ButtonsEgypt from "./ButtonsEgypt";
-import "../CSS/Anubi.css"; // Import del file CSS
+import "../CSS/Anubi.css"; 
+
 function Anubi() {
   const navigate = useNavigate();
-  const [photos, setPhotos] = useState([]); // Array per salvare le foto
-  const [isCameraOpen, setIsCameraOpen] = useState(false); // Stato per la fotocamera
+  const [photos, setPhotos] = useState([]); 
+  const [isCameraOpen, setIsCameraOpen] = useState(false);
   const [deleteIndex, setDeleteIndex] = useState(null);
   const webcamRef = useRef(null);
-  // Funzione per scattare una foto
+  
   const capturePhoto = () => {
     if (webcamRef.current) {
-      const photo = webcamRef.current.getScreenshot(); // Ottiene l'immagine
-      setPhotos((prevPhotos) => [...prevPhotos, photo]); // Aggiunge la foto all'array
-      setIsCameraOpen(false); // Chiude la fotocamera
+      const photo = webcamRef.current.getScreenshot(); 
+      setPhotos((prevPhotos) => [...prevPhotos, photo]);
+      setIsCameraOpen(false); 
     }
   };
-  // Funzione per eliminare una foto
+  
   const confirmDelete = () => {
     setPhotos((prevPhotos) =>
       prevPhotos.filter((_, i) => i !== deleteIndex)
-    ); // Rimuove la foto selezionata
-    setDeleteIndex(null); // Resetta lo stato di eliminazione
+    ); 
+    setDeleteIndex(null); 
   };
   const handleNavigate = () => {
     if (photos.length === 3) {
-      navigate("/congratulationsEgypt"); // Naviga alla route del passaggio selezionato
+      navigate("/congratulationsEgypt"); 
     }
   };
   const handleNavigateBack = () => {
@@ -44,7 +45,6 @@ function Anubi() {
                 </p>
       </motion.div>
       
-      {/* Mostra le foto scattate */}
       <div className="photoGrid">
         {photos.map((photo, index) => (
           <div key={index} className="photoWrapper">
@@ -53,7 +53,7 @@ function Anubi() {
               alt={`Snapshot ${index + 1}`}
               className="photo"
             />
-            {/* Bottone di eliminazione */}
+            
             <button
               onClick={() => setDeleteIndex(index)}
               className="deleteButton"
@@ -63,13 +63,13 @@ function Anubi() {
           </div>
         ))}
       </div>
-      {/* Bottone per aprire la fotocamera */}
+      
       {!isCameraOpen && photos.length < 3 && (
         <div className="button" onClick={() => setIsCameraOpen(true)}>
             <img src="/img/fotocamera.png" alt="Info Icon" />
         </div>
       )}
-      {/* Messaggio quando sono state scattate 3 foto */}
+      
       {photos.length === 3 && deleteIndex === null && (
         <React.Fragment>
             <h2 className="successMessage">Good job!</h2>
@@ -81,11 +81,11 @@ function Anubi() {
             />
         </React.Fragment>
     )}
-      {/* Fotocamera */}
+      
       {isCameraOpen && (
         <div
             className="cameraOverlay"
-            onClick={() => setIsCameraOpen(false)} // Chiude la fotocamera cliccando sull'overlay
+            onClick={() => setIsCameraOpen(false)} 
         >
             <div className="cameraContainer" onClick={(e) => e.stopPropagation()}>
                 <Webcam
@@ -100,7 +100,7 @@ function Anubi() {
         </div>
         
       )}
-      {/* Riquadro per confermare eliminazione */}
+     
       {deleteIndex !== null && (
         <div className="popup-overlay">
           <div className="popup-content">
@@ -112,7 +112,7 @@ function Anubi() {
           </div>
         </div>
       )}
-      {/* Freccia sinistra sempre visibile */}
+      
       {!isCameraOpen && deleteIndex === null && (
         <img
         src="/img/back.png" 

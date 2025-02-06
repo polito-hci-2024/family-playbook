@@ -1,19 +1,17 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate per la navigazione
+import { useNavigate } from 'react-router-dom'; 
 import '../CSS/CongratulationsAnubi.css';
 
 function CongratulationsAnubi() {
-  const navigate = useNavigate(); // Hook per navigare tra le pagine
-  const userName = localStorage.getItem('userName') || 'Hero'; // Ottieni il nome utente dal localStorage
+  const navigate = useNavigate(); 
+  const userName = localStorage.getItem('userName') || 'Hero'; 
 
   const handleNext = () => {
-    // Naviga alla pagina successiva, puoi personalizzarla a seconda della tua logica
-    navigate('/last-chapter'); // Modifica il percorso in base alla tua applicazione
+    navigate('/last-chapter'); 
   };
 
   const handleBack = () => {
-    // Naviga alla pagina precedente
-    navigate(-1); // Torna indietro
+    navigate('/challenge/3'); 
   };
 
   return (
@@ -25,7 +23,6 @@ function CongratulationsAnubi() {
       Until next time! 🌟
       </p>
 
-      {/* Freccia destra per andare avanti */}
       <img
         src="/img/next.png"
         alt="Arrow Right"
@@ -33,7 +30,6 @@ function CongratulationsAnubi() {
         onClick={handleNext}
       />
 
-      {/* Freccia sinistra per tornare indietro */}
       <img
         src="/img/back.png"
         alt="Arrow Left"

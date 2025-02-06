@@ -13,7 +13,6 @@ function StartActivity() {
   const formatAsList = (text) => {
     if (!text) return text;
   
-    // Dividi il testo in base ai ritorni a capo
     const lines = text.split('\n');
     return (
       <div className="activity-description">
@@ -140,11 +139,11 @@ function StartActivity() {
         </Modal.Header>
         <Modal.Body>Are you sure you want to start your adventure now?</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            No
-          </Button>
           <Button variant="primary" onClick={handleConfirm} style={{ backgroundColor: '#800080', borderColor: '#800080' }}>
             Yes
+          </Button>
+          <Button variant="secondary" onClick={handleClose}>
+            No
           </Button>
         </Modal.Footer>
       </Modal>

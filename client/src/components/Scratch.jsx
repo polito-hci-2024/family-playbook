@@ -7,14 +7,14 @@ import ButtonsEldora from "./ButtonsEldora";
 const Scratch = () => {
   const images = [
     { src: "../img/ingredients/daisy.jpeg", id: "image1" },
-    { src: "../img/challenges/Step1.png", id: "image2" }, // Immagine corretta
+    { src: "../img/challenges/Step1.png", id: "image2" }, 
     { src: "../img/challenges/Step2.png", id: "image3" },
     { src: "../img/challenges/Step3.png", id: "image4" },
   ];
 
-  const [flippedCards, setFlippedCards] = useState({}); // Stato per tracciare le card girate
-  const [completedImage, setCompletedImage] = useState(null); // Stato per immagine completata
-  const [showConfetti, setShowConfetti] = useState(false); // Stato per l'effetto confetti
+  const [flippedCards, setFlippedCards] = useState({}); 
+  const [completedImage, setCompletedImage] = useState(null); 
+  const [showConfetti, setShowConfetti] = useState(false); 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const navigate = useNavigate();
@@ -23,31 +23,29 @@ const Scratch = () => {
     setFlippedCards((prev) => ({ ...prev, [id]: true }));
     if (id === "image2") {
       setCompletedImage(id);
-      setShowConfetti(true); // Mostra l'effetto confetti se l'immagine corretta è trovata
-      setTimeout(() => setShowConfetti(false), 6000); // Rimuove i confetti dopo 3 secondi
+      setShowConfetti(true); 
+      setTimeout(() => setShowConfetti(false), 6000); 
     }
   };
 
   const handleNavigateNext = () => {
-    navigate("/congratulationsForest"); // Sostituisci '/next-page' con il percorso desiderato
+    navigate("/congratulationsForest"); 
   };
 
   const handlePopupVisibilityChange = (visible) => {
     setIsPopupVisible(visible);
   };
 
-  const isNextArrowActive = completedImage === "image2"; // Freccia destra attiva solo se `image2` è completata
+  const isNextArrowActive = completedImage === "image2"; 
 
   return (
     <div className="scratch">
-      {/* Titolo della pagina */}
       <h1 className="title">The Quest for <br />the Lost Fragment</h1>
       <p className="intro">
   The amulet is incomplete, missing a crucial fragment hidden deep within Eldoria. <br /> 
   Without it, the darkness will spread. Explore the forest’s cards to find the one that holds the missing piece and restore the amulet’s power to complete your quest.
 </p>
 
-      {/* Box con le immagini */}
       <div className="scratch-grid">
         {images.map((image) => (
           <div
@@ -71,16 +69,15 @@ const Scratch = () => {
         ))}
       </div>
 
-      {/* Frecce di navigazione */}
       <div className="navigation-arrows">
-        {/* Freccia sinistra */}
+        
         <img
           src="/img/back.png"
           alt="Arrow Left"
           className="arrow arrow-left"
-          onClick={() => navigate(-1)} // Torna indietro nella navigazione
+          onClick={() => navigate(-1)}
         />
-        {/* Freccia destra */}
+       
         <img
           src="/img/next.png"
           alt="Arrow Right"
@@ -90,9 +87,7 @@ const Scratch = () => {
       </div>
       <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
 
-
-      {/* Effetto confetti */}
-      {showConfetti && <Confetti recycle={false} />} {/* Confetti moderni */}
+      {showConfetti && <Confetti recycle={false} />} 
     </div>
   );
 };

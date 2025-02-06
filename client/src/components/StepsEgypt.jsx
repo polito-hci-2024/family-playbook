@@ -7,13 +7,13 @@ import API from '../API.mjs'
 
 function StepSelectionEgypt() {
   const navigate = useNavigate();
-  const [selectedStep, setSelectedStep] = useState(null); // Stato per tracciare il passaggio selezionato
+  const [selectedStep, setSelectedStep] = useState(null); 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const containerRef = useRef(null);
-  const [selectedIcon, setSelectedIcon] = useState(null); // Stato per tracciare l'icona selezionata
-  const [steps, setSteps] = useState([]); // Stato per i dati dinamici
-  const [loading, setLoading] = useState(true); // Stato per indicare il caricamento dei dati
-  const [error, setError] = useState(null); // Stato per eventuali errori
+  const [selectedIcon, setSelectedIcon] = useState(null);
+  const [steps, setSteps] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
     const fetchChallenges = async () => {
@@ -26,7 +26,7 @@ function StepSelectionEgypt() {
             title: challenge.challenge_name,
             description: challenge.challenge_description,
             route: `/challenge/${challenge.challenge_id}`,
-            disabled: challenge.challenge_id === 5
+            disabled: challenge.challenge_id === 4
           }))
         );
         setLoading(false);
@@ -47,12 +47,12 @@ function StepSelectionEgypt() {
 
   const handleNavigate = () => {
     if (selectedStep) {
-      navigate(selectedStep.route); // Naviga alla route del passaggio selezionato
+      navigate(selectedStep.route); 
     }
   };
 
   const handleNavigateBack = () => {
-    navigate("/raining");
+    navigate("/stepsEgypt/3");
   }
 
   const togglePopup = () => {
@@ -60,19 +60,16 @@ function StepSelectionEgypt() {
   };
 
   const handleOutsideClick = (event) => {
-    // Verifica se il clic è avvenuto su una card attiva
     const clickedElement = event.target;
-    const isStepCard = clickedElement.closest('.StepEgypt-card'); // Trova se l'elemento è una card
+    const isStepCard = clickedElement.closest('.StepEgypt-card'); 
     if (!isStepCard) {
-      setSelectedStep(null); // Deseleziona se il clic è fuori da una card
+      setSelectedStep(null); 
     } else {
-      // Controlla se è una card disabilitata
       const isDisabled = isStepCard.classList.contains('disabled');
       if (!isDisabled) {
-        // Lascia che la card venga selezionata normalmente
         return;
       }
-      setSelectedStep(null); // Deseleziona se è su una card disabilitata
+      setSelectedStep(null); 
     }
   };
 
@@ -85,17 +82,16 @@ function StepSelectionEgypt() {
 
   const handleIconClick = (iconName) => {
     setSelectedIcon(iconName);
-    setIsPopupVisible(true); // Mostra la domanda "Are you sure of your choice?"
+    setIsPopupVisible(true); 
   };
 
   const handlePopupYesClick = () => {
     if (selectedIcon && selectedIcon === 'raining') {
-      // Naviga alla pagina specificata per l'icona selezionata
-      navigate("/raining"); // Reindirizza alla pagina "raining.jsx"
+      navigate("/raining");
     } else if (selectedIcon && selectedIcon === 'end_activity') {
       navigate("/");
     }
-    setIsPopupVisible(false); // Chiudi il pop-up dopo la selezione
+    setIsPopupVisible(false); 
   };
 
   if (loading) {
@@ -108,33 +104,28 @@ function StepSelectionEgypt() {
 
   return (
     <div className={`StepSelectionEgypt ${isPopupVisible ? 'blurred' : ''}`} ref={containerRef}>
-      {/* Icona in alto a destra */}
-      <div className="top-right-icon" onClick={togglePopup}>
-        <img src="/img/unexpected/imprevisto_egitto.png" alt="Info Icon" />
-      </div>
 
-      {/* Contenuto del pop-up */}
       {isPopupVisible && (
         <div className="popup-overlay">
           <div className="popupEgypt-content">
             <h2>Puzzle of unexpected events</h2>
             <div className="popup-icons">
-                {/* Icona 1 */}
+                
                 <div className="popup-icon disabled">
                     <img src="/img/unexpected/raining.png" alt="It's raining" />
                     <span>It's raining</span>
                 </div>
-                {/* Icona 2 */}
+                
                 <div className={`popup-icon ${selectedIcon === 'end_activity' ? 'selected' : ''}`} onClick={() => handleIconClick('end_activity')}>
                     <img src="/img/unexpected/end_activity.png" alt="End activity" />
                     <span>End activity</span>
                 </div>
-                {/* Icona 3 - Disabilitata */}
+                
                 <div className="popup-icon disabled">
                     <img src="/img/unexpected/not_for_me.png" alt="Not for me" />
                     <span>Not for me</span>
                 </div>
-                {/* Icona 4 - Disabilitata */}
+                
                 <div className="popup-icon disabled">
                     <img src="/img/unexpected/im_lost.png" alt="I'm lost" />
                     <span>I'm lost</span>
@@ -190,7 +181,6 @@ function StepSelectionEgypt() {
         ))}
       </div>
 
-      {/* Freccia sinistra sempre visibile */}
       {!isPopupVisible && (
         <img
         src="/img/back.png" 
@@ -200,15 +190,14 @@ function StepSelectionEgypt() {
       />
       )}
 
-        {/* Freccia destra visibile solo dopo una scelta */}
-        {selectedStep && (
-          <img
-            src="/img/next.png" 
-            alt="Arrow Right"
-            className="arrow arrow-right"
-            onClick={handleNavigate}
-          />
-        )}
+      {selectedStep && (
+        <img
+          src="/img/next.png" 
+          alt="Arrow Right"
+          className="arrow arrow-right"
+          onClick={handleNavigate}
+        />
+      )}
       
     </div>
   );

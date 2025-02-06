@@ -1,143 +1,141 @@
 @import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+ES+Deco+Guides&family=Quintessential&family=Schoolbell&display=swap');
 
-/* Stile per StepSelection */
 .LastStepSelection {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
-    background-image: url('/img/sfondo_ufficiale.jpg'); /* Sfondo fiabesco per la pagina */
+    background-image: url('/img/sfondo_ufficiale.jpg'); 
     background-size: cover;
     background-position: center;
     text-align: center;
-  }
-  
-  .last-steps-eldora .header {
-    padding: 100px;
-    padding-bottom: 10px;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    margin-right: 30px;
-    margin-left: 30px
-  }
-  
-  .last-steps-eldora .title {
-    font-family: 'Quintessential', sans-serif;
-    font-weight: bold;
-    font-size: 4rem;
-    margin-top: 60px;
-    color: #720B5B;
-    text-shadow: 3px 3px 4px  rgba(230, 131, 217, 0.944);
-    padding-right: 20px;
-  }
-  
-  .last-steps-eldora .description {
-    font-size: 1.3rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 450;
-    color: #262626;
-    margin-top: 40px;
-    margin-bottom: 30px;
-    line-height: 1.6;
-  }
-  
-  .last-steps-eldora .choose-challenge-text {
-    font-size: 1.4rem;
-    font-family: 'Poppins', sans-serif;
-    color: #720B5B; /* Un colore magico che richiama l'enfasi */
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
-  }
+}
 
-  .last-steps-eldora .steps {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-right: -10px;
-    margin-left: 90px;
-    gap: 20px;
-    width: 80%;
-    max-width: 900px;
-  }
-  
-  .last-steps-eldora .Step-card {
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
-    width: 300px;
-    height: 530px;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .last-steps-eldora .Step-card:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
-  }
-  
-  .last-steps-eldora .Step-image {
-    width: 150px;
-    height: auto;
-    max-height: 200px;
-  }
-  
-  .last-steps-eldora .Step-title {
-    font-family: 'Quintessential', sans-serif;
-    font-size: 1.7rem;
-    color: #720B5B;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .last-steps-eldora .Step-description {
-    font-size: 1.3rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 450;
-    color: #3b3a3a;
-  } 
+.last-steps-eldora .header {
+  padding: 100px;
+  padding-bottom: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-right: 30px;
+  margin-left: 30px
+}
 
-  .arrow {
-    position: fixed;
-    top: 50%;  /* Centra la freccia verticalmente */
-    transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
-  }
-  
-  .arrow-left {
-    left: 20px;  /* Posiziona la freccia sinistra a sinistra */
-  }
-  
-  .arrow-right {
-    right: 20px;  /* Posiziona la freccia destra a destra */
-  }
+.last-steps-eldora .title {
+  font-family: 'Quintessential', sans-serif;
+  font-weight: bold;
+  font-size: 4rem;
+  margin-top: 60px;
+  color: #720B5B;
+  text-shadow: 3px 3px 4px  rgba(230, 131, 217, 0.944);
+  padding-right: 20px;
+}
 
-  .steps-eldora .Step-card.disabled {
-    color: #7a7a7a; /* Testo grigio */
-    cursor: not-allowed; /* Cursore per non cliccabile */
-    pointer-events: none; /* Disabilita tutti gli eventi */
-  }
-  
-  /* Stile per l'immagine nelle card disabilitate */
-  .steps-eldora .Step-card.disabled .Step-image {
-    filter: grayscale(100%);
-    opacity: 0.5;
-  }
+.last-steps-eldora .description {
+  font-size: 1.3rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 450;
+  color: #262626;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
 
-  .steps-eldora .Step-card.disabled .Step-title {
-    color: #a9a9a9;
-  }
-  
-  .steps-eldora .Step-card.disabled .Step-description {
-    color: #7a7a7a;
-  }
+.last-steps-eldora .choose-challenge-text {
+  font-size: 1.4rem;
+  font-family: 'Poppins', sans-serif;
+  color: #720B5B;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.last-steps-eldora .steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: 90px;
+  gap: 20px;
+  width: 80%;
+  max-width: 900px;
+}
+
+.last-steps-eldora .Step-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
+  width: 300px;
+  height: 530px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.last-steps-eldora .Step-card:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
+}
+
+.last-steps-eldora .Step-image {
+  width: 150px;
+  height: auto;
+  max-height: 200px;
+}
+
+.last-steps-eldora .Step-title {
+  font-family: 'Quintessential', sans-serif;
+  font-size: 1.7rem;
+  color: #720B5B;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.last-steps-eldora .Step-description {
+  font-size: 1.3rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 450;
+  color: #3b3a3a;
+} 
+
+.arrow {
+  position: fixed;
+  top: 50%; 
+  transform: translateY(-50%);  
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  z-index: 1000;  
+}
+
+.arrow-left {
+  left: 20px;  
+}
+
+.arrow-right {
+  right: 20px;  
+}
+
+.steps .Step-card.disabled {
+  color: #7a7a7a; 
+  cursor: not-allowed; 
+  pointer-events: none; 
+}
+
+.steps .Step-card.disabled .Step-image {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+.steps .Step-card.disabled .Step-title {
+  color: #a9a9a9;
+}
+
+.steps .Step-card.disabled .Step-description {
+  color: #7a7a7a;
+}
 
  

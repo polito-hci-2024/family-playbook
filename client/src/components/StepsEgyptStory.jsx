@@ -10,7 +10,7 @@ function StepsEgyptStory({ stepId }) {
   const [panels, setPanels] = useState([]);
   const [stepName, setStepName] = useState('');
   const [showArrows, setShowArrows] = useState(false);
-  const [titleVisible, setTitleVisible] = useState(true); // Stato per la visibilità del titolo
+  const [titleVisible, setTitleVisible] = useState(true); 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const fetchStepData = async (id) => {
@@ -35,7 +35,7 @@ function StepsEgyptStory({ stepId }) {
 
   const handleBack = () => {
     if (parseInt(stepId) > 1) {
-      navigate(-1);
+      navigate('/raining');
     }
   };
 
@@ -112,7 +112,7 @@ function StepsEgyptStory({ stepId }) {
               <p className="story-text">{panel.text}</p>
             </motion.div>
           ))}
-          {showArrows && (
+          {showArrows && !isPopupVisible && (
             <>
               <img src="/img/next.png" alt="Arrow Right" className="arrow arrow-right" onClick={handleNext} />
               <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleBack} />

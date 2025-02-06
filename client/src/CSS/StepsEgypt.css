@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+ES+Deco+Guides&family=Quintessential&family=Schoolbell&display=swap');
 
-/* Stile per StepSelection */
 .StepSelectionEgypt {
     display: flex;
     flex-direction: column;
@@ -68,7 +67,7 @@
   }
   
   .StepEgypt-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) !important;
     box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
   }
 
@@ -96,29 +95,28 @@
 
   .arrow {
     position: fixed;
-    top: 50%;  /* Centra la freccia verticalmente */
-    transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
+    top: 50%;  
+    transform: translateY(-50%);  
     cursor: pointer;
     width: 50px;
     height: 50px;
-    z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
+    z-index: 1000; 
   }
   
   .arrow-left {
-    left: 20px;  /* Posiziona la freccia sinistra a sinistra */
+    left: 20px;  
   }
   
   .arrow-right {
-    right: 20px;  /* Posiziona la freccia destra a destra */
+    right: 20px;  
   }
 
   .StepEgypt-card.disabled {
-    color: #7a7a7a; /* Testo grigio */
-    cursor: not-allowed; /* Cursore per non cliccabile */
-    pointer-events: none; /* Disabilita tutti gli eventi */
+    color: #7a7a7a;
+    cursor: not-allowed; 
+    pointer-events: none; 
   }
   
-  /* Stile per l'immagine nelle card disabilitate */
   .StepEgypt-card.disabled .Step-image {
     filter: grayscale(100%);
     opacity: 0.5;

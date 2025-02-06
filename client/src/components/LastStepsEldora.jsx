@@ -12,7 +12,6 @@ function LastStepSelectionEldora() {
   const [selectedIcon, setSelectedIcon] = useState(null);
   const containerRef = useRef(null);
 
-  // 🔹 Cards ora sono statiche nel frontend (senza database)
   const [steps, setSteps] = useState([
     {
       id: 1,
@@ -30,14 +29,12 @@ function LastStepSelectionEldora() {
     },
   ]);
 
-  // 🔹 Gestisce il click su una card
   const handleStepClick = (Step) => {
     if (!Step.disabled) {
       setSelectedStep(Step);
     }
   };
 
-  // 🔹 Navigazione avanti e indietro
   const handleNavigate = () => {
     if (selectedStep) {
       navigate(`/challenge/2`);
@@ -45,15 +42,13 @@ function LastStepSelectionEldora() {
   };
 
   const handleNavigateBack = () => {
-    navigate(-1);
+    navigate('/stepsPotion/2');
   };
 
-  // 🔹 Gestione del popup
   const togglePopup = () => {
     setIsPopupVisible(!isPopupVisible);
   };
 
-  // 🔹 Chiude il popup se si clicca fuori
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (!event.target.closest(".Step-card")) {
@@ -66,7 +61,6 @@ function LastStepSelectionEldora() {
     };
   }, []);
 
-  // 🔹 Gestione delle icone nel popup
   const handleIconClick = (iconName) => {
     setSelectedIcon(iconName);
     setIsPopupVisible(true);
@@ -88,12 +82,7 @@ function LastStepSelectionEldora() {
 
   return (
     <div className={`LastStepSelection ${isPopupVisible ? "blurred" : ""}`} ref={containerRef}>
-      {/* 🔹 Icona popup in alto a destra */}
-      <div className="top-right-icon" onClick={togglePopup}>
-        <img src="/img/unexpected/imprevisto.png" alt="Info Icon" />
-      </div>
 
-      {/* 🔹 Contenuto del popup */}
       {isPopupVisible && (
         <div className="popup-overlay">
           <div className="popup-content">
@@ -129,12 +118,11 @@ function LastStepSelectionEldora() {
         </div>
       )}
 
-      {/* 🔹 Contenuto principale */}
       <div className="last-steps-eldora">
         <div className="header">
           <h1 className="title">The Heart of Eldora Still Calls</h1>
           <p className="description">
-            The forest has been restored, but its heart still beats faintly, under the weight of a dark force lurking in the shadows. Eldoria's magic is fragile, and it is up to you to help protect it before the darkness grows stronger.
+            The forest has been restored, but its heart still beats faintly, under the weight of a dark force lurking in the shadows. Eldora's magic is fragile, and it is up to you to help protect it before the darkness grows stronger.
           </p>
         </div>
           
@@ -157,12 +145,10 @@ function LastStepSelectionEldora() {
         </div>
       </div>
 
-      {/* 🔹 Freccia sinistra (sempre visibile) */}
       {!isPopupVisible && (
         <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleNavigateBack} />
       )}
 
-      {/* 🔹 Freccia destra (appare solo dopo una scelta) */}
       {selectedStep && (
         <img src="/img/next.png" alt="Arrow Right" className="arrow arrow-right" onClick={handleNavigate} />
       )}

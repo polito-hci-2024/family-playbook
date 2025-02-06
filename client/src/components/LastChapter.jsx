@@ -3,12 +3,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
-
-
 import '../CSS/LastChapter.css';
 import API from '../API.mjs';
-
-
 
 function LastChapter() {
     const [userName, setUserName] = useState('');
@@ -19,16 +15,14 @@ function LastChapter() {
     });
     const navigate = useNavigate();
 
-    // Imposta l'username quando il componente si monta
     useEffect(() => {
         setUserName(localStorage.getItem('userName') || '');
     }, []);
 
-    // Questo useEffect si attiva quando il successo della recensione è impostato a true
     useEffect(() => {
         if (successMessage) {
-            const timer = setTimeout(() => navigate('/'), 5000); // Naviga dopo 5 secondi
-            return () => clearTimeout(timer); // Pulisce il timer quando il componente si smonta
+            const timer = setTimeout(() => navigate('/'), 5000); 
+            return () => clearTimeout(timer); 
         }
     }, [successMessage, navigate]);
 
@@ -44,9 +38,8 @@ function LastChapter() {
         try {
             await API.insertReviews(reviewForm);
 
-            // Mostra il messaggio di successo nel componente
             setSuccessMessage(true);
-            // Resetta il form dopo l'invio
+            
             setReviewForm({
                 rating: '5',
                 review: ''

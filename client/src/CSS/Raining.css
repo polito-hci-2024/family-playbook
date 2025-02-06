@@ -1,4 +1,3 @@
-/* Stile per la pagina Raining */
 .Raining {
     display: flex;
     flex-direction: column;
@@ -11,116 +10,114 @@
     background-position: center;
     text-align: center;
     padding-bottom: 200px;
-  }
-  
-  .Raining .header {
-    margin-bottom: 40px;
-  }
-  
-  .Raining .title {
-    font-size: 4rem;
-    margin-top: 100px;
-    font-weight: bold;
-    font-family: 'Quintessential', sans-serif;
-    color: #496584;
-  }
-  
-  .Raining .description {
-    font-size: 1.4rem;
-    font-family: 'Poppins', serif;
-    font-weight: 450;
-    width: 80%;
-    text-align: center; /* Centra il testo */
-    color: #262626;
-    margin-top: 40px;
-
-    display: flex; /* Aggiungi flexbox */
-    flex-direction: column; /* Allinea verticalmente */
-    align-items: center; /* Centra gli elementi figli orizzontalmente */
-    justify-content: center; /* Centra il contenuto verticalmente se necessario */
-    margin-left: auto; /* Centra il blocco */
-    margin-right: auto; /* Centra il blocco */
 }
 
-  
-  .Raining .cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    max-width: 90%;
-  }
-  
-  .Raining .card {
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
-    width: 300px;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    justify-content: center; /* Centra orizzontalmente */
-    align-items: center; /* Centra verticalmente (se necessario) */
-  }
-  
-  .Raining .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
-  }
-  
-  .Raining .card-image {
-    width: 90%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .Raining .card-title {
-    font-size: 2rem;
-    font-family: 'Quintessential', sans-serif;
-    font-weight: bold;
-    color: #496584;
-    margin-bottom: 20px;
-  }
-  
-  .Raining .card-description {
-    font-size: 1.4rem;
-    color: #555;
-  }
-  
-  .Raining .next-button {
-    margin-top: 30px;
-    padding: 10px 20px;
-    font-size: 1.6rem;
-    background-color: #0277bd;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .Raining .next-button:hover {
-    background-color: #01579b;
-  }
+.Raining .header {
+  margin-bottom: 40px;
+}
 
-  .Raining .card.disabled {
-    color: #7a7a7a; /* Testo grigio */
-    cursor: not-allowed; /* Cursore per non cliccabile */
-    pointer-events: none; /* Disabilita tutti gli eventi */
-  }
-  
-  /* Stile per l'immagine nelle card disabilitate */
-  .Raining .card.disabled .card-image {
-    filter: grayscale(100%);
-    opacity: 0.5;
-  }
+.Raining .title {
+  font-size: 4rem;
+  margin-top: 100px;
+  font-weight: bold;
+  font-family: 'Quintessential', sans-serif;
+  color: #496584;
+}
 
-  .Raining .card.disabled .card-title {
-    color: #a9a9a9;
-  }
-  
-  .Raining .card.disabled .card-description {
-    color: #7a7a7a;
-  }
+.Raining .description {
+  font-size: 1.4rem;
+  font-family: 'Poppins', serif;
+  font-weight: 450;
+  width: 80%;
+  text-align: center; 
+  color: #262626;
+  margin-top: 40px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.Raining .cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 90%;
+}
+
+.Raining .card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.Raining .card:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);
+}
+
+.Raining .card-image {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.Raining .card-title {
+  font-size: 2rem;
+  font-family: 'Quintessential', sans-serif;
+  font-weight: bold;
+  color: #496584;
+  margin-bottom: 20px;
+}
+
+.Raining .card-description {
+  font-size: 1.4rem;
+  color: #555;
+}
+
+.Raining .next-button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 1.6rem;
+  background-color: #0277bd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Raining .next-button:hover {
+  background-color: #01579b;
+}
+
+.Raining .card.disabled {
+  color: #7a7a7a;
+  cursor: not-allowed;
+  pointer-events: none; 
+}
+
+.Raining .card.disabled .card-image {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+.Raining .card.disabled .card-title {
+  color: #a9a9a9;
+}
+
+.Raining .card.disabled .card-description {
+  color: #7a7a7a;
+}

@@ -68,7 +68,7 @@
 }
 
 .custom-alert {
-    text-align: center; /* Centrare l'intero alert */
+    text-align: center; 
     margin-top: 10px;
     font-family: 'Poppins', serif;
     font-weight: 450;
@@ -77,12 +77,12 @@
 }
 
 .custom-alert-heading {
-    color: #10334a; /* Cambia il colore del testo */
-    font-size: 1.4rem; /* Dimensione del testo */
+    color: #10334a;
+    font-size: 1.4rem;
     font-family: 'Quintessential', sans-serif;
-    font-weight: bold; /* Grassetto per evidenziarlo */
-    margin-top: 10px; /* Spazio sopra il messaggio */
-    text-align: center; /* Centrare il titolo */
+    font-weight: bold;
+    margin-top: 10px; 
+    text-align: center;
 }
 
 .required {

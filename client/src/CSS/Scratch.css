@@ -1,50 +1,50 @@
 .scratch {
-    background-image: url('/img/Untitled design.png'); /* Percorso dell'immagine di sfondo */
+    background-image: url('/img/Untitled design.png');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    min-height: 100vh; /* Copertura completa */
+    min-height: 100vh; 
     display: flex;
-    flex-direction: column; /* Allinea gli elementi in colonna */
-    align-items: center; /* Centra gli elementi orizzontalmente */
-    justify-content: center; /* Centra gli elementi verticalmente */
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
 }
 
 .scratch .container {
     text-align: center;
-    width: 100%; /* Si adatta alla larghezza disponibile */
+    width: 100%; 
 }
 
 .scratch-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colonne */
-    gap: 20px; /* Spazio tra i box */
-    justify-content: center; /* Centra la griglia orizzontalmente */
-    align-items: center; /* Centra i contenuti verticalmente */
-    margin: 20px auto; /* Margine automatico per centrare la griglia */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    justify-content: center; 
+    align-items: center; 
+    margin: 20px auto; 
 }
 
 .scratch-box {
     display: flex;
-    justify-content: center; /* Centra l'immagine nel box */
+    justify-content: center; 
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.8); /* Colore di sfondo leggero */
-    border-radius: 12px; /* Angoli arrotondati */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aggiunge ombra */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     padding: 10px;
-    overflow: hidden; /* Nasconde eventuali elementi che escono dai limiti del box */
+    overflow: hidden; 
 }
 
 .scratch-box img {
-    width: 100%; /* L'immagine riempie tutta la larghezza del box */
-    height: 100%; /* L'immagine riempie tutta l'altezza del box */
-    object-fit: cover; /* Mantiene il rapporto d'aspetto tagliando eventuali eccessi */
-    border-radius: 8px; /* Arrotonda i bordi delle immagini */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: 8px; 
 }
 
 
 .scratch .title {
-    font-size: 4rem; /* Titolo molto grande */
+    font-size: 4rem; 
     font-weight: bold;
     text-align: center;
     font-family: 'Quintessential', sans-serif;
@@ -56,12 +56,11 @@
     font-family: 'Poppins', sans-serif;
     color: #262626;
     font-weight: 450;
-    margin: 30px auto 0; /* Centra orizzontalmente e mantiene il margine superiore */
+    margin: 30px auto 0; 
     text-align: center;
     width: 80%;
 }
 
-/* Stile per le frecce di navigazione */
 .scratch .arrow {
     position: fixed;
     top: 50%;
@@ -79,15 +78,15 @@
 }
 
 .scratch .arrow-left {
-    left: 20px; /* Posizione della freccia sinistra */
+    left: 20px; 
 }
 
 .scratch .arrow-right {
-    right: 20px; /* Posizione della freccia destra */
+    right: 20px; 
 }
 
 .scratch .arrow.enabled:hover {
-    background-color: #e0d9c6; /* Cambia colore quando hover */
+    background-color: #e0d9c6; 
 }
 
 .scratch .arrow.disabled {
@@ -99,36 +98,35 @@
     width: 250px;
     height: 250px;
     perspective: 1000px;
-  }
-  
-  .scratch .card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-  }
-  
-  .scratch .card.flipped .card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .scratch .card-front,
-  .scratch .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-  }
-  
-  .scratch .card-front {
-    background-color: #f0f0f0;
-  }
-  
-  .scratch .card-back {
-    transform: rotateY(180deg);
-    background-color: white;
-  }
-  
+}
+
+.scratch .card-inner {
+position: relative;
+width: 100%;
+height: 100%;
+transform-style: preserve-3d;
+transition: transform 0.6s;
+}
+
+.scratch .card.flipped .card-inner {
+transform: rotateY(180deg);
+}
+
+.scratch .card-front,
+.scratch .card-back {
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+border: 2px solid #ccc;
+border-radius: 10px;
+}
+
+.scratch .card-front {
+background-color: #f0f0f0;
+}
+
+.scratch .card-back {
+transform: rotateY(180deg);
+background-color: white;
+}

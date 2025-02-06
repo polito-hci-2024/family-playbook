@@ -1,4 +1,3 @@
-/* Imposta il font per tutti i testi, escludendo i titoli */
 .start-activity,
 .start-activity p,
 .start-activity .activity-description,
@@ -11,7 +10,6 @@
     font-weight: 450;
 }
 
-/* Reset */
 .start-activity img {
   margin: 0; 
   padding: 0; 
@@ -23,6 +21,8 @@
   font-family: 'Quintessential', sans-serif;
   font-weight: bold;
   color: #720B5B;
+  margin-top: 50px;
+  text-align: center;
 }
 
 .start-activity .activity-title {
@@ -38,54 +38,47 @@
 }
 
 .activity-description p {
-  margin-bottom: 1px;  /* Riduce lo spazio tra i paragrafi */
+  margin-bottom: 1px;  
 }
 
-
-
-/* Contenitore principale */
 .start-activity .Introduction {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* Occupa l'intera altezza della viewport */
+  min-height: 100vh; 
   display: flex;
-  flex-direction: column; /* Dispone i pannelli verticalmente */
-  align-items: center; /* Centra orizzontalmente */
-  background-image: url('/img/Untitled design.png'); /* Sfondo globale */
-  background-size: cover; /* Copri l'intero contenitore */
+  flex-direction: column; 
+  align-items: center; 
+  background-image: url('/img/Untitled design.png'); 
+  background-size: cover; 
   background-position: center;
-  background-attachment: fixed; /* Sfondo fisso durante lo scroll */
+  background-attachment: fixed; 
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Evita lo scrolling orizzontale */
-  overflow-y: auto; /* Permette lo scrolling verticale */
-  padding-top: 0; /* Rimuovi padding-top */
+  overflow-x: hidden; 
+  overflow-y: auto; 
+  padding-top: 0; 
 }
 
-
-/* Pannelli della storia */
 .start-activity .panel-start-activity {
-  background: rgba(255, 255, 255, 0.8); /* Sfondo semitrasparente, come le card */
-  border-radius: 15px; /* Stesso arrotondamento delle card */
-  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3); /* Stesso effetto ombra */
-  width: 700px; /* Stessa larghezza delle card */
-  padding: 20px; /* Stesso padding delle card */
-  text-align: center; /* Allinea il contenuto al centro */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizioni come le card */
+  background: rgba(255, 255, 255, 0.8); 
+  border-radius: 15px; 
+  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3); 
+  width: 700px; 
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
-  flex-direction: column; /* Impila i contenuti in colonna */
-  justify-content: center; /* Centra i contenuti verticalmente */
-  align-items: center; /* Centra i contenuti orizzontalmente */
-  margin: 10px; /* Aggiungi spazio tra i pannelli */
-  height: auto; /* Altezza dinamica in base al contenuto */
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  margin: 10px; 
+  height: auto;
 }
 
-/* Ultimo pannello con margine inferiore maggiore */
 .question .panel:last-child {
-  margin-bottom: 200px; /* Spazio extra per evitare sovrapposizioni */
+  margin-bottom: 200px;
 }
 
-/* Testo */
 .start-activity .story-text {
   font-family: 'Poppins', serif;
   font-weight: 450;
@@ -97,8 +90,6 @@
   align-items: center;
 }
 
-
-/* Frecce di navigazione */
 .start-activity .arrow {
   position: fixed;
   top: 50%;
@@ -117,7 +108,6 @@
   right: 20px;
 }
 
-/* Immagini dei personaggi */
 .start-activity .character-image {
   position: fixed;
   bottom: 15px;
@@ -126,7 +116,6 @@
   height: auto;
 }
 
-/* Fumetti */
 .start-activity .speech-bubble {
   position: fixed;
   bottom: 17%;
@@ -155,20 +144,6 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Animazioni */
-@keyframes slideInFromCenter {
-  from {
-    opacity: 0;
-    transform: translateY(50%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-/* Informazioni sull'attività */
 .start-activity .activity-info {
   margin-top: 15px;
   font-size: 1rem;
@@ -179,7 +154,6 @@
   text-transform: uppercase;
 }
 
-/* Immagini dell'attività */
 .start-activity .activity-image {
 
   margin: 0 auto;
@@ -190,9 +164,18 @@
   margin-bottom: 30px;
 }
 
-/* Specifico per il secondo pannello */
 .start-activity .panel-start-activity:nth-child(2) {
   height: 200px;
   padding: 10px;
 }
 
+@keyframes slideInFromCenter {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

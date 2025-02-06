@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import '../CSS/Raining.css'; // Assicurati di creare questo file CSS per gli stili
+import '../CSS/Raining.css'; 
 
 function Raining() {
   const navigate = useNavigate();
@@ -40,19 +40,16 @@ function Raining() {
   };
 
   const handleOutsideClick = (event) => {
-      // Verifica se il clic è avvenuto su una card attiva
       const clickedElement = event.target;
-      const isCard = clickedElement.closest('.card'); // Trova se l'elemento è una card
+      const isCard = clickedElement.closest('.card'); 
       if (!isCard) {
-        setSelectedCard(null); // Deseleziona se il clic è fuori da una card
+        setSelectedCard(null); 
       } else {
-        // Controlla se è una card disabilitata
         const isDisabled = isCard.classList.contains('disabled');
         if (!isDisabled) {
-          // Lascia che la card venga selezionata normalmente
           return;
         }
-        setSelectedCard(null); // Deseleziona se è su una card disabilitata
+        setSelectedCard(null); 
       }
     };
   
@@ -91,24 +88,14 @@ function Raining() {
         ))}
       </div>
 
-      {/* Freccia sinistra sempre visibile */}
-      {/* 
+      {selectedCard && (
         <img
-        src="/img/back.png" 
-        alt="Arrow Left"
-        className="arrow arrow-left"
-        onClick={() => window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' })}
-      /> */}
-
-        {/* Freccia destra visibile solo dopo una scelta */}
-        {selectedCard && (
-          <img
-            src="/img/next.png" 
-            alt="Arrow Right"
-            className="arrow arrow-right"
-            onClick={handleNavigate}
-          />
-        )}
+          src="/img/next.png" 
+          alt="Arrow Right"
+          className="arrow arrow-right"
+          onClick={handleNavigate}
+        />
+      )}
     </div>
   );
 }

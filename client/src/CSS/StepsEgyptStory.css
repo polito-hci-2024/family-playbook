@@ -1,85 +1,79 @@
 .stepEgyptStory img {
-  margin: 0; /* Rimuove tutti i margini */
-  padding: 0; /* Rimuove tutti i padding */
-  display: block; /* Impedisce l'allineamento in linea */
+  margin: 0; 
+  padding: 0;
+  display: block; 
 }
 * {
   box-sizing: border-box;
 }
 
-/* Contenitore principale */
 .stepEgyptStory .Introduction {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* Occupa l'intera altezza della viewport */
+  min-height: 100vh; 
   display: flex;
-  flex-direction: column; /* Dispone i pannelli verticalmente */
-  align-items: center; /* Centra orizzontalmente */
-  background-image: url('/img/sfondo_egitto.png'); /* Sfondo globale */
-  background-size: cover; /* Copri l'intero contenitore */
+  flex-direction: column;
+  align-items: center; 
+  background-image: url('/img/sfondo_egitto.png'); 
+  background-size: cover; 
   background-position: center;
-  background-attachment: fixed; /* Sfondo fisso durante lo scroll */
+  background-attachment: fixed; 
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Evita lo scrolling orizzontale */
-  overflow-y: auto; /* Permette lo scrolling verticale */
-  padding-top: 0; /* Rimuovi padding-top */
+  overflow-x: hidden; 
+  overflow-y: auto;
+  padding-top: 0; 
 }
 
-/* Titolo fisso in cima */
 .stepEgyptStory .title {
   font-family: 'Quintessential', sans-serif;
   font-weight: bold;
   font-size: 4rem;
   color: #2A7A72;
   text-shadow: 3px 3px 4px #47cabd;
-  transition: opacity 0.3s ease; /* Animazione per il titolo che scompare */
-  position: relative; /* Permette un migliore controllo della posizione */
-  top: 10px; /* Sposta il titolo più in alto */
-  max-width: 80%; /* Impedisce che il titolo diventi troppo largo */
-  text-align: center; /* Centra il testo */
-  margin: 0 auto; /* Mantiene il titolo centrato */
-  word-wrap: break-word; /* Forza il testo ad andare a capo se necessario */
-  overflow-wrap: break-word; /* Alternativa per compatibilità */
+  transition: opacity 0.3s ease; 
+  position: relative; 
+  top: 10px; 
+  max-width: 80%; 
+  text-align: center; 
+  margin: 0 auto; 
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
   margin-bottom: 30px;
 }
 
-
-/* Pannelli della storia */
 .stepEgyptStory .story-background {
   width: 100%;
-  height: auto; /* Altezza dinamica */
-  padding-top: 150px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
-  padding-bottom: 20px; /* Spazio inferiore per la fine dei pannelli */
+  height: auto; 
+  padding-top: 150px;  
+  padding-bottom: 20px;
   display: flex;
-  flex-direction: column; /* Dispone i pannelli verticalmente */
-  align-items: center; /* Centra orizzontalmente i pannelli */
+  flex-direction: column; 
+  align-items: center; 
   transition: margin-top 0.3s ease-in-out;
 }
 
-/* Pannelli della storia */
 .stepEgyptStory .story-panel {
   position: relative;
   padding-top: 0;
-  width: 90%; /* Occupa il 90% della larghezza disponibile */
-  max-width: 650px; /* Larghezza massima */
-  height: auto; /* Altezza dinamica */
-  aspect-ratio: 5 / 4; /* Rende il pannello più compatto */
-  margin: 40px 0; /* Spazio tra i pannelli */
-  padding: 20px; /* Spazio interno */
-  background: rgba(255, 255, 255, 0.60); /* Sfondo semitrasparente */
-  border-radius: 25px; /* Bordi arrotondati */
+  width: 90%; 
+  max-width: 650px;
+  height: auto; 
+  aspect-ratio: 5 / 4; 
+  margin: 40px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.60); 
+  border-radius: 25px;
   box-shadow: 0 4px 10px #10334a;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centra il contenuto verticalmente */
+  justify-content: center; 
   align-items: center;
   text-align: center;
-  box-sizing: border-box; /* Include padding nel calcolo delle dimensioni */
-  backdrop-filter: blur(5px); /* Effetto sfocatura sullo sfondo */
+  box-sizing: border-box;
+  backdrop-filter: blur(5px); 
 }
 
-/* Testo */
 .stepEgyptStory .story-text {
   font-size: 1.4rem;
   color: #262626;;
@@ -90,12 +84,11 @@
   text-align: center;
   align-items: center;
 }
-/* Aggiungere un margine sotto i pannelli per farli scomparire sotto il titolo */
+
 .stepEgyptStory .story-panel:last-child {
-  margin-bottom: 200px; /* Aggiungi un margine che fa scomparire il pannello quando scorre via */
+  margin-bottom: 200px; 
 }
 
-/* Immagini */
 .stepEgyptStory .story-image {
   width: 300px;
   height: auto;
@@ -105,24 +98,22 @@
 
 .stepEgyptStory .arrow {
   position: fixed;
-  top: 50%;  /* Centra la freccia verticalmente */
-  transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
+  top: 50%;  
+  transform: translateY(-50%);  
   cursor: pointer;
   width: 50px;
   height: 50px;
-  z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
+  z-index: 1000;  
 }
 
 .stepEgyptStory .arrow-left {
-  left: 20px;  /* Posiziona la freccia sinistra a sinistra */
+  left: 20px; 
 }
 
 .stepEgyptStory .arrow-right {
-  right: 20px;  /* Posiziona la freccia destra a destra */
+  right: 20px;  
 }
 
-
-/* Animazioni */
 @keyframes slideInFromCenter {
   from {
     opacity: 0;
@@ -134,7 +125,6 @@
   }
 }
 
-/* Media query per schermi piccoli */
 @media (max-width: 768px) {
   .stepEgyptStory .title {
     font-size: 3rem;
