@@ -1,5 +1,5 @@
 .scratch {
-    background-image: url('../img/Untitled design.png'); /* Percorso dell'immagine di sfondo */
+    background-image: url('/img/Untitled design.png'); /* Percorso dell'immagine di sfondo */
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
