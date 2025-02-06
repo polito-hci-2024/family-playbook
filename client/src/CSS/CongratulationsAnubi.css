@@ -1,0 +1,94 @@
+/* Container principale */
+.congratulationsEgypt .congratulations-container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Video di sfondo */
+.congratulationsEgypt .background-video, .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Titolo */
+.congratulationsEgypt .title {
+    font-family: 'Quintessential', sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+    text-align: center;
+    color: #2A7A72;
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    animation: fadeInTitle 1s ease-out;
+    text-shadow: 4px 4px 4px #ffffff;
+}
+
+@keyframes fadeInTitle {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Story Box centrato */
+.congratulationsEgypt .story-box {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Testo della storia */
+.congratulationsEgypt .story-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 550;
+    font-size: 1.5rem;
+    color: #262626;
+    width: 100%;
+    text-align: center;
+}
+
+.congratulationsEgypt .story-image-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* Spazio sopra e sotto l'immagine */
+}
+
+.congratulationsEgypt .story-image {
+    width: 100%;
+    max-width: 300px; 
+    height: auto;
+}
+
+.congratulationsEgypt .mascotte {
+    position: absolute;
+    bottom: 10px;
+    left: -70px;
+    width: 550px;
+    animation: mascotteBounce 2s infinite alternate;
+}
+
+@keyframes mascotteBounce {
+    0% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
