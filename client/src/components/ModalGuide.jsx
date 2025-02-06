@@ -3,7 +3,7 @@ import { Button, Modal } from "react-bootstrap";
 import { useRef } from "react";
 import '../CSS/ModalGuide.css';
 
-const ModalGuide = () => {
+const ModalGuide = ({ videoSrc }) => {
     const [show, setShow] = useState(false);
     const videoRef = useRef(null);
 
@@ -32,7 +32,7 @@ const ModalGuide = () => {
                     <div style={{ position: 'relative', paddingBottom: '90%' }}>
                         < video
                             ref={videoRef}
-                            src="mp4/initialGuide.mp4"
+                            src={videoSrc}
                             title="Guide video"
                             width="100%"
                             height="100%"

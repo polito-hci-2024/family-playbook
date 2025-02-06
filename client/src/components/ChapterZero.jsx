@@ -17,7 +17,7 @@ function ChapterZero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 1 }}>
         <Container fluid className="character-panel">
-          <ModalGuide />
+          <ModalGuide videoSrc="mp4/initialGuide.mp4" />
           <Row>
             <Col>
               <FormCharacterPage></FormCharacterPage>
@@ -25,7 +25,7 @@ function ChapterZero() {
           </Row>
         </Container>
       </motion.div>
-      
+
       <ButtonsGeneral></ButtonsGeneral>
     </div >
   );
