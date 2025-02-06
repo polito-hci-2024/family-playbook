@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../CSS/StepsEgypt.css';
 import '../CSS/UnexpectedEvents.css';
 import API from '../API.mjs'
+import ButtonsEgypt from './ButtonsEgypt';
 
 function StepSelectionEgypt() {
   const navigate = useNavigate();
@@ -14,6 +15,10 @@ function StepSelectionEgypt() {
   const [steps, setSteps] = useState([]); 
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null); 
+
+const handlePopupVisibilityChange = (visible) => {
+  setIsPopupVisible(visible);
+};
 
   useEffect(() => {
     const fetchChallenges = async () => {
@@ -198,6 +203,8 @@ function StepSelectionEgypt() {
           onClick={handleNavigate}
         />
       )}
+      <ButtonsEgypt onPopupVisibilityChange={handlePopupVisibilityChange} />
+
       
     </div>
   );
