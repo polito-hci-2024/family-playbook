@@ -100,6 +100,9 @@ const Potion = () => {
 
   return (
     <div className="potion">
+      <div className="buttons-eldora-container">
+    <ButtonsEldora onPopupVisibilityChange={setIsPopupVisible} />
+  </div>
       <div className="potion-hunters">
         {/* Titolo */}
         <h1 className="title">The Potion of Vitality</h1>
@@ -125,9 +128,6 @@ const Potion = () => {
             </div>
           ))}
         </div>
-
-        {/* Bottone */}
-        <ButtonsEldora className="buttons-eldora" onPopupVisibilityChange={setIsPopupVisible}/>
 
         {/* Calderone */}
         <div className="cauldron" onDragOver={handleDragOver} onDrop={handleDrop}>

@@ -190,8 +190,10 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
-
-.potion .buttons-eldora {
-    position: relative;
-    z-index: 100; /* Maggiore di quello del calderone */
+.potion .buttons-eldora-container {
+    position: absolute;
+    bottom: 0px; /* Ajust the '100px' to position it above the cauldron */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20; /* Make sure this is higher than the cauldron's z-index */
 }

@@ -20,8 +20,9 @@ function StepSelectionEldora() {
     const fetchChallenges = async () => {
       try {
         const challenges = await API.getChallengesById(1);
+        const filteredChallenges = challenges.filter(challenge => challenge.challenge_id !== 5);
         setSteps(
-          challenges.map((challenge) => ({
+          filteredChallenges.map((challenge) => ({
             id: challenge.challenge_id,
             image: challenge.image_url,
             title: challenge.challenge_name,
