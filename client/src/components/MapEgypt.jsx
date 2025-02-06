@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import API from '../API.mjs';
 import '../CSS/MapEgypt.css';
+import { useNavigate } from 'react-router-dom';
 
 function MapEgypt() {
   const [challenges, setChallenges] = useState([false, false]);
@@ -9,6 +10,7 @@ function MapEgypt() {
   const [selectedChallenge, setSelectedChallenge] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const user_id = 1;
 
@@ -61,12 +63,9 @@ function MapEgypt() {
     <div className="egypt">
       <div className="map-container">
         {/* Bottone "Go to the forest map" */}
-        <div className="arrow-button">
+        {/*<div className="arrow-button" onClick={() => navigate("/map")}>
   Go to forest map
-</div>
-
-
-        <h1 className="map-title">Map: Ancient Egypt</h1>
+</div>*/}
 
         {/* Anubis' Hidden Symbol Hunt */}
         <div className="challenge-1">
@@ -98,7 +97,7 @@ function MapEgypt() {
         <div>
           <Button
             className="back-to-story-button"
-            onClick={() => console.log('Back to Story')}
+            onClick={() => navigate(-1)}
           >
             Back to Story
           </Button>

@@ -1,5 +1,5 @@
 .scratch {
-    background-image: url('../img/Untitled design.png'); /* Percorso dell'immagine di sfondo */
+    background-image: url('/img/Untitled design.png'); /* Percorso dell'immagine di sfondo */
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -54,6 +54,7 @@
 .scratch .intro {
     font-size: 1.4rem;
     font-family: 'Poppins', sans-serif;
+    color: #262626;
     font-weight: 450;
     margin: 30px auto 0; /* Centra orizzontalmente e mantiene il margine superiore */
     text-align: center;

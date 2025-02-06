@@ -30,18 +30,18 @@
 .stepEgyptStory .title {
   font-family: 'Quintessential', sans-serif;
   font-weight: bold;
-  font-size: 5rem;
+  font-size: 4rem;
   color: #2A7A72;
   text-shadow: 3px 3px 4px #47cabd;
   transition: opacity 0.3s ease; /* Animazione per il titolo che scompare */
-  
   position: relative; /* Permette un migliore controllo della posizione */
-  top: -30px; /* Sposta il titolo più in alto */
-  max-width: 60%; /* Impedisce che il titolo diventi troppo largo */
+  top: 10px; /* Sposta il titolo più in alto */
+  max-width: 80%; /* Impedisce che il titolo diventi troppo largo */
   text-align: center; /* Centra il testo */
   margin: 0 auto; /* Mantiene il titolo centrato */
   word-wrap: break-word; /* Forza il testo ad andare a capo se necessario */
   overflow-wrap: break-word; /* Alternativa per compatibilità */
+  margin-bottom: 30px;
 }
 
 
@@ -49,7 +49,7 @@
 .stepEgyptStory .story-background {
   width: 100%;
   height: auto; /* Altezza dinamica */
-  padding-top: 100px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
+  padding-top: 150px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
   padding-bottom: 20px; /* Spazio inferiore per la fine dei pannelli */
   display: flex;
   flex-direction: column; /* Dispone i pannelli verticalmente */
@@ -67,7 +67,7 @@
   aspect-ratio: 5 / 4; /* Rende il pannello più compatto */
   margin: 40px 0; /* Spazio tra i pannelli */
   padding: 20px; /* Spazio interno */
-  background: rgba(255, 255, 255, 0.30); /* Sfondo semitrasparente */
+  background: rgba(255, 255, 255, 0.60); /* Sfondo semitrasparente */
   border-radius: 25px; /* Bordi arrotondati */
   box-shadow: 0 4px 10px #10334a;
   display: flex;
@@ -82,7 +82,7 @@
 /* Testo */
 .stepEgyptStory .story-text {
   font-size: 1.4rem;
-  color: rgb(0, 0, 0);
+  color: #262626;;
   font-family: 'Poppins', sans-serif;
   font-weight: 450;
   line-height: 1.6;
@@ -97,8 +97,7 @@
 
 /* Immagini */
 .stepEgyptStory .story-image {
-  width: 100%;
-  max-width: 200px;
+  width: 300px;
   height: auto;
   margin-top: 0px;
   align-items: center;

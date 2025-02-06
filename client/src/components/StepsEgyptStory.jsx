@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../CSS/StepsEgyptStory.css';
 import API from '../API.mjs';
+import ButtonsEgypt from './ButtonsEgypt';
 
 function StepsEgyptStory({ stepId }) {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ function StepsEgyptStory({ stepId }) {
   const [stepName, setStepName] = useState('');
   const [showArrows, setShowArrows] = useState(false);
   const [titleVisible, setTitleVisible] = useState(true); // Stato per la visibilità del titolo
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const fetchStepData = async (id) => {
     try {
@@ -36,6 +38,10 @@ function StepsEgyptStory({ stepId }) {
       navigate(-1);
     }
   };
+
+  const handlePopupVisibilityChange = (visible) => {
+    setIsPopupVisible(visible);
+  };  
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -112,6 +118,8 @@ function StepsEgyptStory({ stepId }) {
               <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleBack} />
             </>
           )}
+          <ButtonsEgypt onPopupVisibilityChange={handlePopupVisibilityChange} />
+
         </div>
       </div>
     </div>

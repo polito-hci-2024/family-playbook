@@ -1,13 +1,13 @@
 /* ================================
    Stili per i bottoni flottanti
    ================================ */
-   .barraBottoni .floating-buttons {
+   .barraBottoniEgitto .floating-buttons {
     display: flex;
     flex-direction: row;
     gap: 20px;
   }
   
-  .barraBottoni .icon-container {
+  .barraBottoniEgitto .icon-container {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -18,11 +18,11 @@
     cursor: pointer;
   }
   
-  .barraBottoni .icon-container:hover {
+  .barraBottoniEgitto .icon-container:hover {
     transform: scale(1.1);
   }
   
-  .barraBottoni .floating-button {
+  .barraBottoniEgitto .floating-button {
     width: 80px;
     height: 80px;
   }
@@ -30,7 +30,7 @@
   /* ================================
      Stili per il popup (con prefissi)
      ================================ */
-  .barraBottoni .popup-overlay {
+    .barraBottoniEgitto .popup-overlay {
     position: fixed;
     top: 0;                /* Assicura il posizionamento in alto */
     left: 0;
@@ -43,18 +43,7 @@
     z-index: 1000;
   }
   
-  .barraBottoni .popup-content {
-    background-color: white;
-    border-radius: 10px;
-    padding: 40px;
-    text-align: center;
-    max-width: 800px;
-    max-height: 800px;
-    box-shadow: 0 4px 6px rgb(69, 6, 58);
-  }
-  
-  /* Variante per popupEgypt (se necessaria) */
-  .barraBottoni .popupEgypt-content {
+  .barraBottoniEgitto .popup-content {
     background-color: white;
     border-radius: 10px;
     padding: 40px;
@@ -64,15 +53,7 @@
     box-shadow: 0 4px 6px #2A7A72;
   }
   
-  .barraBottoni .popup-content h2 {
-    font-family: 'Quintessential', sans-serif;
-    font-size: 3rem;
-    color: #720B5B;
-    margin-bottom: 50px;
-    font-weight: bold;
-  }
-  
-  .barraBottoni .popupEgypt-content h2 {
+  .barraBottoniEgitto .popup-content h2 {
     font-family: 'Quintessential', sans-serif;
     font-size: 3rem;
     color: #2A7A72;
@@ -84,7 +65,7 @@
   /* ================================
      Layout delle icone nel popup
      ================================ */
-  .barraBottoni .popup-icons {
+  .barraBottoniEgitto .popup-icons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
@@ -92,7 +73,7 @@
     margin-left: 20px;
   }
   
-  .barraBottoni .popup-icon {
+  .barraBottoniEgitto .popup-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,39 +84,39 @@
     border-radius: 50%;
   }
   
-  .barraBottoni .popup-icon img {
+  .barraBottoniEgitto .popup-icon img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     margin-bottom: 10px;
   }
   
-  .barraBottoni .popup-icon span {
+  .barraBottoniEgitto .popup-icon span {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 1.4rem;
     color: #333;
   }
   
-  .barraBottoni .popup-icon.disabled {
+  .barraBottoniEgitto .popup-icon.disabled {
     cursor: not-allowed;
     opacity: 0.3;
     pointer-events: none;
   }
   
   /* Effetto selezione per l'icona */
-  .barraBottoni .popup-icon.selected {
+  .barraBottoniEgitto .popup-icon.selected {
     box-shadow: 0 0 10px rgba(254, 188, 33, 0.996);
   }
   
-  .barraBottoni .popup-icon.selected img {
+  .barraBottoniEgitto .popup-icon.selected img {
     filter: brightness(1.2);
   }
   
   /* ================================
      Stili per la domanda e i pulsanti nel popup
      ================================ */
-  .barraBottoni .popup-question {
+     .barraBottoniEgitto .popup-question {
     font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
     color: #555;
@@ -144,13 +125,13 @@
     text-align: center;
   }
   
-  .barraBottoni .popup-buttons {
+  .barraBottoniEgitto .popup-buttons {
     display: flex;
     gap: 20px;
     justify-content: center;
   }
   
-  .barraBottoni .popup-buttons button {
+  .barraBottoniEgitto .popup-buttons button {
     padding: 10px 20px;
     font-size: 1.6rem;
     font-family: 'Poppins', sans-serif;
@@ -158,38 +139,30 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
   
-  .barraBottoni .popup-buttons .yes-button {
-    background-color: #5b0d4d;
-    color: white;
-  }
-  
-  .barraBottoni .popup-buttons .yes-button:hover {
-    background-color: #b31f98;
-  }
-  
-  .barraBottoni .popup-buttons .yes-buttonEgypt {
+  .barraBottoniEgitto .popup-buttons .yes-button {
     background-color: #2A7A72;
     color: white;
   }
   
-  .barraBottoni .popup-buttons .yes-buttonEgypt:hover {
+  .barraBottoniEgitto .popup-buttons .yes-button:hover {
     background-color: #47cabd;
   }
   
-  .barraBottoni .popup-buttons .no-button {
+  .barraBottoniEgitto .popup-buttons .no-button {
     background-color: #e0e0e0;
     color: #333;
   }
   
-  .barraBottoni .popup-buttons .no-button:hover {
+  .barraBottoniEgitto .popup-buttons .no-button:hover {
     background-color: #c0c0c0;
   }
   
   /* ================================
      Posizionamento del menu in basso
      ================================ */
-  .barraBottoni .bottom-center-wrapper {
+     .barraBottoniEgitto .bottom-center-wrapper {
     position: fixed;
     bottom: 20px;
     left: 50%;
@@ -200,7 +173,7 @@
     width: auto;
   }
   
-  .barraBottoni .bottom-center-icons {
+  .barraBottoniEgitto .bottom-center-icons {
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -212,7 +185,7 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
-  .popup-close {
+  .popup-closeEgitto {
     position: absolute;
     top: 0;
     right: 0;
@@ -220,25 +193,25 @@
     width: 80px;          /* Dimensioni del cerchio */
     height: 80px;
     background-color: #fff;  /* Colore di sfondo del cerchio */
-    border: 0px solid #720B5B; /* Bordo (modifica il colore se preferisci) */
+    border: 0px solid #2A7A72; /* Bordo (modifica il colore se preferisci) */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 80px;    /* Dimensione della X */
-    color: #720B5B;
+    color: #2A7A72;
     cursor: pointer;
     z-index: 1100;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
   
-  .popup-close::before {
+  .popup-closeEgitto::before {
   content: "×";  /* Ricrea la X */
   position: relative;
   top: -10px; /* Sposta solo la X verso l'alto */
 }
-  .popup-close:hover {
-    background-color: #720B5B;
+  .popup-closeEgitto:hover {
+    background-color: #2A7A72;
     color: #fff;
   }
   
@@ -247,17 +220,10 @@
     width: 100%;
   }
   
-  .popup-close {
+  .popup-closeEgitto {
     position: absolute;
     top: -40px;
     right: -20px;
   }
   
-  .test {
-    transition: transform 1s ease; /* Anima la proprietà transform */
-  }
-  
-  .test .move-left {
-    transform: translateX(-100%); /* Sposta il componente completamente a sinistra */
-  }
   

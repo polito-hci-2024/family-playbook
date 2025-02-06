@@ -4,9 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import '../CSS/StepsEldora.css';
 import '../CSS/UnexpectedEvents.css';
 import API from '../API.mjs'
-import ButtonsEldora from './ButtonsEldora';
 
-function StepSelectionEldora() {
+function Esempio5() {
   const navigate = useNavigate();
   const [selectedStep, setSelectedStep] = useState(null); // Stato per tracciare il passaggio selezionato
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -15,6 +14,34 @@ function StepSelectionEldora() {
   const [steps, setSteps] = useState([]); // Stato per i dati dinamici
   const [loading, setLoading] = useState(true); // Stato per indicare il caricamento dei dati
   const [error, setError] = useState(null); // Stato per eventuali errori
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const menuRef = useRef(null); // Riferimento al menu
+
+  // Mostra il menu per 3 secondi all'avvio
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsCollapsed(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Chiude il menu se si clicca fuori
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsCollapsed(true);
+      }
+    }
+
+    if (!isCollapsed) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isCollapsed]);
 
   useEffect(() => {
     const fetchChallenges = async () => {
@@ -99,10 +126,6 @@ function StepSelectionEldora() {
     setIsPopupVisible(false); // Chiudi il pop-up dopo la selezione
   };
 
-  const handlePopupVisibilityChange = (visible) => {
-    setIsPopupVisible(visible);
-  };
-
   if (loading) {
     return <div>Loading challenges...</div>;
   }
@@ -112,11 +135,43 @@ function StepSelectionEldora() {
   }
 
   return (
+    <div className="esempio5">
     <div className={`StepSelection ${isPopupVisible ? 'blurred' : ''}`} ref={containerRef}>
       {/* Icona in alto a destra */}
-      <div className="top-right-icon" onClick={togglePopup}>
-        <img src="/img/unexpected/imprevisto.png" alt="Info Icon" />
-      </div>
+      <div className={`top-center-wrapper ${isCollapsed ? 'collapsed' : ''}`}>
+      {/* Menu delle icone */}
+      <motion.div
+        ref={menuRef}
+        className="top-center-icons"
+        initial={{ y: 0 }}
+        animate={{ y: isCollapsed ? -100 : 0 }} // Muove il menu in alto
+        transition={{ duration: 0.5 }}
+      >
+        <div className="icon-container">
+          <img src="/img/buttons/info.png" alt="Info" /></div>
+        <div className="icon-container" onClick={() => navigate("/map")}>
+          <img src="/img/buttons/map.png" alt="Map" />
+        </div>
+        <div className="icon-container" onClick={togglePopup}>
+          <img src="/img/buttons/imprevisto.png" alt="Imprevisto" />
+        
+        </div>
+      </motion.div>
+</div>
+      {/* Freccia per riaprire il menu */}
+      {isCollapsed && (
+  <motion.div 
+    className="expand-arrow"
+    onClick={() => setIsCollapsed(false)} // Riapri il menu al clic
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }}
+  >
+    <img src="/img/buttons/infoExpand.png" alt="Expand" />
+  </motion.div>
+)}
+
+
 
       {/* Contenuto del pop-up */}
       {isPopupVisible && (
@@ -183,7 +238,7 @@ function StepSelectionEldora() {
               className={`Step-card ${Step.disabled ? 'disabled' : ''}`}
               key={Step.id}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={{ opacity      : 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.5 }}
               onClick={() => handleStepClick(Step)}
             >
@@ -218,10 +273,10 @@ function StepSelectionEldora() {
             onClick={handleNavigate}
           />
         )}
-        <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
-
-    </div>
-  );
+      
+      </div>
+      </div>
+    );
 }
 
-export default StepSelectionEldora;
+export default Esempio5;

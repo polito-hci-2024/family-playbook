@@ -1,97 +1,137 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom"; // Per il portal
 import { useNavigate } from "react-router-dom";
 import '../CSS/Buttons.css';
 
-const ButtonsEldora = () => {
+const ButtonsEldora = ({ onPopupVisibilityChange }) => {
+  const navigate = useNavigate();
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [selectedIcon, setSelectedIcon] = useState(null);
-  const navigate = useNavigate();
 
-  const togglePopup = () => {
-    setIsPopupVisible(!isPopupVisible);
+  // Comunica al componente padre ogni variazione dello stato del popup
+  useEffect(() => {
+    if (onPopupVisibilityChange) {
+      onPopupVisibilityChange(isPopupVisible);
+    }
+  }, [isPopupVisible, onPopupVisibilityChange]);
+
+  const openPopup = () => {
+    setIsPopupVisible(true);
+    setSelectedIcon(null);
   };
 
-  const handleIconClick = (iconName) => {
+  const closePopup = () => {
+    setIsPopupVisible(false);
+    setSelectedIcon(null);
+  };
+
+  const handleIconSelection = (iconName) => {
     setSelectedIcon(iconName);
-    setIsPopupVisible(true); // Mostra la domanda "Are you sure of your choice?"
   };
 
   const handlePopupYesClick = () => {
-    if (selectedIcon && selectedIcon === 'raining') {
-      // Naviga alla pagina specificata per l'icona selezionata
-      navigate("/raining"); // Reindirizza alla pagina "raining.jsx"
-    } else if (selectedIcon && selectedIcon === 'end_activity') {
+    if (selectedIcon === 'raining') {
+      navigate("/raining");
+    } else if (selectedIcon === 'end_activity') {
       navigate("/");
     }
-    setIsPopupVisible(false); // Chiudi il pop-up dopo la selezione
+    closePopup();
   };
+
+  // Markup dei bottoni (rimane nella gerarchia originale)
+  const buttonsMarkup = (
+    <div className="barraBottoni">
+      <div className="bottom-center-wrapper">
+        <div className="bottom-center-icons">
+          <div className="floating-buttons">
+            {/* Bottone per aprire il popup */}
+            <div className="icon-container" onClick={openPopup}>
+              <img
+                src="/img/buttons/imprevisto.png"
+                alt="imprevisto_eldora"
+                className="floating-button"
+              />
+            </div>
+            {/* Bottone per la mappa */}
+            <div className="icon-container" onClick={() => navigate("/map")}>
+              <img
+                src="/img/buttons/map.png"
+                alt="mappa_eldora"
+                className="floating-button"
+              />
+            </div>
+            {/* Bottone placeholder */}
+            <div className="icon-container">
+              <img
+                src="/img/buttons/info.png"
+                alt="info_eldora"
+                className="floating-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  // Il markup del popup viene renderizzato tramite React Portal
+  const popupMarkup =
+    isPopupVisible &&
+    ReactDOM.createPortal(
+      <div className="popup-overlay">
+        <div className="popup-content">
+  <div className="popup-header">
+    <button className="popup-close" onClick={closePopup}></button>
+  </div>
+  <h2>Puzzle of unexpected events</h2>
+
+          <div className="popup-icons">
+            {/* Icona "It's raining" */}
+            <div
+              className={`popup-icon ${selectedIcon === "raining" ? "selected" : ""}`}
+              onClick={() => handleIconSelection("raining")}
+            >
+              <img src="/img/unexpected/raining.png" alt="It's raining" />
+              <span>It's raining</span>
+            </div>
+            {/* Icona "End activity" */}
+            <div
+              className={`popup-icon ${selectedIcon === "end_activity" ? "selected" : ""}`}
+              onClick={() => handleIconSelection("end_activity")}
+            >
+              <img src="/img/unexpected/end_activity.png" alt="End activity" />
+              <span>End activity</span>
+            </div>
+            {/* Icone disabilitate */}
+            <div className="popup-icon disabled">
+              <img src="/img/unexpected/not_for_me.png" alt="Not for me" />
+              <span>Not for me</span>
+            </div>
+            <div className="popup-icon disabled">
+              <img src="/img/unexpected/im_lost.png" alt="I'm lost" />
+              <span>I'm lost</span>
+            </div>
+          </div>
+          {selectedIcon && (
+            <div>
+              <p className="popup-question">Are you sure about your choice?</p>
+              <div className="popup-buttons">
+                <button className="yes-button" onClick={handlePopupYesClick}>Yes</button>
+                <button className="no-button" onClick={closePopup}>No</button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>,
+      document.body // Il popup viene montato direttamente sul body
+    );
 
   return (
     <>
-      <div className="floating-buttons">
-        {/* Primo bottone - Apre il popup */}
-        <div className="icon-container" onClick={togglePopup}>
-          <img src="/img/bottonicircolari/imprevisto_eldora.png" alt="imprevisto_eldora" className="floating-button" />
-        </div>
-
-        {/* Secondo bottone - Naviga a /map */}
-        <div className="icon-container" onClick={() => navigate("/map")}>
-          <img src="/img/bottonicircolari/mappa_eldora.png" alt="mappa_eldora" className="floating-button" />
-        </div>
-
-        {/* Terzo bottone - Placeholder per future funzioni */}
-        <div className="icon-container">
-          <img src="/img/bottonicircolari/info_eldora.png" alt="info_eldora" className="floating-button" />
-        </div>
-      </div>
-
-      {/* Popup Modale */}
-      {isPopupVisible && (
-        <div className="popup-overlay">
-          <div className="popup-content">
-            <h2>Puzzle of unexpected events</h2>
-            <div className="popup-icons">
-              {/* Icona 1 */}
-              <div className={`popup-icon ${selectedIcon === "raining" ? "selected" : ""}`} onClick={() => handleIconClick("raining")}>
-                <img src="/img/unexpected/raining.png" alt="It's raining" />
-                <span>It's raining</span>
-              </div>
-              {/* Icona 2 */}
-              <div className={`popup-icon ${selectedIcon === "end_activity" ? "selected" : ""}`} onClick={() => handleIconClick("end_activity")}>
-                <img src="/img/unexpected/end_activity.png" alt="End activity" />
-                <span>End activity</span>
-              </div>
-              {/* Icona 3 - Disabilitata */}
-              <div className="popup-icon disabled">
-                <img src="/img/unexpected/not_for_me.png" alt="Not for me" />
-                <span>Not for me</span>
-              </div>
-              {/* Icona 4 - Disabilitata */}
-              <div className="popup-icon disabled">
-                <img src="/img/unexpected/im_lost.png" alt="I'm lost" />
-                <span>I'm lost</span>
-              </div>
-            </div>
-
-            {selectedIcon && (
-              <div>
-                <p className="popup-question">Are you sure about your choice?</p>
-                <div className="popup-buttons">
-                  <button className="yes-button" onClick={handlePopupYesClick}>
-                    Yes
-                  </button>
-                  <button className="no-button" onClick={() => { setIsPopupVisible(false); setSelectedIcon(null); }}>
-                    No
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+      {buttonsMarkup}
+      {popupMarkup}
     </>
   );
 };
 
 export default ButtonsEldora;
-

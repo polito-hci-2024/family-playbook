@@ -1,6 +1,7 @@
 /* Imposta il font per tutto il testo all'interno del form */
 form {
     font-family: 'Poppins', sans-serif;
+    color: #262626;
 }
 
 .character-btn {

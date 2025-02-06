@@ -31,7 +31,7 @@
     font-weight: 450;
     width: 80%;
     text-align: center; /* Centra il testo */
-    color: black;
+    color: #262626;
     margin-top: 40px;
 
     display: flex; /* Aggiungi flexbox */
@@ -47,7 +47,7 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    max-width: 900px;
+    max-width: 90%;
   }
   
   .Raining .card {
@@ -55,7 +55,7 @@
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
     width: 300px;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../CSS/StepsPotion.css';
 import API from '../API.mjs';
+import ButtonsEldora from './ButtonsEldora';
 
 function StepsPotion({ stepId }) {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ function StepsPotion({ stepId }) {
   const [stepName, setStepName] = useState('');
   const [showArrows, setShowArrows] = useState(false);
   const [titleVisible, setTitleVisible] = useState(true); // Stato per la visibilità del titolo
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const replacePlaceholder = (text, characterName, name) => {
     return text.replace(/\{\$characterName\}/g, characterName).replace(/\{\$name\}/g, name);
@@ -41,6 +43,10 @@ function StepsPotion({ stepId }) {
     if (parseInt(stepId) > 1) {
       navigate(-1);
     }
+  };
+
+  const handlePopupVisibilityChange = (visible) => {
+    setIsPopupVisible(visible);
   };
 
   const handleScroll = () => {
@@ -118,6 +124,7 @@ function StepsPotion({ stepId }) {
               <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleBack} />
             </>
           )}
+          <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
         </div>
       </div>
     </div>

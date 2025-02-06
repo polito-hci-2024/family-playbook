@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate per la navigazione
 import '../CSS/CongratulationsPotion.css';
+import ButtonsEldora from './ButtonsEldora';
 
 function CongratulationsPotion() {
   const navigate = useNavigate(); // Hook per navigare tra le pagine
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
   const userName = localStorage.getItem('userName') || 'Hero'; // Ottieni il nome utente dal localStorage
 
   const handleNext = () => {
@@ -15,6 +18,11 @@ function CongratulationsPotion() {
     // Naviga alla pagina precedente
     navigate(-1); // Torna indietro
   };
+
+  const handlePopupVisibilityChange = (visible) => {
+    setIsPopupVisible(visible);
+  };
+  
 
   return (
     <div>
@@ -41,6 +49,7 @@ Until the next adventure… 🌟
         className="arrow arrow-left"
         onClick={handleBack}
       />
+      <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
     </div>
   );
 }

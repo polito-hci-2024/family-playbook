@@ -124,14 +124,14 @@ function Esempio2() {
       {/* Menu delle icone fisso in basso */}
       <div className="bottom-center-wrapper">
         <div className="bottom-center-icons">
-          <div className="icon-container">
-            <img src="/img/buttons/info.png" alt="Info" />
+        <div className="icon-container" onClick={togglePopup}>
+            <img src="/img/buttons/imprevisto.png" alt="Imprevisto" />
           </div>
           <div className="icon-container" onClick={() => navigate("/map")}>
             <img src="/img/buttons/map.png" alt="Map" />
           </div>
-          <div className="icon-container" onClick={togglePopup}>
-            <img src="/img/buttons/imprevisto.png" alt="Imprevisto" />
+          <div className="icon-container">
+            <img src="/img/buttons/info.png" alt="Info" />
           </div>
         </div>
       </div>

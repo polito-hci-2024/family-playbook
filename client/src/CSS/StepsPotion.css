@@ -39,8 +39,8 @@
   font-family: 'Quintessential', sans-serif;
   color: #720B5B;
   padding: 10px 20px; /* Spaziatura interna */
-  width: auto;
-  margin-top: 70px; /* Aggiungi margine in alto per dare spazio all'inizio della pagina */
+  width: 90%;
+  margin-top: 100px; /* Aggiungi margine in alto per dare spazio all'inizio della pagina */
   transition: opacity 0.3s ease; /* Animazione per il titolo che scompare */
 }
 
@@ -67,7 +67,7 @@
   aspect-ratio: 5 / 4; /* Rende il pannello più compatto */
   margin: 40px 0; /* Spazio tra i pannelli */
   padding: 20px; /* Spazio interno */
-  background: rgba(255, 255, 255, 0.30); /* Sfondo semitrasparente */
+  background: rgba(255, 255, 255, 0.60); /* Sfondo semitrasparente */
   border-radius: 25px; /* Bordi arrotondati */
   box-shadow: 0 4px 10px #10334a;
   display: flex;
@@ -82,7 +82,7 @@
 /* Testo */
 .stepPotion .story-text {
   font-size: 1.4rem;
-  color: rgb(0, 0, 0);
+  color: #262626;
   font-family: 'Poppins', sans-serif;
   font-weight: 450;
   line-height: 1.6;

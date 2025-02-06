@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "../CSS/LastStepEldora.css";
 import "../CSS/UnexpectedEvents.css";
+import ButtonsEldora from "./ButtonsEldora";
 
 function LastStepSelectionEldora() {
   const navigate = useNavigate();
@@ -79,6 +80,11 @@ function LastStepSelectionEldora() {
     }
     setIsPopupVisible(false);
   };
+
+  const handlePopupVisibilityChange = (visible) => {
+    setIsPopupVisible(visible);
+  };
+  
 
   return (
     <div className={`LastStepSelection ${isPopupVisible ? "blurred" : ""}`} ref={containerRef}>
@@ -160,7 +166,10 @@ function LastStepSelectionEldora() {
       {selectedStep && (
         <img src="/img/next.png" alt="Arrow Right" className="arrow arrow-right" onClick={handleNavigate} />
       )}
+      <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
+
     </div>
+    
   );
 }
 

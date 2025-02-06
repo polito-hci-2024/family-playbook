@@ -37,7 +37,7 @@
     font-size: 1.3rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 450;
-    color: #000000;
+    color: #262626;
     margin-top: 40px;
     margin-bottom: 30px;
     line-height: 1.6;
@@ -68,8 +68,8 @@
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
-    width: 330px;
-    height: 550px;
+    width: 300px;
+    height: 530px;
     padding: 10px;
     text-align: center;
     cursor: pointer;
