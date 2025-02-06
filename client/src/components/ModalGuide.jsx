@@ -29,10 +29,10 @@ const ModalGuide = () => {
                     <Modal.Title>What do you have to do on this page?</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-                        <video
+                    <div style={{ position: 'relative', paddingBottom: '90%' }}>
+                        < video
                             ref={videoRef}
-                            src="mp4/ChapterZeroGuide.mp4"
+                            src="mp4/initialGuide.mp4"
                             title="Guide video"
                             width="100%"
                             height="100%"
@@ -40,13 +40,13 @@ const ModalGuide = () => {
                             autoPlay
                             onEnded={handleVideoEnded}
                         ></video></div>
-                </Modal.Body>
+                </Modal.Body >
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
                 </Modal.Footer>
-            </Modal>
+            </Modal >
 
         </>
     )
