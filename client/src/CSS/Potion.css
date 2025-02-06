@@ -5,6 +5,7 @@
     background-attachment: fixed; 
     min-height: 100vh; 
     display: flex;
+    z-index: 10;
 }
 
 .potion .potion-hunters {
@@ -12,6 +13,7 @@
     align-items: center;
     padding: 10px 20px;
     font-family: Lato, sans-serif;
+    z-index: 10;
 }
 
 .potion .title {
@@ -50,8 +52,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 230px; /* Larghezza fissa */
-    height: 260px; /* Altezza fissa */
+    width: 220px; /* Larghezza fissa */
+    height: 230px; /* Altezza fissa */
     padding: 15px 0;
     border-radius: 8px;
     border: 1px solid #ddd;
@@ -112,7 +114,7 @@
     width: 500px;
     height: 400px;
     position: fixed; /* Fissa il calderone alla posizione desiderata */
-    bottom: -180px; /* Distanza dal bordo inferiore */
+    bottom: -100px; /* Distanza dal bordo inferiore */
     left: 50%; /* Centra il calderone orizzontalmente */
     transform: translateX(-50%); /* Allinea il calderone al centro */
     display: flex;
@@ -189,3 +191,7 @@
     cursor: not-allowed;
 }
 
+.potion .buttons-eldora {
+    position: relative;
+    z-index: 100; /* Maggiore di quello del calderone */
+}

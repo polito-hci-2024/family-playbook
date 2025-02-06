@@ -127,7 +127,7 @@ const Potion = () => {
         </div>
 
         {/* Bottone */}
-        <ButtonsEldora onPopupVisibilityChange={setIsPopupVisible} style={{ zIndex: 20 }} />
+        <ButtonsEldora className="buttons-eldora" onPopupVisibilityChange={setIsPopupVisible}/>
 
         {/* Calderone */}
         <div className="cauldron" onDragOver={handleDragOver} onDrop={handleDrop}>
