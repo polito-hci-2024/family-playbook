@@ -201,7 +201,30 @@ const getUserChallenges = async (user_id) => {
   }
 };
 
+const insertChallenge = async (user_id, challenge_id) => {
+  try {
+    const response = await fetch(`${SERVER_URL}/api/user-challenge`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user_id, challenge_id }), // Passa i dati nel body
+    });
 
-const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer, insertAnswer, getStepsById, getStoryById, getCharacters, getCharactersById, insertReviews, insertUser, getChallengesById, getOtherChallengesById, getUserChallenges };
+    if (response.ok) {
+      const data = await response.json(); // Ottieni la risposta del server
+      return data;
+    } else {
+      throw new Error('Error while inserting challenge');
+    }
+  } catch (error) {
+    console.error('Error inserting challenge:', error);
+    throw error;
+  }
+};
+
+
+
+const API = { getActivities, insertActivity, getLastChoice, getUserName, getQuestionAnswer, insertAnswer, getStepsById, getStoryById, getCharacters, getCharactersById, insertReviews, insertUser, getChallengesById, getOtherChallengesById, getUserChallenges, insertChallenge };
 export default API;
 

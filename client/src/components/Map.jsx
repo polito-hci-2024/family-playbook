@@ -13,7 +13,7 @@ function Map() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const user_id = 1;
+  const user_id = localStorage.getItem('userId')
 
   useEffect(() => {
     if (!user_id) {
@@ -26,9 +26,7 @@ function Map() {
       .then(challengeIds => {
         const newChallenges = [false, false, false];
         if (challengeIds.includes(1)) newChallenges[0] = true;
-        if (challengeIds.includes(2)) newChallenges[1] = true;
-        if (challengeIds.includes(3)) newChallenges[2] = true;
-
+        if (challengeIds.includes(5)) newChallenges[1] = true;
         setChallenges(newChallenges);
 
         // Controlla se mostrare il bottone "Go to Egypt map"

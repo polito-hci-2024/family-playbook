@@ -3,6 +3,7 @@ import Confetti from "react-confetti";
 import "../CSS/Scratch.css";
 import { useNavigate } from "react-router-dom";
 import ButtonsEldora from "./ButtonsEldora";
+import API from "../API.mjs";
 
 const Scratch = () => {
   const images = [
@@ -28,8 +29,16 @@ const Scratch = () => {
     }
   };
 
-  const handleNavigateNext = () => {
-    navigate("/congratulationsForest"); 
+  const handleNavigateNext = async () => {
+    const user_id = localStorage.getItem('userId'); // Recupera l'ID utente dal localStorage
+    const challenge_id = 5; // ID della sfida da passare
+
+    try {
+      await API.insertChallenge(user_id, challenge_id);
+      navigate("/congratulationsForest"); 
+    } catch (error) {
+      console.error('Failed to insert challenge:', error);
+    }
   };
 
   const handlePopupVisibilityChange = (visible) => {

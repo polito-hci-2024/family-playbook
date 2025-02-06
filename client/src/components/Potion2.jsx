@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import "../CSS/Potion2.css"; // File CSS per lo stile
 import { useNavigate } from 'react-router-dom'; 
 import ButtonsEldora from "./ButtonsEldora";
-
+import API from '../API.mjs';
 
 const Potion2 = () => {
   const mestoloRef = useRef(null);
@@ -24,8 +24,16 @@ const Potion2 = () => {
     setStartX(event.touches ? event.touches[0].clientX : event.clientX);
   };
 
-  const handleNavigateNext = () => {
-    navigate('/stepsPotion/2'); 
+  const handleNavigateNext = async () => {
+    const user_id = localStorage.getItem('userId'); // Recupera l'ID utente dal localStorage
+    const challenge_id = 1; // ID della sfida da passare
+
+    try {
+      await API.insertChallenge(user_id, challenge_id);
+      navigate('/stepsPotion/2'); // Naviga alla prossima pagina dopo l'inserimento
+    } catch (error) {
+      console.error('Failed to insert challenge:', error);
+    }
   };
 
   const handleNavigatePrec = () => {

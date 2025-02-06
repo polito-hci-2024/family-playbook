@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Webcam from "react-webcam";
 import ButtonsEgypt from "./ButtonsEgypt";
 import "../CSS/Anubi.css"; 
+import API from "../API.mjs";
 
 function Anubi() {
   const navigate = useNavigate();
@@ -26,9 +27,28 @@ function Anubi() {
     ); 
     setDeleteIndex(null); 
   };
-  const handleNavigate = () => {
+  const handleNavigate = async () => {
+    const user_id = localStorage.getItem('userId'); // Recupera l'ID utente dal localStorage
+    const challenge_id = 3;
     if (photos.length === 3) {
+      try {
+      await API.insertChallenge(user_id, challenge_id);
       navigate("/congratulationsEgypt"); 
+    } catch (error) {
+      console.error('Failed to insert challenge:', error);
+    }
+    }
+  };
+
+  const handleNavigateNext = async () => {
+    const user_id = localStorage.getItem('userId'); // Recupera l'ID utente dal localStorage
+    const challenge_id = 1; // ID della sfida da passare
+
+    try {
+      await API.insertChallenge(user_id, challenge_id);
+      navigate('/stepsPotion/2'); // Naviga alla prossima pagina dopo l'inserimento
+    } catch (error) {
+      console.error('Failed to insert challenge:', error);
     }
   };
   const handleNavigateBack = () => {

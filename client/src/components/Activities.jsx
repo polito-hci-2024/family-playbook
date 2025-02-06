@@ -17,7 +17,7 @@ function Activities() {
     if (!text) return text;
   
     text = text.replace(
-      "Place: Mandria Park - 40 minutes",
+      "Place: Parco della Mandria - 40 minutes",
       "<span class='place-text'>Place: Mandria Park - 40 minutes</span>"
     );
     

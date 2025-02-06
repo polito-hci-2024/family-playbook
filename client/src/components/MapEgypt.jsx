@@ -12,7 +12,7 @@ function MapEgypt() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const user_id = 1;
+  const user_id = localStorage.getItem('userId')
 
   useEffect(() => {
     if (!user_id) {
@@ -24,8 +24,7 @@ function MapEgypt() {
     API.getUserChallenges(user_id)
       .then(challengeIds => {
         const newChallenges = [false, false];
-        if (challengeIds.includes(4)) newChallenges[0] = true;
-        if (challengeIds.includes(5)) newChallenges[1] = true;
+        if (challengeIds.includes(3)) newChallenges[0] = true;
         setChallenges(newChallenges);
         setLoading(false);
       })
