@@ -46,19 +46,19 @@ function CongratulationsAnubi() {
         {/* Story Box */}
         <div className="story-box">
           <p className="story-text">
-          You’ve completed the quest, adventurer! The mysteries of Egypt are now revealed, and your journey here ends.
+          You’ve completed the quest, adventurer! <br/>The mysteries of Egypt are now revealed, and your journey here ends.
           </p>
   
           {/* Immagine centrata */}
           <div className="story-image-container">
-            <img className="story-image" src="/img/StoryPages/happy_animals.png" alt="Happy Animals" />
+            <img className="story-image" src="/img/Egypt/secret.png" alt="Happy Animals" />
           </div>
   
           <p className="story-text">
           Thank you for your courage—this adventure may be over, but more worlds await to be explored.
           </p>
   
-          <p className="story-text"> Until the next adventure… 🌟 </p>
+          <p className="story-text"> Until the next adventure… </p>
         </div>
   
         {/* Mascotte */}
