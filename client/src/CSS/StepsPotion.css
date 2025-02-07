@@ -1,85 +1,79 @@
 .stepPotion img {
-  margin: 0; /* Rimuove tutti i margini */
-  padding: 0; /* Rimuove tutti i padding */
-  display: block; /* Impedisce l'allineamento in linea */
+  margin: 0; 
+  padding: 0;
+  display: block; 
 }
 * {
   box-sizing: border-box;
 }
 
-/* Contenitore principale */
 .stepPotion .Introduction {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* Occupa l'intera altezza della viewport */
+  min-height: 100vh; 
   display: flex;
-  flex-direction: column; /* Dispone i pannelli verticalmente */
-  align-items: center; /* Centra orizzontalmente */
-  background-image: url('/img/sfondo_ufficiale.jpg'); /* Sfondo globale */
-  background-size: cover; /* Copri l'intero contenitore */
+  flex-direction: column; 
+  align-items: center; 
+  background-image: url('/img/sfondo_ufficiale.jpg'); 
+  background-size: cover; 
   background-position: center;
-  background-attachment: fixed; /* Sfondo fisso durante lo scroll */
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Evita lo scrolling orizzontale */
-  overflow-y: auto; /* Permette lo scrolling verticale */
-  padding-top: 0; /* Rimuovi padding-top */
+  background-attachment: fixed;
+  padding-bottom: 100px;
+  overflow-x: hidden; 
+  overflow-y: auto; 
+  padding-top: 0;
 }
 
-/* Titolo fisso in cima */
 .stepPotion .title {
-  position: fixed; /* Fissa il titolo in cima */
-  top: 0; /* Posiziona il titolo all'inizio della pagina */
-  left: 50%; /* Centra orizzontalmente */
-  transform: translateX(-50%); /* Centra esattamente */
-  z-index: 10; /* Metti il titolo sopra agli altri elementi */
-  font-size: 4rem; /* Titolo molto grande */
+  position: fixed;
+  top: 0; 
+  left: 50%;
+  transform: translateX(-50%); 
+  z-index: 10; 
+  font-size: 4rem; 
   font-weight: bold;
   text-align: center;
   font-family: 'Quintessential', sans-serif;
   color: #720B5B;
-  padding: 10px 20px; /* Spaziatura interna */
+  padding: 10px 20px;
   width: 90%;
-  margin-top: 100px; /* Aggiungi margine in alto per dare spazio all'inizio della pagina */
-  transition: opacity 0.3s ease; /* Animazione per il titolo che scompare */
+  margin-top: 100px; 
+  transition: opacity 0.3s ease; 
 }
 
-/* Pannelli della storia */
 .stepPotion .story-background {
   width: 100%;
-  height: auto; /* Altezza dinamica */
-  padding-top: 250px; /* Spazio per il titolo fisso, in modo che i pannelli partano sotto il titolo */
-  padding-bottom: 20px; /* Spazio inferiore per la fine dei pannelli */
+  height: auto; 
+  padding-top: 250px; 
+  padding-bottom: 20px; 
   display: flex;
-  flex-direction: column; /* Dispone i pannelli verticalmente */
-  align-items: center; /* Centra orizzontalmente i pannelli */
+  flex-direction: column; 
+  align-items: center; 
   transition: margin-top 0.3s ease-in-out;
 
 }
 
-/* Pannelli della storia */
 .stepPotion .story-panel {
   position: relative;
   padding-top: 0;
-  width: 90%; /* Occupa il 90% della larghezza disponibile */
-  max-width: 650px; /* Larghezza massima */
-  height: auto; /* Altezza dinamica */
-  aspect-ratio: 5 / 4; /* Rende il pannello più compatto */
-  margin: 40px 0; /* Spazio tra i pannelli */
-  padding: 20px; /* Spazio interno */
-  background: rgba(255, 255, 255, 0.60); /* Sfondo semitrasparente */
-  border-radius: 25px; /* Bordi arrotondati */
+  width: 90%; 
+  max-width: 650px;
+  height: auto; 
+  aspect-ratio: 5 / 4;
+  margin: 40px 0; 
+  padding: 20px; 
+  background: rgba(255, 255, 255, 0.60); 
+  border-radius: 25px; 
   box-shadow: 0 4px 10px #10334a;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centra il contenuto verticalmente */
+  justify-content: center; 
   align-items: center;
   text-align: center;
-  box-sizing: border-box; /* Include padding nel calcolo delle dimensioni */
-  backdrop-filter: blur(5px); /* Effetto sfocatura sullo sfondo */
+  box-sizing: border-box; 
+  backdrop-filter: blur(5px); 
 }
 
-/* Testo */
 .stepPotion .story-text {
   font-size: 1.4rem;
   color: #262626;
@@ -90,12 +84,11 @@
   text-align: center;
   align-items: center;
 }
-/* Aggiungere un margine sotto i pannelli per farli scomparire sotto il titolo */
+
 .stepPotion .story-panel:last-child {
-  margin-bottom: 200px; /* Aggiungi un margine che fa scomparire il pannello quando scorre via */
+  margin-bottom: 200px; 
 }
 
-/* Immagini */
 .stepPotion .story-image {
   width: 100%;
   max-width: 200px;
@@ -106,24 +99,22 @@
 
 .stepPotion .arrow {
   position: fixed;
-  top: 50%;  /* Centra la freccia verticalmente */
-  transform: translateY(-50%);  /* Assicura che la freccia sia esattamente al centro */
+  top: 50%;  
+  transform: translateY(-50%);  
   cursor: pointer;
   width: 50px;
   height: 50px;
-  z-index: 1000;  /* Assicura che le frecce siano visibili sopra altri elementi */
+  z-index: 1000;  
 }
 
 .stepPotion .arrow-left {
-  left: 20px;  /* Posiziona la freccia sinistra a sinistra */
+  left: 20px;  
 }
 
 .stepPotion .arrow-right {
-  right: 20px;  /* Posiziona la freccia destra a destra */
+  right: 20px;  
 }
 
-
-/* Animazioni */
 @keyframes slideInFromCenter {
   from {
     opacity: 0;
@@ -135,7 +126,6 @@
   }
 }
 
-/* Media query per schermi piccoli */
 @media (max-width: 768px) {
   .stepPotion .title {
     font-size: 3rem;
