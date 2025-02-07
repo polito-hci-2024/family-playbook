@@ -7,10 +7,10 @@ import API from "../API.mjs";
 
 const Scratch = () => {
   const images = [
-    { src: "../img/ingredients/daisy.jpeg", id: "image1" },
-    { src: "../img/challenges/Step1.png", id: "image2" }, 
-    { src: "../img/challenges/Step2.png", id: "image3" },
-    { src: "../img/challenges/Step3.png", id: "image4" },
+    { src: "../img/challenges/lampada.png", id: "image1" },
+    { src: "/img/challenges/amuleto.png", id: "image2" }, 
+    { src: "../img/challenges/chiave.png", id: "image3" },
+    { src: "../img/challenges/cerca.png", id: "image4" },
   ];
 
   const [flippedCards, setFlippedCards] = useState({}); 
@@ -49,7 +49,7 @@ const Scratch = () => {
 
   return (
     <div className="scratch">
-      <h1 className="title">The Quest for <br />the Lost Fragment</h1>
+      <h1 className="title">The Quest for the Lost <br />Fragment</h1>
       <p className="intro">
   The amulet is incomplete, missing a crucial fragment hidden deep within Eldoria. <br /> 
   Without it, the darkness will spread. Explore the forest’s cards to find the one that holds the missing piece and restore the amulet’s power to complete your quest.
