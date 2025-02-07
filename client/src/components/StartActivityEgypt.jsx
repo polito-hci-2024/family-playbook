@@ -3,10 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../CSS/StartActivityEgypt.css';
 import { Button, Card, Col, Row, Modal } from 'react-bootstrap';
+import ButtonsEgypt from './ButtonsEgypt';
 
 function StartActivityEgypt() {
   const [activityData, setActivityData] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  
   const navigate = useNavigate();
 
   const handleClose = () => setShowModal(false);
@@ -16,6 +19,10 @@ function StartActivityEgypt() {
     handleClose();
     navigate('/stepsEgypt/3');
   };
+
+  const handlePopupVisibilityChange = (visible) => {
+    setIsPopupVisible(visible);
+  };  
 
   const panels = [
     {
@@ -118,6 +125,7 @@ function StartActivityEgypt() {
           </Button>
         </Modal.Footer>
       </Modal>
+      <ButtonsEgypt onPopupVisibilityChange={handlePopupVisibilityChange} />
     </div>
   );
 }

@@ -128,22 +128,83 @@ transform: rotateY(180deg);
 
 .scratch .card-back {
     position: absolute;
-    width: 200px;
-    height: auto;
+    width: 100%;
+    height: 100%;
     backface-visibility: hidden;
-    border: 2px solid #ccc;
-    border-radius: 10px;
     justify-content: center;     
     align-items: center;       
-}
-
-.scratch .card-front {
-background-color: #f0f0f0;
 }
 
 .scratch .card-back {
 transform: rotateY(180deg);
 background-color: rgb(255, 255, 255);
 }
+
+
+.magic-glow {
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px 10px rgba(114, 11, 91, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px 20px rgba(114, 11, 91, 0.75);
+    }
+}
+
+.disabled {
+    opacity: 0.6; /* Aumenta leggermente l'opacità per una migliore visibilità */
+    pointer-events: none; /* Impedisce interazioni con l'utente */
+    filter: grayscale(100%); /* Applica un filtro in scala di grigi */
+}
+
+.success-message {
+    position: fixed;
+    top: 20px; /* Inizio vicino al bordo superiore e rimane a 20px di distanza */
+    left: 50%;
+    transform: translateX(-50%) translateY(-100vh); /* Parte dall'alto fuori dallo schermo */
+    width: 80%;
+    max-width: 400px;
+    background-color: rgba(114, 11, 91, 0.9); /* Viola scuro semitrasparente */
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.2); /* Ombra esterna e leggera ombra interna bianca */
+    text-align: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    z-index: 1001;
+    opacity: 0; /* Parte come invisibile */
+    animation: slideDown 0.7s ease-out forwards; /* Animate appearance */
+}
+
+.success-message h2 {
+    font-size: 1.75rem;
+    color: #FAD02E;
+    margin-bottom: 10px;
+}
+
+.success-message p {
+    font-size: 1.25rem;
+    color: #FFFFFF;
+}
+
+/* Animazione per far apparire il messaggio dall'alto */
+.success-message {
+    animation: slideDown 0.7s ease-out forwards;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateX(-50%) translateY(-100vh); /* Parte da sopra lo schermo */
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(-50%) translateY(0); /* Termina a 20px dal top */
+        opacity: 1;
+    }
+}
+
 
 

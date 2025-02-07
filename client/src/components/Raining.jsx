@@ -2,10 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import '../CSS/Raining.css'; 
+import ButtonsEgypt from './ButtonsEgypt';
 
 function Raining() {
   const navigate = useNavigate();
   const [selectedCard, setSelectedCard] = useState(null);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  
   const containerRef = useRef(null);
 
   const cards = [
@@ -40,6 +43,10 @@ function Raining() {
       navigate('/start-activity-egypt');
     }
   };
+
+  const handlePopupVisibilityChange = (visible) => {
+    setIsPopupVisible(visible);
+  };  
 
   const handleOutsideClick = (event) => {
       const clickedElement = event.target;
@@ -99,6 +106,8 @@ function Raining() {
           onClick={handleNavigate}
         />
       )}
+     <ButtonsEgypt onPopupVisibilityChange={handlePopupVisibilityChange} />
+
     </div>
   );
 }

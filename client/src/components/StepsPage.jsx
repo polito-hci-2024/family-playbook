@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../CSS/StepsPage.css';
 import API from '../API.mjs';
+import ButtonsGeneral from './ButtonsGeneral';
 
 function StepsPage({ stepId }) {
   const navigate = useNavigate();
@@ -123,6 +124,7 @@ function StepsPage({ stepId }) {
           )}
         </div>
       </div>
+      <ButtonsGeneral></ButtonsGeneral>
     </div>
   );
 }

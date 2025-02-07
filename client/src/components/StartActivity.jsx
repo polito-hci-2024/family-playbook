@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import '../CSS/StartActivity.css';
 import API from '../API';
 import { Button, Card, Col, Row, Modal } from 'react-bootstrap';
+import ButtonsGeneral from './ButtonsGeneral';
 
 function StartActivity() {
   const [activityData, setActivityData] = useState(null);
@@ -147,6 +148,7 @@ function StartActivity() {
           </Button>
         </Modal.Footer>
       </Modal>
+      <ButtonsGeneral></ButtonsGeneral>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import '../CSS/Question.css';
 import { Modal, Button } from 'react-bootstrap'; 
 import API from '../API.mjs';
+import ButtonsGeneral from './ButtonsGeneral';
 
 function Question({ question_id }) {
   const questionId = parseInt(question_id);
@@ -180,6 +181,7 @@ function Question({ question_id }) {
           </Modal.Footer>
         </Modal>
       </div>
+      <ButtonsGeneral></ButtonsGeneral>
     </div>
   );
 }

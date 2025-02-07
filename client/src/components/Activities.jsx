@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Modal, Button } from 'react-bootstrap';
 import '../CSS/Activities.css';
 import API from '../API';
+import ButtonsGeneral from './ButtonsGeneral';
 
 function Activities() {
   const navigate = useNavigate();
@@ -163,6 +164,7 @@ function Activities() {
           </Modal.Footer>
         </Modal>
       </div>
+      <ButtonsGeneral></ButtonsGeneral>
     </div>
   );
 }

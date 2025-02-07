@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Confetti from "react-confetti";
 import "../CSS/Scratch.css";
 import { useNavigate } from "react-router-dom";
-import ButtonsEldora from "./ButtonsEldora";
 import API from "../API.mjs";
+import ButtonsEldora from "./ButtonsEldora";
 
 const Scratch = () => {
   const images = [
@@ -17,6 +17,7 @@ const Scratch = () => {
   const [completedImage, setCompletedImage] = useState(null); 
   const [showConfetti, setShowConfetti] = useState(false); 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const navigate = useNavigate();
 
@@ -25,13 +26,13 @@ const Scratch = () => {
     if (id === "image2") {
       setCompletedImage(id);
       setShowConfetti(true); 
-      setTimeout(() => setShowConfetti(false), 6000); 
+      setShowSuccessMessage(true); 
     }
   };
 
   const handleNavigateNext = async () => {
-    const user_id = localStorage.getItem('userId'); // Recupera l'ID utente dal localStorage
-    const challenge_id = 5; // ID della sfida da passare
+    const user_id = localStorage.getItem('userId');
+    const challenge_id = 5;
 
     try {
       await API.insertChallenge(user_id, challenge_id);
@@ -51,18 +52,18 @@ const Scratch = () => {
     <div className="scratch">
       <h1 className="title">The Quest for the Lost <br />Fragment</h1>
       <p className="intro">
-  The amulet is incomplete, missing a crucial fragment hidden deep within Eldoria. <br /> 
-  Without it, the darkness will spread. Explore the forest’s cards to find the one that holds the missing piece and restore the amulet’s power to complete your quest.
-</p>
+        The amulet is incomplete, missing a crucial fragment hidden deep within Eldoria. <br /> 
+        Without it, the darkness will spread. Explore the forest’s cards to find the one that holds the missing piece and restore the amulet’s power to complete your quest.
+      </p>
 
       <div className="scratch-grid">
         {images.map((image) => (
           <div
             key={image.id}
-            className={`scratch-box card ${flippedCards[image.id] ? "flipped" : ""}`}
+            className={`scratch-box card ${flippedCards[image.id] ? "flipped" : ""} ${completedImage && image.id !== completedImage ? "disabled" : ""}`}
             onClick={() => handleCardClick(image.id)}
           >
-            <div className="card-inner">
+            <div className="card-inner" style={completedImage === image.id ? {animation: 'pulseGlow 2s infinite'} : null}>
               <div className="card-front">
                 <img
                   src="../img/object/blocco.jpg"
@@ -79,14 +80,12 @@ const Scratch = () => {
       </div>
 
       <div className="navigation-arrows">
-        
         <img
           src="/img/back.png"
           alt="Arrow Left"
           className="arrow arrow-left"
           onClick={() => navigate(-1)}
         />
-       
         <img
           src="/img/next.png"
           alt="Arrow Right"
@@ -96,7 +95,13 @@ const Scratch = () => {
       </div>
       <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
 
-      {showConfetti && <Confetti recycle={false} />} 
+      {/*showConfetti && <Confetti recycle={false} />*/}
+      {showSuccessMessage && (
+        <div className="success-message">
+          <h2>Hooray! You've found the missing fragment!</h2>
+          <p>Click next to continue your journey and save Eldoria!</p>
+        </div>
+      )}
     </div>
   );
 };
