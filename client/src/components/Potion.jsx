@@ -89,7 +89,7 @@ const Potion = () => {
   };
 
   const handleNavigateNext = () => {
-    navigate('/challenge/1/1');  
+    navigate('/challenge/1/2');  
   };
 
   const handleNavigatePrec = () => {
