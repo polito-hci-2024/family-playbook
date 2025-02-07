@@ -1,0 +1,106 @@
+.interactive-guide-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #3d4df7, #c4c7fa);
+    text-align: center;
+    padding: 40px;
+    padding-top: 300px;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+  }
+  
+  .skip-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  
+  .message-box {
+    background: white;
+    color: #333;
+    font-size: 1.5rem;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Assicura che la box prenda tutta la larghezza disponibile */
+    max-width: 80%;
+    min-height: 120px;
+    font-weight: 600;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    z-index: 5; /* Impostato un z-index più basso rispetto al bottone "skip" */
+  }
+  
+  .progress-dots {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dot {
+    width: 14px;
+    height: 14px;
+    background: #ddd;
+    border-radius: 50%;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .dot.active {
+    background: #ff6f61;
+    transform: scale(1.4);
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+    z-index: 5;
+  }
+  
+  .next-button, .back-button {
+    background: #ff6f61;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+    font-weight: 600;
+    border: none;
+  }
+  
+  .next-button:hover, .back-button:hover {
+    background: #e65b50;
+    transform: scale(1.05);
+  }
+  
+  .mascot {
+    position: absolute;
+    bottom: 250px;
+    left: -80px;
+    width: 700px;
+    height: auto;
+  }
+ 
+  
+  

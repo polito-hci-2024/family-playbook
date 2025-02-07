@@ -32,6 +32,7 @@ import Esempio4 from './components/Esempio4';
 import Esempio5 from './components/Esempio5';
 import Esempio7 from './components/Esempio7';
 import StartActivityEgypt from './components/StartActivityEgypt';
+import InteractiveGuide from './components/GuidaRebecca';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);
@@ -85,6 +86,8 @@ function App() {
           <Route path="/esempio4" element={<Esempio4 />} />
           <Route path="/esempio5" element={<Esempio5 />} />
           <Route path="/esempio7" element={<Esempio7 />} />
+
+          <Route path="/guide" element={<InteractiveGuide />} />
 
           <Route path="/map" element={<Map />}/>
           <Route path="/mapEgypt" element={<MapEgypt />}/>
