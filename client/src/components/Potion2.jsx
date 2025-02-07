@@ -14,6 +14,8 @@ const Potion2 = () => {
   const [wordIndex, setWordIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [videoPlayed, setVideoPlayed] = useState(false);
+
   const navigate = useNavigate();
 
   const words = ["Curio", "Tempus,", "power", "of", "grace,", "Awaken", "the", "heart,", "the", "magic", "flows,", "Bring", "back", "health", "to", "every", "place."];
@@ -72,30 +74,43 @@ const Potion2 = () => {
   };
 
   useEffect(() => {
-    if (wordIndex === words.length - 1) {
+    if (wordIndex === words.length - 1 && videoPlayed==false) {
       setShowModal(true);
     }
-  }, [wordIndex]);
+  }, [wordIndex, videoPlayed]); 
+  
+  const closeModal = (event) => {
+    event.stopPropagation(); // Impedisce la propagazione dell'evento click
+    setVideoPlayed(true); 
+    setShowModal(false);
+  };
+  
   
   const stopDrag = () => setIsDragging(false);
 
   return (
     <div className="potion2">
       {showModal && (
-        <div className="video-overlay">
-          <video className="fullscreen-video" autoPlay muted playsInline>
+        <div className="video-overlay" onClick={closeModal}>
+          <video 
+            className="fullscreen-video" 
+            autoPlay 
+            muted 
+            playsInline
+            onClick={closeModal}
+          >
             <source src="/videos/pozione_fatta.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
-        )}
+      )}
       <div className="create">
         <h1 className="title">
         A Stir of the Spoon,<br />Magic Words, and Away!
         </h1>
         
         <p className="descrizione-incantesimo">
-        To activate the spell, stir the cauldron carefully with the spoon. Each turn will reveal a new magical word, ready to be spoken. Only with the right incantation will the potion come to life and heal the forest’s creatures! Can you master the magic in time to save them?
+        To activate the spell, stir the cauldron carefully with the spoon. Each turn will reveal a new magical word, ready to be spoken. Only with the right incantation will the potion come to life and heal the forest’s creatures!
         </p>
         
         <div className="incantesimo-container">
@@ -127,7 +142,7 @@ const Potion2 = () => {
             onTouchEnd={stopDrag}
             style={{
               transform: `translateX(${xPosition}px) rotate(${rotation}deg)`,
-              transition: isDragging ? "none" : "transform 0.2s ease-out",
+              transition: isDragging ? "none" : "transform 0.01s ease-out",
             }}
           />
 
