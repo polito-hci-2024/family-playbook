@@ -80,8 +80,9 @@ const Potion2 = () => {
   }, [wordIndex, videoPlayed]); 
   
   const closeModal = (event) => {
-    event.stopPropagation(); // Impedisce la propagazione dell'evento click
-    setVideoPlayed(true); 
+    event.preventDefault();
+    event.stopPropagation();
+    setVideoPlayed(true);
     setShowModal(false);
   };
   
@@ -91,19 +92,23 @@ const Potion2 = () => {
   return (
     <div className="potion2">
       {showModal && (
-        <div className="video-overlay" onClick={closeModal}>
-          <video 
-            className="fullscreen-video" 
-            autoPlay 
-            muted 
-            playsInline
-            onClick={closeModal}
-          >
-            <source src="/videos/pozione_fatta.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      )}
+      <div className="video-overlay" onClick={closeModal} onTouchEnd={closeModal}>
+        <video 
+          className="fullscreen-video" 
+          autoPlay 
+          muted 
+          playsInline
+          onMouseDown={closeModal}
+          onMouseUp={closeModal}
+          onClick={closeModal}
+          onTouchStart={closeModal}
+          onTouchEnd={closeModal}
+        >
+          <source src="/videos/pozione_fatta.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    )}
       <div className="create">
         <h1 className="title">
         A Stir of the Spoon,<br />Magic Words, and Away!
