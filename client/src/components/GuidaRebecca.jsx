@@ -9,13 +9,12 @@ const Button = ({ onClick, children, disabled }) => (
 );
 
 const messages = [
-  " Hi, I'm Lumi, \n Welcome to PlayBook!",
-  " Turn your city into a playground with adventures designed for your family!",
-  " Tell us about you: Answer a few quick questions to get personalized activities.",
-  " Start your journey: Pick a character, a path, and a special item.",
-  " Explore & play: Discover two real-world activities and complete fun challenges!",
-  " Every day is a new adventure. Ready to begin?🚀"
+  " <b>Hi, I'm Lumi</b>, \nWelcome to <b><i>PlayBook</b></i>!🎉",
+  " <i>Playbook</i> is your gateway to fun-filled adventures for families in <b>Turin</b>, with experiences tailored just for you, turning your city into the perfect playground.",
+  " <b><i>How It Works:</b></i><br><b>1.</b> Choose a <i>character</i>, a <i>path</i>, and an <i>object</i> to start your adventure.<br><b>2.</b><i> Based on your choices</i>, we’ll suggest exciting real-world activities.<br><b>3.</b>Take on the challenges and complete your journey along the way!",
+  " <b>Every day is a new adventure.</b> <br><i> Ready to begin?🚀</i>"
 ];
+
 
 const InteractiveGuide = ({onClose}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -55,21 +54,19 @@ const InteractiveGuide = ({onClose}) => {
     console.log("Guide skipped");
   };
 
-  const renderTextWithLineBreaks = (text) => {
-    return text.split("\n").map((line, index) => (
-      <span key={index}>
-        {line}
-        <br />
-      </span>
-    ));
-  };
+  const renderTextWithFormatting = (text) => {
+     //Usa espressioni regolari per sostituire i simboli con i rispettivi tag HTM
+  
+    return { __html: text };
+ };
+  
 
   const calculateTextWidth = (text) => {
     const tempElement = document.createElement("div");
     tempElement.style.position = "absolute";
     tempElement.style.visibility = "hidden";
     tempElement.style.whiteSpace = "pre-wrap";
-    tempElement.style.width = "60vw"; // Imposta una larghezza massima del 60% della larghezza dello schermo
+    tempElement.style.width = "70vw"; // Imposta una larghezza massima del 60% della larghezza dello schermo
     tempElement.innerText = text;
     document.body.appendChild(tempElement);
     const width = tempElement.getBoundingClientRect().width;
@@ -106,7 +103,7 @@ const InteractiveGuide = ({onClose}) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
         >
-          <p>{renderTextWithLineBreaks(displayedText)}</p>
+          <p dangerouslySetInnerHTML={renderTextWithFormatting(displayedText)} />
         </motion.div>
 
         <div className="button-container">
