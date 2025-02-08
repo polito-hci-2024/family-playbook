@@ -8,9 +8,6 @@ const Button = ({ onClick, children, disabled }) => (
   </button>
 );
 
-
-
-
 const InteractiveGuide = ({messages, onClose}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
@@ -22,25 +19,38 @@ const InteractiveGuide = ({messages, onClose}) => {
     setDisplayedText("");
     setIsTyping(true);
     const interval = setInterval(() => {
-      if (i < messages[currentIndex].length - 1) {
-        setDisplayedText((prev) => prev + messages[currentIndex][i]);
-        i++;
+      if (i < messages[currentIndex].length) {
+        const char = messages[currentIndex][i];
+        if (char === '<') {
+          const endIndex = messages[currentIndex].indexOf('>', i);
+          if (endIndex !== -1) {
+            const tag = messages[currentIndex].slice(i, endIndex + 1);
+            setDisplayedText((prev) => prev + tag);
+            i = endIndex + 1;
+          } else {
+            setDisplayedText((prev) => prev + char);
+            i++;
+          }
+        } else {
+          setDisplayedText((prev) => prev + char);
+          i++;
+        }
       } else {
         clearInterval(interval);
         setIsTyping(false);
       }
     }, 50);
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [currentIndex, messages]);
 
   const nextMessage = () => {
-    if (!isTyping && currentIndex < messages.length - 1) {
+    if (currentIndex < messages.length - 1) {
       setCurrentIndex(currentIndex + 1);
     }
   };
 
   const prevMessage = () => {
-    if (!isTyping && currentIndex > 0) {
+    if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     }
   };
@@ -50,18 +60,15 @@ const InteractiveGuide = ({messages, onClose}) => {
   };
 
   const renderTextWithFormatting = (text) => {
-     //Usa espressioni regolari per sostituire i simboli con i rispettivi tag HTM
-  
     return { __html: text };
- };
-  
+  };
 
   const calculateTextWidth = (text) => {
     const tempElement = document.createElement("div");
     tempElement.style.position = "absolute";
     tempElement.style.visibility = "hidden";
     tempElement.style.whiteSpace = "pre-wrap";
-    tempElement.style.width = "70vw"; // Imposta una larghezza massima del 60% della larghezza dello schermo
+    tempElement.style.width = "70vw";
     tempElement.innerText = text;
     document.body.appendChild(tempElement);
     const width = tempElement.getBoundingClientRect().width;
@@ -83,32 +90,32 @@ const InteractiveGuide = ({messages, onClose}) => {
           Skip the Guide
         </button>
         <div className="container-message-dots-buttons">
-        <div className="progress-dots">
-          {messages.map((_, index) => (
-            <div
-              key={index}
-              className={`dot ${index <= currentIndex ? "active" : ""}`}
-            ></div>
-          ))}
-        </div>
-        <motion.div
-          className="message-box"
-          ref={messageBoxRef}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4 }}
-        >
-          <p dangerouslySetInnerHTML={renderTextWithFormatting(displayedText)} />
-        </motion.div>
+          <div className="progress-dots">
+            {messages.map((_, index) => (
+              <div
+                key={index}
+                className={`dot ${index <= currentIndex ? "active" : ""}`}
+              ></div>
+            ))}
+          </div>
+          <motion.div
+            className="message-box"
+            ref={messageBoxRef}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+          >
+            <p dangerouslySetInnerHTML={renderTextWithFormatting(displayedText)} />
+          </motion.div>
 
-        <div className="button-container">
-          <Button onClick={prevMessage} disabled={currentIndex === 0}>
-            Back
-          </Button>
-          <Button onClick={nextMessage} disabled={isTyping}>
-            Next
-          </Button>
-        </div>
+          <div className="button-container">
+            <Button onClick={prevMessage} disabled={currentIndex === 0}>
+              Back
+            </Button>
+            <Button onClick={nextMessage} disabled={currentIndex === messages.length - 1}>
+              Next
+            </Button>
+          </div>
         </div>
         <img src="/img/lumi_smile.png" alt="Mascotte" className="mascot" />
       </div>
