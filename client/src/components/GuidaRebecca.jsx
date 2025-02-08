@@ -8,7 +8,7 @@ const Button = ({ onClick, children, disabled }) => (
   </button>
 );
 
-const InteractiveGuide = ({messages, onClose}) => {
+const InteractiveGuide = ({ messages, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -46,6 +46,8 @@ const InteractiveGuide = ({messages, onClose}) => {
   const nextMessage = () => {
     if (currentIndex < messages.length - 1) {
       setCurrentIndex(currentIndex + 1);
+    } else {
+      onClose(); // Chiude la guida all'ultimo messaggio
     }
   };
 
@@ -53,10 +55,6 @@ const InteractiveGuide = ({messages, onClose}) => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     }
-  };
-
-  const skipGuide = () => {
-    console.log("Guide skipped");
   };
 
   const renderTextWithFormatting = (text) => {
@@ -90,14 +88,16 @@ const InteractiveGuide = ({messages, onClose}) => {
           Skip the Guide
         </button>
         <div className="container-message-dots-buttons">
-          <div className="progress-dots">
-            {messages.map((_, index) => (
-              <div
-                key={index}
-                className={`dot ${index <= currentIndex ? "active" : ""}`}
-              ></div>
-            ))}
-          </div>
+          {messages.length > 1 && (
+            <div className="progress-dots">
+              {messages.map((_, index) => (
+                <div
+                  key={index}
+                  className={`dot ${index <= currentIndex ? "active" : ""}`}
+                ></div>
+              ))}
+            </div>
+          )}
           <motion.div
             className="message-box"
             ref={messageBoxRef}
@@ -109,11 +109,13 @@ const InteractiveGuide = ({messages, onClose}) => {
           </motion.div>
 
           <div className="button-container">
-            <Button onClick={prevMessage} disabled={currentIndex === 0}>
-              Back
-            </Button>
-            <Button onClick={nextMessage} disabled={currentIndex === messages.length - 1}>
-              Next
+            {messages.length > 1 && (
+              <Button onClick={prevMessage} disabled={currentIndex === 0}>
+                Back
+              </Button>
+            )}
+            <Button onClick={nextMessage}>
+              {currentIndex === messages.length - 1 ? "Close Guide" : "Next"}
             </Button>
           </div>
         </div>
