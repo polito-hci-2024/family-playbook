@@ -11,6 +11,12 @@ function StartActivity() {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
+  const [messages] = useState([
+    " We're about to start the real adventure! 🌟 <br> Come back here once you're at the designated location and click <b><i>Begin</i></b> to start the activity! 🚀"
+]);
+
+
+
   const formatAsList = (text) => {
     if (!text) return text;
   
@@ -148,7 +154,7 @@ function StartActivity() {
           </Button>
         </Modal.Footer>
       </Modal>
-      <ButtonsGeneral></ButtonsGeneral>
+      <ButtonsGeneral messages={messages}></ButtonsGeneral>
     </div>
   );
 }

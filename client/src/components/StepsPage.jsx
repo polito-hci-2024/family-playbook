@@ -12,6 +12,12 @@ function StepsPage({ stepId }) {
   const [showArrows, setShowArrows] = useState(false);
   const [scrollY, setScrollY] = useState(0); 
 
+  const [messages] = useState([
+    " Impatient, huh? <br> Don't worry, the adventure is just beginning! 🚀",
+    " Scroll through the story to find out what happens next. <br> Only then will the arrow to move forward appear!<br> Keep exploring! 🔍"
+]);
+
+
   const replacePlaceholder = (text, characterName, name) => {
     return text
       .replace(/\{\$characterName\}/g, characterName)
@@ -124,7 +130,7 @@ function StepsPage({ stepId }) {
           )}
         </div>
       </div>
-      <ButtonsGeneral></ButtonsGeneral>
+      <ButtonsGeneral messages={messages}></ButtonsGeneral>
     </div>
   );
 }

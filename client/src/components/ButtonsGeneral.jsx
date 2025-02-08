@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import InteractiveGuide from './GuidaRebecca';
-const ButtonsGeneral = () => {
+const ButtonsGeneral = ({ messages }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [showGuide, setShowGuide] = useState(false); 
 
@@ -93,7 +93,7 @@ const ButtonsGeneral = () => {
       </div>
 
      
-      {showGuide && <InteractiveGuide onClose={handleCloseGuide} />}
+      {showGuide && <InteractiveGuide messages={messages} onClose={handleCloseGuide} />}
 
     </>
   );

@@ -14,6 +14,12 @@ function Activities() {
   const [modalMessage, setModalMessage] = useState('');
   const [userName, setUserName] = useState('');
 
+  const [messages] = useState([
+    " Great choices! 🎉 Now, based on your <b>character</b>, <b>place</b>, and <b>object</b>, I've come up with some <b> <i> exciting activities</b></i> just for <b>you</b>! 🚀",
+    " Choose the one that sounds the most fun, and get ready for your adventure to begin! 🏃‍♂️💨",
+    " The adventure is waiting, so pick your next challenge and let's make it unforgettable! 🌟"
+]);
+
   const replacePlaceholder = (text, name) => {
     if (!text) return text;
   
@@ -164,7 +170,7 @@ function Activities() {
           </Modal.Footer>
         </Modal>
       </div>
-      <ButtonsGeneral></ButtonsGeneral>
+      <ButtonsGeneral messages={messages}></ButtonsGeneral>
     </div>
   );
 }

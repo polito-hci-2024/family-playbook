@@ -16,6 +16,11 @@ function Question({ question_id }) {
   const [userName, setUserName] = useState('');
   const [userId, setUserId] = useState(''); 
 
+  const [messages] = useState([
+    " Now it's time to <b>pick one</b>! 🧐 <br>Your choice will shape the adventure, so... Choose wisely! 🌟"
+]);
+
+
   const replacePlaceholder = (text, name) => {
     return text ? text.replace(/\{\$name\}/g, name) : text;
   };
@@ -181,7 +186,7 @@ function Question({ question_id }) {
           </Modal.Footer>
         </Modal>
       </div>
-      <ButtonsGeneral></ButtonsGeneral>
+      <ButtonsGeneral messages={messages}></ButtonsGeneral>
     </div>
   );
 }

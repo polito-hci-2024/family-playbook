@@ -8,15 +8,10 @@ const Button = ({ onClick, children, disabled }) => (
   </button>
 );
 
-const messages = [
-  " <b>Hi, I'm Lumi</b>, \nWelcome to <b><i>PlayBook</b></i>!🎉",
-  " <i>Playbook</i> is your gateway to fun-filled adventures for families in <b>Turin</b>, with experiences tailored just for you, turning your city into the perfect playground.",
-  " <b><i>How It Works:</b></i><br><b>1.</b> Choose a <i>character</i>, a <i>path</i>, and an <i>object</i> to start your adventure.<br><b>2.</b><i> Based on your choices</i>, we’ll suggest exciting real-world activities.<br><b>3.</b>Take on the challenges and complete your journey along the way!",
-  " <b>Every day is a new adventure.</b> <br><i> Ready to begin?🚀</i>"
-];
 
 
-const InteractiveGuide = ({onClose}) => {
+
+const InteractiveGuide = ({messages, onClose}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
