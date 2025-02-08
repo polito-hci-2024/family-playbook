@@ -16,6 +16,10 @@ function StepSelectionEldora() {
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null); 
 
+  const [messages] = useState([
+    " Let's take a quick look at the main buttons you have at the bottom center: 📚 <br> 1. <b>Map</b>: Use it to see what you've done e what awaits you! 🌍 <br> 2. <b>Guide</b>: Click here for hints and tips to help you on your journey! 📖 <br> 3. <b>Unexpected Events</b>: Use this button to handle surprises like rain or ending the adventure. ⛈️",
+    " Now that you know the basics, it's time to get with first challenge, pick one! 🎉"
+  ]);
   useEffect(() => {
     const fetchChallenges = async () => {
       try {
@@ -208,7 +212,7 @@ function StepSelectionEldora() {
           onClick={handleNavigate}
         />
       )}
-      <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
+      <ButtonsEldora messages={messages} onPopupVisibilityChange={ handlePopupVisibilityChange} />
 
     </div>
   );

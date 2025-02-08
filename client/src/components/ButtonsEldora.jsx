@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom"; 
 import { useNavigate } from "react-router-dom";
 import '../CSS/Buttons.css';
+import InteractiveGuide from "./GuidaRebecca";
+import { motion } from "framer-motion";
 
-const ButtonsEldora = ({ onPopupVisibilityChange }) => {
+
+const ButtonsEldora = ({ messages, onPopupVisibilityChange }) => {
   const navigate = useNavigate();
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [selectedIcon, setSelectedIcon] = useState(null);
+  const [showGuide, setShowGuide] = useState(false); 
+  
 
   useEffect(() => {
     if (onPopupVisibilityChange) {
@@ -22,6 +27,13 @@ const ButtonsEldora = ({ onPopupVisibilityChange }) => {
   const closePopup = () => {
     setIsPopupVisible(false);
     setSelectedIcon(null);
+  };
+
+  const handleInfoClick = () => {
+    setShowGuide(true); 
+  };
+  const handleCloseGuide = () => {
+    setShowGuide(false); // Chiudi la guida
   };
 
   const handleIconSelection = (iconName) => {
@@ -56,7 +68,7 @@ const ButtonsEldora = ({ onPopupVisibilityChange }) => {
                 className="floating-button"
               />
             </div>
-            <div className="icon-container">
+            <div className="icon-container" onClick={handleInfoClick}>
               <img
                 src="/img/buttons/info.png"
                 alt="info_eldora"
@@ -121,6 +133,8 @@ const ButtonsEldora = ({ onPopupVisibilityChange }) => {
     <>
       {buttonsMarkup}
       {popupMarkup}
+      {showGuide && <InteractiveGuide messages={messages} onClose={handleCloseGuide} />}
+
     </>
   );
 };
