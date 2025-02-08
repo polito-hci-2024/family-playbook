@@ -147,3 +147,65 @@
     transform: translateY(0);
   }
 }
+
+.start-activity-egypt .popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.start-activity-egypt .popup-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.start-activity-egypt .popup-content p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 450;
+  font-size: 1.8rem;
+  color: #555;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.start-activity-egypt .popup-buttons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.start-activity-egypt .popup-buttons button {
+  padding: 10px 20px;
+  font-size: 1.6rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 450;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.start-activity-egypt .popup-buttons .yes-button {
+  background-color: #2A7A72;
+  color: white;
+}
+.start-activity-egypt .popup-buttons .yes-button:hover {
+  background-color: #47cabd;
+}
+
+.start-activity-egypt .popup-buttons .no-button {
+  background-color: #e0e0e0;
+  color: #333;
+}
+.start-activity-egypt .popup-buttons .no-button:hover {
+  background-color: #c0c0c0;
+}

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../CSS/StartActivity.css';
 import API from '../API';
-import { Button, Card, Col, Row, Modal } from 'react-bootstrap';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 import ButtonsGeneral from './ButtonsGeneral';
 
 function StartActivity() {
@@ -14,9 +14,6 @@ function StartActivity() {
   const [messages] = useState([
     " We're about to start the real adventure! 🌟 <br> Come back here once you're at the designated location and click <b><i>Begin</i></b> to start the activity! 🚀"
 ]);
-
-
-
   const formatAsList = (text) => {
     if (!text) return text;
   
@@ -140,20 +137,17 @@ function StartActivity() {
         </div>
       </div>
 
-      <Modal show={showModal} onHide={handleClose} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirm Start</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Are you sure you want to start your adventure now?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleConfirm} style={{ backgroundColor: '#800080', borderColor: '#800080' }}>
-            Yes
-          </Button>
-          <Button variant="secondary" onClick={handleClose}>
-            No
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      {showModal && (
+        <div className="popup-overlay">
+          <div className="popup-content">
+            <p>Are you sure you want to start your adventure now?</p>
+            <div className="popup-buttons">
+              <button className="yes-button" onClick={handleConfirm}>Yes</button>
+              <button className="no-button" onClick={handleClose}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
       <ButtonsGeneral messages={messages}></ButtonsGeneral>
     </div>
   );

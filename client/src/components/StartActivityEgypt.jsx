@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../CSS/StartActivityEgypt.css';
-import { Button, Card, Col, Row, Modal } from 'react-bootstrap';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 import ButtonsEgypt from './ButtonsEgypt';
 
 function StartActivityEgypt() {
@@ -31,7 +31,7 @@ function StartActivityEgypt() {
         <>
           <div className="start-activity-egypt">
             <img src={"/img/egitto2.png"} className="activity-image" alt="Activity" />
-            <h2 className="activity-title">Exploring the world ofAncient Egypt</h2>
+            <h2 className="activity-title">Exploring the world of Ancient Egypt</h2>
             <p className="activity-description">Be ready to start your journey deep into the heart of Ancient Egypt. Explore hidden tombs, decipher ancient hieroglyphs, and uncover lost secrets buried in the sands of time. Follow the whispers of pharaohs and unlock the mysteries of a legendary civilization. </p>
 
             <div className="activity-location">
@@ -48,7 +48,6 @@ function StartActivityEgypt() {
               <h4><strong>What you’ll need:</strong></h4>
               <div className="activity-description">
                 <p className="activity-description"> - A camera to capture all the discoveries <br></br>
-                - A magnifying glass to spot every tiny detail <br></br>
                 - Snack and water bottle for a boost of energy</p>
               </div>
             </div>
@@ -111,20 +110,17 @@ function StartActivityEgypt() {
         </div>
       </div>
 
-      <Modal show={showModal} onHide={handleClose} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirm Start</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Are you sure you want to start your adventure now?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleConfirm} style={{ backgroundColor: '#2A7A72', borderColor: '#2A7A72' }}>
-            Yes
-          </Button>
-          <Button variant="secondary" onClick={handleClose}>
-            No
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      {showModal && (
+        <div className="popup-overlay">
+          <div className="popup-content">
+            <p>Are you sure you want to start your adventure now?</p>
+            <div className="popup-buttons">
+              <button className="yes-button" onClick={handleConfirm}>Yes</button>
+              <button className="no-button" onClick={handleClose}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
       <ButtonsEgypt onPopupVisibilityChange={handlePopupVisibilityChange} />
     </div>
   );

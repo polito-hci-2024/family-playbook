@@ -15,10 +15,10 @@ function Activities() {
   const [userName, setUserName] = useState('');
 
   const [messages] = useState([
-    " Great choices! 🎉 Now, based on your <b>character</b>, <b>place</b>, and <b>object</b>, I've come up with some <b> <i> exciting activities</b></i> just for <b>you</b>! 🚀",
-    " Choose the one that sounds the most fun, and get ready for your adventure to begin! 🏃‍♂️💨",
-    " The adventure is waiting, so pick your next challenge and let's make it unforgettable! 🌟"
-]);
+    "Great choices! 🎉 Now, based on your <b>character</b>, <b>place</b>, and <b>object</b>, I've come up with some <b> <i> exciting activities</b></i> just for <b>you</b>! 🚀",
+    "Choose the one that sounds the most fun, and get ready for your adventure to begin! 🏃‍♂️💨",
+    "The adventure is waiting, so pick your next challenge and let's make it unforgettable! 🌟"
+  ]);
 
   const replacePlaceholder = (text, name) => {
     if (!text) return text;
@@ -35,12 +35,12 @@ function Activities() {
   
     return text.replace(/\{\$name\}/g, name);
   };
-  
 
   useEffect(() => {
     const fetchChoices = async () => {
       try {
         const name = localStorage.getItem('userName') || 'Hero';
+        const savedSelectedChoice = localStorage.getItem('selectedChoice');
         setUserName(name);
         
         const data = await API.getActivities();
@@ -53,6 +53,9 @@ function Activities() {
           isChoice: true,
         }));
         setChoices(mappedChoices);
+        if (savedSelectedChoice) {
+          setSelectedChoice(savedSelectedChoice);
+        }
       } catch (error) {
         console.error('Error fetching choices:', error);
       }
@@ -67,7 +70,7 @@ function Activities() {
         setSelectedChoice(null);
       }
     };
-  
+
     document.addEventListener('click', handleClickOutside);
     
     return () => {
@@ -93,6 +96,13 @@ function Activities() {
     } else {
       setModalMessage('Please select an activity first.');
       setShowModal(true);
+    }
+  };
+
+  const handleCardSelect = (id, index) => {
+    if (index !== 1) {
+      setSelectedChoice(id);
+      localStorage.setItem('selectedChoice', id); // Save the selected ID in localStorage
     }
   };
 
@@ -124,7 +134,7 @@ function Activities() {
                       className={`activity-card ${selectedChoice === choice.id ? 'selected' : ''} ${index === 1 ? 'disabled' : ''}`}
                       onClick={(e) => {
                         e.stopPropagation(); 
-                        if (index !== 1) setSelectedChoice(choice.id);
+                        handleCardSelect(choice.id, index);
                       }}
                     >
                       <img
@@ -160,7 +170,8 @@ function Activities() {
 
         <Modal show={showModal} onHide={handleCloseModal}>
           <Modal.Header closeButton>
-            <Modal.Title>Attention</Modal.Title>
+            <Modal.Title>Attention</Modal.Title
+            >
           </Modal.Header>
           <Modal.Body>{modalMessage}</Modal.Body>
           <Modal.Footer>
