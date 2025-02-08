@@ -6,7 +6,7 @@ import '../CSS/ChapterZero.css';
 import FormCharacterPage from './FormCharacterPage';
 import ModalGuide from './ModalGuide'
 import ButtonsGeneral from './ButtonsGeneral';
-import InteractiveGuide from './GuidaRebecca';
+import InteractiveGuide from './Guide';
 function ChapterZero() {
 
   const [messages] = useState([

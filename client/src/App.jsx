@@ -32,7 +32,7 @@ import Esempio4 from './components/Esempio4';
 import Esempio5 from './components/Esempio5';
 import Esempio7 from './components/Esempio7';
 import StartActivityEgypt from './components/StartActivityEgypt';
-import InteractiveGuide from './components/GuidaRebecca';
+import InteractiveGuide from './components/Guide';
 
 function App() {
   const [isTablet, setIsTablet] = useState(false);

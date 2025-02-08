@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import InteractiveGuide from './GuidaRebecca';
+import InteractiveGuide from './Guide';
 const ButtonsGeneral = ({ messages }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [showGuide, setShowGuide] = useState(false); 

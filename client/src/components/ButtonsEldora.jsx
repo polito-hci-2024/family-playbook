@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom"; 
 import { useNavigate } from "react-router-dom";
 import '../CSS/Buttons.css';
-import InteractiveGuide from "./GuidaRebecca";
+import InteractiveGuide from "./Guide";
 import { motion } from "framer-motion";
 
 
