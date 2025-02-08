@@ -32,7 +32,7 @@
     padding: 25px;
     border-radius: 20px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    width: 100%; /* Assicura che la box prenda tutta la larghezza disponibile */
+    width: 100%; 
     max-width: 80%;
     min-height: 120px;
     font-weight: 600;
@@ -44,7 +44,7 @@
     text-align: center;
     position: relative;
     margin: 0 auto;
-    z-index: 5; /* Impostato un z-index più basso rispetto al bottone "skip" */
+    z-index: 5; 
   }
   
   .progress-dots {

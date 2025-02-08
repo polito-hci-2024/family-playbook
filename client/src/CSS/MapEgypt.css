@@ -1,4 +1,3 @@
-/* Contenitore principale della mappa */
 .egypt .map-container {
   background-image: url("/img/mappaEgitto.jpg");
   background-size: cover;
@@ -8,7 +7,7 @@
   padding: 20px;
 }
 
-/* Titolo */
+
 .egypt .map-title {
   text-align: center;
   color: white;
@@ -18,7 +17,6 @@
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
-/* Bottone generico delle challenge */
 .egypt .challenge-button {
   width: 120px;
   height: 120px;
@@ -34,24 +32,20 @@
   border: 3px solid #fff;
 }
 
-/* Bottone completato */
 .egypt .challenge-button.completed {
-  background-color: #8B4513; /* Marrone */
+  background-color: #8B4513; 
 }
 
-/* Bottone incompleto */
 .egypt .challenge-button.incomplete {
   background-color: #555555;
   opacity: 0.8;
 }
 
-/* Pulsanti con effetto 3D */
 .egypt .challenge-button:active {
   transform: scale(0.95);
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Etichetta della challenge */
 .egypt .challenge-label {
   width: 160px;
   background-color: rgba(255, 255, 255, 0.9);
@@ -68,13 +62,11 @@
   transform: translateX(-50%);
 }
 
-/* Etichetta incompleta */
 .egypt .challenge-label.incomplete {
   font-style: italic;
   color: #888;
 }
 
-/* Posizionamenti specifici delle challenge */
 .egypt .challenge-1 {
   position: absolute;
   bottom: 38%;
@@ -89,7 +81,6 @@
   text-align: center;
 }
 
-/* Bottone "Back to Story" */
 .egypt .back-to-story-button {
   position: absolute;
   bottom: 20px;
@@ -105,20 +96,17 @@
   transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-/* Effetto clic su bottone */
 .egypt .back-to-story-button:active {
   transform: scale(0.95);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Centra il modal */
 .egypt .modal-dialog {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Bottone marrone per il modal */
 .egypt .brown-button {
   background-color: #8B4513;
   border: none;
@@ -137,35 +125,31 @@
   background-color: #5A3318;
 }
 
-/* Bottone "Go to the forest map" con freccia verso sinistra */
 .egypt .arrow-button {
   position: absolute;
   top: 20px;
   left: 20px;
-  /*background-color: #8B4513;  Colore marrone */
-  background-color: #6a1b9a; /* Colore viola, come la foresta */
+  background-color: #6a1b9a; 
   color: white;
   font-size: 20px;
   font-weight: bold;
-  padding: 15px 40px; /* Spazio interno */
+  padding: 15px 40px;
   border: none;
   cursor: pointer;
   text-align: center;
-  border-radius: 40px; /* Arrotonda i bordi */
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); /* Ombreggiatura */
+  border-radius: 40px; 
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
   display: inline-block;
-  width: 250px; /* Larghezza del bottone */
-  clip-path: polygon(0% 50%, 15% 0%, 100% 0%, 100% 100%, 15% 100%); /* Freccia verso sinistra */
+  width: 250px; 
+  clip-path: polygon(0% 50%, 15% 0%, 100% 0%, 100% 100%, 15% 100%); 
   transition: background-color 0.3s ease, transform 0.2s ease;
-  z-index: 10; /* Assicura che il bottone sia visibile sopra altri elementi */
+  z-index: 10; 
 }
 
-/* Effetto hover */
 .egypt .arrow-button:hover {
-  background-color: #A0522D; /* Marrone più chiaro */
+  background-color: #A0522D; 
 }
 
-/* Effetto clic */
 .egypt .arrow-button:active {
   transform: scale(0.95);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);

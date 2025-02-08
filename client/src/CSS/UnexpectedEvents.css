@@ -1,170 +1,164 @@
 @import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+ES+Deco+Guides&family=Quintessential&family=Schoolbell&display=swap');
  
- /* Stile per l'icona in alto a destra */
- .top-right-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    z-index: 1000;
-  }
-  
-  .top-right-icon img {
-    width: 180px;
-    height: 180px;
-  }
-  
-  /* Stile per il pop-up */
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-  
-  .popup-content {
-    background-color: white;
-    border-radius: 10px;
-    padding: 40px;
-    text-align: center;
-    max-width: 800px;
-    max-height: 800px;
-    box-shadow: 0 4px 6px rgb(69, 6, 58);
-  }
+.top-right-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
 
-  .popupEgypt-content {
-    background-color: white;
-    border-radius: 10px;
-    padding: 40px;
-    text-align: center;
-    max-width: 800px;
-    max-height: 800px;
-    box-shadow: 0 4px 6px #2A7A72;
-  }
-  
-  .popup-content h2 {
-    font-family: 'Quintessential', sans-serif;
-    font-size: 3rem;
-    color: #720B5B;
-    margin-bottom: 50px;
-    font-weight: bold;
-  }
+.top-right-icon img {
+  width: 180px;
+  height: 180px;
+}
 
-  .popupEgypt-content h2 {
-    font-family: 'Quintessential', sans-serif;
-    font-size: 3rem;
-    color: #2A7A72;
-    margin-bottom: 50px;
-    font-weight: bold;
-    text-shadow: 3px 3px 4px  #47cabd;
-  }
-  
-  .popup-icons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin-bottom: 50px;
-    margin-left: 20px;
-  }
-  
-  /* Stile per ogni icona */
-  .popup-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    width: 200px; /* Impostiamo una larghezza fissa */
-    height: 200px;
-    border-radius: 50%;
-  }
-  
-  .popup-icon img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  
-  /* Testo sotto le icone */
-  .popup-icon span {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 1.4rem;
-    color: #333;
-  }
-  
-  .popup-icon.disabled {
-    cursor: not-allowed;
-    opacity: 0.3;
-    pointer-events: none;
-  }
-  
-  /* Stile per la domanda */
-  .popup-question {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.8rem;
-    color: #555;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  .popup-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .popup-buttons button {
-    padding: 10px 20px;
-    font-size: 1.6rem;
-    font-family: 'Poppins', sans-serif;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .popup-buttons .yes-button {
-    background-color: #5b0d4d;
-    color: white;
-  }
-  
-  .popup-buttons .yes-button:hover {
-    background-color: #b31f98;
-  }
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
 
-  .popup-buttons .yes-buttonEgypt {
-    background-color: #2A7A72;
-    color: white;
-  }
-  
-  .popup-buttons .yes-buttonEgypt:hover {
-    background-color: #47cabd;
-  }
-  
-  .popup-buttons .no-button {
-    background-color: #e0e0e0;
-    color: #333;
-  }
-  
-  .popup-buttons .no-button:hover {
-    background-color: #c0c0c0;
-  }
-  
-  .popup-icon.selected {
-    /*border: 3px solid #5b0d4d; /* Aggiungi un bordo per illuminare l'icona */
-    box-shadow: 0 0 10px rgba(254, 188, 33, 0.996); /* Aggiungi un'ombra per effetto di illuminazione */
-  }
-  
-  
-  .popup-icon.selected img {
-    filter: brightness(1.2); /* Rende l'immagine più luminosa quando selezionata */
-  }
+.popup-content {
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  max-width: 800px;
+  max-height: 800px;
+  box-shadow: 0 4px 6px rgb(69, 6, 58);
+}
+
+.popupEgypt-content {
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  max-width: 800px;
+  max-height: 800px;
+  box-shadow: 0 4px 6px #2A7A72;
+}
+
+.popup-content h2 {
+  font-family: 'Quintessential', sans-serif;
+  font-size: 3rem;
+  color: #720B5B;
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+
+.popupEgypt-content h2 {
+  font-family: 'Quintessential', sans-serif;
+  font-size: 3rem;
+  color: #2A7A72;
+  margin-bottom: 50px;
+  font-weight: bold;
+  text-shadow: 3px 3px 4px  #47cabd;
+}
+
+.popup-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+  margin-left: 20px;
+}
+
+.popup-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 200px; 
+  height: 200px;
+  border-radius: 50%;
+}
+
+.popup-icon img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.popup-icon span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.popup-icon.disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.popup-question {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  color: #555;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.popup-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.popup-buttons button {
+  padding: 10px 20px;
+  font-size: 1.6rem;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-buttons .yes-button {
+  background-color: #5b0d4d;
+  color: white;
+}
+
+.popup-buttons .yes-button:hover {
+  background-color: #b31f98;
+}
+
+.popup-buttons .yes-buttonEgypt {
+  background-color: #2A7A72;
+  color: white;
+}
+
+.popup-buttons .yes-buttonEgypt:hover {
+  background-color: #47cabd;
+}
+
+.popup-buttons .no-button {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.popup-buttons .no-button:hover {
+  background-color: #c0c0c0;
+}
+
+.popup-icon.selected {
+  box-shadow: 0 0 10px rgba(254, 188, 33, 0.996);
+}
+
+
+.popup-icon.selected img {
+  filter: brightness(1.2); 
+}

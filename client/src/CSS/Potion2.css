@@ -11,7 +11,6 @@
     padding-bottom: 20px; 
 }
 
-/* Titolo in alto */
 .potion2 .title {
     font-size: 4rem;
     font-weight: bold;
@@ -35,18 +34,18 @@
   
 .potion2 .incantesimo-container {
     margin-top: 10px;
-    position: relative; /* Permette di posizionare gli elementi al suo interno */
-    display: inline-flex; /* Si adatta al contenuto */
+    position: relative; 
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px; /* Per non far toccare troppo il testo ai bordi */
+    padding: 10px; 
 }
 .potion2 .create {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra orizzontalmente il contenuto */
+    align-items: center; 
     justify-content: center;
-    text-align: center; /* Centra il testo dentro gli elementi */
+    text-align: center; 
     padding: 20px;
   }
 
@@ -73,7 +72,6 @@
     left:10%;
 }
 
-/* Effetto parole filastrocca */
 .potion2 .filastrocca span {
     opacity: 0.5;
     transition: opacity 0.5s, color 0.5s;
@@ -81,57 +79,53 @@
 
 .potion2 .filastrocca span.active {
     opacity: 1;
-    color: #4B3621; /* Marrone scuro */
-
+    color: #4B3621; 
 }
 
-/* CONTENITORE del calderone in basso */
 .potion2 .container {
     position: absolute;
-    bottom: -5px; /* Fissato in basso */
+    bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    height: 800px; /* Altezza per il calderone */
+    height: 800px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
 
-/* CALDERONE */
 .potion2 .calderone {
     width: 75%;
     height: auto;
     position: relative;
 }
 
-/* MESTOLO sopra il calderone */
 .potion2 .mestolo {
     position: absolute;
     left: 45%;
     margin-bottom: 290px;
-    width: 80px; /* Modifica a seconda della dimensione del mestolo */
+    width: 80px; 
     height: auto;
-    cursor: grab; /* Indica che può essere trascinato */
-    transform-origin: bottom center; /* Rotazione più realistica */
+    cursor: grab; 
+    transform-origin: bottom center;
 }
 
 .potion2 .mestolo:active {
-    cursor: grabbing; /* Cambia il cursore mentre viene trascinato */
+    cursor: grabbing; 
 }
 
 
 @media (max-width: 768px) {
     .potion2 .filastrocca {
-        font-size: 1.5rem; /* Riduce il testo su dispositivi più piccoli */
+        font-size: 1.5rem;
     }
 }
 
 .sparkle-container {
     position: fixed;
-    bottom: 280px; /* Margine dal fondo della pagina */
+    bottom: 280px; 
     left: 50%;
-    transform: translateX(-50%); /* Per centrare orizzontalmente */
+    transform: translateX(-50%); 
     width: 100%;
     height: 100%;
     pointer-events: none;
@@ -140,13 +134,13 @@
   }
   
   .potion2 .modal {
-    position: fixed; /* Mantiene il modale fisso al centro */
+    position: fixed;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100vw;
-    height: 120vh; /* 🔹 Copre l'intero schermo */
-    background: rgba(178, 170, 170, 0.6); /* Sfondo trasparente scuro */
+    height: 120vh; 
+    background: rgba(178, 170, 170, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,7 +157,7 @@
     text-align: center;
     width: 80%;
     max-width: 500px;
-    box-shadow: 0px 4px 20px rgba(114, 11, 91, 0.4), 0px 0px 15px rgba(114, 11, 91, 0.3); /* Ombra colorata */
+    box-shadow: 0px 4px 20px rgba(114, 11, 91, 0.4), 0px 0px 15px rgba(114, 11, 91, 0.3); 
   }
   
   .potion2 .modal button {
@@ -191,7 +185,6 @@
     margin: 0px auto;
   }
 
-  /* Stile per le frecce di navigazione */
 .potion2 .arrow {
     position: fixed;
     top: 50%;
@@ -209,11 +202,11 @@
 }
 
 .potion2 .arrow-left {
-    left: 20px; /* Posizione della freccia sinistra */
+    left: 20px; 
 }
 
 .potion2 .arrow-right {
-    right: 20px; /* Posizione della freccia destra */
+    right: 20px;
 }
 
 .potion2 .video-overlay {
@@ -238,6 +231,6 @@
   }
   
   .potion2 .video-overlay:active {
-    display: none; /* Nasconde il video quando si tocca lo schermo */
+    display: none; 
   }
   

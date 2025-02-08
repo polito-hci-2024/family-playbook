@@ -7,17 +7,15 @@ const ButtonsGeneral = () => {
     setShowPopup(true);
     setTimeout(() => {
       setShowPopup(false);
-    }, 3000); // Il popup scompare dopo 3 secondi
+    }, 3000); 
   };
 
-  // Stili inline per il bottone disabilitato
   const disabledButtonStyle = {
     filter: 'grayscale(100%)',
     opacity: '0.5',
     cursor: 'not-allowed'
   };
 
-  // Stili inline per il popup
   const popupStyle = {
     position: 'fixed',
     bottom: '150px',
@@ -42,7 +40,6 @@ const ButtonsGeneral = () => {
       <div className="bottom-center-wrapper">
         <div className="bottom-center-icons">
           <div className="floating-buttons">
-            {/* Bottone per aprire il popup */}
             <div className="icon-container" onClick={handleButtonClick}>
               <img
                 src="/img/buttons/imprevisto.png"
@@ -51,7 +48,6 @@ const ButtonsGeneral = () => {
                 style={disabledButtonStyle}
               />
             </div>
-            {/* Bottone per la mappa */}
             <div className="icon-container" onClick={handleButtonClick}>
               <img
                 src="/img/buttons/map.png"
@@ -60,7 +56,6 @@ const ButtonsGeneral = () => {
                 style={disabledButtonStyle}
               />
             </div>
-            {/* Bottone placeholder */}
             <div className="icon-container">
               <img
                 src="/img/buttons/info.png"

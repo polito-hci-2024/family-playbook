@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom"; // Per il portal
+import ReactDOM from "react-dom"; 
 import { useNavigate } from "react-router-dom";
 import '../CSS/Buttons.css';
 
@@ -8,7 +8,6 @@ const ButtonsEldora = ({ onPopupVisibilityChange }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [selectedIcon, setSelectedIcon] = useState(null);
 
-  // Comunica al componente padre ogni variazione dello stato del popup
   useEffect(() => {
     if (onPopupVisibilityChange) {
       onPopupVisibilityChange(isPopupVisible);
@@ -33,18 +32,16 @@ const ButtonsEldora = ({ onPopupVisibilityChange }) => {
     if (selectedIcon === 'raining') {
       navigate("/raining");
     } else if (selectedIcon === 'end_activity') {
-      navigate("/");
+      navigate("/last-chapter");
     }
     closePopup();
   };
 
-  // Markup dei bottoni (rimane nella gerarchia originale)
   const buttonsMarkup = (
     <div className="barraBottoni">
       <div className="bottom-center-wrapper">
         <div className="bottom-center-icons">
           <div className="floating-buttons">
-            {/* Bottone per aprire il popup */}
             <div className="icon-container" onClick={openPopup}>
               <img
                 src="/img/buttons/imprevisto.png"
@@ -52,7 +49,6 @@ const ButtonsEldora = ({ onPopupVisibilityChange }) => {
                 className="floating-button"
               />
             </div>
-            {/* Bottone per la mappa */}
             <div className="icon-container" onClick={() => navigate("/map")}>
               <img
                 src="/img/buttons/map.png"
@@ -60,7 +56,6 @@ const ButtonsEldora = ({ onPopupVisibilityChange }) => {
                 className="floating-button"
               />
             </div>
-            {/* Bottone placeholder */}
             <div className="icon-container">
               <img
                 src="/img/buttons/info.png"
@@ -74,7 +69,6 @@ const ButtonsEldora = ({ onPopupVisibilityChange }) => {
     </div>
   );
 
-  // Il markup del popup viene renderizzato tramite React Portal
   const popupMarkup =
     isPopupVisible &&
     ReactDOM.createPortal(
@@ -86,7 +80,6 @@ const ButtonsEldora = ({ onPopupVisibilityChange }) => {
   <h2>Puzzle of unexpected events</h2>
 
           <div className="popup-icons">
-            {/* Icona "It's raining" */}
             <div
               className={`popup-icon ${selectedIcon === "raining" ? "selected" : ""}`}
               onClick={() => handleIconSelection("raining")}
@@ -94,7 +87,6 @@ const ButtonsEldora = ({ onPopupVisibilityChange }) => {
               <img src="/img/unexpected/raining.png" alt="It's raining" />
               <span>It's raining</span>
             </div>
-            {/* Icona "End activity" */}
             <div
               className={`popup-icon ${selectedIcon === "end_activity" ? "selected" : ""}`}
               onClick={() => handleIconSelection("end_activity")}
@@ -102,7 +94,6 @@ const ButtonsEldora = ({ onPopupVisibilityChange }) => {
               <img src="/img/unexpected/end_activity.png" alt="End activity" />
               <span>End activity</span>
             </div>
-            {/* Icone disabilitate */}
             <div className="popup-icon disabled">
               <img src="/img/unexpected/not_for_me.png" alt="Not for me" />
               <span>Not for me</span>
@@ -123,7 +114,7 @@ const ButtonsEldora = ({ onPopupVisibilityChange }) => {
           )}
         </div>
       </div>,
-      document.body // Il popup viene montato direttamente sul body
+      document.body 
     );
 
   return (

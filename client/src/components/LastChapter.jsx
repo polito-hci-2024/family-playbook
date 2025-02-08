@@ -64,8 +64,8 @@ function LastChapter() {
                 <Container>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="formRating" className="mb-3">
-                            <Form.Label className='title2'>Did you enjoy this activity? <span className="required">*</span></Form.Label>
-                            <Form.Label className='title3'><br/>Please, leave your rating!</Form.Label>
+                            <Form.Label className='title2'>Did you enjoy this activity?  <span className="required">*</span> </Form.Label>
+                            <Form.Label className='title3'>Please, leave your rating!</Form.Label>
                             <Form.Control
                                 as="select"
                                 name="rating"

@@ -145,38 +145,29 @@ background-color: rgb(255, 255, 255);
     animation: pulseGlow 2s infinite;
 }
 
-@keyframes pulseGlow {
-    0%, 100% {
-        box-shadow: 0 0 20px 10px rgba(114, 11, 91, 0.5);
-    }
-    50% {
-        box-shadow: 0 0 40px 20px rgba(114, 11, 91, 0.75);
-    }
-}
-
 .disabled {
-    opacity: 0.6; /* Aumenta leggermente l'opacità per una migliore visibilità */
-    pointer-events: none; /* Impedisce interazioni con l'utente */
-    filter: grayscale(100%); /* Applica un filtro in scala di grigi */
+    opacity: 0.6; 
+    pointer-events: none; 
+    filter: grayscale(100%); 
 }
 
 .success-message {
     position: fixed;
-    top: 20px; /* Inizio vicino al bordo superiore e rimane a 20px di distanza */
+    top: 20px; 
     left: 50%;
-    transform: translateX(-50%) translateY(-100vh); /* Parte dall'alto fuori dallo schermo */
+    transform: translateX(-50%) translateY(-100vh);
     width: 80%;
     max-width: 400px;
-    background-color: rgba(114, 11, 91, 0.9); /* Viola scuro semitrasparente */
+    background-color: rgba(114, 11, 91, 0.9); 
     border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.2); /* Ombra esterna e leggera ombra interna bianca */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.2); 
     text-align: center;
     color: white;
     font-family: 'Poppins', sans-serif;
     z-index: 1001;
-    opacity: 0; /* Parte come invisibile */
-    animation: slideDown 0.7s ease-out forwards; /* Animate appearance */
+    opacity: 0; 
+    animation: slideDown 0.7s ease-out forwards; 
 }
 
 .success-message h2 {
@@ -190,21 +181,26 @@ background-color: rgb(255, 255, 255);
     color: #FFFFFF;
 }
 
-/* Animazione per far apparire il messaggio dall'alto */
 .success-message {
     animation: slideDown 0.7s ease-out forwards;
 }
 
 @keyframes slideDown {
     0% {
-        transform: translateX(-50%) translateY(-100vh); /* Parte da sopra lo schermo */
+        transform: translateX(-50%) translateY(-100vh); 
         opacity: 0;
     }
     100% {
-        transform: translateX(-50%) translateY(0); /* Termina a 20px dal top */
+        transform: translateX(-50%) translateY(0); 
         opacity: 1;
     }
 }
 
-
-
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px 10px rgba(114, 11, 91, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px 20px rgba(114, 11, 91, 0.75);
+    }
+}

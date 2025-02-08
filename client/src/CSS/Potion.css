@@ -30,12 +30,11 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 450;
     color: #262626;
-    margin: 30px auto 0; /* Centra orizzontalmente e mantiene il margine superiore */
+    margin: 30px auto 0; 
     text-align: center;
     width: 80%;
 }
 
-/* Lista degli ingredienti */
 .potion .ingredients-list {
     display: flex;
     flex-wrap: wrap;
@@ -46,60 +45,55 @@
     width: 70%;
 }
 
-/* Stile per ogni card di ingrediente */
 .potion .ingredient-card {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 220px; /* Larghezza fissa */
-    height: 230px; /* Altezza fissa */
+    width: 220px;
+    height: 230px; 
     padding: 15px 0;
     border-radius: 8px;
     border: 1px solid #ddd;
     cursor: grab;
     position: relative;
     box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.7); /* Sfondo leggermente trasparente */
+    background: rgba(255, 255, 255, 0.7); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    word-wrap: break-word; /* Gestisce correttamente il testo lungo */
+    word-wrap: break-word; 
 }
 .potion .ingredient-card.disabled {
-    opacity: 0.5; /* Riduci l'opacità per mostrare che è disabilitata */
-    cursor: not-allowed; /* Cambia il cursore per indicare che non è possibile interagire */
+    opacity: 0.5; 
+    cursor: not-allowed; 
   }
   
-/* Badge quantità */
 .potion .ingredient-card .ingredient-quantity-badge {
     position: absolute;
     top: -10px;
     right: -10px;
-    background-color: #720B5B; /* Colore viola per richiamare il tema */
-    color: white; /* Testo bianco */
-    border-radius: 8px; /* Bordo arrotondato */
-    padding: 5px 10px; /* Spaziatura interna */
-    font-size: 1rem; /* Dimensione testo */
-    font-weight: bold; /* Testo in grassetto */
-    font-family: 'Poppins', sans-serif; /* Font famiglia */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Leggera ombra */
-    z-index: 1; /* Sopra gli altri elementi */
+    background-color: #720B5B; 
+    color: white;
+    border-radius: 8px; 
+    padding: 5px 10px; 
+    font-size: 1rem; 
+    font-weight: bold; 
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    z-index: 1; 
 }
 
-/* Immagine della card */
 .potion .ingredient-card img {
-    max-width: 70%; /* Immagine che riempie una porzione maggiore della card */
-    height: auto; /* Mantiene le proporzioni dell'immagine */
+    max-width: 70%; 
+    height: auto;
     border-radius: 4px;
     margin-top: 0px;
 }
 
-/* Effetto hover sulle card */
 .potion .ingredient-card:hover {
-    transform: scale(1.05); /* Ingrandisce leggermente la card */
-    box-shadow: 0 8px 16px rgba(114, 11, 91, 0.5); /* Ombra più intensa */
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(114, 11, 91, 0.5); 
 }
 
-/* Testo dentro la card */
 .potion .ingredient-card p {
     text-align: center;
     margin-top: 10px;
@@ -109,26 +103,25 @@
     font-style: Lato, sans-serif;
 }
 
-/* Stile per il calderone */
 .potion .cauldron {
     width: 500px;
     height: 400px;
-    position: fixed; /* Fissa il calderone alla posizione desiderata */
-    bottom: -80px; /* Distanza dal bordo inferiore */
-    left: 50%; /* Centra il calderone orizzontalmente */
-    transform: translateX(-50%); /* Allinea il calderone al centro */
+    position: fixed; 
+    bottom: -80px;
+    left: 50%; 
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
     overflow: hidden;
-    z-index: 10; /* Assicurati che il calderone sia sopra altri elementi */
+    z-index: 10; 
 }
 
 .potion .cauldron-image {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Mantiene l'immagine proporzionata senza deformarla */
+    object-fit: contain; 
     position: absolute;
     top: 0;
     left: 0;
@@ -141,7 +134,7 @@
   }
   
 .potion .cauldron-ingredient img {
-    width: 30px; /* Riduci la dimensione dell'immagine per il calderone */
+    width: 30px;
     height: auto;
   }
   
@@ -157,7 +150,6 @@
     z-index: 1;
 }
 
-/* Stile per le frecce di navigazione */
 .potion .arrow {
     position: fixed;
     top: 50%;
@@ -175,15 +167,15 @@
 }
 
 .potion .arrow-left {
-    left: 20px; /* Posizione della freccia sinistra */
+    left: 20px; 
 }
 
 .potion .arrow-right {
-    right: 20px; /* Posizione della freccia destra */
+    right: 20px; 
 }
 
 .potion .arrow.enabled:hover {
-    background-color: #e0d9c6; /* Cambia colore quando hover */
+    background-color: #e0d9c6; 
 }
 
 .potion .arrow.disabled {
@@ -192,8 +184,8 @@
 }
 .potion .buttons-eldora-container {
     position: absolute;
-    bottom: 0px; /* Ajust the '100px' to position it above the cauldron */
+    bottom: 0px; 
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 20; /* Make sure this is higher than the cauldron's z-index */
+    z-index: 20; 
 }
