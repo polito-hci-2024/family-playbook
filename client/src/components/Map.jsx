@@ -29,7 +29,6 @@ function Map() {
         if (challengeIds.includes(5)) newChallenges[1] = true;
         setChallenges(newChallenges);
 
-        // Controlla se mostrare il bottone "Go to Egypt map"
         if (challengeIds.includes(4) || challengeIds.includes(5)) {
           setShowAdvancedButton(true);
         }
@@ -69,7 +68,6 @@ function Map() {
 
   return (
     <div className="map-container">
-      {/* Magical Potion Making */}
       <div className="challenge-1">
         <div
           className={`challenge-button ${challenges[0] ? 'completed' : 'incomplete'}`}
@@ -82,7 +80,6 @@ function Map() {
         </div>
       </div>
 
-      {/* Treasure Key Hunt */}
       <div className="challenge-2">
         <div
           className={`challenge-button ${challenges[1] ? 'completed' : 'incomplete'}`}
@@ -95,7 +92,6 @@ function Map() {
         </div>
       </div>
 
-      {/* Fairy House Building */}
       <div className="challenge-3">
         <div
           className={`challenge-button ${challenges[2] ? 'completed' : 'incomplete'}`}
@@ -108,7 +104,6 @@ function Map() {
         </div>
       </div>
 
-      {/* Back to Story Button */}
       <div>
         <Button
           className="back-to-story-button"
@@ -130,7 +125,6 @@ function Map() {
         </div>
       )} Al momento disabilitato*/}
 
-      {/* Congratulations Modal */}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>Congratulations!</Modal.Title>

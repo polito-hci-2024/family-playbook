@@ -52,7 +52,7 @@ const Scratch = () => {
     <div className="scratch">
       <h1 className="title">The Quest for the Lost <br />Fragment</h1>
       <p className="intro">
-        The amulet is incomplete, missing a crucial fragment hidden deep within Eldoria. <br /> 
+        The amulet is incomplete, missing a crucial fragment hidden deep within Eldora. <br /> 
         Without it, the darkness will spread. Explore the forest’s cards to find the one that holds the missing piece and restore the amulet’s power to complete your quest.
       </p>
 
@@ -66,7 +66,7 @@ const Scratch = () => {
             <div className="card-inner" style={completedImage === image.id ? {animation: 'pulseGlow 2s infinite'} : null}>
               <div className="card-front">
                 <img
-                  src="../img/object/blocco.jpg"
+                  src="../img/challenges/card.png"
                   alt="Mystery Icon"
                   className="card-front-icon"
                 />
@@ -84,22 +84,23 @@ const Scratch = () => {
           src="/img/back.png"
           alt="Arrow Left"
           className="arrow arrow-left"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/last-step-selection-eldora')}
         />
-        <img
-          src="/img/next.png"
-          alt="Arrow Right"
-          className={`arrow arrow-right ${isNextArrowActive ? "enabled" : "disabled"}`}
-          onClick={isNextArrowActive ? handleNavigateNext : null}
-        />
+        {isNextArrowActive && ( 
+          <img
+            src="/img/next.png"
+            alt="Arrow Right"
+            className="arrow arrow-right"
+            onClick={handleNavigateNext}
+          />
+        )}
       </div>
       <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
 
-      {/*showConfetti && <Confetti recycle={false} />*/}
       {showSuccessMessage && (
         <div className="success-message">
           <h2>Hooray! You've found the missing fragment!</h2>
-          <p>Click next to continue your journey and save Eldoria!</p>
+          <p>Click next to continue your journey and save Eldora!</p>
         </div>
       )}
     </div>

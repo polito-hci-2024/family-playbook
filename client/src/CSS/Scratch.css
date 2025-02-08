@@ -89,11 +89,6 @@
     background-color: #e0d9c6; 
 }
 
-.scratch .arrow.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
 .scratch .card {
     width: 250px;
     height: 250px;
@@ -148,7 +143,7 @@ background-color: rgb(255, 255, 255);
 .disabled {
     opacity: 0.6; 
     pointer-events: none; 
-    filter: grayscale(100%); 
+    filter: brightness(90%); 
 }
 
 .success-message {

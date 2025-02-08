@@ -26,7 +26,6 @@ function CongratulationsPotion() {
   return (
   <div className="congratulations">
     <div className="congratulations-container">
-      {/* Background Video o Immagine statica */}
       <video
         className="background-video"
         src="/mp4/congrats_eldora.mp4"
@@ -35,7 +34,6 @@ function CongratulationsPotion() {
         loop={false}
       ></video>
 
-      {/* Titolo */}
       <motion.h1
         className="title"
         initial={{ opacity: 0, y: -20 }}
@@ -45,13 +43,11 @@ function CongratulationsPotion() {
         Congratulations, {userName}!
       </motion.h1>
 
-      {/* Story Box */}
       <div className="story-box">
         <p className="story-text">
           You’ve restored the forest’s creatures and revived Eldora’s magic!
         </p>
 
-        {/* Immagine centrata */}
         <div className="story-image-container">
           <img className="story-image" src="/img/StoryPages/happy_animals.png" alt="Happy Animals" />
         </div>
@@ -64,7 +60,6 @@ function CongratulationsPotion() {
         <p className="story-text"> Until the next adventure… 🌟 </p>
       </div>
 
-      {/* Mascotte */}
       <motion.img
         className="mascotte"
         src="/img/lumi_smile.png"
@@ -73,22 +68,20 @@ function CongratulationsPotion() {
         animate={{ scale: 1 }}
       />
 
-      {/* Frecce per navigazione */}
       <img
         src="/img/back.png"
         alt="Arrow Left"
         className="arrow arrow-left"
-        onClick={handleBack} // Usare la funzione esistente
+        onClick={handleBack} 
       />
       
       <img
         src="/img/next.png"
         alt="Arrow Right"
         className="arrow arrow-right"
-        onClick={handleNext} // Usare la funzione esistente
+        onClick={handleNext} 
       />
 
-      {/* Pulsanti extra */}
       <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
     </div>
   </div>

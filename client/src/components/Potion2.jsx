@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import "../CSS/Potion2.css"; // File CSS per lo stile
+import "../CSS/Potion2.css";
 import { useNavigate } from 'react-router-dom'; 
 import ButtonsEldora from "./ButtonsEldora";
 import API from '../API.mjs';
@@ -7,7 +7,7 @@ import API from '../API.mjs';
 const Potion2 = () => {
   const mestoloRef = useRef(null);
   const [rotation, setRotation] = useState(0);
-  const [xPosition, setXPosition] = useState(0); // 🔹 Posizione orizzontale
+  const [xPosition, setXPosition] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [prevRotation, setPrevRotation] = useState(0);
@@ -27,12 +27,12 @@ const Potion2 = () => {
   };
 
   const handleNavigateNext = async () => {
-    const user_id = localStorage.getItem('userId'); // Recupera l'ID utente dal localStorage
-    const challenge_id = 1; // ID della sfida da passare
+    const user_id = localStorage.getItem('userId'); 
+    const challenge_id = 1; 
 
     try {
       await API.insertChallenge(user_id, challenge_id);
-      navigate('/stepsPotion/2'); // Naviga alla prossima pagina dopo l'inserimento
+      navigate('/stepsPotion/2');
     } catch (error) {
       console.error('Failed to insert challenge:', error);
     }
@@ -58,7 +58,7 @@ const Potion2 = () => {
     if (newX > 100) newX = 100;
 
     
-    let newRotation = (newX / 100) * 45; // La rotazione va da -45° a +45° in base a x
+    let newRotation = (newX / 100) * 45; 
 
    
     setXPosition(newX);
@@ -66,7 +66,6 @@ const Potion2 = () => {
     mestoloRef.current.style.transform = `translateX(${newX}px) rotate(${newRotation}deg)`;
     setStartX(currentX);
 
-    // Cambia parola ogni 20° di variazione rispetto alla rotazione precedente
     if (Math.abs(newRotation - prevRotation) >= 20 && wordIndex < words.length) {
       setWordIndex((prevIndex) => Math.min(prevIndex + 1, words.length - 1));
       setPrevRotation(newRotation);
@@ -155,14 +154,12 @@ const Potion2 = () => {
         </div>
         {(
           <>
-            {/* Freccia sinistra */}
             <img
               src="/img/back.png"
               alt="Arrow Left"
               className="arrow arrow-left"
               onClick={handleNavigatePrec}
             />
-            {/* Freccia destra: visibile solo quando `wordIndex` è l'ultimo */}
             {wordIndex === words.length - 1 && (
               <img
                 src="/img/next.png"

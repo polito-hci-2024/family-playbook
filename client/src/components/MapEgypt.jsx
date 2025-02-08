@@ -66,7 +66,6 @@ function MapEgypt() {
   Go to forest map
 </div>*/}
 
-        {/* Anubis' Hidden Symbol Hunt */}
         <div className="challenge-1">
           <div
             className={`challenge-button ${challenges[0] ? 'completed' : 'incomplete'}`}
@@ -79,7 +78,6 @@ function MapEgypt() {
           </div>
         </div>
 
-        {/* The Pharaoh's Enigmatic Scroll */}
         <div className="challenge-2">
           <div
             className={`challenge-button ${challenges[1] ? 'completed' : 'incomplete'}`}
@@ -92,7 +90,6 @@ function MapEgypt() {
           </div>
         </div>
 
-        {/* Back to Story Button */}
         <div>
           <Button
             className="back-to-story-button"
@@ -102,7 +99,6 @@ function MapEgypt() {
           </Button>
         </div>
 
-        {/* Congratulations Modal */}
         <Modal show={showModal} onHide={handleCloseModal} centered>
           <Modal.Header closeButton>
             <Modal.Title>Congratulations!</Modal.Title>

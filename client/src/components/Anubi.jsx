@@ -28,7 +28,7 @@ function Anubi() {
     setDeleteIndex(null); 
   };
   const handleNavigate = async () => {
-    const user_id = localStorage.getItem('userId'); // Recupera l'ID utente dal localStorage
+    const user_id = localStorage.getItem('userId'); 
     const challenge_id = 3;
     if (photos.length === 3) {
       try {
@@ -40,20 +40,10 @@ function Anubi() {
     }
   };
 
-  const handleNavigateNext = async () => {
-    const user_id = localStorage.getItem('userId'); // Recupera l'ID utente dal localStorage
-    const challenge_id = 1; // ID della sfida da passare
-
-    try {
-      await API.insertChallenge(user_id, challenge_id);
-      navigate('/stepsPotion/2'); // Naviga alla prossima pagina dopo l'inserimento
-    } catch (error) {
-      console.error('Failed to insert challenge:', error);
-    }
-  };
   const handleNavigateBack = () => {
     navigate("/step-selection-egypt");
   }
+
   return (
     <div className="Anubi ${deleteIndex !== null ? 'blurred' : ''}">
       <ButtonsEgypt />
@@ -62,6 +52,9 @@ function Anubi() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay:  0.2, duration: 1 }}>
                 <p className="descriptionAnubi"> Anubis, god of the Underworld, guards sacred symbols hidden in the museum. Find three and capture them in photographs to unlock his ancient magic. Choose wisely, the journey is challenging!
+                </p>
+                <p className="descriptionAnubi"> This is Anubis symbol: 
+                  <img src="/img/challenges/icona-anubi.png" alt="Anubis Symbol" className="anubi-icon" />
                 </p>
       </motion.div>
       

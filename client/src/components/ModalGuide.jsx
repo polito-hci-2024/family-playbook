@@ -13,7 +13,6 @@ const ModalGuide = ({ videoSrc }) => {
 
     const handleVideoEnded = () => {
         if (videoRef.current) {
-            // Disabilita la barra di controllo e blocca il video una volta terminato
             videoRef.current.controls = false;
             videoRef.current.pause();
         }

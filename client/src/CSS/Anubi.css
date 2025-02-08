@@ -205,6 +205,13 @@
 right: 20px;  
 }
 
+.anubi-icon {
+  width: 50px; 
+  height: auto; 
+  margin-left: 5px; 
+  vertical-align: middle; 
+}
+
 @keyframes pulse {
     0% {
       box-shadow: 0 0 20px 5px rgba(246, 200, 34, 0.879);

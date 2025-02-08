@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import API from '../API'; // Importa la tua API
+import API from '../API'; 
 import { Container, Form, Button, Row, Col, Image, Alert } from 'react-bootstrap';
 
 import '../CSS/FormCharacterPage.css';
@@ -28,7 +28,7 @@ function FormCharacterPage() {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();  // Prevenire il comportamento di submit predefinito del form
+        e.preventDefault();  
         setShowError(false);
         const form = e.currentTarget;
     
@@ -36,30 +36,27 @@ function FormCharacterPage() {
             e.stopPropagation();
             if (characterId === 0) setShowError(true);
         } else {
-            // Se il form è valido, chiama l'API per inserire l'utente
             try {
                 const user = {
                     name: name,
-                    age: ageRange, // Usa il range di età come valore numerico se necessario
+                    age: ageRange, 
                     character_id: characterId,
                 };
     
-                const userId = await API.insertUser(user); // Chiamata API per inserire l'utente
+                const userId = await API.insertUser(user);
     
-                // Salva l'ID dell'utente e altri dati nel localStorage
                 localStorage.setItem('userId', userId);
                 localStorage.setItem('characterId', characterId);
                 localStorage.setItem('userName', name);
                 localStorage.setItem('userAgeRange', ageRange);
     
-                // Naviga alla pagina successiva
                 navigate('/steps/1');
             } catch (error) {
                 console.error('Error inserting user:', error);
-                setShowError(true); // Mostra un messaggio di errore se qualcosa va storto
+                setShowError(true); 
             }
         }
-        setValidated(true); // Imposta lo stato validato dopo la sottomissione
+        setValidated(true); 
     };
     
 
@@ -104,7 +101,7 @@ function FormCharacterPage() {
                         placeholder="Enter your name"
                         required
                         value={name}
-                        onChange={(e) => setName(e.target.value)} // Gestisce il cambiamento del nome
+                        onChange={(e) => setName(e.target.value)} 
                     />
                     <Form.Control.Feedback type="invalid">
                         Please enter your name.
@@ -116,7 +113,7 @@ function FormCharacterPage() {
                     <Form.Select
                         aria-label="Select your age range"
                         value={ageRange}
-                        onChange={(e) => setAgeRange(e.target.value)} // Gestisce il cambiamento dell'età
+                        onChange={(e) => setAgeRange(e.target.value)} 
                         required
                         className="custom-select"
                     >

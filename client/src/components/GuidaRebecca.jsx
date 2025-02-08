@@ -32,7 +32,7 @@ export default function InteractiveGuide() {
     setDisplayedText("");
     setIsTyping(true);
     const interval = setInterval(() => {
-      if (i < messages[currentIndex].length - 1) { // Aggiungi un controllo qui
+      if (i < messages[currentIndex].length - 1) {
         setDisplayedText((prev) => prev + messages[currentIndex][i]);
         i++;
       } else {
@@ -54,10 +54,10 @@ export default function InteractiveGuide() {
     }
   };
   const skipGuide = () => {
-    console.log("Guide skipped"); // Qui puoi reindirizzare l'utente dove vuoi
+    console.log("Guide skipped"); 
   };
 
-  // Funzione per dividere il testo con i ritorni a capo (\n)
+  
   const renderTextWithLineBreaks = (text) => {
     return text.split("\n").map((line, index) => (
       <span key={index}>

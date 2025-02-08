@@ -32,16 +32,13 @@ const Potion = () => {
     event.dataTransfer.setData("text/plain", ingredient);
   };
 
-  // Funzione per il touch drag & drop
   const handleTouchStart = (event, ingredient) => {
     event.preventDefault();
     const touch = event.touches[0];
 
-    // Rimuove vecchio elemento trascinato se esiste
     const oldElement = document.getElementById("dragging-element");
     if (oldElement) oldElement.remove();
 
-    // Crea il nuovo elemento da trascinare
     const draggedElement = event.target.cloneNode(true);
     draggedElement.style.position = "absolute";
     draggedElement.style.width = "60px";
@@ -50,18 +47,15 @@ const Potion = () => {
     draggedElement.id = "dragging-element";
     document.body.appendChild(draggedElement);
 
-    // Imposta la posizione iniziale
     draggedElement.style.left = `${touch.clientX - 30}px`;
     draggedElement.style.top = `${touch.clientY - 30}px`;
 
-    // Muove l'elemento con il dito
     const moveHandler = (e) => {
       const touchMove = e.touches[0];
       draggedElement.style.left = `${touchMove.clientX - 30}px`;
       draggedElement.style.top = `${touchMove.clientY - 30}px`;
     };
 
-    // Rilascia l'elemento e controlla se è sopra il calderone
     const endHandler = (e) => {
       document.removeEventListener("touchmove", moveHandler);
       document.removeEventListener("touchend", endHandler);
@@ -104,7 +98,6 @@ const Potion = () => {
     <ButtonsEldora onPopupVisibilityChange={setIsPopupVisible} />
   </div>
       <div className="potion-hunters">
-        {/* Titolo */}
         <h1 className="title">The Potion of Vitality</h1>
         <p className="intro">
           In Eldora, the animals are unwell and need to be healed.
@@ -112,7 +105,6 @@ const Potion = () => {
           <br/> Head to Parco della Mandria, <b>find</b> the ingredients and carefully <b>drag</b> them into the cauldron.
         </p>  
 
-        {/* Lista ingredienti */}
         <div className="ingredients-list">
           {ingredients.map((ingredient) => (
             <div
@@ -129,13 +121,11 @@ const Potion = () => {
           ))}
         </div>
 
-        {/* Calderone */}
         <div className="cauldron" onDragOver={handleDragOver} onDrop={handleDrop}>
           <img src="/img/calderone-removebg-preview.png" alt="Cauldron" className="cauldron-image" />
           <p>Drag the items here</p>
         </div>
 
-        {/* Frecce di navigazione */}
         <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleNavigatePrec} />
         {isNextArrowActive && <img src="/img/next.png" alt="Arrow Right" className="arrow arrow-right" onClick={handleNavigateNext} />}
       </div>

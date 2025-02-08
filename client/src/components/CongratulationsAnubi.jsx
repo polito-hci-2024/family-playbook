@@ -24,7 +24,6 @@ function CongratulationsAnubi() {
   return (
     <div className="congratulationsEgypt">
       <div className="congratulations-container">
-        {/* Background Video o Immagine statica */}
         <video
           className="background-video"
           src="/mp4/congrats_egitto.mp4"
@@ -33,7 +32,6 @@ function CongratulationsAnubi() {
           loop={false}
         ></video>
   
-        {/* Titolo */}
         <motion.h1
           className="title"
           initial={{ opacity: 0, y: -20 }}
@@ -43,13 +41,11 @@ function CongratulationsAnubi() {
           Congratulations, {userName}!
         </motion.h1>
   
-        {/* Story Box */}
         <div className="story-box">
           <p className="story-text">
           You’ve completed the quest, adventurer! <br/>The mysteries of Egypt are now revealed, and your journey here ends.
           </p>
   
-          {/* Immagine centrata */}
           <div className="story-image-container">
             <img className="story-image" src="/img/Egypt/secret.png" alt="Happy Animals" />
           </div>
@@ -61,7 +57,6 @@ function CongratulationsAnubi() {
           <p className="story-text"> Until the next adventure… </p>
         </div>
   
-        {/* Mascotte */}
         <motion.img
           className="mascotte"
           src="/img/lumi_smile.png"
@@ -70,19 +65,18 @@ function CongratulationsAnubi() {
           animate={{ scale: 1 }}
         />
   
-        {/* Frecce per navigazione */}
         <img
           src="/img/back.png"
           alt="Arrow Left"
           className="arrow arrow-left"
-          onClick={handleBack} // Usare la funzione esistente
+          onClick={handleBack} 
         />
         
         <img
           src="/img/next.png"
           alt="Arrow Right"
           className="arrow arrow-right"
-          onClick={handleNext} // Usare la funzione esistente
+          onClick={handleNext} 
         />
   
         

@@ -10,7 +10,7 @@ function StepsPotion({ stepId }) {
   const [panels, setPanels] = useState([]);
   const [stepName, setStepName] = useState('');
   const [showArrows, setShowArrows] = useState(false);
-  const [titleVisible, setTitleVisible] = useState(true); // Stato per la visibilità del titolo
+  const [titleVisible, setTitleVisible] = useState(true); 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const replacePlaceholder = (text, characterName, name) => {
@@ -51,9 +51,9 @@ function StepsPotion({ stepId }) {
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
-      setTitleVisible(false); // Nasconde il titolo quando si scorre in basso
+      setTitleVisible(false); 
     } else {
-      setTitleVisible(true); // Mostra il titolo quando si torna in alto
+      setTitleVisible(true); 
     }
 
     const scrollY = window.scrollY;
