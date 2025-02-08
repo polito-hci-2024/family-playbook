@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 import "../CSS/InteractiveGuide.css";
@@ -26,6 +26,7 @@ export default function InteractiveGuide() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const messageBoxRef = useRef(null);
 
   useEffect(() => {
     let i = 0;
@@ -44,20 +45,21 @@ export default function InteractiveGuide() {
   }, [currentIndex]);
 
   const nextMessage = () => {
-    if (!isTyping && currentIndex < (messages.length - 1)) {
+    if (!isTyping && currentIndex < messages.length - 1) {
       setCurrentIndex(currentIndex + 1);
     }
   };
+
   const prevMessage = () => {
     if (!isTyping && currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     }
   };
+
   const skipGuide = () => {
-    console.log("Guide skipped"); 
+    console.log("Guide skipped");
   };
 
-  
   const renderTextWithLineBreaks = (text) => {
     return text.split("\n").map((line, index) => (
       <span key={index}>
@@ -66,6 +68,29 @@ export default function InteractiveGuide() {
       </span>
     ));
   };
+
+  // Funzione per calcolare la larghezza del messaggio
+  const calculateTextWidth = (text) => {
+    // Crea un elemento temporaneo per calcolare la larghezza
+    const tempElement = document.createElement('div');
+    tempElement.style.position = 'absolute';
+    tempElement.style.visibility = 'hidden';
+    tempElement.style.whiteSpace = 'pre-wrap';
+    tempElement.style.width = '60vw'; // Imposta una larghezza massima del 60% della larghezza dello schermo
+    tempElement.innerText = text;
+    document.body.appendChild(tempElement);
+    const width = tempElement.getBoundingClientRect().width;
+    document.body.removeChild(tempElement);
+    return width;
+  };
+
+  useEffect(() => {
+    // Calcolare la larghezza del messaggio prima di iniziare a scrivere
+    if (messageBoxRef.current) {
+      const width = calculateTextWidth(messages[currentIndex]);
+      messageBoxRef.current.style.maxWidth = `${width}px`;
+    }
+  }, [currentIndex]);
 
   return (
     <div className="interactive-guide-container">
@@ -81,13 +106,14 @@ export default function InteractiveGuide() {
         </div>
         <motion.div
           className="message-box"
+          ref={messageBoxRef}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
         >
           <p>{renderTextWithLineBreaks(displayedText)}</p>
         </motion.div>
-        
+
         <div className="button-container">
           <Button onClick={prevMessage} disabled={currentIndex === 0}>Back</Button>
           <Button onClick={nextMessage} disabled={isTyping}>Next</Button>
