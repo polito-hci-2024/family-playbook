@@ -1,14 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-
 import "../CSS/InteractiveGuide.css";
 
 const Button = ({ onClick, children, disabled }) => (
-  <button
-    onClick={onClick}
-    disabled={disabled}
-    className="next-button"
-  >
+  <button onClick={onClick} disabled={disabled} className="next-button">
     {children}
   </button>
 );
@@ -22,7 +17,7 @@ const messages = [
   " Every day is a new adventure. Ready to begin?🚀"
 ];
 
-export default function InteractiveGuide() {
+const InteractiveGuide = ({onClose}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -69,14 +64,12 @@ export default function InteractiveGuide() {
     ));
   };
 
-  // Funzione per calcolare la larghezza del messaggio
   const calculateTextWidth = (text) => {
-    // Crea un elemento temporaneo per calcolare la larghezza
-    const tempElement = document.createElement('div');
-    tempElement.style.position = 'absolute';
-    tempElement.style.visibility = 'hidden';
-    tempElement.style.whiteSpace = 'pre-wrap';
-    tempElement.style.width = '60vw'; // Imposta una larghezza massima del 60% della larghezza dello schermo
+    const tempElement = document.createElement("div");
+    tempElement.style.position = "absolute";
+    tempElement.style.visibility = "hidden";
+    tempElement.style.whiteSpace = "pre-wrap";
+    tempElement.style.width = "60vw"; // Imposta una larghezza massima del 60% della larghezza dello schermo
     tempElement.innerText = text;
     document.body.appendChild(tempElement);
     const width = tempElement.getBoundingClientRect().width;
@@ -85,7 +78,6 @@ export default function InteractiveGuide() {
   };
 
   useEffect(() => {
-    // Calcolare la larghezza del messaggio prima di iniziare a scrivere
     if (messageBoxRef.current) {
       const width = calculateTextWidth(messages[currentIndex]);
       messageBoxRef.current.style.maxWidth = `${width}px`;
@@ -95,12 +87,15 @@ export default function InteractiveGuide() {
   return (
     <div className="interactive-guide-container">
       <div>
-        <button className="skip-button" onClick={skipGuide}>Skip the Guide</button>
+        <button className="skip-button" onClick={onClose}>
+          Skip the Guide
+        </button>
+        <div className="container-message-dots-buttons">
         <div className="progress-dots">
           {messages.map((_, index) => (
             <div
               key={index}
-              className={`dot ${index <= currentIndex ? 'active' : ''}`}
+              className={`dot ${index <= currentIndex ? "active" : ""}`}
             ></div>
           ))}
         </div>
@@ -115,11 +110,18 @@ export default function InteractiveGuide() {
         </motion.div>
 
         <div className="button-container">
-          <Button onClick={prevMessage} disabled={currentIndex === 0}>Back</Button>
-          <Button onClick={nextMessage} disabled={isTyping}>Next</Button>
+          <Button onClick={prevMessage} disabled={currentIndex === 0}>
+            Back
+          </Button>
+          <Button onClick={nextMessage} disabled={isTyping}>
+            Next
+          </Button>
+        </div>
         </div>
         <img src="/img/lumi_smile.png" alt="Mascotte" className="mascot" />
       </div>
     </div>
   );
-}
+};
+
+export default InteractiveGuide;

@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
-
+import InteractiveGuide from './GuidaRebecca';
 const ButtonsGeneral = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [showGuide, setShowGuide] = useState(false); 
 
   const handleButtonClick = () => {
     setShowPopup(true);
     setTimeout(() => {
       setShowPopup(false);
-    }, 3000); 
+    }, 3000);
+  };
+
+  const handleInfoClick = () => {
+    setShowGuide(true); 
+  };
+
+  const handleCloseGuide = () => {
+    setShowGuide(false); 
   };
 
   const disabledButtonStyle = {
@@ -35,40 +44,6 @@ const ButtonsGeneral = () => {
     animation: 'shake 2s ease-in-out'
   };
 
-  const buttonsMarkup = (
-    <div className="barraBottoni" style={{ position: 'relative' }}>
-      <div className="bottom-center-wrapper">
-        <div className="bottom-center-icons">
-          <div className="floating-buttons">
-            <div className="icon-container" onClick={handleButtonClick}>
-              <img
-                src="/img/buttons/imprevisto.png"
-                alt="imprevisto_general"
-                className="floating-button"
-                style={disabledButtonStyle}
-              />
-            </div>
-            <div className="icon-container" onClick={handleButtonClick}>
-              <img
-                src="/img/buttons/map.png"
-                alt="mappa_general"
-                className="floating-button"
-                style={disabledButtonStyle}
-              />
-            </div>
-            <div className="icon-container">
-              <img
-                src="/img/buttons/info.png"
-                alt="info_general"
-                className="floating-button"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
   return (
     <>
       <style>
@@ -80,8 +55,46 @@ const ButtonsGeneral = () => {
           }
         `}
       </style>
-      {buttonsMarkup}
-      <div style={popupStyle}>Curious about these buttons, huh? Keep going to unlock them!</div>
+
+      <div className="barraBottoni" style={{ position: 'relative' }}>
+        <div className="bottom-center-wrapper">
+          <div className="bottom-center-icons">
+            <div className="floating-buttons">
+              <div className="icon-container" onClick={handleButtonClick}>
+                <img
+                  src="/img/buttons/imprevisto.png"
+                  alt="imprevisto_general"
+                  className="floating-button"
+                  style={disabledButtonStyle}
+                />
+              </div>
+              <div className="icon-container" onClick={handleButtonClick}>
+                <img
+                  src="/img/buttons/map.png"
+                  alt="mappa_general"
+                  className="floating-button"
+                  style={disabledButtonStyle}
+                />
+              </div>
+              <div className="icon-container" onClick={handleInfoClick}>
+                <img
+                  src="/img/buttons/info.png"
+                  alt="info_general"
+                  className="floating-button"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style={popupStyle}>
+        Curious about these buttons, huh? Keep going to unlock them!
+      </div>
+
+     
+      {showGuide && <InteractiveGuide onClose={handleCloseGuide} />}
+
     </>
   );
 };

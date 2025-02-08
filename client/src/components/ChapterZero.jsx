@@ -6,7 +6,7 @@ import '../CSS/ChapterZero.css';
 import FormCharacterPage from './FormCharacterPage';
 import ModalGuide from './ModalGuide'
 import ButtonsGeneral from './ButtonsGeneral';
-
+import InteractiveGuide from './GuidaRebecca';
 function ChapterZero() {
 
 
@@ -17,7 +17,6 @@ function ChapterZero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 1 }}>
         <Container fluid className="character-panel">
-          <ModalGuide videoSrc="mp4/initialGuide.mp4" />
           <Row>
             <Col>
               <FormCharacterPage></FormCharacterPage>
