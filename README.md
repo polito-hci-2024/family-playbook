@@ -1,5 +1,12 @@
 # FAMILY PLAYBOOK
-## Student: 
+## Unlock fun, at your fingertips
+## Student:
+- Anita Ascheri – s327897
+- Rebecca Audisio – s334032
+- Sabrina Basile – s329161
+- Simone Fenech – s331059
+
+## A project by RASS Group for Human Computer Interaction (2024/2025)
 
 ## Avvio
 - Server
