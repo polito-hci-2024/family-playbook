@@ -70,7 +70,7 @@ function MapEgypt() {
             {challenges[0] ? '🏺' : '1'}
           </div>
           <div className={`challenge-label ${challenges[0] ? '' : 'incomplete'}`}>
-            Anubis' Hidden Symbol Hunt
+          Find the Symbol of Anubis
           </div>
         </div>
 
@@ -82,7 +82,7 @@ function MapEgypt() {
             {challenges[1] ? '📜' : '2'}
           </div>
           <div className={`challenge-label ${challenges[1] ? '' : 'incomplete'}`}>
-            The Pharaoh's Enigmatic Scroll
+          Unlock the Secrets of the Pharaohs
           </div>
         </div>
 
