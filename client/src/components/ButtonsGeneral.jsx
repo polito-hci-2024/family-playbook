@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import InteractiveGuide from './Guide';
-const ButtonsGeneral = ({ messages }) => {
+const ButtonsGeneral = ({ messages, openGuideOnStart = false }) => {
   const [showPopup, setShowPopup] = useState(false);
-  const [showGuide, setShowGuide] = useState(false); 
+  const [showGuide, setShowGuide] = useState(openGuideOnStart); 
 
   const handleButtonClick = () => {
     setShowPopup(true);

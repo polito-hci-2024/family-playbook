@@ -75,7 +75,6 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/map" element={<Map />}/>
           <Route path="/mapEgypt" element={<MapEgypt />}/>
-
           <Route path="/guide" element={<InteractiveGuide />} />
         </Routes>
       ) : (

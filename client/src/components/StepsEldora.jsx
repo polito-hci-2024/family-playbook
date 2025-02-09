@@ -212,7 +212,7 @@ function StepSelectionEldora() {
           onClick={handleNavigate}
         />
       )}
-      <ButtonsEldora messages={messages} onPopupVisibilityChange={ handlePopupVisibilityChange} />
+      <ButtonsEldora messages={messages} openGuideOnStart ={true} onPopupVisibilityChange={ handlePopupVisibilityChange} />
 
     </div>
   );

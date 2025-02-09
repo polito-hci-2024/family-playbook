@@ -4,12 +4,11 @@ import { useNavigate } from "react-router-dom";
 import '../CSS/Buttons.css';
 import InteractiveGuide from "./Guide";
 
-const ButtonsEldora = ({ messages, onPopupVisibilityChange }) => {
+const ButtonsEldora = ({ messages, onPopupVisibilityChange, openGuideOnStart = false }) => {
   const navigate = useNavigate();
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [selectedIcon, setSelectedIcon] = useState(null);
-  const [showGuide, setShowGuide] = useState(false); 
-  
+  const [showGuide, setShowGuide] = useState(openGuideOnStart);
 
   useEffect(() => {
     if (onPopupVisibilityChange) {
