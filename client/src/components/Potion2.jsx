@@ -122,7 +122,7 @@ const Potion2 = () => {
         </p>
         
         <div className="incantesimo-container">
-          <img src="../../img/spell.png" alt="Sfondo filastrocca" className="sfondo-filastrocca" />
+          <img src="../../img/challenges/spell.png" alt="Sfondo filastrocca" className="sfondo-filastrocca" />
           <div className="filastrocca">
             {words.map((word, index) => (
               <span key={index} className={index <= wordIndex ? "active" : ""}>
