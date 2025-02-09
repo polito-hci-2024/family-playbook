@@ -17,9 +17,10 @@ function StepSelectionEldora() {
   const [error, setError] = useState(null); 
 
   const [messages] = useState([
-    " Before diving into the real adventure, <br> let's take a quick look at the main buttons you have at the bottom center: 📚 <br> 1. <b>Unexpected Events</b>: Use this button to handle surprises like rain or ending the adventure. ⛈️ <br> 2. <b>Map</b>: Use it to see what you've done e what awaits you! 🌍 <br> 3. <b>Guide</b>: Click here for hints and tips to help you on your journey! 📖 <br>",
-    " Now that you know the basics, it's time to get with first challenge, pick one! 🎉"
+    " Before we start the adventure, let's quickly go over the buttons at the bottom center: <br> 1. <b>Unexpected Events</b>: Deal with twists like rain or an early ending⛈️ <br> 2. <b>Map</b>: See your progress and what lies ahead! 🌍 <br> 3. <b>Guide</b>: Get hints and tips! 📖 <br>",
+    " Now that you know the basics, it's time for your first challenge. Pick one! 🎉"
   ]);
+  
   useEffect(() => {
     const fetchChallenges = async () => {
       try {
@@ -163,10 +164,10 @@ function StepSelectionEldora() {
         <div className="header">
           <h1 className="title">Welcome to the enchanting world of Eldora!</h1>
           <p className="description">
-          You’ve entered Eldoria, a magical world hidden in Parco della Mandria. The forest is fading, and a dark force threatens its heart.
+          Eldoria, a hidden magical world within Parco della Mandria, is fading as a dark force threatens its very heart. 
           </p>
           <p className="description">
-          In this adventure, you’ll face challenges that test your courage and magic. Each victory brings you closer to restoring its balance. Ready to bring light back to Eldora? 🌟 </p>
+          In this adventure, you’ll face challenges that test your courage and magic. Ready to bring light back to Eldora? 🌟 </p>
           <p className="description choose-challenge-text">
             <strong>Choose Your Next Challenge to Begin!</strong>
           </p>        
