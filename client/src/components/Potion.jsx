@@ -6,6 +6,7 @@ import ButtonsEldora from "./ButtonsEldora";
 const Potion = () => {
   const [cauldron, setCauldron] = useState([]); 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [showGuide, setShowGuide] = useState(false);
   
   const ingredients = [
     { name: "3 Daisy", image: "/img/ingredients/margherita.png" },
@@ -15,8 +16,8 @@ const Potion = () => {
   ];
 
   const [messages] = useState([
-    " Hunt for the ingredients hidden in the boxes around the park! 🌿✨ Once you find them, drag them into the magic cauldron! 🧙‍♂️🔥"
-]);
+    "Hunt for the ingredients hidden in the boxes around the park! 🌿✨ Once you find them, drag them into the magic cauldron! 🧙‍♂️🔥"
+  ]);
 
   const navigate = useNavigate();
 
@@ -37,36 +38,38 @@ const Potion = () => {
   };
 
   const handleTouchStart = (event, ingredient) => {
-    event.preventDefault();
     const touch = event.touches[0];
-
+    
     const oldElement = document.getElementById("dragging-element");
     if (oldElement) oldElement.remove();
 
-    const draggedElement = event.target.cloneNode(true);
-    draggedElement.style.position = "absolute";
+    const originalElement = event.target.closest('.ingredient-card');
+    const draggedElement = originalElement.cloneNode(true);
+    draggedElement.style.position = "fixed";
     draggedElement.style.width = "60px";
+    draggedElement.style.height = "60px";
     draggedElement.style.zIndex = "1000";
     draggedElement.style.pointerEvents = "none";
+    draggedElement.style.opacity = "0.8";
     draggedElement.id = "dragging-element";
     document.body.appendChild(draggedElement);
 
-    draggedElement.style.left = `${touch.clientX - 30}px`;
-    draggedElement.style.top = `${touch.clientY - 30}px`;
+    const updatePosition = (x, y) => {
+      draggedElement.style.left = `${x - 30}px`;
+      draggedElement.style.top = `${y - 30}px`;
+    };
+
+    updatePosition(touch.clientX, touch.clientY);
 
     const moveHandler = (e) => {
       const touchMove = e.touches[0];
-      draggedElement.style.left = `${touchMove.clientX - 30}px`;
-      draggedElement.style.top = `${touchMove.clientY - 30}px`;
+      updatePosition(touchMove.clientX, touchMove.clientY);
     };
 
     const endHandler = (e) => {
-      document.removeEventListener("touchmove", moveHandler);
-      document.removeEventListener("touchend", endHandler);
-      
+      const touchEnd = e.changedTouches[0];
       const cauldronElem = document.querySelector(".cauldron");
       const rect = cauldronElem.getBoundingClientRect();
-      const touchEnd = e.changedTouches[0];
 
       if (
         touchEnd.clientX >= rect.left &&
@@ -80,6 +83,8 @@ const Potion = () => {
       }
 
       draggedElement.remove();
+      document.removeEventListener("touchmove", moveHandler);
+      document.removeEventListener("touchend", endHandler);
     };
 
     document.addEventListener("touchmove", moveHandler);
@@ -94,13 +99,22 @@ const Potion = () => {
     navigate('/step-selection-eldora');  
   };
 
+  const handleGuideVisibilityChange = (isVisible) => {
+    setShowGuide(isVisible);
+  };
+
   const isNextArrowActive = cauldron.length === ingredients.length;
 
   return (
     <div className="potion">
-      <div className="buttons-eldora-container" >
-    <ButtonsEldora messages={messages} onPopupVisibilityChange={setIsPopupVisible} />
-  </div>
+      <div className="buttons-eldora-container">
+        <ButtonsEldora 
+          messages={messages} 
+          onPopupVisibilityChange={setIsPopupVisible}
+          openGuideOnStart={false}
+          onGuideVisibilityChange={handleGuideVisibilityChange}
+        />
+      </div>
       <div className="potion-hunters">
         <h1 className="title">The Potion of Vitality</h1>
         <p className="intro">
@@ -125,13 +139,19 @@ const Potion = () => {
           ))}
         </div>
 
-        <div className="cauldron" onDragOver={handleDragOver} onDrop={handleDrop}>
+        <div 
+          className="cauldron" 
+          onDragOver={handleDragOver} 
+          onDrop={handleDrop}
+        >
           <img src="/img/calderone-removebg-preview.png" alt="Cauldron" className="cauldron-image" />
           <p>Drag the items here</p>
         </div>
 
         <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleNavigatePrec} />
-        {isNextArrowActive && <img src="/img/next.png" alt="Arrow Right" className="arrow arrow-right" onClick={handleNavigateNext} />}
+        {isNextArrowActive && (
+          <img src="/img/next.png" alt="Arrow Right" className="arrow arrow-right" onClick={handleNavigateNext} />
+        )}
       </div>
     </div>
   );

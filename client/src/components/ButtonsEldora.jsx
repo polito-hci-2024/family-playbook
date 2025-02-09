@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import '../CSS/Buttons.css';
 import InteractiveGuide from "./Guide";
 
-const ButtonsEldora = ({ messages, onPopupVisibilityChange, openGuideOnStart = false }) => {
+const ButtonsEldora = ({ messages, onPopupVisibilityChange, onGuideVisibilityChange = () => {},openGuideOnStart = false }) => {
   const navigate = useNavigate();
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [selectedIcon, setSelectedIcon] = useState(null);
@@ -15,6 +15,12 @@ const ButtonsEldora = ({ messages, onPopupVisibilityChange, openGuideOnStart = f
       onPopupVisibilityChange(isPopupVisible);
     }
   }, [isPopupVisible, onPopupVisibilityChange]);
+
+  useEffect(() => {
+    if (onGuideVisibilityChange) {
+      onGuideVisibilityChange(showGuide);
+    }
+  }, [showGuide, onGuideVisibilityChange]);
 
   const openPopup = () => {
     setIsPopupVisible(true);
@@ -130,8 +136,15 @@ const ButtonsEldora = ({ messages, onPopupVisibilityChange, openGuideOnStart = f
     <>
       {buttonsMarkup}
       {popupMarkup}
-      {showGuide && <InteractiveGuide messages={messages} onClose={handleCloseGuide} />}
-
+      {showGuide && messages && messages.length > 0 && 
+        ReactDOM.createPortal(
+          <InteractiveGuide 
+            messages={messages} 
+            onClose={handleCloseGuide}
+          />,
+          document.body
+        )
+      }
     </>
   );
 };
