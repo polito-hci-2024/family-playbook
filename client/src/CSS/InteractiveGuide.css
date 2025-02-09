@@ -52,7 +52,7 @@
   text-align: center;
   position: relative;
   margin: 0 auto;
-  z-index: 1001; /* Porta il box del messaggio sopra la sfocatura */
+  z-index: 1001; 
 }
 
 .progress-dots {

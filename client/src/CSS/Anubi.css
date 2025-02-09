@@ -85,7 +85,7 @@
     font-weight: bold;
     font-size: 4rem;
     color: #2A7A72;
-    text-shadow: 3px 3px 4px #47cabd;
+    text-shadow: 3px 3px 4px #349289;
     margin: 50px;
 }
 .descriptionAnubi {
@@ -112,7 +112,7 @@
     border: 2px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
-}
+  }
 .photo {
     width: 100%;
     height: 100%;
@@ -136,25 +136,25 @@
 }
 .Anubi .button {
     position: absolute;
-    bottom: 150px;
+    bottom: 180px;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 0;
 }
 .Anubi .button img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 .Anubi .button_takephoto {
     position: absolute;
-    bottom: 150px;
+    bottom: 180px;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 0;
     animation: pulse 1s infinite; 
     border-radius: 50%; 
 }
 .Anubi .button_takephoto img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
 }
 .successMessage {
@@ -179,7 +179,7 @@
 }
 .cameraContainer {
     position: absolute;
-    margin-top: 300px;
+    margin-top: 160px;
     border: 2px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
