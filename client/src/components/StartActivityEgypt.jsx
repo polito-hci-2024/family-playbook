@@ -10,6 +10,9 @@ function StartActivityEgypt() {
   const [showModal, setShowModal] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   
+  const [messages] = useState([
+      " We're about to start the real adventure! 🌟 <br> Come back here once you're at the designated location and click <b><i>Begin</i></b> to start the activity! 🚀"
+  ]);
   const navigate = useNavigate();
 
   const handleClose = () => setShowModal(false);
@@ -121,7 +124,7 @@ function StartActivityEgypt() {
           </div>
         </div>
       )}
-      <ButtonsEgypt onPopupVisibilityChange={handlePopupVisibilityChange} />
+      <ButtonsEgypt messages={messages} onPopupVisibilityChange={handlePopupVisibilityChange} />
     </div>
   );
 }

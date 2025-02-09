@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom"; 
 import { useNavigate } from "react-router-dom";
 import '../CSS/ButtonsEgypt.css';
+import InteractiveGuide from "./Guide";
 
-const ButtonsEgypt = ({ onPopupVisibilityChange }) => {
+const ButtonsEgypt = ({ messages, onPopupVisibilityChange }) => {
   const navigate = useNavigate();
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [selectedIcon, setSelectedIcon] = useState(null);
+  const [showGuide, setShowGuide] = useState(false); 
 
   useEffect(() => {
     if (onPopupVisibilityChange) {
@@ -26,6 +28,12 @@ const ButtonsEgypt = ({ onPopupVisibilityChange }) => {
 
   const handleIconSelection = (iconName) => {
     setSelectedIcon(iconName);
+  };
+  const handleInfoClick = () => {
+    setShowGuide(true); 
+  };
+  const handleCloseGuide = () => {
+    setShowGuide(false); // Chiudi la guida
   };
 
   const handlePopupYesClick = () => {
@@ -56,7 +64,7 @@ const ButtonsEgypt = ({ onPopupVisibilityChange }) => {
                 className="floating-button"
               />
             </div>
-            <div className="icon-container">
+            <div className="icon-container" onClick={handleInfoClick}>
               <img
                 src="/img/buttons/info_egitto.png"
                 alt="info_egitto"
@@ -123,6 +131,7 @@ const ButtonsEgypt = ({ onPopupVisibilityChange }) => {
     <>
       {buttonsMarkup}
       {popupMarkup}
+      {showGuide && <InteractiveGuide messages={messages} onClose={handleCloseGuide} />}
     </>
   );
 };

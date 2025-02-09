@@ -20,6 +20,10 @@ const Potion2 = () => {
 
   const words = ["Curio", "Tempus,", "power", "of", "grace,", "Awaken", "the", "heart,", "the", "magic", "flows,", "Bring", "back", "health", "to", "every", "place."];
 
+  const [messages] = useState([
+    " Great! <br> You've found the ingredients and tossed them into the cauldron!🧙‍♂️✨ <br> Now it's time to bring the spell to life! 🔮",
+    " Stir the cauldron with the ladle and say the glowing magic words to complete the spell! ✨🪄"
+]);
 
   const startDrag = (event) => {
     setIsDragging(true);
@@ -168,7 +172,7 @@ const Potion2 = () => {
                 onClick={handleNavigateNext}
               />
             )}
-          <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
+          <ButtonsEldora messages={messages} onPopupVisibilityChange={handlePopupVisibilityChange} />
 
           </>
         )}

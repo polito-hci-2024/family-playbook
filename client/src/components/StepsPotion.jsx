@@ -13,6 +13,11 @@ function StepsPotion({ stepId }) {
   const [titleVisible, setTitleVisible] = useState(true); 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
+  const [messages] = useState([
+    " Well done! You've completed the challenges like a true wizard! 🧙‍♂️✨",
+    " The animals are so grateful for your help! 🦉🦊🐿️"
+]);
+
   const replacePlaceholder = (text, characterName, name) => {
     return text.replace(/\{\$characterName\}/g, characterName).replace(/\{\$name\}/g, name);
   };
@@ -124,7 +129,7 @@ function StepsPotion({ stepId }) {
               <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleBack} />
             </>
           )}
-          <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
+          <ButtonsEldora messages={messages} onPopupVisibilityChange={handlePopupVisibilityChange} />
         </div>
       </div>
     </div>

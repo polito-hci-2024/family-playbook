@@ -14,6 +14,10 @@ const Potion = () => {
     { name: "2 Branches", image: "/img/ingredients/branches.png" }
   ];
 
+  const [messages] = useState([
+    " Hunt for the ingredients hidden in the boxes around the park! 🌿✨ Once you find them, drag them into the magic cauldron! 🧙‍♂️🔥"
+]);
+
   const navigate = useNavigate();
 
   const handleDrop = (event) => {
@@ -94,8 +98,8 @@ const Potion = () => {
 
   return (
     <div className="potion">
-      <div className="buttons-eldora-container">
-    <ButtonsEldora onPopupVisibilityChange={setIsPopupVisible} />
+      <div className="buttons-eldora-container" >
+    <ButtonsEldora messages={messages} onPopupVisibilityChange={setIsPopupVisible} />
   </div>
       <div className="potion-hunters">
         <h1 className="title">The Potion of Vitality</h1>

@@ -9,6 +9,11 @@ function CongratulationsAnubi() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const userName = localStorage.getItem('userName') || 'Hero'; 
 
+  const [messages] = useState([
+      " <b><i>Congratulations</b></i>, you've completed the challenge like a <i>true adventurer</i>! 🎉✨",
+      " You did it! 🏆 <br> Now that you've finished, get ready for your next adventure! 🌟 <br>  Stay tuned for more exciting challenges ahead! 🚀"
+  ]);
+
   const handleNext = () => {
     navigate('/last-chapter'); 
   };
@@ -80,7 +85,7 @@ function CongratulationsAnubi() {
         />
   
         
-        <ButtonsEgypt onPopupVisibilityChange={handlePopupVisibilityChange} />
+        <ButtonsEgypt messages={messages} onPopupVisibilityChange={handlePopupVisibilityChange} />
       </div>
     </div>
     );

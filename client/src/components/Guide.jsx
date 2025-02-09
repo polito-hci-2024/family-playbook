@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import "../CSS/InteractiveGuide.css";
 
 const Button = ({ onClick, children, disabled }) => (
-  <button onClick={onClick} disabled={disabled} className="next-button">
+  <button onClick={onClick} disabled={disabled} className="guide-next-button">
     {children}
   </button>
 );
@@ -108,7 +108,7 @@ const InteractiveGuide = ({ messages, onClose }) => {
             <p dangerouslySetInnerHTML={renderTextWithFormatting(displayedText)} />
           </motion.div>
 
-          <div className="button-container">
+          <div className="guide-button-container">
             {messages.length > 1 && (
               <Button onClick={prevMessage} disabled={currentIndex === 0}>
                 Back

@@ -13,6 +13,11 @@ function StepsEgyptStory({ stepId }) {
   const [titleVisible, setTitleVisible] = useState(true); 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
+  const [messages] = useState([
+      " Impatient, huh? <br> Don't worry, the adventure is just beginning! 🚀",
+      " Scroll through the story to find out what happens next. <br> Only then will the arrow to move forward appear!<br> Keep exploring! 🔍"
+  ]);
+
   const fetchStepData = async (id) => {
     try {
       const data = await API.getStepsById(id);
@@ -118,7 +123,7 @@ function StepsEgyptStory({ stepId }) {
               <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleBack} />
             </>
           )}
-          <ButtonsEgypt onPopupVisibilityChange={handlePopupVisibilityChange} />
+          <ButtonsEgypt messages={messages} onPopupVisibilityChange={handlePopupVisibilityChange} />
 
         </div>
       </div>

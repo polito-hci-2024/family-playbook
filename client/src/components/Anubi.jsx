@@ -13,6 +13,12 @@ function Anubi() {
   const [deleteIndex, setDeleteIndex] = useState(null);
   const webcamRef = useRef(null);
   
+  const [messages] = useState([
+    "Welcome to the <b><i>Egyptian Museum</b></i>! 🏺Your task is to find the symbol of Anubis in <b>three</b> different rooms! 🐾",
+    "In each room, look carefully for the symbol—once you spot it, <br><b><i>take a photo</b></i>! 📸 <br> Each discovery will bring you one step closer to completing the challenge! 🌟",
+    "Get ready to explore the ancient mysteries—good luck! 🔍"
+]);
+
   const capturePhoto = () => {
     if (webcamRef.current) {
       const photo = webcamRef.current.getScreenshot(); 
@@ -46,7 +52,7 @@ function Anubi() {
 
   return (
     <div className="Anubi ${deleteIndex !== null ? 'blurred' : ''}">
-      <ButtonsEgypt />
+      <ButtonsEgypt messages={messages}/>
       <h1 className="titleAnubi">Find Anubis Symbol</h1>
       <motion.div initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

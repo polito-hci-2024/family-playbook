@@ -77,7 +77,7 @@
   transform: scale(1.4);
 }
 
-.button-container {
+.guide-button-container {
   display: flex;
   gap: 15px;
   margin-top: 25px;
@@ -85,7 +85,7 @@
   z-index: 1001; /* Assicurati che i bottoni siano sopra */
 }
 
-.next-button, .back-button {
+.guide-next-button, .guide-back-button {
   background: #BF1352;
   color: white;
   font-size: 1.5rem;
@@ -97,7 +97,7 @@
   border: none;
 }
 
-.next-button:hover, .back-button:hover {
+.guide-next-button:hover, .guide-back-button:hover {
   background: #BF1352;
   transform: scale(1.05);
 }

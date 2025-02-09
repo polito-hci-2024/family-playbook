@@ -20,6 +20,10 @@ const handlePopupVisibilityChange = (visible) => {
   setIsPopupVisible(visible);
 };
 
+const [messages] = useState([
+    " You already know the basics, so it's time to get with first challenge, <br><b><i>pick one</b></i>! 🎉"
+  ]);
+
   useEffect(() => {
     const fetchChallenges = async () => {
       try {
@@ -203,7 +207,7 @@ const handlePopupVisibilityChange = (visible) => {
           onClick={handleNavigate}
         />
       )}
-      <ButtonsEgypt onPopupVisibilityChange={handlePopupVisibilityChange} />
+      <ButtonsEgypt messages={messages} onPopupVisibilityChange={handlePopupVisibilityChange} />
 
       
     </div>

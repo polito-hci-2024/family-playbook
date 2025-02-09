@@ -9,6 +9,11 @@ function Raining() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   
+  const [messages] = useState([
+    " It looks like it's raining outside! ☔ <br> But don’t worry, your adventure <b> doesn’t have to stop here! 🌟</b>",
+    " If you're stuck <i>indoors</i>, I’ve prepared two exciting activities just for you! <b><i>Choose one and keep the fun going!</b></i> 🏠🎉"
+]);
+
   const containerRef = useRef(null);
 
   const cards = [
@@ -106,7 +111,7 @@ function Raining() {
           onClick={handleNavigate}
         />
       )}
-     <ButtonsEgypt onPopupVisibilityChange={handlePopupVisibilityChange} />
+     <ButtonsEgypt messages={messages} onPopupVisibilityChange={handlePopupVisibilityChange} />
 
     </div>
   );

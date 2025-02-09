@@ -13,6 +13,11 @@ const Scratch = () => {
     { src: "../img/challenges/cerca.png", id: "image4" },
   ];
 
+  const [messages] = useState([
+    " Time to hunt for the missing piece of the amulet! 🕵️‍♂️✨<br> There are 4 cards, but <b>only one</b> holds the key to complete your quest. <br> Can you pick the right one? 🔮"
+]);
+
+
   const [flippedCards, setFlippedCards] = useState({}); 
   const [completedImage, setCompletedImage] = useState(null); 
   const [showConfetti, setShowConfetti] = useState(false); 
@@ -50,7 +55,7 @@ const Scratch = () => {
 
   return (
     <div className="scratch">
-      <h1 className="title">The Quest for the Lost <br />Fragment</h1>
+      <h1 className="title">The Lost Fragment</h1>
       <p className="intro">
         The amulet is incomplete, missing a crucial fragment hidden deep within Eldora. <br /> 
         Without it, the darkness will spread. Explore the forest’s cards to find the one that holds the missing piece and restore the amulet’s power to complete your quest.
@@ -95,7 +100,7 @@ const Scratch = () => {
           />
         )}
       </div>
-      <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
+      <ButtonsEldora messages={messages} onPopupVisibilityChange={handlePopupVisibilityChange} />
 
       {showSuccessMessage && (
         <div className="success-message">

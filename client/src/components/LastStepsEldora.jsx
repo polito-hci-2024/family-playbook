@@ -12,6 +12,10 @@ function LastStepSelectionEldora() {
   const [selectedIcon, setSelectedIcon] = useState(null);
   const containerRef = useRef(null);
 
+  const [messages] = useState([
+    " You thought it was over, didn’t you? 😏 Not so fast! Another challenge awaits you — <b><i>pick one and let's go</b></i>! 🎉"
+]);
+
   const [steps, setSteps] = useState([
     {
       id: 1,
@@ -152,7 +156,7 @@ function LastStepSelectionEldora() {
       {selectedStep && (
         <img src="/img/next.png" alt="Arrow Right" className="arrow arrow-right" onClick={handleNavigate} />
       )}
-      <ButtonsEldora onPopupVisibilityChange={handlePopupVisibilityChange} />
+      <ButtonsEldora messages={messages} onPopupVisibilityChange={handlePopupVisibilityChange} />
 
     </div>
     
