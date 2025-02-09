@@ -61,10 +61,6 @@ function MapEgypt() {
   return (
     <div className="egypt">
       <div className="map-container">
-        {/* Bottone "Go to the forest map" */}
-        {/*<div className="arrow-button" onClick={() => navigate("/map")}>
-  Go to forest map
-</div>*/}
 
         <div className="challenge-1">
           <div

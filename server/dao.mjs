@@ -18,18 +18,16 @@ export const getActivities = () => {
 
 export const insertActivity = (user_id, activity_id) => {
   return new Promise((resolve, reject) => {
-    // La query UPDATE per associare un activity_id a un user_id
     const query = 'UPDATE choices SET activity_id = ? WHERE user_id = ?';
 
     db.run(query, [activity_id, user_id], function (err) {
       if (err) {
         console.log(err);
-        reject(err); // In caso di errore
+        reject(err); 
       } else if (this.changes === 0) {
-        // Se non è stata modificata nessuna riga, significa che non c'era nessun record con quel user_id
         resolve({ error: "No matching user_id found to update" });
       } else {
-        resolve({ success: true, changes: this.changes }); // Restituisce il numero di righe modificate
+        resolve({ success: true, changes: this.changes }); 
       }
     });
   });
@@ -48,11 +46,11 @@ export const getLastChoice = () => {
     db.get(query, [], (err, row) => {
       if (err) {
         reject(err);
-      } else if (!row) { // Se non c'è nessun risultato
+      } else if (!row) { 
         resolve({ error: "No activities found." });
       } else {
         console.log(row);
-        resolve(row); // Restituisci il singolo oggetto
+        resolve(row); 
       }
     });
   });
@@ -70,11 +68,11 @@ export const getUserName = () => {
     db.get(query, [], (err, row) => {
       if (err) {
         reject(err);
-      } else if (!row) { // Se non c'è nessun risultato
+      } else if (!row) { 
         resolve({ error: "No users found." });
       } else {
         console.log(row);
-        resolve(row); // Restituisci il singolo oggetto
+        resolve(row); 
       }
     });
   });
@@ -91,10 +89,10 @@ export const getLastUser = () => {
     db.get(query, [], (err, row) => {
       if (err) {
         reject(err);
-      } else if (!row) { // Se non c'è nessun risultato
-        resolve(null); // Nessun utente trovato, restituisce null
+      } else if (!row) { 
+        resolve(null); 
       } else {
-        resolve(row.user_id); // Restituisce il solo ID dell'utente
+        resolve(row.user_id); 
       }
     });
   });
@@ -131,11 +129,11 @@ export const getQuestionAnswer = (question_id) => {
     db.all(query, [question_id], (err, rows) => {
       if (err) {
         reject(err);
-      } else if (rows.length === 0) {  // Se non ci sono risultati
+      } else if (rows.length === 0) {  
         resolve({ error: "No questions found." });
       } else {
         console.log(rows);
-        resolve(rows);  // Restituisce un array di oggetti
+        resolve(rows);  
       }
     });
   });
@@ -143,26 +141,23 @@ export const getQuestionAnswer = (question_id) => {
 
 export const insertAnswer = async (answer_id, answer_column) => {
   try {
-    const user_id = await getLastUser(); // Ottieni l'ID dell'utente
+    const user_id = await getLastUser(); 
 
     if (!user_id) {
       throw new Error('No user found');
     }
 
-    // Prova a fare l'UPDATE
     const updateQuery = `
         UPDATE user_answers
         SET ${answer_column}_id = ?
         WHERE user_id = ?
       `;
 
-    // Esegui l'UPDATE
     return new Promise((resolve, reject) => {
       db.run(updateQuery, [answer_id, user_id], function (err) {
         if (err) {
           reject(err);
         } else if (this.changes === 0) {
-          // Se l'UPDATE non ha fatto nulla (nessuna riga trovata), inserisci una nuova riga
           const insertQuery = `
               INSERT INTO user_answers (user_id, ${answer_column}_id)
               VALUES (?, ?)
@@ -175,7 +170,6 @@ export const insertAnswer = async (answer_id, answer_column) => {
             }
           });
         } else {
-          // Se l'UPDATE ha avuto successo, risolvi
           resolve({ success: true });
         }
       });
@@ -196,11 +190,11 @@ export const getStepsById = (step_id) => {
 
     db.all(query, [step_id], (err, rows) => {
       if (err) {
-        reject(err); // Gestione degli errori della query
+        reject(err); 
       } else if (rows.length === 0) {
-        resolve(null); // Nessun risultato trovato, restituisce null
+        resolve(null); 
       } else {
-        resolve(rows); // Restituisce tutti i record trovati come array di oggetti
+        resolve(rows); 
       }
     });
   });
@@ -217,11 +211,11 @@ export const getStoryById = (activity_id, story_id) => {
 
     db.all(query, [activity_id, story_id], (err, rows) => {
       if (err) {
-        reject(err); // Gestione degli errori della query
+        reject(err); 
       } else if (rows.length === 0) {
-        resolve(null); // Nessun risultato trovato, restituisce null
+        resolve(null); 
       } else {
-        resolve(rows); // Restituisce tutti i record trovati come array di oggetti
+        resolve(rows); 
       }
     });
   });
@@ -247,9 +241,9 @@ export const insertUser = (user) => {
     `;
     db.run(query, [user.name, user.age, user.character_id], function (err) {
       if (err) {
-        reject(err); // Gestione errore
+        reject(err); 
       } else {
-        resolve(this.lastID); // Restituisce l'ID dell'utente inserito
+        resolve(this.lastID); 
       }
     });
   });

@@ -113,18 +113,6 @@ function Map() {
         </Button>
       </div>
 
-      {/* Go to Egypt Map Button 
-      {showAdvancedButton && (
-        <div>
-          <Button
-            className="arrow-button"
-            onClick={() => console.log('Go to Egypt Map')}
-          >
-            Go to Egypt map
-          </Button>
-        </div>
-      )} Al momento disabilitato*/}
-
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>Congratulations!</Modal.Title>
