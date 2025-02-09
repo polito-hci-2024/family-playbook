@@ -102,7 +102,7 @@ function Activities() {
   const handleCardSelect = (id, index) => {
     if (index !== 1) {
       setSelectedChoice(id);
-      localStorage.setItem('selectedChoice', id); // Save the selected ID in localStorage
+      localStorage.setItem('selectedChoice', id); 
     }
   };
 
@@ -170,8 +170,7 @@ function Activities() {
 
         <Modal show={showModal} onHide={handleCloseModal}>
           <Modal.Header closeButton>
-            <Modal.Title>Attention</Modal.Title
-            >
+            <Modal.Title>Attention</Modal.Title>
           </Modal.Header>
           <Modal.Body>{modalMessage}</Modal.Body>
           <Modal.Footer>
@@ -185,5 +184,5 @@ function Activities() {
     </div>
   );
 }
-
+  
 export default Activities;

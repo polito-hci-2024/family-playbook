@@ -18,6 +18,7 @@
     margin-top: 150px;
     font-family: 'Quintessential', sans-serif;
     color: #720B5B;
+    text-shadow: 3px 3px 4px  rgba(230, 131, 217, 0.944);
 }
 .potion2 .descrizione-incantesimo {
     font-size: 1.4rem;

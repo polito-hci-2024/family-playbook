@@ -35,6 +35,7 @@
   text-align: center;
   font-family: 'Quintessential', sans-serif;
   color: #720B5B;
+  text-shadow: 3px 3px 4px  rgba(230, 131, 217, 0.944);
   padding: 10px 20px;
   width: 90%;
   margin-top: 100px; 
@@ -64,7 +65,7 @@
   padding: 20px; 
   background: rgba(255, 255, 255, 0.60); 
   border-radius: 25px; 
-  box-shadow: 0 4px 10px #10334a;
+  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: center; 

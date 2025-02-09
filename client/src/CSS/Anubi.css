@@ -85,7 +85,7 @@
     font-weight: bold;
     font-size: 4rem;
     color: #2A7A72;
-    text-shadow: 3px 3px 4px #349289;
+    text-shadow: 3px 3px 4px #7deadf;
     margin: 50px;
 }
 .descriptionAnubi {
@@ -161,7 +161,7 @@
     color: #2A7A72;
     font-family: 'Quintessential', sans-serif;
     font-weight: bold;
-    text-shadow: 3px 3px 4px #93efe6;
+    text-shadow: 2px 2px 2px #93efe6;
     font-size: 3rem;
     margin-top: 20px;
 }
@@ -180,7 +180,6 @@
 .cameraContainer {
     position: absolute;
     margin-top: 160px;
-    border: 2px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
     z-index: 1000;

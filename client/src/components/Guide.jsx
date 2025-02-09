@@ -47,7 +47,7 @@ const InteractiveGuide = ({ messages, onClose }) => {
     if (currentIndex < messages.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      onClose(); // Chiude la guida all'ultimo messaggio
+      onClose(); 
     }
   };
 
