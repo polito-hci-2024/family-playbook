@@ -114,7 +114,7 @@ function Anubi() {
                 />
             </div>
             <div className="button_takephoto" onClick={capturePhoto}>
-                <img src="/img/fotocamera.png" alt="Info Icon" />
+                <img src="/img/Egypt/fotocamera.png" alt="Info Icon" />
             </div>
         </div>
         

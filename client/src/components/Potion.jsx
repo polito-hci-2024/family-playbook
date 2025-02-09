@@ -144,7 +144,7 @@ const Potion = () => {
           onDragOver={handleDragOver} 
           onDrop={handleDrop}
         >
-          <img src="/img/calderone-removebg-preview.png" alt="Cauldron" className="cauldron-image" />
+          <img src="/img/challenges/calderone-removebg-preview.png" alt="Cauldron" className="cauldron-image" />
           <p>Drag the items here</p>
         </div>
 
