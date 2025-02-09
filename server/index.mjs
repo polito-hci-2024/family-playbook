@@ -76,22 +76,21 @@ app.get('/api/userName', async (req, res) => {
   }
 });
 
-app.get('/api/questionAnswer/:question_id', async (req, res) => { // Usa :question_id per il parametro dinamico
+app.get('/api/questionAnswer/:question_id', async (req, res) => { 
   try {
-    const question_id = req.params.question_id;  // Estrai il parametro question_id
-    const questionAnswer = await getQuestionAnswer(question_id);  // Passa question_id alla funzione
+    const question_id = req.params.question_id;  
+    const questionAnswer = await getQuestionAnswer(question_id);  
     res.status(200).json(questionAnswer);
   } catch (error) {
-    console.error(error);  // Aggiungi per facilitare il debug
+    console.error(error);  
     res.status(500).end();
   }
 });
 
 app.post('/api/insertAnswer', async (req, res) => {
-  const { answerId, question_id } = req.body; // Prendi i parametri dalla richiesta
+  const { answerId, question_id } = req.body; 
 
   try {
-    // Inserisci la risposta nel database utilizzando la colonna giusta
     const column = `answer${question_id}`;
     const result = await insertAnswer(answerId, column);
 
@@ -102,34 +101,34 @@ app.post('/api/insertAnswer', async (req, res) => {
   }
 });
 
-app.get('/api/steps/:step_id', async (req, res) => { // Usa :step_id per il parametro dinamico
+app.get('/api/steps/:step_id', async (req, res) => { 
   try {
-    const step_id = req.params.step_id; // Estrai il parametro step_id
-    const steps = await getStepsById(step_id); // Usa la funzione DAO per ottenere i dati
+    const step_id = req.params.step_id; 
+    const steps = await getStepsById(step_id); 
     if (steps) {
-      res.status(200).json(steps); // Restituisce i risultati come JSON
+      res.status(200).json(steps); 
     } else {
-      res.status(404).json({ error: 'Step not found' }); // Restituisce un errore 404 se non trova risultati
+      res.status(404).json({ error: 'Step not found' }); 
     }
   } catch (error) {
-    console.error(error); // Log degli errori per il debug
-    res.status(500).end(); // Errore generico del server
+    console.error(error); 
+    res.status(500).end(); 
   }
 });
 
-app.get('/api/story/:activity_id/:story_id', async (req, res) => { // Usa :step_id per il parametro dinamico
+app.get('/api/story/:activity_id/:story_id', async (req, res) => { 
   try {
-    const story_id = req.params.story_id; // Estrai il parametro step_id
-    const activity_id = req.params.activity_id; // Estrai il parametro step_id
-    const story = await getStoryById(activity_id, story_id); // Usa la funzione DAO per ottenere i dati
+    const story_id = req.params.story_id; 
+    const activity_id = req.params.activity_id; 
+    const story = await getStoryById(activity_id, story_id); 
     if (story) {
-      res.status(200).json(story); // Restituisce i risultati come JSON
+      res.status(200).json(story); 
     } else {
-      res.status(404).json({ error: 'Story not found' }); // Restituisce un errore 404 se non trova risultati
+      res.status(404).json({ error: 'Story not found' });
     }
   } catch (error) {
-    console.error(error); // Log degli errori per il debug
-    res.status(500).end(); // Errore generico del server
+    console.error(error); 
+    res.status(500).end(); 
   }
 });
 
@@ -152,7 +151,7 @@ app.get('/api/characters', async (req, res) => {
 /*REVIEWS*/
 
 app.post('/api/review', async (req, res) => {
-  const review_form = req.body; // Prendi i parametri dalla richiesta
+  const review_form = req.body; 
 
   try {
     const result = await insertReviews(review_form);
@@ -164,15 +163,11 @@ app.post('/api/review', async (req, res) => {
 });
 
 app.post('/api/user', async (req, res) => {
-  const user = req.body; // Prendi i parametri dal corpo della richiesta
+  const user = req.body; 
 
   try {
-
-
-    // Inserisci il nuovo utente nel database
     const userId = await insertUser(user);
 
-    // Rispondi con l'ID dell'utente creato
     res.status(200).json(userId);
   } catch (error) {
     console.error('Error inserting user:', error);
@@ -202,13 +197,11 @@ app.get('/api/other-challenges/:activity_id', async (req, res) => {
 });
 
 app.post('/api/user-challenge', async (req, res) => {
-  const { user_id, challenge_id } = req.body; // Prendi i parametri user_id e challenge_id dal corpo della richiesta
+  const { user_id, challenge_id } = req.body; 
 
   try {
-    // Inserisci la challenge completata dall'utente nel database
     const lastID = await insertUserChallenge(user_id, challenge_id);
 
-    // Rispondi con l'ID dell'entry inserita
     res.status(200).json({ user_challenge_id: lastID });
   } catch (error) {
     console.error('Error inserting user challenge:', error);

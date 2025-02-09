@@ -95,7 +95,10 @@ function Question({ question_id }) {
   const handleCloseModal = () => setShowModal(false); 
 
   const handleBack = () => {
-    navigate(-1);
+    if(questionId === 1)
+      {navigate(`/steps/1`);} 
+      else {
+        navigate(`/question/1`); }
   };
 
   return (

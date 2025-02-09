@@ -76,7 +76,7 @@ function Map() {
           {challenges[0] ? '🧪' : '1'}
         </div>
         <div className={`challenge-label ${challenges[0] ? '' : 'incomplete'}`}>
-          Magical Potion Making
+        Create the Healing Potion
         </div>
       </div>
 
@@ -88,7 +88,7 @@ function Map() {
           {challenges[1] ? '🔑' : '2'}
         </div>
         <div className={`challenge-label ${challenges[1] ? '' : 'incomplete'}`}>
-          Treasure Key Hunt
+        The Quest for the Lost Fragment
         </div>
       </div>
 
@@ -100,7 +100,7 @@ function Map() {
           {challenges[2] ? '🏠' : '3'}
         </div>
         <div className={`challenge-label ${challenges[2] ? '' : 'incomplete'}`}>
-          Fairy House Building
+        Rebuild the Fairy House
         </div>
       </div>
 
@@ -112,18 +112,6 @@ function Map() {
           Back to Story
         </Button>
       </div>
-
-      {/* Go to Egypt Map Button 
-      {showAdvancedButton && (
-        <div>
-          <Button
-            className="arrow-button"
-            onClick={() => console.log('Go to Egypt Map')}
-          >
-            Go to Egypt map
-          </Button>
-        </div>
-      )} Al momento disabilitato*/}
 
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>

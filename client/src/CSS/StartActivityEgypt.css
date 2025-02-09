@@ -21,6 +21,7 @@
   font-family: 'Quintessential', sans-serif;
   font-weight: bold;
   color: #2A7A72;
+  text-shadow: 3px 3px 4px  #47cabdc8;
   margin-top: 50px;
   text-align: center;
 }
@@ -62,7 +63,7 @@
 .start-activity-egypt .panel-start-activity {
   background: rgba(255, 255, 255, 0.8); 
   border-radius: 15px; 
-  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3); 
+  box-shadow: 0 4px 10px #a64d24af;
   width: 700px; 
   padding: 20px;
   text-align: center;

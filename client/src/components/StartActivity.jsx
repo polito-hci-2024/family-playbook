@@ -132,7 +132,7 @@ function StartActivity() {
             src="/img/back.png"
             alt="Arrow Left"
             className="arrow arrow-left"
-            onClick={() => navigate(-1)}
+            onClick={() => navigate('/activities')}
           />
         </div>
       </div>

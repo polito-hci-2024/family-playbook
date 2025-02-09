@@ -51,7 +51,7 @@
 .Raining .card {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(114, 11, 91, 0.3);
+  box-shadow: 0 4px 10px #10334a92;
   width: 300px;
   padding: 10px;
   text-align: center;

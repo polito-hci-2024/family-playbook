@@ -33,7 +33,7 @@ const ButtonsEgypt = ({ messages, onPopupVisibilityChange }) => {
     setShowGuide(true); 
   };
   const handleCloseGuide = () => {
-    setShowGuide(false); // Chiudi la guida
+    setShowGuide(false); 
   };
 
   const handlePopupYesClick = () => {

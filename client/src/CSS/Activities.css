@@ -1,8 +1,6 @@
 .activity .title {
   position: fixed; 
   top: 0; 
-  left: 10%; 
-  right: 10%;
   z-index: 10;
   font-size: 4.5rem;
   font-weight: bold;
@@ -11,11 +9,12 @@
   color: #10334a;
   text-shadow: 3px 3px 4px  #5f8caa;
   margin-top: 140px;
-  width: 780px;
+  margin-right: 40px;
+  margin-left: 20px;
 }
 
 .activity .activity-container {
-  padding-top: 450px;
+  padding-top: 480px;
   display: flex;
   justify-content: center; 
   align-items: flex-start; 

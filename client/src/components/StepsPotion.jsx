@@ -46,7 +46,7 @@ function StepsPotion({ stepId }) {
 
   const handleBack = () => {
     if (parseInt(stepId) > 1) {
-      navigate(-1);
+      navigate("/challenge/1/2");
     }
   };
 

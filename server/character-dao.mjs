@@ -1,7 +1,5 @@
-/* Data Access Object (DAO) module for accessing characters */
 import { db } from './db.mjs';
 
-/**GET ALL CHARACTERS */
 export const getCharacters = () => {
     return new Promise((resolve, reject) => {
         const sql = 'SELECT * FROM characters';
@@ -16,7 +14,6 @@ export const getCharacters = () => {
     })
 }
 
-/**GET A CHARACTER BY ID */
 export const getCharactersById = (id) => {
     return new Promise((resolve, reject) => {
         const sql = 'SELECT * FROM characters WHERE character_id=?';

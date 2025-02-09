@@ -26,7 +26,7 @@
     top: 15%;
     width: 100%;
     animation: fadeInTitle 1s ease-out;
-    text-shadow: 4px 4px 4px #ffffff;
+    text-shadow: 3px 3px 4px  rgba(230, 131, 217, 0.944);
 }
 
 @keyframes fadeInTitle {

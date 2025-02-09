@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import '../CSS/ChapterZero.css';
 import FormCharacterPage from './FormCharacterPage';
-import ModalGuide from './ModalGuide'
 import ButtonsGeneral from './ButtonsGeneral';
 import InteractiveGuide from './Guide';
 function ChapterZero() {

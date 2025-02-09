@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import { useNavigate } from "react-router-dom";
 import '../CSS/Buttons.css';
 import InteractiveGuide from "./Guide";
-import { motion } from "framer-motion";
-
 
 const ButtonsEldora = ({ messages, onPopupVisibilityChange }) => {
   const navigate = useNavigate();

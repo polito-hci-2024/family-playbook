@@ -4,17 +4,17 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: rgba(89, 119, 207, 0.5); /* Sfondo semi-trasparente */
-  backdrop-filter: blur(10px); /* Sfocatura dello sfondo */
+  background: rgba(89, 119, 207, 0.5); 
+  backdrop-filter: blur(10px); 
   text-align: center;
   padding: 40px;
   font-family: 'Poppins', sans-serif;
-  position: fixed; /* Assicurati che la guida sia fissa sopra la pagina */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1000; /* Porta la guida sopra gli altri elementi */
+  z-index: 1000; 
 }
 .container-message-dots-buttons{
   margin-top:-300px;
@@ -30,7 +30,7 @@
   cursor: pointer;
   font-weight: 600;
   text-decoration: underline;
-  z-index: 1011; /* Assicurati che il bottone "Skip" stia sopra la guida */
+  z-index: 1011; 
 }
 
 .message-box {
@@ -82,7 +82,7 @@
   gap: 15px;
   margin-top: 25px;
   justify-content: center;
-  z-index: 1001; /* Assicurati che i bottoni siano sopra */
+  z-index: 1001; 
 }
 
 .guide-next-button, .guide-back-button {
@@ -108,5 +108,5 @@
   left: -50px;
   width: 600px;
   height: auto;
-  z-index: 999; /* Mascotte sopra la guida */
+  z-index: 999;
 }

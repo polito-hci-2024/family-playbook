@@ -61,10 +61,6 @@ function MapEgypt() {
   return (
     <div className="egypt">
       <div className="map-container">
-        {/* Bottone "Go to the forest map" */}
-        {/*<div className="arrow-button" onClick={() => navigate("/map")}>
-  Go to forest map
-</div>*/}
 
         <div className="challenge-1">
           <div
@@ -74,7 +70,7 @@ function MapEgypt() {
             {challenges[0] ? '🏺' : '1'}
           </div>
           <div className={`challenge-label ${challenges[0] ? '' : 'incomplete'}`}>
-            Anubis' Hidden Symbol Hunt
+          Find the Symbol of Anubis
           </div>
         </div>
 
@@ -86,7 +82,7 @@ function MapEgypt() {
             {challenges[1] ? '📜' : '2'}
           </div>
           <div className={`challenge-label ${challenges[1] ? '' : 'incomplete'}`}>
-            The Pharaoh's Enigmatic Scroll
+          Unlock the Secrets of the Pharaohs
           </div>
         </div>
 

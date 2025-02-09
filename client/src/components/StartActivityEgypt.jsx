@@ -51,7 +51,7 @@ function StartActivityEgypt() {
               <h4><strong>What you’ll need:</strong></h4>
               <div className="activity-description">
                 <p className="activity-description"> - A camera to capture all the discoveries <br></br>
-                - Snack and water bottle for a boost of energy</p>
+                - A magnifying glass to spot every tiny detail</p>
               </div>
             </div>
           </div>
