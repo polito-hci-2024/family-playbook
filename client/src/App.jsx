@@ -25,12 +25,6 @@ import StepsPotion from './components/StepsPotion';
 import StepsEgyptStory from './components/StepsEgyptStory';
 import CongratulationsAnubi from './components/CongratulationsAnubi';
 import CongratulationsPotion from './components/CongratulationsPotion';
-import Esempio from './components/Esempio';
-import Esempio2 from './components/Esempio2';
-import Esempio3 from './components/Esempio3';
-import Esempio4 from './components/Esempio4';
-import Esempio5 from './components/Esempio5';
-import Esempio7 from './components/Esempio7';
 import StartActivityEgypt from './components/StartActivityEgypt';
 import InteractiveGuide from './components/Guide';
 
@@ -79,18 +73,10 @@ function App() {
           <Route path="/last-chapter" element={<LastChapter />} />
           <Route path="/the-end" element={<TheEnd />}/>
           <Route path="*" element={<NotFound />} />
-
-          <Route path="/esempio" element={<Esempio />} />
-          <Route path="/esempio2" element={<Esempio2 />} />
-          <Route path="/esempio3" element={<Esempio3 />} />
-          <Route path="/esempio4" element={<Esempio4 />} />
-          <Route path="/esempio5" element={<Esempio5 />} />
-          <Route path="/esempio7" element={<Esempio7 />} />
-
-          <Route path="/guide" element={<InteractiveGuide />} />
-
           <Route path="/map" element={<Map />}/>
           <Route path="/mapEgypt" element={<MapEgypt />}/>
+
+          <Route path="/guide" element={<InteractiveGuide />} />
         </Routes>
       ) : (
         <div

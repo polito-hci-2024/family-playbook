@@ -44,7 +44,6 @@ function Activities() {
         setUserName(name);
         
         const data = await API.getActivities();
-        console.log('Fetched choices:', data);
         const mappedChoices = data.map((activity) => ({
           id: activity.activity_id,
           title: replacePlaceholder(activity.activity_name, name),
@@ -164,7 +163,7 @@ function Activities() {
             src="/img/back.png"
             alt="Arrow Left"
             className="arrow arrow-left"
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/question/2")}
           />
         </div>
 
