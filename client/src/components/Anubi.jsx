@@ -85,7 +85,7 @@ function Anubi() {
       
       {!isCameraOpen && photos.length < 3 && (
         <div className="button" onClick={() => setIsCameraOpen(true)}>
-            <img src="/img/fotocamera.png" alt="Info Icon" />
+            <img src="/img/Egypt/fotocamera.png" alt="Info Icon" />
         </div>
       )}
       

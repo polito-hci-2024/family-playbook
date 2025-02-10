@@ -33,7 +33,7 @@ function StartActivityEgypt() {
       content: (
         <>
           <div className="start-activity-egypt">
-            <img src={"/img/egitto2.png"} className="activity-image" alt="Activity" />
+            <img src={"/img/place/egitto2.png"} className="activity-image" alt="Activity" />
             <h2 className="activity-title">Exploring the world of Ancient Egypt</h2>
             <p className="activity-description">Be ready to start your journey deep into the heart of Ancient Egypt. Explore hidden tombs, decipher ancient hieroglyphs, and uncover lost secrets buried in the sands of time. Follow the whispers of pharaohs and unlock the mysteries of a legendary civilization. </p>
 
