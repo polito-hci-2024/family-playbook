@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import InteractiveGuide from './Guide';
+
 const ButtonsGeneral = ({ messages, openGuideOnStart = false }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [showGuide, setShowGuide] = useState(openGuideOnStart); 
+
+  useEffect(() => {
+    setShowGuide(openGuideOnStart);
+  }, [openGuideOnStart]);
 
   const handleButtonClick = () => {
     setShowPopup(true);
@@ -92,9 +97,7 @@ const ButtonsGeneral = ({ messages, openGuideOnStart = false }) => {
         Curious about these buttons, huh? Keep going to unlock them!
       </div>
 
-     
       {showGuide && <InteractiveGuide messages={messages} onClose={handleCloseGuide} />}
-
     </>
   );
 };

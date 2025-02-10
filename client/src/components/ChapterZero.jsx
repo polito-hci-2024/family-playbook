@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
@@ -15,6 +15,16 @@ function ChapterZero() {
     " Whenever you need help, just click on the <b><i>Guide</b></i> icon 📖 at the bottom center. ",
     " <b>Every day is a new adventure.</b> <br><i> Ready to begin?🚀</i>"
   ]);
+  const [openGuideOnStart, setOpenGuideOnStart] = useState(false);
+
+  useEffect(() => {
+    console.log("Checking local storage for guideShown:", localStorage.getItem('guideShown'));
+    if (!localStorage.getItem('guideShown')) {
+      setOpenGuideOnStart(true);
+      localStorage.setItem('guideShown', 'true');
+    }
+    console.log("Guide should open on start:", openGuideOnStart);
+  }, []);
   
 
   return (
@@ -32,7 +42,7 @@ function ChapterZero() {
         </Container>
       </motion.div>
 
-      <ButtonsGeneral messages={messages} openGuideOnStart={true}></ButtonsGeneral>
+      <ButtonsGeneral messages={messages} openGuideOnStart={openGuideOnStart}></ButtonsGeneral>
     </div >
   );
 }

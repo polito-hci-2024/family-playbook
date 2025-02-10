@@ -15,11 +15,22 @@ function StepSelectionEldora() {
   const [steps, setSteps] = useState([]); 
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null); 
+  const [shouldShowGuide, setShouldShowGuide] = useState(false);
 
   const [messages] = useState([
     " Before we start the adventure, let's quickly go over the buttons at the bottom center: <br> 1. <b>Unexpected Events</b>: Deal with twists like rain or an early ending⛈️ <br> 2. <b>Map</b>: See your progress and what lies ahead! 🌍 <br> 3. <b>Guide</b>: Get hints and tips! 📖 <br>",
     " Now that you know the basics, it's time for your first challenge. Pick one! 🎉"
   ]);
+
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    const hasSeenGuide = localStorage.getItem(`guide_seen_${userId}`);
+    
+    if (!hasSeenGuide && userId) {
+      setShouldShowGuide(true);
+      localStorage.setItem(`guide_seen_${userId}`, 'true');
+    }
+  }, []);
   
   useEffect(() => {
     const fetchChallenges = async () => {
@@ -115,7 +126,6 @@ function StepSelectionEldora() {
 
   return (
     <div className={`StepSelection ${isPopupVisible ? 'blurred' : ''}`} ref={containerRef}>
-
       {isPopupVisible && (
         <div className="popup-overlay">
           <div className="popup-content">
@@ -213,7 +223,7 @@ function StepSelectionEldora() {
           onClick={handleNavigate}
         />
       )}
-      <ButtonsEldora messages={messages} openGuideOnStart ={true} onPopupVisibilityChange={ handlePopupVisibilityChange} />
+      <ButtonsEldora messages={messages} openGuideOnStart ={shouldShowGuide} onPopupVisibilityChange={ handlePopupVisibilityChange} />
 
     </div>
   );

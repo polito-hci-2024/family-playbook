@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Start() {
+    useEffect(() => {
+        localStorage.removeItem('guideShown');
+      }, []);
     const navigate = useNavigate();
 
     return (
