@@ -117,11 +117,9 @@ function StepsEgyptStory({ stepId }) {
               <p className="story-text">{panel.text}</p>
             </motion.div>
           ))}
+            <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleBack} />
           {showArrows && !isPopupVisible && (
-            <>
               <img src="/img/next.png" alt="Arrow Right" className="arrow arrow-right" onClick={handleNext} />
-              <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleBack} />
-            </>
           )}
           <ButtonsEgypt messages={messages} onPopupVisibilityChange={handlePopupVisibilityChange} />
 

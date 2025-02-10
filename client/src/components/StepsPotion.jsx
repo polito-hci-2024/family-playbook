@@ -123,11 +123,9 @@ function StepsPotion({ stepId }) {
               <p className="story-text">{panel.text}</p>
             </motion.div>
           ))}
+            <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleBack} />
           {showArrows && (
-            <>
               <img src="/img/next.png" alt="Arrow Right" className="arrow arrow-right" onClick={handleNext} />
-              <img src="/img/back.png" alt="Arrow Left" className="arrow arrow-left" onClick={handleBack} />
-            </>
           )}
           <ButtonsEldora messages={messages} onPopupVisibilityChange={handlePopupVisibilityChange} />
         </div>
