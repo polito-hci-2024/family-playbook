@@ -14,7 +14,7 @@ function Anubi() {
   const webcamRef = useRef(null);
   
   const [messages] = useState([
-    "Welcome to the <b><i>Egyptian Museum</b></i>! 🏺Your task is to find the symbol of Anubis in <b>three</b> different rooms! 🐾",
+    "Welcome to the <b><i>Egyptian Museum</b></i>! 🏺Your task is to find the symbol of Anubis in <b>two</b> different rooms! 🐾",
     "In each room, look carefully for the symbol—once you spot it, <br><b><i>take a photo</b></i>! 📸 <br> Each discovery will bring you one step closer to completing the challenge! 🌟",
     "Get ready to explore the ancient mysteries—good luck! 🔍"
 ]);
@@ -36,7 +36,7 @@ function Anubi() {
   const handleNavigate = async () => {
     const user_id = localStorage.getItem('userId'); 
     const challenge_id = 3;
-    if (photos.length === 3) {
+    if (photos.length === 2) {
       try {
       await API.insertChallenge(user_id, challenge_id);
       navigate("/congratulationsEgypt"); 
@@ -57,7 +57,7 @@ function Anubi() {
       <motion.div initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay:  0.2, duration: 1 }}>
-                <p className="descriptionAnubi"> Anubis, god of the Underworld, guards sacred symbols hidden in the museum. Find three and capture them in photographs to unlock his ancient magic. Choose wisely, the journey is challenging!
+                <p className="descriptionAnubi"> Anubis, god of the Underworld, guards sacred symbols hidden in the museum. Find two and capture them in photographs to unlock his ancient magic. Choose wisely, the journey is challenging!
                 </p>
                 <p className="descriptionAnubi"> This is Anubis symbol: 
                   <img src="/img/challenges/icona-anubi.png" alt="Anubis Symbol" className="anubi-icon" />
@@ -83,13 +83,13 @@ function Anubi() {
         ))}
       </div>
       
-      {!isCameraOpen && photos.length < 3 && (
+      {!isCameraOpen && photos.length < 2 && (
         <div className="button" onClick={() => setIsCameraOpen(true)}>
             <img src="/img/Egypt/fotocamera.png" alt="Info Icon" />
         </div>
       )}
       
-      {photos.length === 3 && deleteIndex === null && (
+      {photos.length === 2 && deleteIndex === null && (
         <React.Fragment>
             <h2 className="successMessage">Good job!</h2>
             <img
