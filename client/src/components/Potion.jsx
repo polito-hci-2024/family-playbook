@@ -21,14 +21,14 @@ const Potion = () => {
 
   const navigate = useNavigate();
 
-  // Create a drag image element once when component mounts
+  
   useEffect(() => {
     const dragPreview = document.createElement('div');
     dragPreview.id = 'drag-preview';
     dragPreview.style.position = 'absolute';
     dragPreview.style.top = '-1000px';
-    dragPreview.style.width = '40px'; // Smaller size for drag preview
-    dragPreview.style.height = '40px';
+    dragPreview.style.width = '200px';  
+    dragPreview.style.height = '200px'; 
     dragPreview.style.pointerEvents = 'none';
     document.body.appendChild(dragPreview);
 
@@ -52,14 +52,14 @@ const Potion = () => {
   const handleDragStart = (event, ingredient) => {
     event.dataTransfer.setData("text/plain", ingredient);
     
-    // Find the image element
+    
     const imgElement = event.target.querySelector('.ingredient-image');
     
-    // Get the drag preview element
+   
     const dragPreview = document.getElementById('drag-preview');
     dragPreview.innerHTML = '';
     
-    // Create a new image for the preview
+    
     const previewImg = new Image();
     previewImg.src = imgElement.src;
     previewImg.style.width = '100%';
@@ -68,8 +68,8 @@ const Potion = () => {
     
     dragPreview.appendChild(previewImg);
     
-    // Set the custom drag image
-    event.dataTransfer.setDragImage(dragPreview, 20, 20);
+    
+    event.dataTransfer.setDragImage(dragPreview, 100, 100); 
   };
 
   const handleTouchStart = (event, ingredient) => {
@@ -78,17 +78,17 @@ const Potion = () => {
     const oldElement = document.getElementById("dragging-element");
     if (oldElement) oldElement.remove();
 
-    // Create only the image element for touch drag
+    
     const draggedElement = document.createElement('div');
     draggedElement.style.position = "fixed";
-    draggedElement.style.width = "40px";  // Smaller size for touch drag
-    draggedElement.style.height = "40px";
+    draggedElement.style.width = "200px"; 
+    draggedElement.style.height = "200px"; 
     draggedElement.style.zIndex = "1000";
     draggedElement.style.pointerEvents = "none";
     draggedElement.style.opacity = "0.8";
     draggedElement.id = "dragging-element";
 
-    // Add only the image
+    
     const img = new Image();
     img.src = ingredient.image;
     img.style.width = '100%';
@@ -99,8 +99,8 @@ const Potion = () => {
     document.body.appendChild(draggedElement);
 
     const updatePosition = (x, y) => {
-      draggedElement.style.left = `${x - 20}px`;  // Adjusted for new size
-      draggedElement.style.top = `${y - 20}px`;   // Adjusted for new size
+      draggedElement.style.left = `${x - 100}px`;  
+      draggedElement.style.top = `${y - 100}px`;   
     };
 
     updatePosition(touch.clientX, touch.clientY);
@@ -162,8 +162,7 @@ const Potion = () => {
       <div className="potion-hunters">
         <h1 className="title">The Potion of Vitality</h1>
         <p className="intro">
-          In Eldora, the animals are unwell and need to be healed.
-          <br/>A special potion can help, but first, gather magical ingredients hidden in the forest.
+        In Eldora, the animals are sick and need a magic potion.
           <br/> Head to Parco della Mandria, <b>find</b> the ingredients and carefully <b>drag</b> them into the cauldron.
         </p>  
 
