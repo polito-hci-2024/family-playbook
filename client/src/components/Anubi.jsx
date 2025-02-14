@@ -11,6 +11,7 @@ function Anubi() {
   const [photos, setPhotos] = useState([]); 
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const [deleteIndex, setDeleteIndex] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const webcamRef = useRef(null);
   
   const [messages] = useState([
@@ -18,6 +19,16 @@ function Anubi() {
     "In each room, look carefully for the symbol—once you spot it, <br><b><i>take a photo</b></i>! 📸 <br> Each discovery will bring you one step closer to completing the challenge! 🌟",
     "Get ready to explore the ancient mysteries—good luck! 🔍"
 ]);
+
+const openCamera = () => {
+  setIsLoading(true);
+  setIsCameraOpen(true);
+  
+  // Simula un piccolo ritardo per dare tempo alla webcam di caricarsi
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 2000); 
+};
 
   const capturePhoto = () => {
     if (webcamRef.current) {
@@ -57,7 +68,7 @@ function Anubi() {
       <motion.div initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay:  0.2, duration: 1 }}>
-                <p className="descriptionAnubi"> Anubis, god of the Underworld, guards sacred symbols hidden in the museum. Find two and capture them in photographs to unlock his ancient magic. Choose wisely, the journey is challenging!
+                <p className="descriptionAnubi">Anubis has hidden two symbols like the one below in the museum! 🔍 Find them in different rooms and <b>take 2 photos</b>—one for each symbol. Only then will you unlock his ancient magic!
                 </p>
                 <p className="descriptionAnubi"> This is Anubis symbol: 
                   <img src="/img/challenges/icona-anubi.png" alt="Anubis Symbol" className="anubi-icon" />
@@ -84,7 +95,7 @@ function Anubi() {
       </div>
       
       {!isCameraOpen && photos.length < 2 && (
-        <div className="button" onClick={() => setIsCameraOpen(true)}>
+        <div className="button" onClick={openCamera}>
             <img src="/img/Egypt/fotocamera.png" alt="Info Icon" />
         </div>
       )}
@@ -107,11 +118,11 @@ function Anubi() {
             onClick={() => setIsCameraOpen(false)} 
         >
             <div className="cameraContainer" onClick={(e) => e.stopPropagation()}>
-                <Webcam
-                    ref={webcamRef}
-                    screenshotFormat="image/jpeg"
-                    className="webcam"
-                />
+            {isLoading ? (
+                <p className="loading-text">Loading...</p> 
+              ) : (
+                <Webcam ref={webcamRef} screenshotFormat="image/jpeg" className="webcam" />
+              )}
             </div>
             <div className="button_takephoto" onClick={capturePhoto}>
                 <img src="/img/Egypt/fotocamera.png" alt="Info Icon" />
