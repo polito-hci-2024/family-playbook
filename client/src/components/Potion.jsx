@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../CSS/Potion.css";
 import { useNavigate } from 'react-router-dom'; 
 import ButtonsEldora from "./ButtonsEldora";
@@ -21,6 +21,22 @@ const Potion = () => {
 
   const navigate = useNavigate();
 
+  // Create a drag image element once when component mounts
+  useEffect(() => {
+    const dragPreview = document.createElement('div');
+    dragPreview.id = 'drag-preview';
+    dragPreview.style.position = 'absolute';
+    dragPreview.style.top = '-1000px';
+    dragPreview.style.width = '40px'; // Smaller size for drag preview
+    dragPreview.style.height = '40px';
+    dragPreview.style.pointerEvents = 'none';
+    document.body.appendChild(dragPreview);
+
+    return () => {
+      document.body.removeChild(dragPreview);
+    };
+  }, []);
+
   const handleDrop = (event) => {
     event.preventDefault();
     const ingredient = event.dataTransfer.getData("text/plain");
@@ -35,6 +51,25 @@ const Potion = () => {
 
   const handleDragStart = (event, ingredient) => {
     event.dataTransfer.setData("text/plain", ingredient);
+    
+    // Find the image element
+    const imgElement = event.target.querySelector('.ingredient-image');
+    
+    // Get the drag preview element
+    const dragPreview = document.getElementById('drag-preview');
+    dragPreview.innerHTML = '';
+    
+    // Create a new image for the preview
+    const previewImg = new Image();
+    previewImg.src = imgElement.src;
+    previewImg.style.width = '100%';
+    previewImg.style.height = '100%';
+    previewImg.style.objectFit = 'contain';
+    
+    dragPreview.appendChild(previewImg);
+    
+    // Set the custom drag image
+    event.dataTransfer.setDragImage(dragPreview, 20, 20);
   };
 
   const handleTouchStart = (event, ingredient) => {
@@ -43,20 +78,29 @@ const Potion = () => {
     const oldElement = document.getElementById("dragging-element");
     if (oldElement) oldElement.remove();
 
-    const originalElement = event.target.closest('.ingredient-card');
-    const draggedElement = originalElement.cloneNode(true);
+    // Create only the image element for touch drag
+    const draggedElement = document.createElement('div');
     draggedElement.style.position = "fixed";
-    draggedElement.style.width = "60px";
-    draggedElement.style.height = "60px";
+    draggedElement.style.width = "40px";  // Smaller size for touch drag
+    draggedElement.style.height = "40px";
     draggedElement.style.zIndex = "1000";
     draggedElement.style.pointerEvents = "none";
     draggedElement.style.opacity = "0.8";
     draggedElement.id = "dragging-element";
+
+    // Add only the image
+    const img = new Image();
+    img.src = ingredient.image;
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'contain';
+    draggedElement.appendChild(img);
+
     document.body.appendChild(draggedElement);
 
     const updatePosition = (x, y) => {
-      draggedElement.style.left = `${x - 30}px`;
-      draggedElement.style.top = `${y - 30}px`;
+      draggedElement.style.left = `${x - 20}px`;  // Adjusted for new size
+      draggedElement.style.top = `${y - 20}px`;   // Adjusted for new size
     };
 
     updatePosition(touch.clientX, touch.clientY);
