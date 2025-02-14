@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
+import { Container, Form, Button, Alert } from 'react-bootstrap';
 import '../CSS/LastChapter.css';
 import API from '../API.mjs';
 
@@ -10,7 +10,7 @@ function LastChapter() {
     const [userName, setUserName] = useState('');
     const [successMessage, setSuccessMessage] = useState(false);
     const [reviewForm, setReviewForm] = useState({
-        rating: '5',
+        rating: '',
         review: ''
     });
     const navigate = useNavigate();
@@ -21,8 +21,8 @@ function LastChapter() {
 
     useEffect(() => {
         if (successMessage) {
-            const timer = setTimeout(() => navigate('/'), 5000); 
-            return () => clearTimeout(timer); 
+            const timer = setTimeout(() => navigate('/'), 5000);
+            return () => clearTimeout(timer);
         }
     }, [successMessage, navigate]);
 
@@ -39,27 +39,29 @@ function LastChapter() {
             await API.insertReviews(reviewForm);
 
             setSuccessMessage(true);
-            
-            setReviewForm({
-                rating: '5',
-                review: ''
-            });
+
+            setTimeout(() => {
+                setReviewForm({
+                    rating: '',
+                    review: ''
+                });
+            }, 2500);
 
             setTimeout(() => navigate('/the-end'), 3000);
 
         } catch (error) {
-            console.error('Errore durante l\'invio della recensione:', error);
-            alert('Errore durante l\'invio della recensione.');
+            console.error('Error while submitting review:', error);
+            alert('Error while submitting review');
         }
     };
     return (
         <div className="background-component">
             <h1 className="last-title">Last Chapter</h1>
             <motion.div initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay:  0.2, duration: 1 }}>
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 1 }}>
                 <p className="last-description"> And just like that, this adventure has come to an end.<br></br>
-                <br></br>You've discovered new treasures, solved mysteries, and had so much fun along the way. But remember, every day can be a new adventure, full of exciting moments and laughter. <br></br>
+                    <br></br>You've discovered new treasures, solved mysteries, and had so much fun along the way. But remember, every day can be a new adventure, full of exciting moments and laughter. <br></br>
                 </p>
                 <Container>
                     <Form onSubmit={handleSubmit}>
@@ -73,6 +75,7 @@ function LastChapter() {
                                 onChange={handleChange}
                                 required
                             >
+                                <option value="" disabled hidden>Select an option</option>
                                 <option value="1">😢 - Poor</option>
                                 <option value="2">😐 - Fair</option>
                                 <option value="3">🙂 - Good</option>
