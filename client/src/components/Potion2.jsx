@@ -70,7 +70,7 @@ const Potion2 = () => {
     mestoloRef.current.style.transform = `translateX(${newX}px) rotate(${newRotation}deg)`;
     setStartX(currentX);
 
-    if (Math.abs(newRotation - prevRotation) >= 20 && wordIndex < words.length) {
+    if (Math.abs(newRotation - prevRotation) >= 30 && wordIndex < words.length) {
       setWordIndex((prevIndex) => Math.min(prevIndex + 1, words.length - 1));
       setPrevRotation(newRotation);
     }
