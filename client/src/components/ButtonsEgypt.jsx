@@ -31,9 +31,11 @@ const ButtonsEgypt = ({ messages, onPopupVisibilityChange }) => {
   };
   const handleInfoClick = () => {
     setShowGuide(true); 
+    onPopupVisibilityChange(true);
   };
   const handleCloseGuide = () => {
     setShowGuide(false); 
+    onPopupVisibilityChange(false);
   };
 
   const handlePopupYesClick = () => {

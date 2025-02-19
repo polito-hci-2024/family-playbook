@@ -13,6 +13,7 @@ function Anubi() {
   const [deleteIndex, setDeleteIndex] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const webcamRef = useRef(null);
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
   
   const [messages] = useState([
     "Welcome to the <b><i>Egyptian Museum</b></i>! 🏺Your task is to find the symbol of Anubis in <b>two</b> different rooms! 🐾",
@@ -63,7 +64,7 @@ const openCamera = () => {
 
   return (
     <div className="Anubi ${deleteIndex !== null ? 'blurred' : ''}">
-      <ButtonsEgypt messages={messages}/>
+      <ButtonsEgypt messages={messages} onPopupVisibilityChange={setIsGuideOpen}/>
       <h1 className="titleAnubi">Find Anubis Symbol</h1>
       <motion.div initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -143,13 +144,13 @@ const openCamera = () => {
         </div>
       )}
       
-      {!isCameraOpen && deleteIndex === null && (
+      {!isCameraOpen && deleteIndex === null && !isGuideOpen && (
         <img
-        src="/img/back.png" 
-        alt="Arrow Left"
-        className="arrow arrow-left"
-        onClick={handleNavigateBack}
-      />
+          src="/img/back.png" 
+          alt="Arrow Left"
+          className="arrow arrow-left"
+          onClick={handleNavigateBack}
+        />
       )}
     </div>
   );
