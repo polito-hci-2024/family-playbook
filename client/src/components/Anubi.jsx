@@ -101,7 +101,7 @@ const openCamera = () => {
         </div>
       )}
       
-      {photos.length === 2 && deleteIndex === null && (
+      {photos.length === 2 && deleteIndex === null && !isGuideOpen && (
         <React.Fragment>
             <h2 className="successMessage">Good job!</h2>
             <img
