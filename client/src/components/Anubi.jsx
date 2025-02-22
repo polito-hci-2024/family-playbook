@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Webcam from "react-webcam";
@@ -12,6 +12,8 @@ function Anubi() {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const [deleteIndex, setDeleteIndex] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  
   const webcamRef = useRef(null);
   
   const [messages] = useState([
@@ -60,10 +62,14 @@ const openCamera = () => {
   const handleNavigateBack = () => {
     navigate("/step-selection-egypt");
   }
-
+  
+  const handleGuideVisibilityChange = (visible) => {
+    setIsPopupVisible(visible);
+  };
+  
   return (
-    <div className="Anubi ${deleteIndex !== null ? 'blurred' : ''}">
-      <ButtonsEgypt messages={messages}/>
+    <div className={`Anubi ${deleteIndex !== null ? 'blurred' : ''}`}>
+      <ButtonsEgypt messages={messages} onGuideVisibilityChange={handleGuideVisibilityChange}/>
       <h1 className="titleAnubi">Find Anubis Symbol</h1>
       <motion.div initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -100,7 +106,7 @@ const openCamera = () => {
         </div>
       )}
       
-      {photos.length === 2 && deleteIndex === null && (
+      {photos.length === 2 && deleteIndex === null && !isPopupVisible && (
         <React.Fragment>
             <h2 className="successMessage">Good job!</h2>
             <img
@@ -143,7 +149,7 @@ const openCamera = () => {
         </div>
       )}
       
-      {!isCameraOpen && deleteIndex === null && (
+      {!isCameraOpen && deleteIndex === null && !isPopupVisible && (
         <img
         src="/img/back.png" 
         alt="Arrow Left"

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import '../CSS/ButtonsEgypt.css';
 import InteractiveGuide from "./Guide";
 
-const ButtonsEgypt = ({ messages, onPopupVisibilityChange }) => {
+const ButtonsEgypt = ({ messages, onPopupVisibilityChange, onGuideVisibilityChange }) => {
   const navigate = useNavigate();
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [selectedIcon, setSelectedIcon] = useState(null);
@@ -29,11 +29,15 @@ const ButtonsEgypt = ({ messages, onPopupVisibilityChange }) => {
   const handleIconSelection = (iconName) => {
     setSelectedIcon(iconName);
   };
+  
   const handleInfoClick = () => {
-    setShowGuide(true); 
+    setShowGuide(true);
+    onGuideVisibilityChange?.(true); // Notifica il parent quando la guida viene aperta
   };
+
   const handleCloseGuide = () => {
-    setShowGuide(false); 
+    setShowGuide(false);
+    onGuideVisibilityChange?.(false); // Notifica il parent quando la guida viene chiusa
   };
 
   const handlePopupYesClick = () => {
