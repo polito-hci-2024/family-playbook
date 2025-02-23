@@ -92,7 +92,7 @@
 
 .potion2 .container {
     position: absolute;
-    bottom: -5px;
+    bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -111,7 +111,7 @@
 .potion2 .mestolo {
     position: absolute;
     left: 45%;
-    margin-bottom: 290px;
+    margin-bottom: 295px;
     width: 80px; 
     height: auto;
     cursor: grab; 
