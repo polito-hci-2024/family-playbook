@@ -55,10 +55,10 @@ const Scratch = () => {
 
   return (
     <div className="scratch">
-      <h1 className="title">The Lost Fragment</h1>
+      <p className="title">The Lost Fragment</p>
       <p className="intro">
-        The amulet is incomplete, missing a crucial fragment hidden deep within Eldora. <br /> 
-        Without it, the darkness will spread. Explore the forest’s cards to find the one that holds the missing piece and restore the amulet’s power to complete your quest.
+        The amulet is incomplete, missing a crucial fragment hidden deep within Eldora. 
+        Without it, the darkness will spread. <br /> Find the card that holds the missing piece and restore the amulet’s power to complete your quest.
       </p>
 
       <div className="scratch-grid">
