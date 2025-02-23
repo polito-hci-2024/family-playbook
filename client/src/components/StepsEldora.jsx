@@ -174,10 +174,9 @@ function StepSelectionEldora() {
         <div className="header">
           <h1 className="title">Welcome to the enchanting world of Eldora!</h1>
           <p className="description">
-          Eldoria, a hidden magical world within Parco della Mandria, is fading as a dark force threatens its very heart. 
+          Eldoria, a hidden magical world within Parco della Mandria, is fading as a dark force threatens its very heart.
+        <br /> In this adventure, you’ll face challenges that test your courage and magic. Ready to bring light back to Eldora? 🌟 
           </p>
-          <p className="description">
-          In this adventure, you’ll face challenges that test your courage and magic. Ready to bring light back to Eldora? 🌟 </p>
           <p className="description choose-challenge-text">
             <strong>Choose Your Next Challenge to Begin!</strong>
           </p>        
