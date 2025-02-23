@@ -14,6 +14,7 @@
   margin-bottom: 20px;
   font-size: 32px;
   font-weight: bold;
+  font-family: 'Poppins', sans-serif;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
@@ -26,6 +27,7 @@
   align-items: center;
   color: white;
   font-weight: bold;
+  font-family: 'Poppins', sans-serif;
   font-size: 30px;
   transition: all 0.3s ease;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
@@ -54,6 +56,7 @@
   margin-top: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   font-size: 18px;
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
   text-align: center;
   color: #333;
@@ -89,8 +92,10 @@
   background-color: #8B4513;
   border: none;
   font-size: 30px;
+  font-family: 'Poppins', sans-serif;
   padding: 15px 40px;
-  border-radius: 40px;
+  border-radius: 30px;
+  font-weight: 600;
   color: white;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease, background-color 0.3s ease;
@@ -104,6 +109,7 @@
 .egypt .modal-dialog {
   display: flex;
   align-items: center;
+  font-family: 'Poppins', sans-serif;
   justify-content: center;
 }
 
@@ -113,6 +119,7 @@
   color: white;
   padding: 10px 20px;
   font-size: 16px;
+  font-family: 'Poppins', sans-serif;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
@@ -137,6 +144,7 @@
   border: none;
   cursor: pointer;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
   border-radius: 40px; 
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
   display: inline-block;
@@ -154,3 +162,48 @@
   transform: scale(0.95);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
+
+.egypt .modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-bottom: none;
+}
+
+.egypt .modal-title {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.8rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.egypt .modal-body {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 450;
+  padding: 20px;
+}
+
+.egypt .modal-footer {
+  display: flex;
+  justify-content: center;
+  border-top: none;
+}
+
+.egypt .brown-button {
+  background-color: #8B4513;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  border: none;
+  font-weight: 450;
+  cursor: pointer;
+}
+
+.egypt .brown-button:hover {
+  background-color: #A0522D;
+}
+

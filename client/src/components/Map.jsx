@@ -112,8 +112,8 @@ function Map() {
           Back to Story
         </Button>
       </div>
-
-      <Modal show={showModal} onHide={handleCloseModal} centered>
+      <div>
+      <Modal show={showModal} onHide={handleCloseModal} centered container={document.querySelector('.map-container')}>
         <Modal.Header closeButton>
           <Modal.Title>Congratulations!</Modal.Title>
         </Modal.Header>
@@ -124,6 +124,7 @@ function Map() {
           </Button>
         </Modal.Footer>
       </Modal>
+      </div>
     </div>
   );
 }

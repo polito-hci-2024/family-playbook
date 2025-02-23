@@ -94,8 +94,8 @@ function MapEgypt() {
             Back to Story
           </Button>
         </div>
-
-        <Modal show={showModal} onHide={handleCloseModal} centered>
+        <div>
+        <Modal show={showModal} onHide={handleCloseModal} centered container={document.querySelector('.egypt')}>
           <Modal.Header closeButton>
             <Modal.Title>Congratulations!</Modal.Title>
           </Modal.Header>
@@ -106,6 +106,7 @@ function MapEgypt() {
             </Button>
           </Modal.Footer>
         </Modal>
+        </div>
       </div>
     </div>
   );
