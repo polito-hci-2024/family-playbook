@@ -3,13 +3,17 @@ import ReactDOM from "react-dom";
 import { useNavigate } from "react-router-dom";
 import '../CSS/ButtonsEgypt.css';
 import InteractiveGuide from "./Guide";
+import { useLocation } from 'react-router-dom';
+
 
 const ButtonsEgypt = ({ messages, onPopupVisibilityChange, onGuideVisibilityChange }) => {
   const navigate = useNavigate();
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [selectedIcon, setSelectedIcon] = useState(null);
   const [showGuide, setShowGuide] = useState(false); 
-
+  const location = useLocation();
+  const isRainingPage = location.pathname === '/raining';
+  
   useEffect(() => {
     if (onPopupVisibilityChange) {
       onPopupVisibilityChange(isPopupVisible);
@@ -61,7 +65,10 @@ const ButtonsEgypt = ({ messages, onPopupVisibilityChange, onGuideVisibilityChan
                 className="floating-button"
               />
             </div>
-            <div className="icon-container" onClick={() => navigate("/mapEgypt")}>
+            <div
+              className={`icon-container ${isRainingPage ? "disabled" : ""}`}
+              onClick={isRainingPage ? null : () => navigate("/mapEgypt")}
+            >
               <img
                 src="/img/buttons/map_egitto.png"
                 alt="mappa_egitto"

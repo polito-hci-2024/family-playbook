@@ -3,7 +3,10 @@
     flex-direction: row;
     gap: 20px;
 }
-
+.barraBottoniEgitto .icon-container.disabled {
+  pointer-events: none;
+  opacity: 0.3; 
+}
 .barraBottoniEgitto .icon-container {
   width: 80px;
   height: 80px;
