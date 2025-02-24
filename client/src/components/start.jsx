@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 function Start() {
     useEffect(() => {
         localStorage.removeItem('guideShown');
+        localStorage.removeItem('userId');
       }, []);
     const navigate = useNavigate();
 
