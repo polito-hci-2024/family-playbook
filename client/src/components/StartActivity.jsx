@@ -49,6 +49,7 @@ function StartActivity() {
   
   const handleConfirm = () => {
     handleClose();
+    localStorage.setItem('previous_route', window.location.pathname);
     navigate('/step-selection-eldora');
   };
 

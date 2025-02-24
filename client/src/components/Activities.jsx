@@ -40,7 +40,7 @@ function Activities() {
     const fetchChoices = async () => {
       try {
         const name = localStorage.getItem('userName') || 'Hero';
-        const savedSelectedChoice = localStorage.getItem('selectedChoice');
+        
         setUserName(name);
         
         const data = await API.getActivities();
@@ -52,9 +52,7 @@ function Activities() {
           isChoice: true,
         }));
         setChoices(mappedChoices);
-        if (savedSelectedChoice) {
-          setSelectedChoice(savedSelectedChoice);
-        }
+        setSelectedChoice(null);
       } catch (error) {
         console.error('Error fetching choices:', error);
       }

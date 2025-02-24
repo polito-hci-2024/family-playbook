@@ -15,7 +15,7 @@ function StepSelectionEldora() {
   const [steps, setSteps] = useState([]); 
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null); 
-  const [shouldShowGuide, setShouldShowGuide] = useState(true);
+  const [shouldShowGuide, setShouldShowGuide] = useState(false);
 
   const [messages] = useState([
     " Before we start the adventure, let's quickly go over the buttons at the bottom center: <br> 1. <b>Unexpected Events</b>: Deal with twists like rain or an early ending⛈️ <br> 2. <b>Map</b>: See your progress and what lies ahead! 🌍 <br> 3. <b>Guide</b>: Get hints and tips! 📖 <br>",
@@ -23,22 +23,15 @@ function StepSelectionEldora() {
   ]);
 
   useEffect(() => {
-    const userId = localStorage.getItem('userId') || 'default';
-    const hasSeenGuide = localStorage.getItem(`guide_seen_${userId}`);
-    
-    console.log("Checking guide visibility, hasSeenGuide:", hasSeenGuide);
-    
-    if (hasSeenGuide && userId) {
-      console.log("Setting guide to true...");
+    const previousRoute = localStorage.getItem('previous_route');
+    console.log(previousRoute);
+    if (previousRoute === '/start-activity') {
       setShouldShowGuide(true);
-      // Non impostare subito il flag nel localStorage
-      // Questo verrà fatto quando l'utente chiude la guida
     } else {
-      console.log("User has already seen the guide");
       setShouldShowGuide(false);
-    }
-  }, []);
+    } 
 
+  }, []);
   
   useEffect(() => {
     const fetchChallenges = async () => {
@@ -66,9 +59,7 @@ function StepSelectionEldora() {
   }, []);
 
   const handleGuideClose = () => {
-    // Salva nel localStorage che l'utente ha visto la guida
-    const userId = localStorage.getItem('userId') || 'default';
-    localStorage.setItem(`guide_seen_${userId}`, 'true');
+    localStorage.setItem('previous_route', '/step-selection-eldora');
     setShouldShowGuide(false);
   };
 
@@ -189,8 +180,8 @@ function StepSelectionEldora() {
         <div className="header">
           <h1 className="title">Welcome to the enchanting world of Eldora!</h1>
           <p className="description">
-          Eldoria, a hidden magical world within Parco della Mandria, is fading as a dark force threatens its very heart.
-        <br /> In this adventure, you’ll face challenges that test your courage and magic. Ready to bring light back to Eldora? 🌟 
+          Eldora, a hidden magical world within Parco della Mandria, is fading as a <b>dark force</b> threatens its very heart.
+        <br /> In this adventure, you’ll face challenges that test your <b>courage</b> and <b>magic</b>. Ready to bring light back to Eldora? 🌟
           </p>
           <p className="description choose-challenge-text">
             <strong>Choose Your Next Challenge to Begin!</strong>

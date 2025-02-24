@@ -118,7 +118,7 @@ const Potion2 = () => {
         </h1>
         
         <p className="descrizione-incantesimo">
-        To activate the spell, stir the cauldron carefully with the spoon. Each turn will reveal a new magical word, ready to be spoken. Only with the right incantation will the potion come to life and heal the forest’s creatures!
+        To activate the spell, <b>stir</b> the cauldron carefully with the spoon. Each turn will reveal a new magical word, ready to be <b>spoken</b>. Only with the right incantation will the potion come to life and heal the forest’s creatures!
         </p>
         
         <div className="incantesimo-container">
