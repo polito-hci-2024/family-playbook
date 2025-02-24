@@ -15,7 +15,7 @@ function StepSelectionEldora() {
   const [steps, setSteps] = useState([]); 
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null); 
-  const [shouldShowGuide, setShouldShowGuide] = useState(false);
+  const [shouldShowGuide, setShouldShowGuide] = useState(true);
 
   const [messages] = useState([
     " Before we start the adventure, let's quickly go over the buttons at the bottom center: <br> 1. <b>Unexpected Events</b>: Deal with twists like rain or an early ending⛈️ <br> 2. <b>Map</b>: See your progress and what lies ahead! 🌍 <br> 3. <b>Guide</b>: Get hints and tips! 📖 <br>",
@@ -28,7 +28,7 @@ function StepSelectionEldora() {
     
     console.log("Checking guide visibility, hasSeenGuide:", hasSeenGuide);
     
-    if (!hasSeenGuide) {
+    if (hasSeenGuide && userId) {
       console.log("Setting guide to true...");
       setShouldShowGuide(true);
       // Non impostare subito il flag nel localStorage
