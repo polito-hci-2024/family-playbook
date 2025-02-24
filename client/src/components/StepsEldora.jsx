@@ -25,8 +25,7 @@ function StepSelectionEldora() {
   useEffect(() => {
     const userId = localStorage.getItem('userId');
     const hasSeenGuide = localStorage.getItem(`guide_seen_${userId}`);
-    
-    if (!hasSeenGuide && userId) {
+    if (!hasSeenGuide) {
       setShouldShowGuide(true);
       localStorage.setItem(`guide_seen_${userId}`, 'true');
     }
