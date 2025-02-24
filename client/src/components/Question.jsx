@@ -120,6 +120,7 @@ function Question({ question_id }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8}}
+                
               >
 
                 {choices[0].description && (
@@ -128,6 +129,7 @@ function Question({ question_id }) {
                 
                 <div
                   className="activity-container"
+                  style={{ marginTop: '50px' }}
                   onClick={(e) => {
                     if (e.target.closest('.activity-card') === null) {
                       setSelectedChoice(null);
