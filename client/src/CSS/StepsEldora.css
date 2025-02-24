@@ -29,14 +29,15 @@
 .steps-eldora .title {
   font-family: 'Quintessential', sans-serif;
   font-weight: bold;
-  font-size: 3.5rem;
+  font-size: 3.7rem;
   color: #720B5B;
+  margin-top: 20px;
   text-shadow: 3px 3px 4px  rgba(230, 131, 217, 0.944);
   padding-right: 20px;
 }
 
 .steps-eldora .description {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 450;
   color: #000000;

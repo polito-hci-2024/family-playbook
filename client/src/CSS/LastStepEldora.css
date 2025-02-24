@@ -26,20 +26,19 @@
   font-family: 'Quintessential', sans-serif;
   font-weight: bold;
   font-size: 4rem;
-  margin-top: 60px;
+  margin-top: 40px;
   color: #720B5B;
   text-shadow: 3px 3px 4px  rgba(230, 131, 217, 0.944);
   padding-right: 20px;
 }
 
 .last-steps-eldora .description {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 450;
   color: #262626;
   margin-top: 40px;
-  margin-bottom: 30px;
-  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .last-steps-eldora .choose-challenge-text {
@@ -47,7 +46,7 @@
   font-family: 'Poppins', sans-serif;
   color: #720B5B;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -88,14 +87,14 @@
 
 .last-steps-eldora .Step-title {
   font-family: 'Quintessential', sans-serif;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   color: #720B5B;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .last-steps-eldora .Step-description {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 450;
   color: #3b3a3a;
