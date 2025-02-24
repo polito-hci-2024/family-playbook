@@ -25,7 +25,7 @@ function Activities() {
   
     text = text.replace(
       "Place: Parco della Mandria - 40 minutes",
-      "<span class='place-text'>Place: Mandria Park - 40 minutes</span>"
+      "<span class='place-text'>Place: Parco della Mandria - 40 minutes</span>"
     );
     
     text = text.replace(
@@ -77,6 +77,10 @@ function Activities() {
     };
   }, []);
 
+  useEffect(() => {
+    setSelectedChoice(null);
+  }, []);
+  
   const handleConfirm = async () => {
     if (selectedChoice) {
       try {
@@ -85,8 +89,8 @@ function Activities() {
         if (!response) {
           throw new Error('Failed to confirm activity');
         }
-
         navigate('/start-activity', { state: { activity: response } });
+        
       } catch (error) {
         console.error('Error confirming activity:', error);
         setModalMessage('An error occurred while confirming the activity.');

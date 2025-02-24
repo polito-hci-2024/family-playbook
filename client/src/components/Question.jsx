@@ -24,7 +24,11 @@ function Question({ question_id }) {
   const replacePlaceholder = (text, name) => {
     return text ? text.replace(/\{\$name\}/g, name) : text;
   };
-
+  
+  useEffect(() => {
+    setSelectedChoice(null);
+  }, [questionId]);
+  
   useEffect(() => {
     const fetchChoices = async () => {
       try {
