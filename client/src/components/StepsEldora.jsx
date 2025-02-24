@@ -23,14 +23,22 @@ function StepSelectionEldora() {
   ]);
 
   useEffect(() => {
-    const userId = localStorage.getItem('userId');
+    const userId = localStorage.getItem('userId') || 'default';
     const hasSeenGuide = localStorage.getItem(`guide_seen_${userId}`);
     
-    if (!hasSeenGuide && userId) {
+    console.log("Checking guide visibility, hasSeenGuide:", hasSeenGuide);
+    
+    if (!hasSeenGuide) {
+      console.log("Setting guide to true...");
       setShouldShowGuide(true);
-      localStorage.setItem(`guide_seen_${userId}`, 'true');
+      // Non impostare subito il flag nel localStorage
+      // Questo verrà fatto quando l'utente chiude la guida
+    } else {
+      console.log("User has already seen the guide");
+      setShouldShowGuide(false);
     }
   }, []);
+
   
   useEffect(() => {
     const fetchChallenges = async () => {
@@ -56,6 +64,13 @@ function StepSelectionEldora() {
 
     fetchChallenges();
   }, []);
+
+  const handleGuideClose = () => {
+    // Salva nel localStorage che l'utente ha visto la guida
+    const userId = localStorage.getItem('userId') || 'default';
+    localStorage.setItem(`guide_seen_${userId}`, 'true');
+    setShouldShowGuide(false);
+  };
 
   const handleStepClick = (Step) => {
     if (!steps.disabled) {
@@ -222,7 +237,7 @@ function StepSelectionEldora() {
           onClick={handleNavigate}
         />
       )}
-      <ButtonsEldora messages={messages} openGuideOnStart ={shouldShowGuide} onPopupVisibilityChange={ handlePopupVisibilityChange} />
+      <ButtonsEldora messages={messages} onGuideClose={handleGuideClose} openGuideOnStart ={shouldShowGuide} onPopupVisibilityChange={ handlePopupVisibilityChange} />
 
     </div>
   );
